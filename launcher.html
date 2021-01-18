@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="usage,  usage, java">
+<title>Using Spoon as a Java library  | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/launcher.html">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/launcher.html">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li class="active"><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main">Using Spoon as a Java library</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <h3 id="the-launcher-class">The Launcher class</h3>
+
+<p>The Spoon <code>Launcher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/Launcher.html">JavaDoc</a>) is used to create the AST model of a project. It can be as short as:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtClass</span> <span class="n">l</span> <span class="o">=</span> <span class="n">Launcher</span><span class="o">.</span><span class="na">parseClass</span><span class="o">(</span><span class="s">"class A { void m() { System.out.println(\"yeah\");} }"</span><span class="o">);</span>
+</code></pre></div>
+<p>Or with a plain object:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+
+<span class="c1">// path can be a folder or a file</span>
+<span class="c1">// addInputResource can be called several times</span>
+<span class="n">launcher</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"&lt;path_to_source&gt;"</span><span class="o">);</span> 
+
+<span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+
+<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
+</code></pre></div>
+<h3 id="pretty-printing-modes">Pretty-printing modes</h3>
+
+<p>See <a href="http://spoon.gforge.inria.fr/custom-pretty-printing.html">http://spoon.gforge.inria.fr/custom-pretty-printing.html</a>.</p>
+
+<h3 id="the-mavenlauncher-class">The MavenLauncher class</h3>
+
+<p>The Spoon <code>MavenLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/MavenLauncher.html">JavaDoc</a>) is used to create the AST model of a Maven project.
+It automatically infers the list of source folders and the dependencies from the <code>pom.xml</code> file.
+This Launcher handles multi-module Maven projects.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// the second parameter can be APP_SOURCE / TEST_SOURCE / ALL_SOURCE</span>
+<span class="n">MavenLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MavenLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_maven_project&gt;"</span><span class="o">,</span> <span class="n">MavenLauncher</span><span class="o">.</span><span class="na">SOURCE_TYPE</span><span class="o">.</span><span class="na">APP_SOURCE</span><span class="o">);</span>
+<span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
+
+<span class="c1">// list all packages of the model</span>
+<span class="k">for</span><span class="o">(</span><span class="n">CtPackage</span> <span class="n">p</span> <span class="o">:</span> <span class="n">model</span><span class="o">.</span><span class="na">getAllPackages</span><span class="o">())</span> <span class="o">{</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"package: "</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="c1">// list all classes of the model</span>
+<span class="k">for</span><span class="o">(</span><span class="n">CtType</span><span class="o">&lt;?&gt;</span> <span class="n">s</span> <span class="o">:</span> <span class="n">model</span><span class="o">.</span><span class="na">getAllTypes</span><span class="o">())</span> <span class="o">{</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"class: "</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
+<span class="o">}</span>
+
+</code></pre></div>
+<p>Note that by default, MavenLauncher relies on an existing local maven binary to build the project&#39;s classpath. But a constructor allowing the user to skip this step and to provide a custom classpath is available.
+<code>java
+MavenLauncher launcher = new MavenLauncher(&quot;&lt;path_to_maven_project&gt;&quot;,
+        MavenLauncher.SOURCE_TYPE.APP_SOURCE,
+        new String[] {
+            &quot;/home/user/.m2/repository/org/my/jar/1.0/org-my-jar-1.0.jar&quot;
+        }
+    );
+launcher.buildModel();
+CtModel model = launcher.getModel();
+</code>
+To avoid invoking maven over and over to build a classpath that has not changed, it is stored in a file <code>spoon.classpath.tmp</code> (or depending on the scope <code>spoon.classpath-app.tmp</code> or <code>spoon.classpath-test.tmp</code>) in the same folder as the <code>pom.xml</code>. This classpath will be refreshed is the file is deleted or if it has not been modified since 1h.</p>
+
+<h3 id="analyzing-bytecode-with-jarlauncher">Analyzing bytecode with JarLauncher</h3>
+
+<p>There are two ways to analyze bytecode with spoon:</p>
+
+<ul>
+<li>Bytecode resources can be added in the classpath, (some information will be extracted through reflection)</li>
+<li>A decompiler may be used, and then, the analyzes will be performed on the decompiled sources.</li>
+</ul>
+
+<p>The Spoon <code>JarLauncher</code> (<a href="https://github.com/INRIA/spoon/blob/master/spoon-decompiler/src/main/java/spoon/JarLauncher.java">JavaDoc</a>) is used to create the AST model from a jar.
+It automatically decompiles class files contained in the jar and analyzes them.
+If a pom file corresponding to the jar is provided, it will be used to build the classpath containing all dependencies.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//More constructors are available, check the JavaDOc for more information.</span>
+<span class="n">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="n">JarLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">);</span>
+<span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
+</code></pre></div>
+<p>Note that the default decompiler <a href="http://www.benf.org/other/cfr/">CFR</a> can be changed by providing an instance implementing <code>spoon.decompiler.Decompiler</code> as a parameter.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JarLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">,</span>
+    <span class="k">new</span> <span class="n">Decompiler</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="n">decompile</span><span class="o">(</span><span class="n">String</span> <span class="n">inputPath</span><span class="o">,</span> <span class="n">String</span> <span class="n">outputPath</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">classpath</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//Custom decompiler call</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">);</span>
+</code></pre></div>
+<p>Spoon provides two out of the shelf decompilers, CFR by default, and Fernflower. You can use the later like this:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JarLauncher</span><span class="o">(</span>
+        <span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span>
+        <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span>
+        <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">,</span>
+        <span class="k">new</span> <span class="n">FernflowerDecompiler</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"&lt;path_to_output_src_dir&gt;/src/main/java"</span><span class="o">))</span>
+<span class="o">);</span>
+</code></pre></div>
+<p>Optionally, the classic launcher can be used with <code>DecompiledResource</code> like this:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+<span class="n">launcher</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span>
+    <span class="k">new</span> <span class="n">DecompiledResource</span><span class="o">(</span><span class="n">baseDir</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">(),</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{},</span> <span class="k">new</span> <span class="n">CFRDecompiler</span><span class="o">(),</span> <span class="n">pathToDecompiledRoot</span><span class="o">.</span><span class="na">getPath</span><span class="o">())</span>
+<span class="o">);</span>
+</code></pre></div>
+<p><strong>Warning</strong> The <code>JarLauncher</code> feature (and all features relying on decompilation) are not included in <code>spoon-core</code> but in <code>spoon-decompiler</code>. If you want to use them you should declare a dependency to <code>spoon-decompiler</code>.</p>
+
+<h3 id="resolution-of-elements-and-classpath">Resolution of elements and classpath</h3>
+
+<p>Spoon analyzes source code. However, this source code may refer to libraries (as a field, parameter, or method return type). There are two cases:</p>
+
+<ul>
+<li>Full classpath: all dependencies are in the JVM classpath or are given to the Laucher with <code>launcher.getEnvironment().setSourceClasspath(&quot;&lt;classpath_project&gt;&quot;);</code> (optional)</li>
+<li>No classpath: some dependencies are unknown and <code>launcher.getEnvironment().setNoClasspath(true)</code> is set.</li>
+</ul>
+
+<p>This has a direct impact on Spoon references.
+When you&#39;re consider a reference object (say, a TypeReference), there are three cases:</p>
+
+<ul>
+<li>Case 1 (code available as source code): the reference points to a code element for which the source code is present. In this case, reference.getDeclaration() returns this code element (e.g. TypeReference.getDeclaration returns the CtType representing the given java file). reference.getTypeDeclaration() is identical to reference.getDeclaration().</li>
+<li>Case 2 (code available as binary in the classpath): the reference points to a code element for which the source code is NOT present, but for which the binary class is in the classpath (either the JVM classpath or the --source-classpath argument). In this case, reference.getDeclaration() returns null and reference.getTypeDeclaration returns a partial CtType built using runtime reflection. Those objects built using runtime reflection are called shadow objects; and you can identify them with method isShadow. (This also holds for getFieldDeclaration and getExecutableDeclaration)</li>
+<li>Case 3 (code not available, aka noclasspath): the reference points to a code element for which the source code is NOT present, but for which the binary class is NOT in the classpath. This is called in Spoon the noclasspath mode. In this case, both reference.getDeclaration() and reference.getTypeDeclaration() return null. (This also holds for getFieldDeclaration and getExecutableDeclaration)</li>
+</ul>
+
+<h2 id="declaring-the-dependency-to-spoon">Declaring the dependency to Spoon</h2>
+
+<h3 id="maven">Maven</h3>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>fr.inria.gforge.spoon<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spoon-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h3 id="gradle">Gradle</h3>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">compile</span> <span class="s1">'fr.inria.gforge.spoon:spoon-core:'</span>
+</code></pre></div>
+<h2 id="advanced-launchers">Advanced launchers</h2>
+
+<h3 id="incremental-launcher">Incremental Launcher</h3>
+
+<p><code>IncrementalLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/IncrementalLauncher.html">JavaDoc</a>) allows cache AST and compiled classes. Any spoon analysis can then be restarted from where it stopped instead of restarting from scratch.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">File</span> <span class="n">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"&lt;path_to_cache&gt;"</span><span class="o">);</span>
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="n">inputResources</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"&lt;path_to_sources&gt;"</span><span class="o">));</span>
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">sourceClasspath</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">emptySet</span><span class="o">();</span> <span class="c1">// Empty classpath</span>
+
+<span class="c1">//Start build from cache</span>
+<span class="n">IncrementalLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IncrementalLauncher</span><span class="o">(</span><span class="n">inputResources</span><span class="o">,</span> <span class="n">sourceClasspath</span><span class="o">,</span> <span class="n">cache</span><span class="o">);</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">launcher</span><span class="o">.</span><span class="na">changesPresent</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"There are changes since last save to cache."</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="n">CtModel</span> <span class="n">newModel</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+<span class="c1">//Model is now up to date</span>
+
+<span class="n">launcher</span><span class="o">.</span><span class="na">saveCache</span><span class="o">();</span>
+<span class="c1">//Cache is now up to date</span>
+</code></pre></div>
+<h3 id="fluent-launcherapi">Fluent LauncherAPI</h3>
+
+<p><code>FluentLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/FluentLauncher.html">JavaDoc</a>) allows simple, fluent launcher usage with setting most options directly.</p>
+
+<p>For the classic launcher it&#39;s simply:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FluentLauncher</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">inputResource</span><span class="o">(</span><span class="s">"&lt;path_to_sources&gt;"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">noClasspath</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">outputDirectory</span><span class="o">(</span><span class="s">"&lt;path_to_outputdir&gt;"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">processor</span><span class="o">(....)</span>
+                <span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+</code></pre></div>
+<p>If you want to use other launchers like the MavenLauncher:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">MavenLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MavenLauncher</span><span class="o">(....);</span>
+<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FluentLauncher</span><span class="o">(</span><span class="n">launcher</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">processor</span><span class="o">(....)</span>
+                <span class="o">.</span><span class="na">encoding</span><span class="o">(...)</span>
+                <span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Jan 18, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+

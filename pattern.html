@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Spoon Patterns  | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/pattern.html">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/pattern.html">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li class="active"><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main">Spoon Patterns</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <p>Spoon patterns enables you to find code elements. A Spoon pattern is based on a one or several AST nodes, which represent the code to match, where some parts of the AST are pattern parameters. When a pattern is matched, one can access to the code matched in each pattern parameter.</p>
+
+<p>The main classes of Spoon patterns are those in package <code>spoon.pattern</code>:</p>
+
+<ul>
+<li>classes: PatternBuilder, Pattern, Match, PatternBuilderHelper, PatternParameterConfigurator, InlinedStatementConfigurator </li>
+<li>eums: ConflictResolutionMode, Quantifier</li>
+</ul>
+
+<p>See also <a href="https://github.com/SpoonLabs/spoon-examples/blob/master/src/main/java/fr/inria/gforge/spoon/analysis/PatternTest.java">examples in project <code>spoon-examples</code></a></p>
+
+<h3 id="example-usage">Example usage</h3>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Factory</span> <span class="n">spoonFactory</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Pattern</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">PatternBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mainClass</span><span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"m1"</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getBody</span><span class="o">().</span><span class="na">clone</span><span class="o">()).</span><span class="na">configurePatternParameters</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+
+<span class="c1">//search for all occurences of the method in the root package</span>
+<span class="n">pattern</span><span class="o">.</span><span class="na">forEachMatch</span><span class="o">(</span><span class="n">spoonFactory</span><span class="o">.</span><span class="na">getRootPackage</span><span class="o">(),</span> <span class="o">(</span><span class="n">Match</span> <span class="n">match</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="na">getParametersAsMap</span><span class="o">();</span>
+    <span class="n">CtMethod</span><span class="o">&lt;?&gt;</span> <span class="n">matchingMethod</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="na">getMatchingElement</span><span class="o">(</span><span class="n">CtMethod</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">aNameOfMatchedMethod</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"methodName"</span><span class="o">);</span>
+    <span class="o">...</span>
+<span class="o">});</span>
+</code></pre></div>
+<h3 id="patternbuilder">PatternBuilder</h3>
+
+<p>To create a Spoon pattern, one must use <code>PatternBuilder</code>, which takes AST nodes as input, and <em>pattern parameters</em> can be defined.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// creates pattern from the body of method "matcher1"</span>
+<span class="n">elem</span> <span class="o">=</span> <span class="n">mainClass</span><span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"matcher1"</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getBody</span><span class="o">().</span><span class="na">clone</span><span class="o">()</span>
+<span class="n">Pattern</span> <span class="n">t</span> <span class="o">=</span> <span class="n">PatternBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">elem</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div>
+<p>If you call <code>configurePatternParameters()</code>, all variables that are declared outside of the AST node are automatically declared a pattern parameter. 
+<code>
+Pattern t = PatternBuilder.create(elem)
+    .configurePatternParameters()
+    .build();
+</code></p>
+
+<p>One can also create specific parameters with <code>.configureParameters(pb -&gt; pb.parameter(&quot;name&quot;).byXXXX</code> (see below)</p>
+
+<h3 id="pattern">Pattern</h3>
+
+<p>Once a <code>PatternBuilder</code> returns a <code>Pattern</code>, the main methods of <code>Pattern</code> are <code>getMatches</code> and <code>forEachMatch</code>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">List&lt;Match&gt; matches = pattern.getMatches(ctClass);
+</code></pre></div>
+<h3 id="match">Match</h3>
+
+<p>A <code>Match</code> represent a match of a pattern on a code elements. The main methods are <code>getMatchingElement</code> and <code>getMatchingElements</code>.</p>
+
+<h3 id="patternbuilderhelper">PatternBuilderHelper</h3>
+
+<p><code>PatternBuilderHelper</code> is useful to select AST nodes that would act as pattern. See method to get the body (method <code>setBodyOfMethod</code>) or the return expression of a method (method <code>setReturnExpressionOfMethod</code>).</p>
+
+<h3 id="patternparameterconfigurator">PatternParameterConfigurator</h3>
+
+<p>To create pattern paramters, one uses a <code>PatternParameterConfigurator</code> as a lambda:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//a pattern model </span>
+<span class="kt">void</span> <span class="nf">method</span><span class="p">(</span><span class="n">String</span> <span class="n">_x_</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">zeroOneOrMoreStatements</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">_x_</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//a pattern definition</span>
+<span class="n">Pattern</span> <span class="n">t</span> <span class="o">=</span> <span class="n">PatternBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">(...</span><span class="na">select</span> <span class="n">pattern</span> <span class="n">model</span><span class="o">...)</span>
+    <span class="o">.</span><span class="na">configureParameters</span><span class="o">(</span><span class="n">pb</span> <span class="o">-&gt;</span> 
+        <span class="c1">// creating a pattern parameter called "firstParamName"</span>
+        <span class="n">pb</span><span class="o">.</span><span class="na">parameter</span><span class="o">(</span><span class="s">"firstParamName"</span><span class="o">)</span>
+            <span class="c1">//...select which AST nodes are parameters...</span>
+            <span class="c1">//e.g. using parameter selector</span>
+            <span class="o">.</span><span class="na">bySimpleName</span><span class="o">(</span><span class="s">"stmt"</span><span class="o">)</span>
+
+        <span class="c1">//... you can define as many parameters as you need...</span>
+
+        <span class="c1">// another parameter (all usages of variable "_x_"</span>
+        <span class="n">pb</span><span class="o">.</span><span class="na">parameter</span><span class="o">(</span><span class="s">"lastParamName"</span><span class="o">).</span><span class="na">byVariable</span><span class="o">(</span><span class="s">"_x_"</span><span class="o">);</span>
+    <span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div>
+<p><code>ParametersBuilder</code> has many methods to create the perfect pattern parameters, incl:</p>
+
+<ul>
+<li><code>byType(Class|CtTypeReference|String)</code> - all the references to the type defined by Class,
+CtTypeReference or qualified name are considered as pattern parameter</li>
+<li><code>byLocalType(CtType&lt;?&gt; searchScope, String localTypeSimpleName)</code> - all the types defined in <code>searchScope</code>
+and having simpleName equal to <code>localTypeSimpleName</code> are considered as pattern parameter</li>
+<li><code>byVariable(CtVariable|String)</code> - all read/write variable references to CtVariable
+or any variable named with the provided simple name are considered as pattern parameter</li>
+<li><code>byInvocation(CtMethod&lt;?&gt; method)</code> - all invocations of <code>method</code> are considered as pattern parameter</li>
+<li><code>byVariable(CtVariable|String... variableName)</code> - each <code>variableName</code> is a name of a variable
+which references instance of a class with fields. Each such field is considered as pattern parameter.</li>
+<li><code>byFilter(Filter)</code> - any pattern model element, where <code>Filter.accept(element)</code> returns true is a pattern parameter.</li>
+<li><code>byRole(CtRole role, Filter filter)</code> - the attribute defined by <code>role</code> of all 
+pattern model elements, where <code>Filter.accept(element)</code> returns true is a pattern parameter. It can be used to define a varible on any CtElement attribute. E.g. method modifiers or throwables, ...</li>
+<li><code>byString(String name)</code> - all pattern model string attributes whose value is equal to <code>name</code> are considered as pattern parameter.This can be used to define full name of the methods and fields, etc.</li>
+<li><code>bySubstring(String stringMarker)</code> - all pattern model string attributes whose value contains
+whole string or a substring equal to <code>stringMarker</code>are pattern parameter. Note: only the <code>stringMarker</code> substring of the string value is substituted, other parts of string/element name are kept unchanged.</li>
+<li><code>byNamedElement(String name)</code> - any CtNamedElement identified by it&#39;s simple name is a pattern parameter.</li>
+<li><code>byReferenceName(String name)</code> - any CtReference identified by it&#39;s simple name is a pattern parameter.</li>
+</ul>
+
+<p>Any parameter of a pattern can be configured like this:</p>
+
+<ul>
+<li><code>setMinOccurence(int)</code> - defines minimal number of occurences of the value of this parameter during <strong>matching</strong>,
+which is needed by matcher to accept that value. 
+
+<ul>
+<li><code>setMinOccurence(0)</code> - defines optional parameter</li>
+<li><code>setMinOccurence(1)</code> - defines mandatory parameter</li>
+<li><code>setMinOccurence(n)</code> - defines parameter, whose value must be repeated at least n-times</li>
+</ul></li>
+<li><code>setMaxOccurence(int)</code> - defines maximal number of occurences of the value of this parameter during <strong>matching</strong>,
+which is accepted by matcher to accept that value.</li>
+<li><code>setMatchingStrategy(Quantifier)</code> - defines how to matching engine arehave when two pattern nodes may accept the same value.
+
+<ul>
+<li><code>Quantifier#GREEDY</code> - Greedy quantifiers are considered &quot;greedy&quot; because they force the matcher to read in, or eat, the entire input prior to attempting the next match.
+If the next match attempt (the entire input) fails, the matcher backs off the input by one and tries again,
+repeating the process until a match is found or there are no more elements left to back off from.</li>
+<li><code>Quantifier#RELUCTANT</code> - The reluctant quantifier takes the opposite approach: It start at the beginning of the input,
+then reluctantly eat one character at a time looking for a match.
+The last thing it tries is the entire input.</li>
+<li><code>Quantifier#POSSESSIVE</code> - The possessive quantifier always eats the entire input string,
+trying once (and only once) for a match. Unlike the greedy quantifiers, possessive quantifiers never back off,
+even if doing so would allow the overall match to succeed.</li>
+</ul></li>
+<li><code>setValueType(Class type)</code> - defines a required type of the value. If defined the pattern matched, will match only values which are assigneable from the provided <code>type</code></li>
+<li><code>matchCondition(Class&lt;T&gt; type, Predicate&lt;T&gt; matchCondition)</code> - defines a <code>Predicate</code>, whose method <code>boolean test(T)</code>,
+are called by pattern matcher. Template matcher accepts that value only if <code>test</code> returns true for the value.
+The <code>setValueType(type)</code> is called internally too, so match condition assures both a type of value and condition on value.</li>
+<li><code>setContainerKind(ContainerKind)</code> - defines what container are used to store the value.
+
+<ul>
+<li><code>ContainerKind#SINGLE</code> - only single value is accepted as a parameter value.
+It can be e.g. single String or single CtStatement, etc.</li>
+<li><code>ContainerKind#LIST</code> - The values are always stored as <code>List</code>.</li>
+<li><code>ContainerKind#SET</code> - The values are always stored as <code>Set</code>.</li>
+<li><code>ContainerKind#MAP</code> - The values are always stored as <code>Map</code>.</li>
+</ul></li>
+</ul>
+
+<h3 id="inlinedstatementconfigurator">InlinedStatementConfigurator</h3>
+
+<p>It is possible to match inlined code, eg:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+</code></pre></div>
+<p>can be matched by </p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>One mark code to be matched inlined using method <code>configureInlineStatements</code>, which receives a  InlinedStatementConfigurator as follows:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Pattern</span> <span class="n">t</span> <span class="o">=</span> <span class="n">PatternBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">(...</span><span class="na">select</span> <span class="n">pattern</span> <span class="n">model</span><span class="o">...)</span>
+    <span class="c1">//...configure parameters...</span>
+    <span class="n">configureInlineStatements</span><span class="o">(</span><span class="n">ls</span> <span class="o">-&gt;</span> 
+        <span class="c1">//...select to be inlined statements...</span>
+        <span class="c1">//e.g. by variable name:</span>
+        <span class="n">ls</span><span class="o">.</span><span class="na">byVariableName</span><span class="o">(</span><span class="s">"intValues"</span><span class="o">)</span>
+    <span class="o">).</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div>
+<p>The inlining methods are:</p>
+
+<ul>
+<li><code>inlineIfOrForeachReferringTo(String varName)</code> - all CtForEach and CtIf statements
+whose expression references variable named <code>varName</code> are understood as
+inline statements</li>
+<li><code>markAsInlined(CtForEach|CtIf)</code> - provided CtForEach or CtIf statement
+is understood as inline statement</li>
+</ul>
+
+<h3 id="generator">Generator</h3>
+
+<p>All patterns can be used for code generation. The idea is that one calls <code>#generator()</code> on a pattern object to get a <code>Generator</code>. This class contains methods that takes as input a map of string,objects where each string key points to a pattern parameter name and each map value contains the element to be put in place of the pattern parameter.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Pattern</span> <span class="n">t</span> <span class="o">=</span> <span class="o">....</span>
+<span class="n">Generator</span> <span class="n">gen</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">generator</span><span class="o">();</span>
+
+<span class="c1">// the parameters to bind in the generator</span>
+<span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"targetType"</span><span class="o">,</span> <span class="n">aTargetType</span><span class="o">.</span><span class="na">getReference</span><span class="o">());</span>
+<span class="c1">// see all methods generate in Generator</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">CtMethod</span><span class="o">&gt;</span> <span class="n">aMethods</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">generator</span><span class="o">().</span><span class="na">generate</span><span class="o">(</span><span class="n">params</span><span class="o">);</span>
+</code></pre></div>
+<h3 id="notes-on-patterns">Notes on patterns</h3>
+
+<p>The unique feature of Spoon pattern matching is that we are matching on AST trees and not source code text. It means that:</p>
+
+<ul>
+<li>source code formating is ignored. For example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">m</span><span class="p">(</span><span class="o">)</span> <span class="o">{}</span>
+<span class="c1">//matches with</span>
+<span class="kt">void</span>    <span class="nf">m</span><span class="p">(</span><span class="o">){</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>comments are ignored. For example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">m</span><span class="p">(</span><span class="o">)</span> <span class="o">{}</span>
+<span class="c1">//matches with</span>
+<span class="cm">/**
+ javadoc is ignored
+*/</span>
+<span class="cm">/* was public before */</span> <span class="kt">void</span> <span class="n">m</span><span class="o">(</span><span class="cm">/*this is ignored too*/</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//and line comments are ignored too</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>implicit and explicit elements are considered the same. For example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">something</span><span class="o">)</span> 
+    <span class="n">list</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;)</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">FIELD_COUNT</span><span class="o">);</span>
+<span class="c1">//matches with</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">something</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">OuterType</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">list</span> <span class="o">=</span> <span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="o">&gt;)</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="o">&gt;(</span><span class="n">Constants</span><span class="o">.</span><span class="na">FIELD_COUNT</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>casts are skipped. For example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+<span class="c1">//matches with</span>
+<span class="o">(</span><span class="n">Object</span><span class="o">)</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Jan 18, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+

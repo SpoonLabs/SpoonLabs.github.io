@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="getting-started,  ">
+<title> Spoon - Source Code Analysis and Transformation for Java   | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main"> Spoon - Source Code Analysis and Transformation for Java </h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22fr.inria.gforge.spoon%22%20AND%20a%3A%22spoon-core%22"><img src="https://img.shields.io/maven-central/v/fr.inria.gforge.spoon/spoon-core.svg" alt="Maven Central"></a>
+<a href="https://travis-ci.com/github/INRIA/spoon"><img src="https://travis-ci.com/INRIA/spoon.svg?branch=master" alt="Travis Build Status"></a>
+<a href="https://coveralls.io/r/INRIA/spoon"><img src="https://coveralls.io/repos/INRIA/spoon/badge.png" alt="Coverage Status"></a>
+<a href="https://sonarqube.ow2.org/dashboard?id=fr.inria.gforge.spoon%3Aspoon-core"><img src="https://sonarqube.ow2.org/api/project_badges/measure?project=fr.inria.gforge.spoon%3Aspoon-core&amp;metric=sqale_rating" alt="Maintainability Rating"></a></p>
+
+<h1 id="spoon">Spoon</h1>
+
+<p>Spoon is an open-source library to analyze, rewrite, transform, transpile Java source code. It parses source files to build a well-designed AST with powerful analysis and transformation API. It fully supports modern Java versions up to Java 11, 12, 13, 14. Spoon is an official Inria open-source project, and member of the <a href="https://www.ow2.org/">OW2</a> open-source consortium.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>The latest official documentation is available at <a href="http://spoon.gforge.inria.fr/">http://spoon.gforge.inria.fr/</a> and a regularly updated PDF version is as <a href="https://projects.ow2.org/download/spoon/WebHome/spoon-user-manual.pdf">https://projects.ow2.org/download/spoon/WebHome/spoon-user-manual.pdf</a>.</p>
+
+<h3 id="academic-usage">Academic usage</h3>
+
+<p>If you use Spoon for academic purposes, please cite: Renaud Pawlak, Martin Monperrus, Nicolas Petitprez, Carlos Noguera, Lionel Seinturier. “<a href="https://hal.archives-ouvertes.fr/hal-01078532/document">Spoon: A Library for Implementing Analyses and Transformations of Java Source Code</a>”. In Software: Practice and Experience, Wiley-Blackwell, 2015. Doi: 10.1002/spe.2346.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">@article{pawlak:hal-01169705,
+  TITLE = "{Spoon: A Library for Implementing Analyses and Transformations of Java Source Code}",
+  AUTHOR = {Pawlak, Renaud and Monperrus, Martin and Petitprez, Nicolas and Noguera, Carlos and Seinturier, Lionel},
+  JOURNAL = "{Software: Practice and Experience}",
+  PUBLISHER = "{Wiley-Blackwell}",
+  PAGES = {1155-1179},
+  VOLUME = {46},
+  URL = {https://hal.archives-ouvertes.fr/hal-01078532/document},
+  YEAR = {2015},
+  doi = {10.1002/spe.2346},
+}
+</code></pre></div>
+<h3 id="professional-support">Professional support</h3>
+
+<p>If you need professional support on Spoon (development, training, extension), you are welcome to post a comment on https://github.com/INRIA/spoon/issues/3251</p>
+
+<h2 id="getting-started-in-2-seconds">Getting started in 2 seconds</h2>
+
+<p>Get latest stable version with Maven, see <a href="https://search.maven.org/artifact/fr.inria.gforge.spoon/spoon-core">https://search.maven.org/artifact/fr.inria.gforge.spoon/spoon-core</a></p>
+
+<p>And start using it:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtClass</span> <span class="n">l</span> <span class="o">=</span> <span class="n">Launcher</span><span class="o">.</span><span class="na">parseClass</span><span class="o">(</span><span class="s">"class A { void m() { System.out.println(\"yeah\");} }"</span><span class="o">);</span>
+</code></pre></div>
+<p>Documentation:</p>
+
+<ul>
+<li>Reference documentation: <a href="http://spoon.gforge.inria.fr/">http://spoon.gforge.inria.fr/</a> (contains the content of the <a href="https://github.com/INRIA/spoon/tree/master/doc">doc folder</a>)</li>
+<li>Code examples: <a href="https://github.com/SpoonLabs/spoon-examples">https://github.com/SpoonLabs/spoon-examples</a></li>
+<li>Videos: <a href="https://www.youtube.com/watch?v=ZZzdVTIu-OY">Spoon: Getting Started - Simon Urli @ OW2Con&#39;18 (Paris)</a>, <a href="https://www.youtube.com/watch?v=JcCIbjnkfD4">Generate Test Assertion with Spoon - Benjamin Danglot @ OW2Con&#39;17 (Paris)</a></li>
+</ul>
+
+<h2 id="contributing-in-2-seconds">Contributing in 2 seconds</h2>
+
+<p>Create your first pull-request to improve the documentation, see <a href="https://github.com/INRIA/spoon/tree/master/doc">doc</a>! Proceed with your first bug fix! The community is open-minded, respectful and patient. All external contributions are welcome.</p>
+
+<h2 id="design-philosophy">Design Philosophy</h2>
+
+<p>R1) The Spoon metamodel is as close as possible to the language concepts.</p>
+
+<p>R2) The Spoon model of a program is complete and sound.</p>
+
+<p>R3) The text version of a Spoon model is well-formed and semantically equivalent to the original program.</p>
+
+<p>R4) The analysis and transformation API is intuitive and regular.</p>
+
+<p>R5) Transformation operators are designed to warn as fast as possible about invalid programs. This is done either with static type checking or with dynamic checks when the operators are used.</p>
+
+<p>R6) When feasible, the text version of a Spoon model is close to the original one.</p>
+
+<h3 id="compiling">Compiling</h3>
+
+<p>To compile Spoon, you need a Java Development Kit (JDK) and Maven:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">git clone https://github.com/INRIA/spoon
+cd spoon
+mvn compile
+</code></pre></div>
+<p>To run the tests:
+<code>
+mvn test
+</code></p>
+
+<h3 id="download">Download</h3>
+
+<p>Latest version: <a href="https://search.maven.org/remote_content?g=fr.inria.gforge.spoon&amp;a=spoon-core&amp;v=LATEST&amp;c=jar-with-dependencies">https://search.maven.org/remote_content?g=fr.inria.gforge.spoon&amp;a=spoon-core&amp;v=LATEST&amp;c=jar-with-dependencies</a> - <a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/index.html">Javadoc</a></p>
+
+<p>Maven:</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>fr.inria.gforge.spoon<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spoon-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="c">&lt;!-- See rendered release value at http://spoon.gforge.inria.fr/ --&gt;</span>
+    <span class="nt">&lt;version&gt;&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h2 id="releases">Releases</h2>
+
+<!-- .* Marker comment. -->
+
+<ul>
+<li>July 2020: Spoon 8.2.0 <a href="https://github.com/INRIA/spoon/pull/3501">(changelog)</a></li>
+<li>March 2020: Spoon 8.1.0 <a href="https://github.com/INRIA/spoon/pull/3310">(changelog)</a></li>
+<li>November 2019, Spoon 8.0.0 <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-8.0.0">(changelog)</a></li>
+<li>July 2019: Spoon 7.5.0 is released <a href="https://github.com/INRIA/spoon/pull/3057">(changelog)</a></li>
+<li>May 2019: Spoon 7.4.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.4.0">(changelog)</a></li>
+<li>Februray 10, 2019: Spoon 7.3.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.3.0">(changelog)</a> </li>
+<li>December 4, 2018: Spoon 7.2.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.2.0">(changelog)</a> </li>
+<li>October 10, 2018: Spoon 7.1.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.1.0">(changelog)</a> </li>
+<li>July 4, 2018: Spoon 7.0.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.0.0">(changelog)</a> </li>
+<li>March 8, 2018: Spoon 6.2.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-6.2.0">(changelog)</a></li>
+<li>December 20, 2017: Spoon 6.1.0 is released, merry christmas! :christmas_tree: <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-6.1.0">(changelog)</a></li>
+<li>November 17, 2017: Spoon 6.0.0 is released! Check the <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-6.0.0">(changelog)</a> as there are few non backward-compatible changes :warning:</li>
+<li>September 6, 2017: Spoon 5.9.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.9.0">(changelog)</a> <em>back-to-work</em> release!</li>
+<li>July 11, 2017: Spoon 5.8.0 is released  <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.8.0">(changelog)</a> Summer release :beer: To be prefered wrt the previous one: fix lot of bugs.</li>
+<li>June 01, 2017: Spoon 5.7.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.7.0">(changelog)</a></li>
+<li>March 16, 2017: Spoon 5.6.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.6.0">(changelog)</a> Spring release :-)</li>
+<li>January 11, 2017: Spoon 5.5.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.5.0">(changelog)</a>. Happy new year!</li>
+<li>October 27, 2016: Spoon 5.4.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.4.0">(changelog)</a>.</li>
+<li>September 19, 2016: Spoon 5.3.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.3.0">(changelog)</a>.</li>
+<li>June 30, 2016: Spoon 5.2.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.2.0">(changelog)</a>.</li>
+<li>June 22, 2016: Spoon 5.1.1 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.1.1">(changelog)</a>.</li>
+<li>March 21, 2016: Spoon 5.1.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.1.0">(changelog)</a>.</li>
+<li>February 12, 2016: Spoon 5.0.2 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.0.2">(changelog)</a>.</li>
+<li>February 3, 2016: Spoon 5.0.1 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.0.1">(changelog)</a>.</li>
+<li>January 25, 2016: Spoon 5.0.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.0.0">(changelog)</a>.</li>
+<li>November 18, 2015: Spoon 4.4.1 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.5.0">(changelog)</a>.</li>
+<li>November 16, 2015: Spoon 4.4.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-4.4.0">(changelog)</a>.</li>
+<li>September 22, 2015: Spoon 4.3.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-September/001803.html">(changelog)</a>.</li>
+<li>June 15, 2015: Spoon 4.2.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-June/001781.html">(changelog)</a>.</li>
+<li>May 7, 2015: Spoon 4.1.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-May/001774.html">(changelog)</a>.</li>
+<li>April 8, 2015: Spoon 4.0.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-April/001769.html">(changelog)</a>.</li>
+<li>February 11, 2015: Spoon 3.1 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-February/001741.html">(changelog)</a>.</li>
+<li>December 9, 2014: Spoon 3.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-December/001721.html">(changelog)</a>.</li>
+<li>November 12, 2014: Spoon 2.4 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-November/001710.html">(changelog)</a>.</li>
+<li>October 9, 2014: Spoon 2.3.1 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-October/001688.html">(changelog)</a>.</li>
+<li>September 12, 2014: Spoon 2.1 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-September/001683.html">(changelog)</a>.</li>
+<li>April 2, 2014: Spoon 2.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-March/001639.html">(changelog)</a>.</li>
+<li>September 30, 2013: Spoon 1.6 is released.</li>
+<li>April 12, 2012: Spoon 1.5 is released.</li>
+</ul>
+
+<h2 id="github-contributors">Github Contributors</h2>
+
+<p>Alphabetical order of last names</p>
+<div class="highlight"><pre><code class="language-" data-lang="">git log --pretty="%an" | sed -e '/Spoon Bot/d' | sort -u | awk 'NF&gt;=2 {print "* " $0}' | sort -k3
+</code></pre></div>
+<ul>
+<li>David Bernard</li>
+<li>Artur Bosch</li>
+<li>Egor Bredikhin</li>
+<li>Maxime CLEMENT</li>
+<li>Benoit Cornu</li>
+<li>Andre Cruz</li>
+<li>Benjamin DANGLOT</li>
+<li>Scott Dickerson</li>
+<li>Yann Diorcet</li>
+<li>Thomas Durieux</li>
+<li>Sergey Fedorov</li>
+<li>Alcides Fonseca</li>
+<li>Clement Fournier</li>
+<li>Jan Galinski</li>
+<li>Nicolas Harrand</li>
+<li>Mickael Istria</li>
+<li>Mehdi Kaytoue</li>
+<li>Urs Keller</li>
+<li>Filip Krakowski</li>
+<li>Lukas Krejci</li>
+<li>Ashutosh Kumar Verma</li>
+<li>Roman Leventov</li>
+<li>Fan Long</li>
+<li>Kai Luo</li>
+<li>Matias Martinez</li>
+<li>Luke Merrick</li>
+<li>Martin Monperrus</li>
+<li>Vincenzo Musco</li>
+<li>Carlos Noguera</li>
+<li>Gerard Paligot</li>
+<li>Renaud Pawlak</li>
+<li>Nicolas Petitprez</li>
+<li>Phillip Schichtel</li>
+<li>Lionel Seinturier</li>
+<li>Miguel Sozinho Ramalho</li>
+<li>Marcel Steinbeck</li>
+<li>Christopher Stokes</li>
+<li>Eddie T</li>
+<li>Simon Urli</li>
+<li>Pavel Vojtechovsky</li>
+<li>Stefan Wolf</li>
+<li>Diorcet Yann</li>
+<li>Gregor Zeitlinger</li>
+<li>Tomasz Zielinski</li>
+</ul>
+
+<p>Early contributors:</p>
+
+<ul>
+<li>Olivier Barais</li>
+<li>David Bernard</li>
+<li>Benoit Cornu</li>
+<li>Favio DeMarco</li>
+<li>Didier Donsez</li>
+<li>Christophe Dufour</li>
+<li>Sebastian Lamelas Marcote</li>
+<li>Matias Martinez</li>
+<li>Carlos Noguera</li>
+<li>Renaud Pawlak</li>
+<li>Nicolas Pessemier</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Jan 18, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="quering,  quering, query, path, ast, elements">
+<title>Path  | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/path.html">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/path.html">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li class="active"><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main">Path</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <p><code>CtPath</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPath.html">javadoc</a>)
+defines the path to a <code>CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>)
+in a model, similarly to XPath for XML. For example, <code>.spoon.test.path.testclasses.Foo.foo#body#statement[index=0]</code> represents the first statement of the body of method foo.
+A <code>CtPath</code>is based on: names of elements (eg <code>foo</code>), and roles of elements with respect to their parent (eg <code>body</code>).
+A role is a relation between two AST nodes.
+For instance, a &quot;then&quot; branch in a if/then/else is a role (and not an node). All roles can be found in <code>CtRole</code>. In addition, each getter or setter in the metamodel is annotated with its role.</p>
+
+<h3 id="evaluating-ast-paths">Evaluating AST paths</h3>
+
+<p>Paths are used to find code elements, from a given root elements.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">path</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtPathStringBuilder</span><span class="o">().</span><span class="na">fromString</span><span class="o">(</span><span class="s">".spoon.test.path.testclasses.Foo.foo#body#statement[index=0]"</span><span class="o">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">CtElement</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="na">evaluateOn</span><span class="o">(</span><span class="n">root</span><span class="o">)</span>
+</code></pre></div>
+<h3 id="creating-ast-paths">Creating AST paths</h3>
+
+<h4 id="from-an-existing-element">From an existing element</h4>
+
+<p>Method <code>getPath</code> in <code>CtElement</code> returns a path</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">anElement</span><span class="o">.</span><span class="na">getPath</span><span class="o">();</span>
+</code></pre></div>
+<h4 id="from-a-string">From a string</h4>
+
+<p><code>CtPathStringBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathStringBuilder.html">javadoc</a>), creates a path object from a string according to the following syntax:</p>
+
+<ul>
+<li><code>.&lt;name&gt;</code> which denotes a child element with name <code>name</code>, eg <code>.fr.inria.Spoon</code> (the fully qualified name)</li>
+<li><code>#&lt;role&gt;</code> which denotes all children on <code>CtRole</code> <code>role</code> .statements, <code>#body#statement[index=2]#else</code> is the else branch of the second statement of a method body</li>
+<li><code>name=&lt;somename&gt;</code> - filter which accepts only elements with <code>somename</code>. E.g. <code>#field[name=abc]</code></li>
+<li><code>signature=&lt;somesignature&gt;</code> - filter which accepts only methods and constructors with signature <code>somesignature</code>.
+
+<ul>
+<li>Example of method signature: <code>#method[signature=compare(java.lang.String,java.lang.String)]</code></li>
+<li>Example of constructor signature: <code>#constructor[signature=(int)]</code></li>
+</ul></li>
+<li><code>index=&lt;idx&gt;</code> - fitler which accepts only idx-th element of the List. The first element has index 0. the fifth type memeber in a class <code>#typeMember[index=4]</code></li>
+</ul>
+
+<h4 id="from-the-api">From the API</h4>
+
+<p>The low-level <code>CtPathBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html">javadoc</a>) defines a fluent api to build your path:</p>
+
+<ul>
+<li><code>name(String, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#name-java.lang.String-java.lang.String:A...-">javadoc</a>)
+adds a name matcher to the current path.</li>
+<li><code>type(Class, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#type-java.lang.Class-java.lang.String:A...-">javadoc</a>)
+matches on element of a given type.</li>
+<li><code>role(CtPathRole, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#role-spoon.reflect.path.CtPathRole-java.lang.String:A...-">javadoc</a>)
+matches on elements by their role (where <code>CtPathRole</code> gives all constants supported).</li>
+<li><code>wildcard()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#wildcard--">javadoc</a>)
+matches only on elements child of current one.</li>
+<li><code>recursiveWildcard()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#recursiveWildcard--">javadoc</a>)
+matches on any child and sub-children.</li>
+</ul>
+
+<p>For instance, if we want all elements named by &quot;toto&quot; and with a default value in
+a project. Use <code>CtPathBuilder</code> like the example below.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtPath</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtPathBuilder</span><span class="o">().</span><span class="na">recursiveWildcard</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">).</span><span class="na">role</span><span class="o">(</span><span class="n">CtPathRole</span><span class="o">.</span><span class="na">DEFAULT_VALUE</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+<span class="c1">// equivalent to</span>
+<span class="n">CtPath</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtPathStringBuilder</span><span class="o">().</span><span class="na">fromString</span><span class="o">(</span><span class="s">".**.toto#default_value"</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+
+<span class="c1">// takes all elements named "toto" in the project. </span>
+<span class="k">new</span> <span class="nf">CtPathBuilder</span><span class="p">(</span><span class="o">).</span><span class="na">recursiveWildcard</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">)</span>
+
+<span class="c1">// takes the first element named "toto", a package or a class in the default package, at the root of your project.</span>
+<span class="k">new</span> <span class="nf">CtPathBuilder</span><span class="p">(</span><span class="o">).</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">).</span><span class="na">recursiveWildcard</span><span class="o">()</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Jan 18, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+

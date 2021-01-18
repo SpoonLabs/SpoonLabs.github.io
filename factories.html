@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="meta-model,  factories, elements, ast, meta, model">
+<title>Creating AST elements  | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/factories.html">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/factories.html">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li class="active"><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main">Creating AST elements</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <h3 id="create-elements-with-factories">Create elements with factories</h3>
+
+<p>When you design and implement transformations, with processors 
+or templates, you need to create new elements, fill their data and add 
+them in the AST built by Spoon.</p>
+
+<p>To do that, use <code>Factory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/Factory.html">javadoc</a>). 
+<code>Factory</code> is the entry point for all factories of Spoon. Each factory 
+have a goal specific and help you in the creation of a new AST.</p>
+
+<ul>
+<li><code>CoreFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/CoreFactory.html">javadoc</a>) 
+allows the creation of any element in the meta model. To set up the objects, there are setters to initialize the object.</li>
+<li><code>CodeFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/CodeFactory.html">javadoc</a>) 
+contains utility methods to create code elements and asks minimal information
+to create a valid object.</li>
+<li><code>PackageFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/PackageFactory.html">javadoc</a>) 
+contains utility methods to create and get package reference.</li>
+<li><code>TypeFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/TypeFactory.html">javadoc</a>) 
+contains utility methods with a link to <code>CtType</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtType.html">javadoc</a>). 
+You can get any type from its fully qualified name or a .class invocation<br>
+and create all typed references like <code>CtTypeReference</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html">javadoc</a>).</li>
+<li><code>ClassFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ClassFactory.html">javadoc</a>) 
+is a sub class of <code>TypeFactory</code> but specialized for <code>CtClass</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtClass.html">javadoc</a>).</li>
+<li><code>EnumFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/EnumFactory.html">javadoc</a>) 
+is a sub class of <code>TypeFactory</code> but specialized for <code>CtEnum</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtEnum.html">javadoc</a>).</li>
+<li><code>InterfaceFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/InterfaceFactory.html">javadoc</a>) 
+is a sub class of <code>TypeFactory</code> but specialized for <code>CtInterface</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtInterface.html">javadoc</a>).</li>
+<li><code>ExecutableFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ExecutableFactory.html">javadoc</a>) 
+contains utility methods with a link to <code>CtExecutable</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtExecutable.html">javadoc</a>). 
+You can create executable objects and their parameters.</li>
+<li><code>ConstructorFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ConstructorFactory.html">javadoc</a>) 
+is a sub class of <code>ExecutableFactory</code> but specialized for <code>CtConstructor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtConstructor.html">javadoc</a>).</li>
+<li><code>MethodFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/MethodFactory.html">javadoc</a>) 
+is a sub class of <code>ExecutableFactory</code> but specialized for <code>CtMethod</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtMethod.html">javadoc</a>).</li>
+<li><code>FieldFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/FieldFactory.html">javadoc</a>) 
+contains utility methods to create a valid field or a field reference.</li>
+<li><code>AnnotationFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/AnnotationFactory.html">javadoc</a>) 
+contains utility methods to annotate any elements or create a new one.</li>
+</ul>
+
+<p>All these factories contribute to facilitate the creation of elements. 
+When you have created an element from a factory, set it in an existing element 
+to build a new AST.</p>
+
+<h3 id="generating-spoon-code-for-an-element">Generating Spoon code for an element</h3>
+
+<p>With <code>SpoonifierVisitor</code>, it is possible to visit an existing Spoon AST to generate calls to the factory that recreates the same AST.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="n">SpoonifierVisitor</span> <span class="n">v</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpoonifierVisitor</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="n">Launcher</span><span class="o">.</span><span class="na">parseClass</span><span class="o">(</span><span class="s">"class A { public String sayHello() { return \"Hello World!\";}}"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"sayHello"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">getResult</span><span class="o">());</span>
+</code></pre></div>
+<p>will print:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="n">CtMethod</span> <span class="n">ctMethod0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createMethod</span><span class="o">();</span>
+    <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"sayHello"</span><span class="o">);</span>
+    <span class="n">Set</span><span class="o">&lt;</span><span class="n">ModifierKind</span><span class="o">&gt;</span> <span class="n">ctMethod0Modifiers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+    <span class="n">ctMethod0Modifiers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
+    <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setModifiers</span><span class="o">(</span><span class="n">ctMethod0Modifiers</span><span class="o">);</span>
+        <span class="n">CtTypeReference</span> <span class="n">ctTypeReference0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createTypeReference</span><span class="o">();</span>
+        <span class="n">ctTypeReference0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"String"</span><span class="o">);</span>
+        <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">TYPE</span><span class="o">,</span> <span class="n">ctTypeReference0</span><span class="o">);</span>
+            <span class="n">CtPackageReference</span> <span class="n">ctPackageReference0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createPackageReference</span><span class="o">();</span>
+            <span class="n">ctPackageReference0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"java.lang"</span><span class="o">);</span>
+            <span class="n">ctPackageReference0</span><span class="o">.</span><span class="na">setImplicit</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+            <span class="n">ctTypeReference0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">PACKAGE_REF</span><span class="o">,</span> <span class="n">ctPackageReference0</span><span class="o">);</span>
+        <span class="n">CtBlock</span> <span class="n">ctBlock0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createBlock</span><span class="o">();</span>
+        <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">BODY</span><span class="o">,</span> <span class="n">ctBlock0</span><span class="o">);</span>
+            <span class="n">CtReturn</span> <span class="n">ctReturn0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createReturn</span><span class="o">();</span>
+            <span class="n">List</span> <span class="n">ctBlock0Statements</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+            <span class="n">ctBlock0Statements</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ctReturn0</span><span class="o">);</span>
+                <span class="n">CtLiteral</span> <span class="n">ctLiteral0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createLiteral</span><span class="o">();</span>
+                <span class="n">ctLiteral0</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+                <span class="n">ctReturn0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">EXPRESSION</span><span class="o">,</span> <span class="n">ctLiteral0</span><span class="o">);</span>
+                    <span class="n">CtTypeReference</span> <span class="n">ctTypeReference1</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createTypeReference</span><span class="o">();</span>
+                    <span class="n">ctTypeReference1</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"String"</span><span class="o">);</span>
+                    <span class="n">ctLiteral0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">TYPE</span><span class="o">,</span> <span class="n">ctTypeReference1</span><span class="o">);</span>
+                        <span class="n">CtPackageReference</span> <span class="n">ctPackageReference1</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createPackageReference</span><span class="o">();</span>
+                        <span class="n">ctPackageReference1</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"java.lang"</span><span class="o">);</span>
+                        <span class="n">ctTypeReference1</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">PACKAGE_REF</span><span class="o">,</span> <span class="n">ctPackageReference1</span><span class="o">);</span>
+        <span class="n">ctBlock0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">STATEMENT</span><span class="o">,</span> <span class="n">ctBlock0Statements</span><span class="o">);</span>
+
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Jan 18, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+

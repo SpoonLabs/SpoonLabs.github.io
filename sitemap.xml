@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//404.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//about.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//agent.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//architecture_test.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//code_elements.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//code_elements_header.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//command_line.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//comments.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//custom-pretty-printing.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//ecosystem.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//examples.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//factories.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//faq.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//filter.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//first_analysis_processor.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//first_transformation.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//gradle.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//launcher.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//matcher.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//maven.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//papers.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//path.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//pattern.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//processor.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//processor_annotations.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//references.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//reflection.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//sitemap.xml</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//structural_elements.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//template_definition.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://spoon.gforge.inria.fr//testing_quickstart.html</loc>
+      
+        <last_updated>2021-01-18T05:51:20+01:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+</urlset>

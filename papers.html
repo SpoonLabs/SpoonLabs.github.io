@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" papers">
+<title>Papers  | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/papers.html">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/papers.html">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li class="active"><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main">Papers</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <h1 id="articles">Articles</h1>
+
+<p><a href="https://scholar.google.com/scholar?hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=18020575005067751853&amp;scipsc=&amp;q=&amp;scisbd=1">All papers citing the SPE article</a></p>
+
+<p>Durieux, Thomas, et al. &quot;<a href="https://hal.archives-ouvertes.fr/hal-01419861/document">Dynamic patch generation for null pointer exceptions using metaprogramming.</a>&quot; Software Analysis, Evolution and Reengineering (SANER), 2017 IEEE 24th International Conference on. IEEE, 2017.</p>
+
+<p>Long, Fan, Peter Amidon, and Martin Rinard. &quot;<a href="http://people.csail.mit.edu/rinard/paper/fse17.genesis.pdf">Automatic inference of code transforms for patch generation.</a>&quot; Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering, ESEC/FSE. Vol. 2017. 2017.</p>
+
+<p>Feist, Michael D., et al. &quot;<a href="http://softwareprocess.es/pubs/feist2016VISSOFT-syntax-tree.pdf">Visualizing Project Evolution through Abstract Syntax Tree Analysis.</a>&quot; Software Visualization (VISSOFT), 2016 IEEE Working Conference on. IEEE, 2016.</p>
+
+<p>Carette, Antonin, et al. &quot;<a href="https://hal.inria.fr/hal-01403485/document">Investigating the energy impact of android smells.</a>&quot; Software Analysis, Evolution and Reengineering (SANER), 2017 IEEE 24th International Conference on. IEEE, 2017.</p>
+
+<p>Lelli, Valeria, et al. &quot;<a href="https://hal-centralesupelec.archives-ouvertes.fr/hal-01308625/document">Automatic detection of GUI design smells: The case of blob listener.</a>&quot; Proceedings of the 8th ACM SIGCHI Symposium on Engineering Interactive Computing Systems. ACM, 2016.</p>
+
+<p><a href="https://pdfs.semanticscholar.org/8805/3bf61a22821f25e8ce1f8b446330c6b4f586.pdf">Partitioners Track: Generating Security Vulnerabilities in
+Source Code</a> (Felix Schuckert), In Sicherheit 2016. </p>
+
+<p><a href="https://hal.archives-ouvertes.fr/hal-01354090/document">Casper: Automatic Tracking of Null Dereferences to Inception with Causality Traces</a> (Benoit Cornu, Earl T. Barr, Martin Monperrus and Lionel Seinturier), In Journal of Systems and Software, Elsevier, 2016.</p>
+
+<p><a href="http://www.sciencedirect.com/science/article/pii/S1877750316301065">Controlling the granularity of automatic parallel programs</a> (Fonseca, A., Cabral, B., Rafael, J., &amp; Correia, I.) Journal of Computational Science, 2016.</p>
+
+<p><a href="http://arxiv.org/pdf/1604.03211">Automatic Parallelization: Executing Sequential Programs on a Task-Based Parallel Runtime</a> (Fonseca, A., Cabral, B., Rafael, J., &amp; Correia, I.) International Journal of Parallel Programming, Vol. 44, Issue 6, 2016.</p>
+
+<p><a href="https://hal.archives-ouvertes.fr/hal-01321615/document">ASTOR: A Program Repair Library for Java</a> (Matias Martinez and Martin Monperrus), In Proceedings of ISSTA, Demonstration Track, 2016. (<a href="https://github.com/SpoonLabs/astor">https://github.com/SpoonLabs/astor</a>)</p>
+
+<p><a href="https://hal.inria.fr/hal-01350515/document">Mutation-Based Graph Inference for Fault Localization</a> (Vincenzo Musco, Martin Monperrus and Philippe Preux), In International Working Conference on Source Code Analysis and Manipulation, 2016.</p>
+
+<p><a href="https://hal.inria.fr/hal-01185189/document">TTC&#39;2015 Case: Refactoring Java Programs using Spoon</a> (Gérard Paligot, Nicolas Petitprez and Martin Monperrus), In Proceedings of the 2015 Transformation Tool Contest, 2015</p>
+
+<p><a href="http://sei.pku.edu.cn/%7Exiongyf04/papers/PEPM15.pdf">SWIN: Towards Type-Safe Java Program Adaptation between APIs</a> (Li, Jun, et al.) Proceedings of the 2015 Workshop on Partial Evaluation and Program Manipulation. 2015.</p>
+
+<p><a href="https://hal.inria.fr/hal-01061911/PDF/main.pdf">Test Case Purification for Improving Fault Localization</a> (Jifeng Xuan, Martin Monperrus), In Proceedings of the International Symposium on the Foundations of Software Engineering, 2014.</p>
+
+<p><a href="https://hal.archives-ouvertes.fr/hal-01309004/document">B-Refactoring: Automatic Test Code Refactoring to Improve Dynamic Analysis</a> (Jifeng Xuan, Benoit Cornu, Matias Martinez, Benoit Baudry, Lionel Seinturier and Martin Monperrus), In Information and Software Technology, Elsevier, 2016. (<a href="https://github.com/Spirals-Team/banana-refactoring">https://github.com/Spirals-Team/banana-refactoring</a>)</p>
+
+<p><a href="https://hal.inria.fr/hal-01062969/document">Exception Handling Analysis and Transformation Using Fault Injection: Study of Resilience Against Unanticipated Exceptions</a> (Benoit Cornu, Lionel Seinturier, Martin Monperrus), In Information and Software Technology, Elsevier, 2014. </p>
+
+<p><a href="https://hal.inria.fr/hal-00977798/PDF/NOPOL-Automatic-Repair-of-Buggy-If-Conditions-and-Missing-Preconditions-with-SMT.pdf">Automatic Repair of Buggy If Conditions and Missing Preconditions with SMT</a> (Favio DeMarco, Jifeng Xuan, Daniel Le Berre, Martin Monperrus), In Proceedings of the 6th International Workshop on Constraints in Software Testing, Verification, and Analysis (CSTVA 2014), 2014.</p>
+
+<p><a href="https://hal.inria.fr/hal-00938855/PDF/sosies.pdf">Tailored Source Code Transformations to Synthesize Computationally Diverse Program Variants</a> (Benoit Baudry, Simon Allier, Martin Monperrus), In Proceedings of the International Symposium on Software Testing and Analysis, 2014.</p>
+
+<p><a href="https://www.researchgate.net/profile/Bruno_Cabral/publication/231238601_AEminiumGPU_An_Intelligent_Framework_for_GPU_Programming/links/0fcfd5066bca093c32000000.pdf">Æminiumgpu: an intelligent framework for gpu programming</a> (Fonseca, Alcides and Cabral, Bruno) Facing the Multicore-Challenge III, 2012.</p>
+
+<p><a href="https://findresearcher.sdu.dk:8443/ws/files/49141761/B1FADd01.pdf">Remodularizing Java programs for improved locality of feature implementations in source code.</a> (Olszak, Andrzej, and Bo Nørregaard Jørgensen) Science of Computer Programming 77.3, 2012.</p>
+
+<p><a href="https://hal.inria.fr/inria-00180333/file/AVal.pdf">AVal: an Extensible Attribute-Oriented Programming Validator for Java</a> (Noguera, C., Pawlak R.), In 6th IEEE International Workshop on Source Code Analysis and Manipulation (SCAM&#39;06), Philadelphia, PA, USA, September 2006.</p>
+
+<p><a href="https://hal.inria.fr/hal-01353552">Using Attribute-Oriented Programming to Leverage Fractal-Based Developments</a> (Rouvoy, R., Pessemier, N., Pawlak, R., Merle, P.), In 5th International ECOOP Workshop on Fractal Component Model, Nantes, France, July 2006.</p>
+
+<p><a href="http://hal.inria.fr/inria-00071366">Spoon: Program Analysis and Transformation in Java.</a> (Pawlak, R., Noguera, C., Petitprez, N.), INRIA Research Report #5901, May 2006.</p>
+
+<p><a href="https://www.computer.org/csdl/magazine/ds/2006/11/oy001/13rRUxASu7G">Spoon: Compile-time Annotation Processing for Middleware</a> (Pawlak R.), IEEE Distributed Systems Online, vol. 7, no. 11, 2006, art. no. 0611-oy001</p>
+
+<p><a href="http://middleware05.objectweb.org/WSProceedings/AOMD05/a6-pawlak.pdf">Spoon: Annotation-Driven Program Transformation - The AOP Case</a> (Pawlak, R.), First Workshop on Aspect-Orientation for Middleware Development. Middleware 2005, Grenoble, France.</p>
+
+<h1 id="dissertations">Dissertations</h1>
+
+<p><a href="http://dspace.library.uu.nl/bitstream/handle/1874/337629/Master%20Thesis%203700607%20(final%20version).pdf">Automated Grading of Java Assignments</a> (Nadia Boudewijn), Universiteit Utrecht, 2016</p>
+
+<p><a href="http://liu.diva-portal.org/smash/get/diva2:944700/FULLTEXT01.pdf">Semi-automatic code-to-code transformer for Java: Transformation of library calls</a> (Boije, Niklas and Borg, Kristoffer ), Linköping University, 2016 </p>
+
+<p><a href="https://tel.archives-ouvertes.fr/tel-01250092v1">Automatic Analysis and Repair of Exception Bugs for Java Programs</a> (Benoit Cornu), PhD Thesis, University of Lille, 2015.</p>
+
+<p><a href="http://aeminium.dei.uc.pt/images/7/73/Alcides_fonseca_msc_thesis.pdf">AeminiumGPU – A CPU-GPU Hybrid Runtime for the Aeminium Language</a> (Fonseca, Alcides), University of Coimbra, 2011 </p>
+
+<h1 id="presentations">Presentations</h1>
+
+<p>2016-07-07 <a href="http://fr.slideshare.net/GrardPaligot/code-transformation-with-spoon">Code Transformation with Spoon</a>, PADR Talk (France, Lille).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Jan 18, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+

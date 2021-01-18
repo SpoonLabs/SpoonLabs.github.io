@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="template,  template, definition, code, java">
+<title>Transformation with Templates  | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/template_definition.html">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/template_definition.html">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li class="active"><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main">Transformation with Templates</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <p>Spoon provides developers a way of writing code transformations called
+<strong>code templates</strong>. Those templates are statically type-checked, in
+order to ensure statically that the generated code will be correct.</p>
+
+<p>A Spoon template is a regular Java class that taken as input by the Spoon templating engine to perform a transformation.
+This is summarized in Figure below. A Spoon template can be seen as a
+higher-order program, which takes program elements as arguments, and returns a
+transformed program. Like any function, a template can be used in different
+contexts and give different results, depending on its parameters.</p>
+
+<p><img src="/images/template-overview.svg" alt="Overview of Spoon&#39;s Templating System"></p>
+
+<h3 id="definition-of-templates">Definition of templates</h3>
+
+<p>Class <code>CheckBoundTemplate</code> below defines a Spoon template. </p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckBoundTemplate</span> <span class="kd">extends</span> <span class="n">StatementTemplate</span> <span class="o">{</span>
+    <span class="n">TemplateParameter</span><span class="o">&lt;</span><span class="n">Collection</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">_col_</span><span class="o">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">statement</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">_col_</span><span class="o">.</span><span class="na">S</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">OutOfBoundException</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>This template specifies a
+statement (in method <code>statement</code>) that is a precondition to check that a list 
+is smaller than a certain size. This piece of code will be injected at the 
+beginning of all methods dealing with size-bounded lists. This template has 
+one single template parameter called <code>_col_</code>, typed by <code>TemplateParameter</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/template/TemplateParameter.html">javadoc</a>). 
+In this case, the template parameter is meant to be an expression (<code>CtExpression</code>) 
+that returns a Collection (see constructor, line 3). All meta-model classes, 
+incl. <code>CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>), 
+implement interface <code>TemplateParameter</code>. A template parameter has a special method 
+(named <code>S</code>, for Substitution) that is used as a marker to indicate the places where 
+a template parameter substitution should occur. For a <code>CtExpression</code>, method <code>S()</code> 
+returns the return type of the expression.</p>
+
+<p>A method <code>S()</code> is never executed, its only goal is to get the template statically 
+checked. Instead of being executed, the template source code is taken as input by the 
+templating engine which is described above. Consequently, the template source is 
+well-typed, compiles, but the binary code of the template is thrown away.</p>
+
+<h3 id="template-instantiation">Template Instantiation</h3>
+
+<p>In order to be correctly substituted, the template parameters need 
+to be bound to actual values. This is done during template instantiation.</p>
+
+<p>The code at the end of this page shows how to use the check-bound 
+of template, <code>CheckBoundTemplate</code>, presented in the previous section. 
+One first instantiates a template, then one sets the template parameters, 
+and finally, one calls the template engine. In last line, the bound check 
+is injected at the beginning of a method body. </p>
+
+<p>Since the template is given the first method parameter which is in the 
+scope of the insertion location, the generated code is guaranteed to compile. 
+The Java compiler ensures that the template compiles with a given scope, the 
+developer is responsible for checking that the scope where she uses 
+template-generated code is consistent with the template scope.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// creating a template instance</span>
+<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CheckBoundTemplate</span><span class="o">();</span>
+<span class="n">t</span><span class="o">.</span><span class="na">_col_</span> <span class="o">=</span> <span class="n">createVariableAccess</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getParameters</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span> 
+
+<span class="c1">// getting the final AST</span>
+<span class="n">CtStatement</span> <span class="n">injectedCode</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">apply</span><span class="o">();</span>
+
+<span class="c1">// adds the bound check at the beginning of a method</span>
+<span class="n">method</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">insertBegin</span><span class="o">(</span><span class="n">injectedCode</span><span class="o">);</span>
+
+</code></pre></div>
+<h3 id="kinds-of-templating">Kinds of templating</h3>
+
+<p>There are different kinds of templating.</p>
+
+<h4 id="subclassing-statementtemplate">Subclassing <code>StatementTemplate</code></h4>
+
+<p>Using method <code>apply()</code> enables to get a new statement (see example <code>CheckBoundTemplate</code> above)</p>
+
+<h4 id="subclassing-blocktemplate">Subclassing <code>BlockTemplate</code></h4>
+
+<p>Using method <code>apply()</code> enables to get a new block.</p>
+
+<h4 id="subclassing-expressiontemplate">Subclassing <code>ExpressionTemplate</code></h4>
+
+<p>Using method <code>apply()</code> enables to get a new expression.  The core template method must be called <code>expression</code> and only contain a return with the expression to be templated.</p>
+
+<h4 id="subclassing-extensiontemplate">Subclassing <code>ExtensionTemplate</code></h4>
+
+<p>Using method <code>apply()</code> enables to get a new class where all possible templating in all methods. In addition, the following class level transformations are made:</p>
+
+<p>1) methods and field of the templates are injected in the target class</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ATemplate1</span> <span class="kd">extends</span> <span class="n">ExtensionTemplate</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
+  <span class="kt">void</span> <span class="n">foo</span><span class="o">()</span> <span class="o">{};</span>
+<span class="o">}</span>
+
+<span class="c1">// inject `i` and `foo` in aCtClass</span>
+<span class="n">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="k">new</span> <span class="n">ATemplate1</span><span class="o">());</span>
+</code></pre></div>
+<p>2) parametrized superinterfaces are injected in the target class</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ATemplate2</span> <span class="kd">extends</span> <span class="n">ExtensionTemplate</span> <span class="kd">implements</span> <span class="n">Serializable</span><span class="o">,</span> <span class="n">A</span><span class="o">,</span> <span class="n">B</span> <span class="o">{</span>
+    <span class="c1">// interface templates supports TypeReference</span>
+    <span class="nd">@Parameter</span>
+    <span class="n">Class</span> <span class="n">A</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ATemplate2</span><span class="o">();</span>
+<span class="n">t</span><span class="o">.</span><span class="na">A</span> <span class="o">=</span> <span class="n">Comparable</span><span class="o">.</span><span class="na">class</span>
+<span class="n">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
+<span class="c1">// aCtClass now implements Serializable and Serializable</span>
+
+</code></pre></div>
+<p>3) method parameters are replaced</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ATemplate3</span> <span class="kd">extends</span> <span class="n">ExtensionTemplate</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">methodWithTemplatedParameters</span><span class="o">(</span><span class="n">Object</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// code</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Parameter</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">CtParameter</span><span class="o">&gt;</span> <span class="n">params</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ATemplate3</span><span class="o">();</span>
+<span class="n">t</span><span class="o">.</span><span class="na">params</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
+<span class="c1">// aCtClass  contains methodmethodWithTemplatedParameters with specific parameters</span>
+
+</code></pre></div>
+<h3 id="template-parameters">Template parameters</h3>
+
+<h4 id="ast-elements">AST elements</h4>
+
+<p>All meta-model elements can be used as template parameter. 
+There are two ways of defining such a template parameter.</p>
+
+<p>1) Using a subtype of TemplateParameter</p>
+
+<p>The following template uses a block as template parameter.
+This template type-checks, and can be used as input by the substitution
+engine to wrap a method body into a try/catch block. The substitution engine
+contains various methods that implement different substitution scenarios.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryCatchOutOfBoundTemplate</span> <span class="kd">extends</span> <span class="n">BlockTemplate</span> <span class="o">{</span>
+        <span class="c1">// CTBlock is a subtype of TemplateParameter as most metamodel elements</span>
+    <span class="n">CtBlock</span> <span class="n">_body_</span><span class="o">;</span> <span class="c1">// the body to surround</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">block</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">_body_</span><span class="o">.</span><span class="na">S</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">OutOfBoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>One can also type the field directly with <code>TemplateParameter</code>:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryCatchOutOfBoundTemplate</span> <span class="kd">extends</span> <span class="n">BlockTemplate</span> <span class="o">{</span>
+    <span class="n">TemplateParameter</span><span class="o">&lt;</span><span class="n">Void</span><span class="o">&gt;</span> <span class="n">_body_</span><span class="o">;</span> <span class="c1">// the body to surround</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">block</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">_body_</span><span class="o">.</span><span class="na">S</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">OutOfBoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>2) Using annotation <code>@Parameter</code></p>
+
+<p>Fields annotated with <code>@Parameter</code> are template parameters. </p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Parameter</span>
+<span class="n">CtInvocation</span> <span class="n">invocation</span><span class="o">;</span>
+</code></pre></div>
+<p>and then all <code>invocation.S()</code> will be replaced by the actual invocation.</p>
+
+<h4 id="literal-template-parameters">Literal template Parameters</h4>
+
+<p>For literals, Spoon provides developers with  <em>literal template parameters</em>. When the parameter is known to
+be a literal (primitive types, <code>Class</code> or a one-dimensional array of
+these types), a template parameter, annotated with <code>@Parameter</code> enables one to have concise template code.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with literal template parameter</span>
+<span class="nd">@Parameter</span>
+<span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">val</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="n">val</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div>
+<p>String parameters are not working like other primitive type parameters, since we&#39;re using String parameters only to rename elements of the code like fields and methods.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with String template parameter, which is used to substitute method name. </span>
+<span class="nd">@Parameter</span>
+<span class="n">String</span> <span class="n">methodName</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">methodName</span> <span class="o">=</span> <span class="s">"generatedMethod"</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="kt">void</span> <span class="nf">methodName</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//a body of generated method</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>To use a parameter with a type String like other primitive types, use CtLiteral<String>.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with CtLiteral&lt;String&gt; template parameter, which is used to substitute String literal </span>
+<span class="nd">@Parameter</span>
+<span class="n">CtLiteral</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">val</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Code</span><span class="o">().</span><span class="na">createLiteral</span><span class="o">(</span><span class="s">"Some string"</span><span class="o">);</span>
+<span class="o">...</span>
+<span class="n">String</span> <span class="nf">someMethod</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="na">S</span><span class="o">();</span> <span class="c1">//is substituted as return "Some string";</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>or String literal can be optionally generated like this</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with CtLiteral&lt;String&gt; template parameter, which is used to substitute String literal </span>
+<span class="nd">@Parameter</span>
+<span class="n">String</span> <span class="n">val</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">val</span> <span class="o">=</span> <span class="s">"Some string"</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">String</span> <span class="nf">someMethod</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="s">"val"</span><span class="o">;</span>   <span class="c1">//is substituted as return "Some string";</span>
+<span class="o">}</span>
+</code></pre></div>
+<h4 id="inlining-foreach-expressions">Inlining foreach expressions</h4>
+
+<p>Foreach expressions can be inlined. They have to be declared as follows:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Parameter</span>
+<span class="n">CtExpression</span><span class="o">[]</span> <span class="n">intValues</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">template</span><span class="o">.</span><span class="na">intValues</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtExpression</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+<span class="n">template</span><span class="o">.</span><span class="na">intValues</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Code</span><span class="o">().</span><span class="na">createLiteral</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="n">template</span><span class="o">.</span><span class="na">intValues</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Code</span><span class="o">().</span><span class="na">createLiteral</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</code></pre></div>
+<p>and then,</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span><span class="o">(</span><span class="n">Object</span> <span class="n">x</span> <span class="o">:</span> <span class="n">intValues</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>is transformed into:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">{</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Jan 18, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+
