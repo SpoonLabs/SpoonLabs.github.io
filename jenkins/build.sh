@@ -87,7 +87,7 @@ echo " "
 
 # Compiles project.
 START_COMPILE_PROJECT=$(($(date +%s%N)/1000000))
-$MAVEN_COMMAND clean install
+$MAVEN_COMMAND clean install -U
 if [ "$?" -ne 0 ]; then
     echo "Error: Maven compile original project unsuccessful!"
     exit 1
