@@ -104,8 +104,7 @@ SOURCE_DIR="$INITIAL_WORKDIR/temp-spoon-clone"
 WEBSITE_SOURCE_DIR="$SOURCE_DIR/doc"
 WEBSITE_GENERATED_DIR="$WEBSITE_SOURCE_DIR/_site"
 WEBSITE_DST_DIR="$INITIAL_WORKDIR/spoon-website"
-#WEBSITE_REPO_SLUG="SpoonLabs/spoonlabs.github.io" # TODO use
-WEBSITE_REPO_SLUG="slarse/spoonlabs.github.io" # TODO remove
+WEBSITE_REPO_SLUG="SpoonLabs/spoonlabs.github.io"
 WEBSITE_REPO_URL="https://github.com/$WEBSITE_REPO_SLUG"
 WEBSITE_BRANCH="main"
 
