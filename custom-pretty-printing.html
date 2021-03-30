@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -470,43 +479,48 @@
 
 <h2 id="fully-qualified-pretty-printing">Fully-qualified Pretty-Printing</h2>
 
-<p>Spoon can pretty-print code where all classes and methods  are fully-qualified. This is the default behavior on <code>toString()</code> on AST elements.
-This is not readable for humans but is useful when name collisions happen. If <code>launcher.getEnvironment().getToStringMode() == FULLYQUALIFIED</code>, the files written on disk are also fully qualified. </p>
+<p>Spoon can pretty-print code where all classes and methods  are fully-qualified. This is the default behavior on <code class="language-plaintext highlighter-rouge">toString()</code> on AST elements.
+This is not readable for humans but is useful when name collisions happen. If <code class="language-plaintext highlighter-rouge">launcher.getEnvironment().getToStringMode() == FULLYQUALIFIED</code>, the files written on disk are also fully qualified.</p>
 
 <h2 id="autoimport-pretty-printing">Autoimport Pretty-Printing</h2>
 
-<p>Spoon can pretty-print code where all classes and methods  are imported as long as no conflict exists. </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">launcher</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">setAutoImports</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-</code></pre></div>
-<p>The autoimport mode computes the required imports, add the imports in the pretty-printed files, and writes class names unqualified (w/o package names). This involves changing the field <code>implicit</code> of some elements of the model, through a set of <code>ImportAnalyzer</code>, most notable <code>ImportCleaner</code> and <code>ImportConflictDetector</code>.
-When pretty-printing, Spoon reformats the code according to its own formatting rules that can be configured by providing a custom <code>TokenWriter</code>.</p>
+<p>Spoon can pretty-print code where all classes and methods  are imported as long as no conflict exists.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">launcher</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">setAutoImports</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>The autoimport mode computes the required imports, add the imports in the pretty-printed files, and writes class names unqualified (w/o package names). This involves changing the field <code class="language-plaintext highlighter-rouge">implicit</code> of some elements of the model, through a set of <code class="language-plaintext highlighter-rouge">ImportAnalyzer</code>, most notable <code class="language-plaintext highlighter-rouge">ImportCleaner</code> and <code class="language-plaintext highlighter-rouge">ImportConflictDetector</code>.
+When pretty-printing, Spoon reformats the code according to its own formatting rules that can be configured by providing a custom <code class="language-plaintext highlighter-rouge">TokenWriter</code>.</p>
 
 <h2 id="sniper-pretty-printing-mode">Sniper Pretty-Printing Mode</h2>
 
-<p>The sniper mode enables to rewrite only the transformed AST elements, so that the rest of the code is printed identically to the origin version. This is useful to get small diffs after automated refactoring. </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">launcher</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">setPrettyPrinterCreator</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
-   <span class="k">return</span> <span class="k">new</span> <span class="n">SniperJavaPrettyPrinter</span><span class="o">(</span><span class="n">launcher</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+<p>The sniper mode enables to rewrite only the transformed AST elements, so that the rest of the code is printed identically to the origin version. This is useful to get small diffs after automated refactoring.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">launcher</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">setPrettyPrinterCreator</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="k">new</span> <span class="nf">SniperJavaPrettyPrinter</span><span class="o">(</span><span class="n">launcher</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
   <span class="o">}</span>
 <span class="o">);</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h2 id="user-defined-pretty-printing-mode">User-Defined Pretty-Printing Mode</h2>
 
 <p>It is a good practice to have consistent formatting in a project.
 Spoon can be used to implement a custom Java pretty-printer, according to the guidelines of your project.
 For instance, this can be used to write a pretty-printer according to a custom Checkstyle ruleset.</p>
 
-<p>The idea is to configure <code>DefaultJavaPrettyPrinter</code> with an appropriate <code>TokenWriter</code>. Subclasses of <a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/visitor/TokenWriter.html"><code>TokenWriter</code></a> can override a number of pretty-printing methods.</p>
+<p>The idea is to configure <code class="language-plaintext highlighter-rouge">DefaultJavaPrettyPrinter</code> with an appropriate <code class="language-plaintext highlighter-rouge">TokenWriter</code>. Subclasses of <a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/visitor/TokenWriter.html"><code class="language-plaintext highlighter-rouge">TokenWriter</code></a> can override a number of pretty-printing methods.</p>
 
-<p>For instance, here is an example of a pretty-printer that writes two spaces before each keyword (see source in <a href="https://github.com/INRIA/spoon/blob/master/src/test/java/spoon/test/prettyprinter/PrinterTest.java"><code>testCustomPrettyPrinter</code></a>):</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Launcher</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+<p>For instance, here is an example of a pretty-printer that writes two spaces before each keyword (see source in <a href="https://github.com/INRIA/spoon/blob/master/src/test/java/spoon/test/prettyprinter/PrinterTest.java"><code class="language-plaintext highlighter-rouge">testCustomPrettyPrinter</code></a>):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Launcher</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
 <span class="c1">// Java file to be pretty-printed, can be a folder as well</span>
 <span class="n">spoon</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"src/test/resources/JavaCode.java"</span><span class="o">);</span>
 <span class="n">spoon</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">setPrettyPrinterCreator</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="n">DefaultJavaPrettyPrinter</span> <span class="n">defaultJavaPrettyPrinter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultJavaPrettyPrinter</span><span class="o">(</span><span class="n">spoon</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="nc">DefaultJavaPrettyPrinter</span> <span class="n">defaultJavaPrettyPrinter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultJavaPrettyPrinter</span><span class="o">(</span><span class="n">spoon</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">getEnvironment</span><span class="o">());</span>
     <span class="c1">// here we create the custom version of the token writer</span>
-    <span class="n">defaultJavaPrettyPrinter</span><span class="o">.</span><span class="na">setPrinterTokenWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">DefaultTokenWriter</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">defaultJavaPrettyPrinter</span><span class="o">.</span><span class="na">setPrinterTokenWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">DefaultTokenWriter</span><span class="o">()</span> <span class="o">{</span>
       <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="n">DefaultTokenWriter</span> <span class="n">writeKeyword</span><span class="o">(</span><span class="n">String</span> <span class="n">token</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kd">public</span> <span class="nc">DefaultTokenWriter</span> <span class="nf">writeKeyword</span><span class="o">(</span><span class="nc">String</span> <span class="n">token</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// write two spaces and then the keyword</span>
         <span class="n">getPrinterHelper</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="s">"   "</span> <span class="o">+</span> <span class="n">token</span><span class="o">);</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
@@ -515,8 +529,9 @@ For instance, this can be used to write a pretty-printer according to a custom C
     <span class="k">return</span> <span class="n">defaultJavaPrettyPrinter</span><span class="o">;</span>
 <span class="o">});</span>
 <span class="n">spoon</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
-</code></pre></div>
-<p>That&#39;s it! The pretty-printed code is in folder ./spooned (default value that can be set with setOutputDirectory).</p>
+</code></pre></div></div>
+
+<p>That’s it! The pretty-printed code is in folder ./spooned (default value that can be set with setOutputDirectory).</p>
 
 
 
@@ -675,7 +690,7 @@ For instance, this can be used to write a pretty-printer according to a custom C
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

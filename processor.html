@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -467,7 +476,7 @@
    
 
   <p>A program analysis is a combination of query and analysis code.
-In Spoon, this conceptual pair is reified in a <code>processor</code>.
+In Spoon, this conceptual pair is reified in a <code class="language-plaintext highlighter-rouge">processor</code>.
 A Spoon processor is a class that focuses on the analysis of one 
 kind of program elements. For instance, the processor at the end of 
 this page presents a processor that analyzes a program to find 
@@ -481,22 +490,23 @@ elements at a finer grain.</p>
 
 <p>The process method takes the requested element as input and does the analysis 
 (here detecting empty catch blocks). At any time, you can interrupt the processing 
-of the model with a call to <code>interrupt()</code> (this stops all processors, and proceeds 
+of the model with a call to <code class="language-plaintext highlighter-rouge">interrupt()</code> (this stops all processors, and proceeds 
 with the next step which is usually pretty-printing the code to disk).</p>
 
 <p>Since a real world analysis combines multiple queries, multiple processors can 
-be used at the same time. The launcher applies them in the order they have been declared. </p>
+be used at the same time. The launcher applies them in the order they have been declared.</p>
 
 <p>Processors are implemented with a visitor design pattern applied to the Spoon 
-Java model. Each node of the metamodel implements an <code>accept</code> method so that it 
+Java model. Each node of the metamodel implements an <code class="language-plaintext highlighter-rouge">accept</code> method so that it 
 can be visited by a visitor object, which can perform any kind of action, 
-including modification. </p>
+including modification.</p>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b>
  Spoon provides developers with an intuitive Java metamodel and concise abstractions 
  to query and process AST elements.
 </div>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">fr</span><span class="o">.</span><span class="na">inria</span><span class="o">.</span><span class="na">gforge</span><span class="o">.</span><span class="na">spoon</span><span class="o">.</span><span class="na">processors</span><span class="o">;</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">fr.inria.gforge.spoon.processors</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.apache.log4j.Level</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">spoon.processing.AbstractProcessor</span><span class="o">;</span>
@@ -505,14 +515,14 @@ including modification. </p>
 <span class="cm">/**
  * Reports warnings when empty catch blocks are found.
  */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatchProcessor</span> <span class="kd">extends</span> <span class="n">AbstractProcessor</span><span class="o">&lt;</span><span class="n">CtCatch</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">process</span><span class="o">(</span><span class="n">CtCatch</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">getStatements</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">getFactory</span><span class="o">().</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">report</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">Level</span><span class="o">.</span><span class="na">WARN</span><span class="o">,</span> <span class="n">element</span><span class="o">,</span> <span class="s">"empty catch clause"</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatchProcessor</span> <span class="kd">extends</span> <span class="nc">AbstractProcessor</span><span class="o">&lt;</span><span class="nc">CtCatch</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="nc">CtCatch</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">getStatements</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">getFactory</span><span class="o">().</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">report</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="nc">Level</span><span class="o">.</span><span class="na">WARN</span><span class="o">,</span> <span class="n">element</span><span class="o">,</span> <span class="s">"empty catch clause"</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="examples-of-analysis-processors">Examples of Analysis Processors</h3>
 
 <p>The <a href="https://github.com/SpoonLabs/spoon-examples/blob/master/src/main/java/fr/inria/gforge/spoon/HelloWorldProcessor.java">HelloWorldProcessor example</a> prints hello world with compile-time reflection.</p>
@@ -526,13 +536,14 @@ including modification. </p>
 <h3 id="parallel-processor">Parallel Processor</h3>
 
 <p>Lets assume you want to use multiple cores for your processor. Spoon provides a simple high-level API for this task.
-Using the CatchProcessor from before create a <code>AbstractParallelProcessor</code>. </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">            <span class="n">Processor</span><span class="o">&lt;</span><span class="n">CtCatch</span><span class="o">&gt;</span> <span class="n">parallelProcessor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AbstractParallelProcessor</span><span class="o">&lt;</span><span class="n">CtCatch</span><span class="o">&gt;(</span>
-                <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">CatchProcessor</span><span class="o">(),</span> <span class="k">new</span> <span class="n">CatchProcessor</span><span class="o">()))</span> <span class="o">{};</span>
-</code></pre></div>
+Using the CatchProcessor from before create a <code class="language-plaintext highlighter-rouge">AbstractParallelProcessor</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>			<span class="nc">Processor</span><span class="o">&lt;</span><span class="nc">CtCatch</span><span class="o">&gt;</span> <span class="n">parallelProcessor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AbstractParallelProcessor</span><span class="o">&lt;</span><span class="nc">CtCatch</span><span class="o">&gt;(</span>
+				<span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="nc">CatchProcessor</span><span class="o">(),</span> <span class="k">new</span> <span class="nc">CatchProcessor</span><span class="o">()))</span> <span class="o">{};</span>
+</code></pre></div></div>
 <p>Now you have the same processor behavior as before, but 2 parallel running processor.
 You can upscale this pretty high, but keep in mind to not use more parallel processors than available cores for maximum speedup.
-For more information about parallel processor and the API have a look in the <a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/processing/AbstractParallelProcessor.html">documentation</a>. </p>
+For more information about parallel processor and the API have a look in the <a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/processing/AbstractParallelProcessor.html">documentation</a>.</p>
 
 
 
@@ -691,7 +702,7 @@ For more information about parallel processor and the API have a look in the <a 
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

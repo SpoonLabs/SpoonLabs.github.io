@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -471,14 +480,16 @@
 <p>An <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a>, also known as ASTs, is a a tree-based representation of source code. Spoon is a library to build and manipulates ASTs of Java source code.</p>
 
 <p>With Spoon, you can visualize the AST of a Java file, as follows:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">$ java -cp spoon-core--jar-with-dependencies.jar spoon.Launcher \
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -cp spoon-core-8.4.0-jar-with-dependencies.jar spoon.Launcher \
    -i MyClass.java --gui
-</code></pre></div>
-<p><img src="images/gui.png"/></p>
+</code></pre></div></div>
+
+<p><img src="images/gui.png" /></p>
 
 <p>If you have Java 11 with Java FX, there is a new GUI, see <a href="https://github.com/INRIA/spoon/tree/master/spoon-visualisation">https://github.com/INRIA/spoon/tree/master/spoon-visualisation</a></p>
 
-<p><img src="https://raw.githubusercontent.com/INRIA/spoon/master/spoon-visualisation/doc/appFeat.png"/></p>
+<p><img src="https://raw.githubusercontent.com/INRIA/spoon/master/spoon-visualisation/doc/appFeat.png" /></p>
 
 <h3 id="code-analysis">Code Analysis</h3>
 
@@ -486,13 +497,14 @@
 
 <p>In Spoon, the core concept for code analysis is a processor. A processor analyses all AST elements of a  given type, one per one.</p>
 
-<p>For a first processor, we&#39;ll analyze all catch blocks of a <code>try {...} catch {...}</code> 
+<p>For a first processor, we’ll analyze all catch blocks of a <code class="language-plaintext highlighter-rouge">try {...} catch {...}</code> 
 element to know how many empty catch blocks we have in a project. This kind of empty 
 catch can be considered bad practice. That could be a great information to know how 
 many and where are these catches in a project to fill them with some code, 
 e.g. throws a runtime exception or logs the exception.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// file processors/CatchProcessor.java</span>
-<span class="kn">package</span> <span class="n">processors</span><span class="o">;</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// file processors/CatchProcessor.java</span>
+<span class="kn">package</span> <span class="nn">processors</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.apache.log4j.Level</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">spoon.processing.AbstractProcessor</span><span class="o">;</span>
@@ -501,27 +513,30 @@ e.g. throws a runtime exception or logs the exception.</p>
 <span class="cm">/**
  * Reports warnings when empty catch blocks are found.
  */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatchProcessor</span> <span class="kd">extends</span> <span class="n">AbstractProcessor</span><span class="o">&lt;</span><span class="n">CtCatch</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">process</span><span class="o">(</span><span class="n">CtCatch</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// we get all statements and if there isn't statement, it means the block catch is empty!</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">getStatements</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">getFactory</span><span class="o">().</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">report</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">Level</span><span class="o">.</span><span class="na">WARN</span><span class="o">,</span> <span class="n">element</span><span class="o">,</span> <span class="s">"empty catch clause"</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatchProcessor</span> <span class="kd">extends</span> <span class="nc">AbstractProcessor</span><span class="o">&lt;</span><span class="nc">CtCatch</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="nc">CtCatch</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// we get all statements and if there isn't statement, it means the block catch is empty!</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">getStatements</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">getFactory</span><span class="o">().</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">report</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="nc">Level</span><span class="o">.</span><span class="na">WARN</span><span class="o">,</span> <span class="n">element</span><span class="o">,</span> <span class="s">"empty catch clause"</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>This processor extends <code>AbstractProcessor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/processing/AbstractProcessor.html">javadoc</a>). 
+</code></pre></div></div>
+
+<p>This processor extends <code class="language-plaintext highlighter-rouge">AbstractProcessor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/processing/AbstractProcessor.html">javadoc</a>). 
 This super class takes a generic type parameter to know what type you want inspect in a AST. 
-For this tutorial, we inspect a catch, a <code>CtCatch</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtCatch.html">javadoc</a>).</p>
+For this tutorial, we inspect a catch, a <code class="language-plaintext highlighter-rouge">CtCatch</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtCatch.html">javadoc</a>).</p>
 
-<p>When the class <code>AbstractProcessor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/processing/AbstractProcessor.html">javadoc</a>)
-is extended, we implement the method <code>void process(E element)</code>where <code>E</code> is a generic type for 
-any elements of the AST (all classes in the Spoon meta model which extends <code>CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>)). It is in this method that you can access all information you want of the the current <code>CtCatch</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtCatch.html">javadoc</a>). </p>
+<p>When the class <code class="language-plaintext highlighter-rouge">AbstractProcessor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/processing/AbstractProcessor.html">javadoc</a>)
+is extended, we implement the method <code class="language-plaintext highlighter-rouge">void process(E element)</code>where <code class="language-plaintext highlighter-rouge">E</code> is a generic type for 
+any elements of the AST (all classes in the Spoon meta model which extends <code class="language-plaintext highlighter-rouge">CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>)). It is in this method that you can access all information you want of the the current <code class="language-plaintext highlighter-rouge">CtCatch</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtCatch.html">javadoc</a>).</p>
 
-<p>Next, you can compile your processor. You can use javac in command line to generate the <code>CatchProcessor.class</code> file. Then we execute Spoon as follows to analyze all catch blocks in Java files that are in <code>/path/to/src/of/your/project</code>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>java -classpath /path/to/processor.jar:spoon-core--jar-with-dependencies.jar <span class="se">\</span>
-    spoon.Launcher -i /path/to/src/of/your/project -p processors.CatchProcessor
-</code></pre></div>
+<p>Next, you can compile your processor. You can use javac in command line to generate the <code class="language-plaintext highlighter-rouge">CatchProcessor.class</code> file. Then we execute Spoon as follows to analyze all catch blocks in Java files that are in <code class="language-plaintext highlighter-rouge">/path/to/src/of/your/project</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>java <span class="nt">-classpath</span> /path/to/processor.jar:spoon-core-8.4.0-jar-with-dependencies.jar <span class="se">\</span>
+    spoon.Launcher <span class="nt">-i</span> /path/to/src/of/your/project <span class="nt">-p</span> processors.CatchProcessor
+</code></pre></div></div>
+
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important: </b> 
 1. Specify all dependencies in your classpath. If your processor has dependencies, don't forget to package your processor.jar with all dependencies!
 2. Specify your processors in fully qualified name (here `processors.CatchProcessor`).
@@ -531,7 +546,7 @@ any elements of the AST (all classes in the Spoon meta model which extends <code
 
 <h3 id="code-transformation">Code Transformation</h3>
 
-<p>An unique feature of Spoon is its ability to automatically transform source code, for instance for <a href="https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)">instrumentation</a> or refactoring, see section &quot;Transformation&quot; below.</p>
+<p>An unique feature of Spoon is its ability to automatically transform source code, for instance for <a href="https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)">instrumentation</a> or refactoring, see section “Transformation” below.</p>
 
 
 
@@ -690,7 +705,7 @@ any elements of the AST (all classes in the Spoon meta model which extends <code
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

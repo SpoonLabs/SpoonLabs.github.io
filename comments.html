@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -469,91 +478,101 @@
   <p>In Spoon there are four different kinds of comments:</p>
 
 <ul>
-<li>File comments (comment at the begin of the file, generally licence) <code>CtComment.CommentType.FILE</code></li>
-<li>Line comments (from // to end line) <code>CtComment.CommentType.INLINE</code></li>
-<li>Block comments (from /* to */) <code>CtComment.CommentType.BLOCK</code></li>
-<li>Javadoc comments (from /** to */) <code>CtComment.CommentType.JAVADOC</code></li>
+  <li>File comments (comment at the begin of the file, generally licence) <code class="language-plaintext highlighter-rouge">CtComment.CommentType.FILE</code></li>
+  <li>Line comments (from // to end line) <code class="language-plaintext highlighter-rouge">CtComment.CommentType.INLINE</code></li>
+  <li>Block comments (from /* to */) <code class="language-plaintext highlighter-rouge">CtComment.CommentType.BLOCK</code></li>
+  <li>Javadoc comments (from /** to */) <code class="language-plaintext highlighter-rouge">CtComment.CommentType.JAVADOC</code></li>
 </ul>
 
-<p>The comments are represented in Spoon with a <code>CtComment</code> class (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtComment.html">javadoc</a>). 
-This class exposes an API to get the content <code>CtComment.getContent()</code>, the type <code>CtComment.getCommentType()</code> and the position <code>CtComment.getPosition()</code> of an comment.</p>
+<p>The comments are represented in Spoon with a <code class="language-plaintext highlighter-rouge">CtComment</code> class (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtComment.html">javadoc</a>). 
+This class exposes an API to get the content <code class="language-plaintext highlighter-rouge">CtComment.getContent()</code>, the type <code class="language-plaintext highlighter-rouge">CtComment.getCommentType()</code> and the position <code class="language-plaintext highlighter-rouge">CtComment.getPosition()</code> of an comment.</p>
 
 <p>We also try to understand to which element they are attached.
 We use some simple heuristics that work well in nominal cases but cannot address all specific cases.
-You can retrieve the comments of each <code>CtElement</code> via the API <code>CtElement.getComments()</code> which returns a <code>List&lt;CtComment&gt;</code>.</p>
+You can retrieve the comments of each <code class="language-plaintext highlighter-rouge">CtElement</code> via the API <code class="language-plaintext highlighter-rouge">CtElement.getComments()</code> which returns a <code class="language-plaintext highlighter-rouge">List&lt;CtComment&gt;</code>.</p>
 
-<p>The parsing of the comments can be enabled in the Environment via the option <code>Environment.setCommentEnabled(boolean)</code> or the command line argument <code>--enable-comments</code> (or <code>-c</code>).  </p>
+<p>The parsing of the comments can be enabled in the Environment via the option <code class="language-plaintext highlighter-rouge">Environment.setCommentEnabled(boolean)</code> or the command line argument <code class="language-plaintext highlighter-rouge">--enable-comments</code> (or <code class="language-plaintext highlighter-rouge">-c</code>).</p>
 
 <h3 id="javadoc-comments">Javadoc Comments</h3>
 
-<p>The Javadoc comments are also available via the API <code>CtElement.getDocComment()</code> but this API returns directly the content of the Javadoc as <code>String</code>.</p>
+<p>The Javadoc comments are also available via the API <code class="language-plaintext highlighter-rouge">CtElement.getDocComment()</code> but this API returns directly the content of the Javadoc as <code class="language-plaintext highlighter-rouge">String</code>.</p>
 
 <h3 id="comment-attribution">Comment Attribution</h3>
 
 <ul>
-<li>Each element can have multiple comments</li>
-<li>Comments in the same line of a statement are attached to the statement</li>
-<li>Comments which are alone in one line (or more than one line) are associated to the first element following them</li>
-<li>Comments cannot be associated to other comments</li>
-<li>Comments at the end of a block are considered as orphan comments</li>
-<li>Comments before a class definition are attached to the class</li>
+  <li>Each element can have multiple comments</li>
+  <li>Comments in the same line of a statement are attached to the statement</li>
+  <li>Comments which are alone in one line (or more than one line) are associated to the first element following them</li>
+  <li>Comments cannot be associated to other comments</li>
+  <li>Comments at the end of a block are considered as orphan comments</li>
+  <li>Comments before a class definition are attached to the class</li>
 </ul>
 
 <p>Class comment</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// class comment</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// class comment</span>
 <span class="kd">class</span> <span class="nc">A</span> <span class="o">{</span>
   <span class="c1">// class comment</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>Statement comment</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Statement comment</span>
-<span class="kt">int</span> <span class="n">a</span><span class="o">;</span> <span class="c1">// Statement comment</span>
-</code></pre></div>
-<p>Orphan comment</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
+</code></pre></div></div>
 
-<span class="o">}</span> <span class="n">exception</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<p>Statement comment</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Statement comment</span>
+<span class="kt">int</span> <span class="n">a</span><span class="o">;</span> <span class="c1">// Statement comment</span>
+</code></pre></div></div>
+
+<p>Orphan comment</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+ 
+<span class="o">}</span> <span class="n">exception</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
   <span class="c1">// Orphan comment</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Multiple line comment</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Statement comment 1</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Statement comment 1</span>
 <span class="c1">// Statement comment 2 </span>
 <span class="c1">// Statement comment 3</span>
 <span class="kt">int</span> <span class="n">a</span><span class="o">;</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="processing-comments">Processing Comments</h3>
 
-<p>You can process comments like every <code>CtElement</code>.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CtCommentProcessor</span> <span class="kd">extends</span> <span class="n">AbstractProcessor</span><span class="o">&lt;</span><span class="n">CtComment</span><span class="o">&gt;</span> <span class="o">{</span>
+<p>You can process comments like every <code class="language-plaintext highlighter-rouge">CtElement</code>.</p>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CtCommentProcessor</span> <span class="kd">extends</span> <span class="nc">AbstractProcessor</span><span class="o">&lt;</span><span class="nc">CtComment</span><span class="o">&gt;</span> <span class="o">{</span>
+    
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">isToBeProcessed</span><span class="o">(</span><span class="n">CtComment</span> <span class="n">candidate</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isToBeProcessed</span><span class="o">(</span><span class="nc">CtComment</span> <span class="n">candidate</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// only process Javadoc</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">candidatate</span><span class="o">.</span><span class="na">getCommentType</span><span class="o">()</span> <span class="o">==</span> <span class="n">CtComment</span><span class="o">.</span><span class="na">CommentType</span><span class="o">.</span><span class="na">JAVADOC</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">candidatate</span><span class="o">.</span><span class="na">getCommentType</span><span class="o">()</span> <span class="o">==</span> <span class="nc">CtComment</span><span class="o">.</span><span class="na">CommentType</span><span class="o">.</span><span class="na">JAVADOC</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
         <span class="o">}</span>
         <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">process</span><span class="o">(</span><span class="n">CtComment</span> <span class="n">ctComment</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="nc">CtComment</span> <span class="n">ctComment</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// process the ctComment</span>
     <span class="o">}</span> 
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="source-positions">Source Positions</h3>
 
-<p><code>SourcePosition</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/cu/SourcePosition.html">javadoc</a>) defines the position of the <code>CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>) in the original source file. 
+<p><code class="language-plaintext highlighter-rouge">SourcePosition</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/cu/SourcePosition.html">javadoc</a>) defines the position of the <code class="language-plaintext highlighter-rouge">CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>) in the original source file. 
 SourcePosition is extended by three specialized positions:</p>
 
 <ul>
-<li><code>DeclarationSourcePosition</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/cu/position/DeclarationSourcePosition.html">javadoc</a>) </li>
-<li><code>BodyHolderSourcePosition</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/cu/position/BodyHolderSourcePosition.html">javadoc</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">DeclarationSourcePosition</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/cu/position/DeclarationSourcePosition.html">javadoc</a>)</li>
+  <li><code class="language-plaintext highlighter-rouge">BodyHolderSourcePosition</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/cu/position/BodyHolderSourcePosition.html">javadoc</a>).</li>
 </ul>
 
 <p>These three specializations are used to define the position of specific CtElement.
-For example DeclarationSourcePosition is used to define the position of all declarations (variable, type, method, ...).
+For example DeclarationSourcePosition is used to define the position of all declarations (variable, type, method, …).
 This provides an easy access to the position of the modifiers and the name.
 The BodyHolderSourcePosition is used to declare the position of all elements that have a body.</p>
 
@@ -714,7 +733,7 @@ The BodyHolderSourcePosition is used to declare the position of all elements tha
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

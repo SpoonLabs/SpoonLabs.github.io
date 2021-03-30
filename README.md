@@ -1,10 +1,9 @@
-This directory contains the source code of the Spoon website <http://spoon.gforge.inria.fr/>
+# Spoon website
+This is the Spoon website hosted on GitHub pages. It is automatically generated
+and deployed with a GitHub Actions workflow. See
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml).
 
-To deploy an instance of this website, we use a personnal script because the structure of this project isn't standard. We can't have markdown files outside the working directory of Jekyll. So:
-
-1. [Configure your jekyll environment](http://jekyllrb.com/docs/installation/).
-2. Launch `./_release/deploy_local.sh`.
-
-Finally, if you want deploy this website in the server of INRIA, you can use the script `./_release/deploy_website.sh`.
-
-Pull requests welcome.
+> **Note:** The deploy workflow overwrites everything on the main branch
+> _except_ for the [.github](.github) directory. Therefore, everything in the
+> [.github](.github) directory is retained on automatic deployment, and you can
+> edit its contents as usual, but files anywhere else are removed or overwritten.

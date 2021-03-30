@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li class="active"><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -476,34 +485,36 @@ higher-order program, which takes program elements as arguments, and returns a
 transformed program. Like any function, a template can be used in different
 contexts and give different results, depending on its parameters.</p>
 
-<p><img src="/images/template-overview.svg" alt="Overview of Spoon&#39;s Templating System"></p>
+<p><img src="/images/template-overview.svg" alt="Overview of Spoon's Templating System" /></p>
 
 <h3 id="definition-of-templates">Definition of templates</h3>
 
-<p>Class <code>CheckBoundTemplate</code> below defines a Spoon template. </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckBoundTemplate</span> <span class="kd">extends</span> <span class="n">StatementTemplate</span> <span class="o">{</span>
-    <span class="n">TemplateParameter</span><span class="o">&lt;</span><span class="n">Collection</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">_col_</span><span class="o">;</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">statement</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">_col_</span><span class="o">.</span><span class="na">S</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">)</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="n">OutOfBoundException</span><span class="o">();</span>
-    <span class="o">}</span>
+<p>Class <code class="language-plaintext highlighter-rouge">CheckBoundTemplate</code> below defines a Spoon template.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckBoundTemplate</span> <span class="kd">extends</span> <span class="nc">StatementTemplate</span> <span class="o">{</span>
+	<span class="nc">TemplateParameter</span><span class="o">&lt;</span><span class="nc">Collection</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">_col_</span><span class="o">;</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">statement</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">_col_</span><span class="o">.</span><span class="na">S</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">)</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">OutOfBoundException</span><span class="o">();</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>This template specifies a
-statement (in method <code>statement</code>) that is a precondition to check that a list 
+statement (in method <code class="language-plaintext highlighter-rouge">statement</code>) that is a precondition to check that a list 
 is smaller than a certain size. This piece of code will be injected at the 
 beginning of all methods dealing with size-bounded lists. This template has 
-one single template parameter called <code>_col_</code>, typed by <code>TemplateParameter</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/template/TemplateParameter.html">javadoc</a>). 
-In this case, the template parameter is meant to be an expression (<code>CtExpression</code>) 
+one single template parameter called <code class="language-plaintext highlighter-rouge">_col_</code>, typed by <code class="language-plaintext highlighter-rouge">TemplateParameter</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/template/TemplateParameter.html">javadoc</a>). 
+In this case, the template parameter is meant to be an expression (<code class="language-plaintext highlighter-rouge">CtExpression</code>) 
 that returns a Collection (see constructor, line 3). All meta-model classes, 
-incl. <code>CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>), 
-implement interface <code>TemplateParameter</code>. A template parameter has a special method 
-(named <code>S</code>, for Substitution) that is used as a marker to indicate the places where 
-a template parameter substitution should occur. For a <code>CtExpression</code>, method <code>S()</code> 
+incl. <code class="language-plaintext highlighter-rouge">CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>), 
+implement interface <code class="language-plaintext highlighter-rouge">TemplateParameter</code>. A template parameter has a special method 
+(named <code class="language-plaintext highlighter-rouge">S</code>, for Substitution) that is used as a marker to indicate the places where 
+a template parameter substitution should occur. For a <code class="language-plaintext highlighter-rouge">CtExpression</code>, method <code class="language-plaintext highlighter-rouge">S()</code> 
 returns the return type of the expression.</p>
 
-<p>A method <code>S()</code> is never executed, its only goal is to get the template statically 
+<p>A method <code class="language-plaintext highlighter-rouge">S()</code> is never executed, its only goal is to get the template statically 
 checked. Instead of being executed, the template source code is taken as input by the 
 templating engine which is described above. Consequently, the template source is 
 well-typed, compiles, but the binary code of the template is thrown away.</p>
@@ -514,89 +525,92 @@ well-typed, compiles, but the binary code of the template is thrown away.</p>
 to be bound to actual values. This is done during template instantiation.</p>
 
 <p>The code at the end of this page shows how to use the check-bound 
-of template, <code>CheckBoundTemplate</code>, presented in the previous section. 
+of template, <code class="language-plaintext highlighter-rouge">CheckBoundTemplate</code>, presented in the previous section. 
 One first instantiates a template, then one sets the template parameters, 
 and finally, one calls the template engine. In last line, the bound check 
-is injected at the beginning of a method body. </p>
+is injected at the beginning of a method body.</p>
 
 <p>Since the template is given the first method parameter which is in the 
 scope of the insertion location, the generated code is guaranteed to compile. 
 The Java compiler ensures that the template compiles with a given scope, the 
 developer is responsible for checking that the scope where she uses 
 template-generated code is consistent with the template scope.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// creating a template instance</span>
-<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CheckBoundTemplate</span><span class="o">();</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// creating a template instance</span>
+<span class="nc">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheckBoundTemplate</span><span class="o">();</span>
 <span class="n">t</span><span class="o">.</span><span class="na">_col_</span> <span class="o">=</span> <span class="n">createVariableAccess</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getParameters</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span> 
 
 <span class="c1">// getting the final AST</span>
-<span class="n">CtStatement</span> <span class="n">injectedCode</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">apply</span><span class="o">();</span>
+<span class="nc">CtStatement</span> <span class="n">injectedCode</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">apply</span><span class="o">();</span>
 
 <span class="c1">// adds the bound check at the beginning of a method</span>
 <span class="n">method</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">insertBegin</span><span class="o">(</span><span class="n">injectedCode</span><span class="o">);</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="kinds-of-templating">Kinds of templating</h3>
 
 <p>There are different kinds of templating.</p>
 
-<h4 id="subclassing-statementtemplate">Subclassing <code>StatementTemplate</code></h4>
+<h4 id="subclassing-statementtemplate">Subclassing <code class="language-plaintext highlighter-rouge">StatementTemplate</code></h4>
+<p>Using method <code class="language-plaintext highlighter-rouge">apply()</code> enables to get a new statement (see example <code class="language-plaintext highlighter-rouge">CheckBoundTemplate</code> above)</p>
 
-<p>Using method <code>apply()</code> enables to get a new statement (see example <code>CheckBoundTemplate</code> above)</p>
+<h4 id="subclassing-blocktemplate">Subclassing <code class="language-plaintext highlighter-rouge">BlockTemplate</code></h4>
+<p>Using method <code class="language-plaintext highlighter-rouge">apply()</code> enables to get a new block.</p>
 
-<h4 id="subclassing-blocktemplate">Subclassing <code>BlockTemplate</code></h4>
+<h4 id="subclassing-expressiontemplate">Subclassing <code class="language-plaintext highlighter-rouge">ExpressionTemplate</code></h4>
+<p>Using method <code class="language-plaintext highlighter-rouge">apply()</code> enables to get a new expression.  The core template method must be called <code class="language-plaintext highlighter-rouge">expression</code> and only contain a return with the expression to be templated.</p>
 
-<p>Using method <code>apply()</code> enables to get a new block.</p>
-
-<h4 id="subclassing-expressiontemplate">Subclassing <code>ExpressionTemplate</code></h4>
-
-<p>Using method <code>apply()</code> enables to get a new expression.  The core template method must be called <code>expression</code> and only contain a return with the expression to be templated.</p>
-
-<h4 id="subclassing-extensiontemplate">Subclassing <code>ExtensionTemplate</code></h4>
-
-<p>Using method <code>apply()</code> enables to get a new class where all possible templating in all methods. In addition, the following class level transformations are made:</p>
+<h4 id="subclassing-extensiontemplate">Subclassing <code class="language-plaintext highlighter-rouge">ExtensionTemplate</code></h4>
+<p>Using method <code class="language-plaintext highlighter-rouge">apply()</code> enables to get a new class where all possible templating in all methods. In addition, the following class level transformations are made:</p>
 
 <p>1) methods and field of the templates are injected in the target class</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ATemplate1</span> <span class="kd">extends</span> <span class="n">ExtensionTemplate</span> <span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ATemplate1</span> <span class="kd">extends</span> <span class="nc">ExtensionTemplate</span> <span class="o">{</span>
   <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
-  <span class="kt">void</span> <span class="n">foo</span><span class="o">()</span> <span class="o">{};</span>
+  <span class="kt">void</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{};</span>
 <span class="o">}</span>
 
 <span class="c1">// inject `i` and `foo` in aCtClass</span>
-<span class="n">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="k">new</span> <span class="n">ATemplate1</span><span class="o">());</span>
-</code></pre></div>
+<span class="nc">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ATemplate1</span><span class="o">());</span>
+</code></pre></div></div>
+
 <p>2) parametrized superinterfaces are injected in the target class</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ATemplate2</span> <span class="kd">extends</span> <span class="n">ExtensionTemplate</span> <span class="kd">implements</span> <span class="n">Serializable</span><span class="o">,</span> <span class="n">A</span><span class="o">,</span> <span class="n">B</span> <span class="o">{</span>
-    <span class="c1">// interface templates supports TypeReference</span>
-    <span class="nd">@Parameter</span>
-    <span class="n">Class</span> <span class="n">A</span><span class="o">;</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ATemplate2</span> <span class="kd">extends</span> <span class="nc">ExtensionTemplate</span> <span class="kd">implements</span> <span class="nc">Serializable</span><span class="o">,</span> <span class="no">A</span><span class="o">,</span> <span class="no">B</span> <span class="o">{</span>
+	<span class="c1">// interface templates supports TypeReference</span>
+	<span class="nd">@Parameter</span>
+	<span class="nc">Class</span> <span class="no">A</span><span class="o">;</span>
 <span class="o">}</span>
 
-<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ATemplate2</span><span class="o">();</span>
-<span class="n">t</span><span class="o">.</span><span class="na">A</span> <span class="o">=</span> <span class="n">Comparable</span><span class="o">.</span><span class="na">class</span>
-<span class="n">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
+<span class="nc">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ATemplate2</span><span class="o">();</span>
+<span class="n">t</span><span class="o">.</span><span class="na">A</span> <span class="o">=</span> <span class="nc">Comparable</span><span class="o">.</span><span class="na">class</span>
+<span class="nc">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
 <span class="c1">// aCtClass now implements Serializable and Serializable</span>
 
-</code></pre></div>
-<p>3) method parameters are replaced</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ATemplate3</span> <span class="kd">extends</span> <span class="n">ExtensionTemplate</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">methodWithTemplatedParameters</span><span class="o">(</span><span class="n">Object</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// code</span>
-    <span class="o">}</span>
+</code></pre></div></div>
 
-    <span class="nd">@Parameter</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">CtParameter</span><span class="o">&gt;</span> <span class="n">params</span><span class="o">;</span>
+<p>3) method parameters are replaced</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ATemplate3</span> <span class="kd">extends</span> <span class="nc">ExtensionTemplate</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodWithTemplatedParameters</span><span class="o">(</span><span class="nc">Object</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// code</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Parameter</span>
+	<span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">CtParameter</span><span class="o">&gt;</span> <span class="n">params</span><span class="o">;</span>
 <span class="o">}</span>
 
-<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ATemplate3</span><span class="o">();</span>
+<span class="nc">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ATemplate3</span><span class="o">();</span>
 <span class="n">t</span><span class="o">.</span><span class="na">params</span> <span class="o">=</span> <span class="o">...</span>
-<span class="n">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
+<span class="nc">Substitution</span><span class="o">.</span><span class="na">insertAll</span><span class="o">(</span><span class="n">aCtClass</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
 <span class="c1">// aCtClass  contains methodmethodWithTemplatedParameters with specific parameters</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="template-parameters">Template parameters</h3>
 
 <h4 id="ast-elements">AST elements</h4>
-
 <p>All meta-model elements can be used as template parameter. 
 There are two ways of defining such a template parameter.</p>
 
@@ -606,109 +620,126 @@ There are two ways of defining such a template parameter.</p>
 This template type-checks, and can be used as input by the substitution
 engine to wrap a method body into a try/catch block. The substitution engine
 contains various methods that implement different substitution scenarios.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryCatchOutOfBoundTemplate</span> <span class="kd">extends</span> <span class="n">BlockTemplate</span> <span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryCatchOutOfBoundTemplate</span> <span class="kd">extends</span> <span class="nc">BlockTemplate</span> <span class="o">{</span>
         <span class="c1">// CTBlock is a subtype of TemplateParameter as most metamodel elements</span>
-    <span class="n">CtBlock</span> <span class="n">_body_</span><span class="o">;</span> <span class="c1">// the body to surround</span>
+	<span class="nc">CtBlock</span> <span class="n">_body_</span><span class="o">;</span> <span class="c1">// the body to surround</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">block</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">_body_</span><span class="o">.</span><span class="na">S</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">OutOfBoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">block</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="n">_body_</span><span class="o">.</span><span class="na">S</span><span class="o">();</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">OutOfBoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>One can also type the field directly with <code>TemplateParameter</code>:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryCatchOutOfBoundTemplate</span> <span class="kd">extends</span> <span class="n">BlockTemplate</span> <span class="o">{</span>
-    <span class="n">TemplateParameter</span><span class="o">&lt;</span><span class="n">Void</span><span class="o">&gt;</span> <span class="n">_body_</span><span class="o">;</span> <span class="c1">// the body to surround</span>
+</code></pre></div></div>
+<p>One can also type the field directly with <code class="language-plaintext highlighter-rouge">TemplateParameter</code>:</p>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">block</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">_body_</span><span class="o">.</span><span class="na">S</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">OutOfBoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryCatchOutOfBoundTemplate</span> <span class="kd">extends</span> <span class="nc">BlockTemplate</span> <span class="o">{</span>
+	<span class="nc">TemplateParameter</span><span class="o">&lt;</span><span class="nc">Void</span><span class="o">&gt;</span> <span class="n">_body_</span><span class="o">;</span> <span class="c1">// the body to surround</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">block</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="n">_body_</span><span class="o">.</span><span class="na">S</span><span class="o">();</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">OutOfBoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>2) Using annotation <code>@Parameter</code></p>
+</code></pre></div></div>
 
-<p>Fields annotated with <code>@Parameter</code> are template parameters. </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Parameter</span>
-<span class="n">CtInvocation</span> <span class="n">invocation</span><span class="o">;</span>
-</code></pre></div>
-<p>and then all <code>invocation.S()</code> will be replaced by the actual invocation.</p>
+<p>2) Using annotation <code class="language-plaintext highlighter-rouge">@Parameter</code></p>
+
+<p>Fields annotated with <code class="language-plaintext highlighter-rouge">@Parameter</code> are template parameters.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Parameter</span>
+<span class="nc">CtInvocation</span> <span class="n">invocation</span><span class="o">;</span>
+</code></pre></div></div>
+<p>and then all <code class="language-plaintext highlighter-rouge">invocation.S()</code> will be replaced by the actual invocation.</p>
 
 <h4 id="literal-template-parameters">Literal template Parameters</h4>
 
 <p>For literals, Spoon provides developers with  <em>literal template parameters</em>. When the parameter is known to
-be a literal (primitive types, <code>Class</code> or a one-dimensional array of
-these types), a template parameter, annotated with <code>@Parameter</code> enables one to have concise template code.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with literal template parameter</span>
+be a literal (primitive types, <code class="language-plaintext highlighter-rouge">Class</code> or a one-dimensional array of
+these types), a template parameter, annotated with <code class="language-plaintext highlighter-rouge">@Parameter</code> enables one to have concise template code.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// with literal template parameter</span>
 <span class="nd">@Parameter</span>
 <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
 <span class="o">...</span>
 <span class="n">val</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
 <span class="o">...</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="n">val</span><span class="o">)</span> <span class="o">{...}</span>
-</code></pre></div>
-<p>String parameters are not working like other primitive type parameters, since we&#39;re using String parameters only to rename elements of the code like fields and methods.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with String template parameter, which is used to substitute method name. </span>
+</code></pre></div></div>
+
+<p>String parameters are not working like other primitive type parameters, since we’re using String parameters only to rename elements of the code like fields and methods.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// with String template parameter, which is used to substitute method name. </span>
 <span class="nd">@Parameter</span>
-<span class="n">String</span> <span class="n">methodName</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">methodName</span><span class="o">;</span>
 <span class="o">...</span>
 <span class="n">methodName</span> <span class="o">=</span> <span class="s">"generatedMethod"</span><span class="o">;</span>
 <span class="o">...</span>
-<span class="kt">void</span> <span class="nf">methodName</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">//a body of generated method</span>
+<span class="kt">void</span> <span class="nf">methodName</span><span class="o">()</span> <span class="o">{</span>
+	<span class="c1">//a body of generated method</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>To use a parameter with a type String like other primitive types, use CtLiteral<String>.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with CtLiteral&lt;String&gt; template parameter, which is used to substitute String literal </span>
+</code></pre></div></div>
+
+<p>To use a parameter with a type String like other primitive types, use CtLiteral<String>.</String></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// with CtLiteral&lt;String&gt; template parameter, which is used to substitute String literal </span>
 <span class="nd">@Parameter</span>
-<span class="n">CtLiteral</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">val</span><span class="o">;</span>
+<span class="nc">CtLiteral</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">val</span><span class="o">;</span>
 <span class="o">...</span>
 <span class="n">val</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Code</span><span class="o">().</span><span class="na">createLiteral</span><span class="o">(</span><span class="s">"Some string"</span><span class="o">);</span>
 <span class="o">...</span>
-<span class="n">String</span> <span class="nf">someMethod</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="na">S</span><span class="o">();</span> <span class="c1">//is substituted as return "Some string";</span>
+<span class="nc">String</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="na">S</span><span class="o">();</span>	<span class="c1">//is substituted as return "Some string";</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>or String literal can be optionally generated like this</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// with CtLiteral&lt;String&gt; template parameter, which is used to substitute String literal </span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// with CtLiteral&lt;String&gt; template parameter, which is used to substitute String literal </span>
 <span class="nd">@Parameter</span>
-<span class="n">String</span> <span class="n">val</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">val</span><span class="o">;</span>
 <span class="o">...</span>
 <span class="n">val</span> <span class="o">=</span> <span class="s">"Some string"</span><span class="o">;</span>
 <span class="o">...</span>
-<span class="n">String</span> <span class="nf">someMethod</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="s">"val"</span><span class="o">;</span>   <span class="c1">//is substituted as return "Some string";</span>
+<span class="nc">String</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="s">"val"</span><span class="o">;</span>	<span class="c1">//is substituted as return "Some string";</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h4 id="inlining-foreach-expressions">Inlining foreach expressions</h4>
 
 <p>Foreach expressions can be inlined. They have to be declared as follows:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Parameter</span>
-<span class="n">CtExpression</span><span class="o">[]</span> <span class="n">intValues</span><span class="o">;</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Parameter</span>
+<span class="nc">CtExpression</span><span class="o">[]</span> <span class="n">intValues</span><span class="o">;</span>
 <span class="o">...</span>
-<span class="n">template</span><span class="o">.</span><span class="na">intValues</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtExpression</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+<span class="n">template</span><span class="o">.</span><span class="na">intValues</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CtExpression</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
 <span class="n">template</span><span class="o">.</span><span class="na">intValues</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Code</span><span class="o">().</span><span class="na">createLiteral</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
 <span class="n">template</span><span class="o">.</span><span class="na">intValues</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Code</span><span class="o">().</span><span class="na">createLiteral</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>and then,</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span><span class="o">(</span><span class="n">Object</span> <span class="n">x</span> <span class="o">:</span> <span class="n">intValues</span><span class="o">)</span> <span class="o">{</span>
-         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="nc">Object</span> <span class="n">x</span> <span class="o">:</span> <span class="n">intValues</span><span class="o">)</span> <span class="o">{</span>
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>is transformed into:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
     <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
     <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 
 
 
@@ -866,7 +897,7 @@ these types), a template parameter, annotated with <code>@Parameter</code> enabl
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

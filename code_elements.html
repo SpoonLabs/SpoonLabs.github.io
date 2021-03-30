@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -468,374 +477,374 @@
 
   <p>Figure at the end of this page shows the meta model for Java executable code. 
 There are two main kinds of code elements. 
-First, statements <code>CtStatement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtStatement.html">javadoc</a>) 
+First, statements <code class="language-plaintext highlighter-rouge">CtStatement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtStatement.html">javadoc</a>) 
 are untyped top-level instructions that can be used directly in a block of code. 
-Second, expressions <code>CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>) 
-are used inside the statements. For instance, a <code>CtLoop</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtLoop.html">javadoc</a>) 
-(which is a statement) points to <code>CtExpression</code> which expresses its boolean condition.</p>
+Second, expressions <code class="language-plaintext highlighter-rouge">CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>) 
+are used inside the statements. For instance, a <code class="language-plaintext highlighter-rouge">CtLoop</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtLoop.html">javadoc</a>) 
+(which is a statement) points to <code class="language-plaintext highlighter-rouge">CtExpression</code> which expresses its boolean condition.</p>
 
 <p>Some code elements such as invocations and assignments are both statements 
 and expressions (multiple inheritance links). Concretely, this is translated as an 
-interface <code>CtInvocation</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtInvocation.html">javadoc</a>) 
-inheriting from both interfaces <code>CtStatement</code> and <code>CtExpression</code>. 
-The generic type of <code>CtExpression</code> is used to add static type-checking when transforming programs.</p>
+interface <code class="language-plaintext highlighter-rouge">CtInvocation</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtInvocation.html">javadoc</a>) 
+inheriting from both interfaces <code class="language-plaintext highlighter-rouge">CtStatement</code> and <code class="language-plaintext highlighter-rouge">CtExpression</code>. 
+The generic type of <code class="language-plaintext highlighter-rouge">CtExpression</code> is used to add static type-checking when transforming programs.</p>
 
-<p><img src="/images/code-elements.png" alt="Code part of the Spoon Java 8 metamodel"></p>
+<p><img src="/images/code-elements.png" alt="Code part of the Spoon Java 8 metamodel" /></p>
 
 <h3 id="ctarrayread">CtArrayRead</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtArrayRead.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span>
     <span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="c1">// &lt;-- array read</span>
     <span class="o">);</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctarraywrite">CtArrayWrite</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtArrayWrite.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="n">Object</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
     <span class="c1">// array write</span>
     <span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s">"new value"</span><span class="o">;</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctassert">CtAssert</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtAssert.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">assert</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="mi">2</span>
-</code></pre></div>
-<h3 id="ctassignment">CtAssignment</h3>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">assert</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="mi">2</span>
+</code></pre></div></div>
+<h3 id="ctassignment">CtAssignment</h3>
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtAssignment.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span> <span class="c1">// &lt;-- an assignment</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctbinaryoperator">CtBinaryOperator</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtBinaryOperator.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// 3+4 is the binary expression</span>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="o">;</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctblock">CtBlock</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtBlock.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
  <span class="o">{</span> <span class="c1">// &lt;-- block start</span>
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
  <span class="o">}</span>
-
-</code></pre></div>
+	
+</code></pre></div></div>
 <h3 id="ctbreak">CtBreak</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtBreak.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">break</span><span class="o">;</span> <span class="c1">// &lt;-- break statement</span>
+				<span class="k">break</span><span class="o">;</span> <span class="c1">// &lt;-- break statement</span>
         <span class="o">}</span>
     <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctcase">CtCase</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtCase.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="k">switch</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">case</span> <span class="mi">1</span><span class="o">:</span> <span class="c1">// &lt;-- case statement</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctconditional">CtConditional</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtConditional.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span>
        <span class="mi">1</span><span class="o">==</span><span class="mi">0</span> <span class="o">?</span> <span class="s">"foo"</span> <span class="o">:</span> <span class="s">"bar"</span> <span class="c1">// &lt;-- ternary conditional</span>
     <span class="o">);</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctconstructorcall">CtConstructorCall</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtConstructorCall.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="k">new</span> <span class="nf">Object</span><span class="p">(</span><span class="o">);</span>
 
-</code></pre></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">new</span> <span class="nf">Object</span><span class="o">();</span>
+
+</code></pre></div></div>
 <h3 id="ctcontinue">CtContinue</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtContinue.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span> <span class="c1">// &lt;-- continue statement</span>
+				<span class="k">continue</span><span class="o">;</span> <span class="c1">// &lt;-- continue statement</span>
         <span class="o">}</span>
     <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctdo">CtDo</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtDo.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="k">do</span> <span class="o">{</span>
         <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
     <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">);</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctexecutablereferenceexpression">CtExecutableReferenceExpression</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExecutableReferenceExpression.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">function</span><span class="o">.</span><span class="na">Supplier</span> <span class="n">p</span> <span class="o">=</span>
       <span class="nl">Object:</span><span class="o">:</span><span class="k">new</span><span class="o">;</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctfieldread">CtFieldRead</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtFieldRead.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span> <span class="kt">int</span> <span class="n">field</span><span class="o">;</span> <span class="o">}</span>
-    <span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="o">();</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">.</span><span class="na">field</span><span class="o">);</span>
 
-</code></pre></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span> <span class="kt">int</span> <span class="n">field</span><span class="o">;</span> <span class="o">}</span>
+    <span class="nc">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Foo</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">.</span><span class="na">field</span><span class="o">);</span>
+
+</code></pre></div></div>
 <h3 id="ctfieldwrite">CtFieldWrite</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtFieldWrite.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span> <span class="kt">int</span> <span class="n">field</span><span class="o">;</span> <span class="o">}</span>
-    <span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="o">();</span>
+    <span class="nc">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Foo</span><span class="o">();</span>
     <span class="n">x</span><span class="o">.</span><span class="na">field</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctfor">CtFor</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtFor.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// a for statement</span>
     <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
     <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctforeach">CtForEach</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtForEach.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">List</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">();</span>
-    <span class="k">for</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span> <span class="o">:</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// &lt;-- foreach loop</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
+    <span class="k">for</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span> <span class="o">:</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// &lt;-- foreach loop</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
     <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctif">CtIf</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtIf.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="k">if</span> <span class="o">(</span><span class="mi">1</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
     <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"bar"</span><span class="o">);</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"bar"</span><span class="o">);</span>
     <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctinvocation">CtInvocation</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtInvocation.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// invocation of method println</span>
     <span class="c1">// the target is "System.out"</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctjavadoc">CtJavaDoc</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtJavaDoc.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="cm">/**
  * Description
  * @tag a tag in the javadoc
 */</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctlambda">CtLambda</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtLambda.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">List</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">();</span>
     <span class="n">l</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span>
       <span class="n">x</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span> <span class="o">}</span> <span class="c1">// a lambda</span>
     <span class="o">);</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctliteral">CtLiteral</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtLiteral.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span> <span class="c1">// 4 is a literal</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctlocalvariable">CtLocalVariable</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtLocalVariable.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// defines a local variable x</span>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
 
     <span class="c1">// local variable in Java 10</span>
-    <span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">var</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctnewarray">CtNewArray</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtNewArray.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// inline creation of array content</span>
     <span class="kt">int</span><span class="o">[]</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">42</span><span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctnewclass">CtNewClass</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtNewClass.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
    <span class="c1">// an anonymous class creation</span>
-   <span class="n">Runnable</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="n">run</span><span class="o">()</span> <span class="o">{</span>
-          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
-        <span class="o">}</span>
+   <span class="nc">Runnable</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    	<span class="nd">@Override</span>
+    	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    	  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+    	<span class="o">}</span>
    <span class="o">};</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctoperatorassignment">CtOperatorAssignment</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtOperatorAssignment.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="n">x</span> <span class="o">*=</span> <span class="mi">3</span><span class="o">;</span> <span class="c1">// &lt;-- a CtOperatorAssignment</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctreturn">CtReturn</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtReturn.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-   <span class="n">Runnable</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="n">run</span><span class="o">()</span> <span class="o">{</span>
-          <span class="k">return</span><span class="o">;</span> <span class="c1">// &lt;-- CtReturn statement</span>
-        <span class="o">}</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+   <span class="nc">Runnable</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    	<span class="nd">@Override</span>
+    	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    	  <span class="k">return</span><span class="o">;</span> <span class="c1">// &lt;-- CtReturn statement</span>
+    	<span class="o">}</span>
    <span class="o">};</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctsuperaccess">CtSuperAccess</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtSuperAccess.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span> <span class="kt">int</span> <span class="n">foo</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="mi">42</span><span class="o">;}};</span>
-    <span class="kd">class</span> <span class="nc">Bar</span> <span class="kd">extends</span> <span class="n">Foo</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">foo</span><span class="o">()</span> <span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span> <span class="kt">int</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="mi">42</span><span class="o">;}};</span>
+    <span class="kd">class</span> <span class="nc">Bar</span> <span class="kd">extends</span> <span class="nc">Foo</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
       <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span> <span class="c1">// &lt;-- access to super</span>
     <span class="o">}</span>
     <span class="o">};</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctswitch">CtSwitch</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtSwitch.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="k">switch</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// &lt;-- switch statement</span>
     <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctswitchexpression">CtSwitchExpression</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtSwitchExpression.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="k">switch</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// &lt;-- switch expression</span>
     <span class="k">case</span> <span class="mi">1</span> <span class="o">-&gt;</span> <span class="mi">10</span><span class="o">;</span>
     <span class="k">case</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="mi">20</span><span class="o">;</span>
     <span class="k">default</span> <span class="o">-&gt;</span> <span class="mi">30</span><span class="o">;</span>
 <span class="o">};</span>
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctsynchronized">CtSynchronized</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtSynchronized.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
    <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">List</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">();</span>
    <span class="kd">synchronized</span><span class="o">(</span><span class="n">l</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
    <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="cttextblock">CtTextBlock</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtTextBlock.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="n">String</span> <span class="n">example</span> <span class="o">=</span> <span class="s">"""
-              Test String
-              """</span><span class="o">;</span>
 
-</code></pre></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nc">String</span> <span class="n">example</span> <span class="o">=</span> <span class="s">"""
+		      Test String
+       	      """</span><span class="o">;</span>
+
+</code></pre></div></div>
 <h3 id="ctthisaccess">CtThisAccess</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtThisAccess.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">42</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">foo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">;</span> <span class="c1">// &lt;-- access to this</span>
     <span class="o">}</span>
     <span class="o">};</span>
 
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctthrow">CtThrow</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtThrow.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="p">(</span><span class="s">"oops"</span><span class="o">)</span>
 
-</code></pre></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"oops"</span><span class="o">)</span>
+
+</code></pre></div></div>
 <h3 id="cttry">CtTry</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtTry.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="k">try</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ignore</span><span class="o">)</span> <span class="o">{}</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">ignore</span><span class="o">)</span> <span class="o">{}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="cttrywithresource">CtTryWithResource</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtTryWithResource.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
    <span class="c1">// br is the resource</span>
    <span class="k">try</span> <span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">FileReader</span><span class="o">(</span><span class="s">"/foo"</span><span class="o">)))</span> <span class="o">{</span>
-    <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+   	<span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
   <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="cttypeaccess">CtTypeAccess</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtTypeAccess.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// access to static field</span>
-    <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">PrintStream</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">;</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">PrintStream</span> <span class="n">ps</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">;</span>
 
 
     <span class="c1">// call to static method</span>
-    <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"Foo"</span><span class="o">)</span>
+    <span class="nc">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"Foo"</span><span class="o">)</span>
 
 
     <span class="c1">// method reference</span>
@@ -844,63 +853,63 @@ The generic type of <code>CtExpression</code> is used to add static type-checkin
 
 
     <span class="c1">// instanceof test</span>
-    <span class="kt">boolean</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">()</span> <span class="k">instanceof</span> <span class="n">Integer</span> <span class="c1">// Integer is represented as an access to type Integer</span>
+    <span class="kt">boolean</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">()</span> <span class="k">instanceof</span> <span class="nc">Integer</span> <span class="c1">// Integer is represented as an access to type Integer</span>
 
 
     <span class="c1">// fake field "class"</span>
-    <span class="n">Class</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Number</span><span class="o">.</span><span class="na">class</span>
+    <span class="nc">Class</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Number</span><span class="o">.</span><span class="na">class</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctunaryoperator">CtUnaryOperator</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtUnaryOperator.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span>
     <span class="o">--</span><span class="n">x</span><span class="o">;</span> <span class="c1">// &lt;-- unary --</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctvariableread">CtVariableRead</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtVariableRead.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="n">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nc">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span>
       <span class="n">variable</span> <span class="c1">// &lt;-- a variable read</span>
     <span class="o">);</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctvariablewrite">CtVariableWrite</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtVariableWrite.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
-    <span class="n">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nc">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
     <span class="n">variable</span> <span class="o">=</span> <span class="s">"new value"</span><span class="o">;</span> <span class="c1">// variable write</span>
 
 
-    <span class="n">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
     <span class="n">variable</span> <span class="o">+=</span> <span class="s">""</span><span class="o">;</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctwhile">CtWhile</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtWhile.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="k">while</span> <span class="o">(</span><span class="n">x</span><span class="o">!=</span><span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
     <span class="o">};</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctyieldstatement">CtYieldStatement</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtYieldStatement.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="k">switch</span> <span class="o">(</span><span class="s">"foo"</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">default</span> <span class="o">-&gt;</span> <span class="o">{</span>
-                    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
-                    <span class="n">yield</span> <span class="n">x</span><span class="o">;</span> <span class="c1">//&lt;--- yield statement</span>
-                    <span class="o">}</span>
+					<span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+					<span class="n">yield</span> <span class="n">x</span><span class="o">;</span> <span class="c1">//&lt;--- yield statement</span>
+					<span class="o">}</span>
     <span class="o">};</span>
 
 
@@ -909,26 +918,27 @@ The generic type of <code>CtExpression</code> is used to add static type-checkin
         <span class="k">default</span> <span class="o">-&gt;</span> <span class="mi">4</span><span class="o">;</span> <span class="c1">//&lt;---  implicit yield statement</span>
     <span class="o">};</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctannotation">CtAnnotation</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtAnnotation.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// statement annotated by annotation @SuppressWarnings</span>
     <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">"unchecked"</span><span class="o">)</span>
     <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">List</span><span class="o">&lt;?&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;&gt;()</span>
 
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="ctclass">CtClass</h3>
-
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtClass.html">(javadoc)</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     <span class="c1">// a class definition</span>
     <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
        <span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
     <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
 
 
 
@@ -1086,7 +1096,7 @@ The generic type of <code>CtExpression</code> is used to add static type-checkin
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

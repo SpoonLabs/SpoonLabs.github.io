@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -468,123 +477,125 @@
 
   <p>In software, an architectural rule (aka architectural constraint) specifies a design decision on the application. Architectural rules cannot usually be expressed in the programming language itself.
 Architectural rules can be written as AST analysis, which makes Spoon very appropriate to express and check them.
-Since architectural rules must be automatically checked as often as possible, it&#39;s good to have them part of continuous integration.</p>
+Since architectural rules must be automatically checked as often as possible, it’s good to have them part of continuous integration.</p>
 
-<p>To write an architectural rule in Spoon that is checked in CI, the idea is to write a standard Junit test case that loads the application code, express the rule and check it. Doing this only requires to depend on Spoon at testing time, ie <code>&lt;scope&gt;test&lt;/scope&gt;</code> in Maven.</p>
+<p>To write an architectural rule in Spoon that is checked in CI, the idea is to write a standard Junit test case that loads the application code, express the rule and check it. Doing this only requires to depend on Spoon at testing time, ie <code class="language-plaintext highlighter-rouge">&lt;scope&gt;test&lt;/scope&gt;</code> in Maven.</p>
 
 <h3 id="example-rule-never-use-the-treeset-constructor">Example rule: never use the TreeSet constructor</h3>
 
-<p>For instance, let&#39;s imagine that you want to forbid the usage of <code>TreeSet</code>&#39;s constructor, in your code base, you would simply write a test case as follows:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span>
-<span class="kt">void</span> <span class="nf">noTreeSet</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-    <span class="n">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
-    <span class="n">spoon</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"src/main/java/"</span><span class="o">);</span>
-    <span class="n">spoon</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+<p>For instance, let’s imagine that you want to forbid the usage of <code class="language-plaintext highlighter-rouge">TreeSet</code>’s constructor, in your code base, you would simply write a test case as follows:</p>
 
-    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">Package</span><span class="o">().</span><span class="na">getRootPackage</span><span class="o">().</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="n">AbstractFilter</span><span class="o">&lt;</span><span class="n">CtConstructorCall</span><span class="o">&gt;()</span> <span class="o">{</span>
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">matches</span><span class="o">(</span><span class="n">CtConstructorCall</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">element</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">getActualClass</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">TreeSet</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="o">};</span>
-    <span class="o">}).</span><span class="na">size</span><span class="o">());</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">noTreeSet</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+	<span class="nc">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
+	<span class="n">spoon</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"src/main/java/"</span><span class="o">);</span>
+	<span class="n">spoon</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+	
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">Package</span><span class="o">().</span><span class="na">getRootPackage</span><span class="o">().</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="nc">AbstractFilter</span><span class="o">&lt;</span><span class="nc">CtConstructorCall</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">matches</span><span class="o">(</span><span class="nc">CtConstructorCall</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="n">element</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">getActualClass</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="nc">TreeSet</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="o">};</span>
+	<span class="o">}).</span><span class="na">size</span><span class="o">());</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>That&#39;s it! Every time you run the tests, incl. on your continuous integration server, the architectural rules are enforced.</p>
+</code></pre></div></div>
+
+<p>That’s it! Every time you run the tests, incl. on your continuous integration server, the architectural rules are enforced.</p>
 
 <p>For instance, you can check that you never return null, or always use an appropriate factory, or that all classes implementing an interface are in the same package.</p>
 
-<h3 id="example-rule-all-test-classes-must-start-or-end-with-quot-test-quot">Example rule: all test classes must start or end with &quot;Test&quot;</h3>
+<h3 id="example-rule-all-test-classes-must-start-or-end-with-test">Example rule: all test classes must start or end with “Test”</h3>
 
-<p>A common mistake is to forget to follow a naming convention. For instance, if you use Maven, all test classes must be named <code>Test*</code> or <code>*Test</code> in order to be run by Maven&#39;s standard test plugin <code>surefire</code> (<a href="http://maven.apache.org/surefire/maven-surefire-plugin/examples/inclusion-exclusion.html">see doc</a>). This rule simply reads:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGoodTestClassNames</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-    <span class="n">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+<p>A common mistake is to forget to follow a naming convention. For instance, if you use Maven, all test classes must be named <code class="language-plaintext highlighter-rouge">Test*</code> or <code class="language-plaintext highlighter-rouge">*Test</code> in order to be run by Maven’s standard test plugin <code class="language-plaintext highlighter-rouge">surefire</code> (<a href="http://maven.apache.org/surefire/maven-surefire-plugin/examples/inclusion-exclusion.html">see doc</a>). This rule simply reads:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGoodTestClassNames</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="nc">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
     <span class="n">spoon</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"src/test/java/"</span><span class="o">);</span>
     <span class="n">spoon</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
 
-    <span class="k">for</span> <span class="o">(</span><span class="n">CtMethod</span><span class="o">&lt;?&gt;</span> <span class="n">meth</span> <span class="o">:</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getModel</span><span class="o">().</span><span class="na">getRootPackage</span><span class="o">().</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="n">TypeFilter</span><span class="o">&lt;</span><span class="n">CtMethod</span><span class="o">&gt;(</span><span class="n">CtMethod</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">CtMethod</span><span class="o">&lt;?&gt;</span> <span class="n">meth</span> <span class="o">:</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getModel</span><span class="o">().</span><span class="na">getRootPackage</span><span class="o">().</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="nc">TypeFilter</span><span class="o">&lt;</span><span class="nc">CtMethod</span><span class="o">&gt;(</span><span class="nc">CtMethod</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
             <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">matches</span><span class="o">(</span><span class="n">CtMethod</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">matches</span><span class="o">(</span><span class="n">element</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">element</span><span class="o">.</span><span class="na">getAnnotation</span><span class="o">(</span><span class="n">Test</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">matches</span><span class="o">(</span><span class="nc">CtMethod</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">matches</span><span class="o">(</span><span class="n">element</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">element</span><span class="o">.</span><span class="na">getAnnotation</span><span class="o">(</span><span class="nc">Test</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
             <span class="o">}</span>
     <span class="o">}))</span> <span class="o">{</span>
-            <span class="n">assertTrue</span><span class="o">(</span><span class="s">"naming contract violated for "</span><span class="o">+</span><span class="n">meth</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="n">CtClass</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getSimpleName</span><span class="o">(),</span> <span class="n">meth</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="n">CtClass</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getSimpleName</span><span class="o">().</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"Test"</span><span class="o">)</span> <span class="o">||</span> <span class="n">meth</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="n">CtClass</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getSimpleName</span><span class="o">().</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"Test"</span><span class="o">));</span>
+            <span class="n">assertTrue</span><span class="o">(</span><span class="s">"naming contract violated for "</span><span class="o">+</span><span class="n">meth</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="nc">CtClass</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getSimpleName</span><span class="o">(),</span> <span class="n">meth</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="nc">CtClass</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getSimpleName</span><span class="o">().</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"Test"</span><span class="o">)</span> <span class="o">||</span> <span class="n">meth</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="nc">CtClass</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getSimpleName</span><span class="o">().</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"Test"</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="example-rule-all-public-methods-must-be-documented">Example rule: all public methods must be documented</h3>
 
 <p>How to check that all public methods of the API contain proper Javadoc? One can also use Spoon to check documentation rules like this one.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDocumentation</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-    <span class="n">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDocumentation</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="nc">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
     <span class="n">spoon</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"src/main/java/"</span><span class="o">);</span>
     <span class="n">spoon</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">notDocumented</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-    <span class="k">for</span> <span class="o">(</span><span class="n">CtMethod</span> <span class="n">method</span> <span class="o">:</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getModel</span><span class="o">().</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="n">TypeFilter</span><span class="o">&lt;&gt;(</span><span class="n">CtMethod</span><span class="o">.</span><span class="na">class</span><span class="o">)))</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">notDocumented</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">CtMethod</span> <span class="n">method</span> <span class="o">:</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getModel</span><span class="o">().</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="nc">TypeFilter</span><span class="o">&lt;&gt;(</span><span class="nc">CtMethod</span><span class="o">.</span><span class="na">class</span><span class="o">)))</span> <span class="o">{</span>
             <span class="c1">// now we see whether this should be documented</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">hasModifier</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">hasModifier</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
                 <span class="o">&amp;&amp;</span> <span class="n">method</span><span class="o">.</span><span class="na">getTopDefinitions</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="c1">// optional: only the top declarations should be documented (not the overriding methods which are lower in the hierarchy)</span>
             <span class="o">))</span> <span class="o">{</span>
                     <span class="c1">// is it really well documented?</span>
                     <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getDocComment</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// at least 20 characters</span>
-                            <span class="n">notDocumented</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="n">CtType</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getQualifiedName</span><span class="o">()</span> <span class="o">+</span> <span class="s">"#"</span> <span class="o">+</span> <span class="n">method</span><span class="o">.</span><span class="na">getSignature</span><span class="o">());</span>
+                            <span class="n">notDocumented</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="nc">CtType</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getQualifiedName</span><span class="o">()</span> <span class="o">+</span> <span class="s">"#"</span> <span class="o">+</span> <span class="n">method</span><span class="o">.</span><span class="na">getSignature</span><span class="o">());</span>
                     <span class="o">}</span>
             <span class="o">}</span>
     <span class="o">}</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">notDocumented</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">fail</span><span class="o">(</span><span class="n">notDocumented</span><span class="o">.</span><span class="na">size</span><span class="o">()+</span><span class="s">" public methods should be documented with proper API documentation: \n"</span><span class="o">+</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">notDocumented</span><span class="o">,</span> <span class="s">"\n"</span><span class="o">));</span>
+            <span class="n">fail</span><span class="o">(</span><span class="n">notDocumented</span><span class="o">.</span><span class="na">size</span><span class="o">()+</span><span class="s">" public methods should be documented with proper API documentation: \n"</span><span class="o">+</span><span class="nc">StringUtils</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">notDocumented</span><span class="o">,</span> <span class="s">"\n"</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<h3 id="example-rule-all-private-fields-mustn-39-t-be-unused">Example rule: all private fields mustn&#39;t be unused.</h3>
-
+</code></pre></div></div>
+<h3 id="example-rule-all-private-fields-mustnt-be-unused">Example rule: all private fields mustn’t be unused.</h3>
 <p>How to check that all private fields are used?
 We define used here as every field has a read. We can skip the check for writes, because a read to a field will never happen without a write.
 In 8 simple steps we can check this. You can easily extend this for public fields, but sometime public fields together expose an API and have no read.
-Or you extend the check for writes. This could find fields reading a field before a write. 
-<code>java
-    // Step 1: create model
-    SpoonAPI spoon = new Launcher();
-    spoon.addInputResource(&quot;src/main/java/&quot;);
-    CtModel model = spoon.buildModel();
-    // Step2: Query the model for all fields
-    List&lt;CtField&lt;?&gt;&gt; fields = model.getElements(new TypeFilter&lt;&gt;(CtField.class));
-    // Step 3: Remove fields not matching conditions. Our conditions here are:
-    // 1. Only private fields
-    // 2. No serialization fields  
-    // Filter non private fields
-    fields.removeIf(v -&gt; !v.isPrivate());
-    // remove fields for serialization gods
-    fields.removeIf(v -&gt; v.getSimpleName().equals(&quot;serialVersionUID&quot;));
-    // Step 4: Query the model for all fieldReads
-    List&lt;CtFieldRead&lt;?&gt;&gt; fieldRead = model.getElements(new TypeFilter&lt;&gt;(CtFieldRead.class));
-    // some fieldReads have no variable declaration
-    fieldRead.removeIf(v -&gt; v.getVariable().getFieldDeclaration() == null);
-    // convert to HashSet for faster lookup. We trade memory for lookup speed.
-    // Step 5: Query every fieldRead for there declaring field 
-    HashSet&lt;CtField&lt;?&gt;&gt; lookUp = fieldRead.stream()
-            .map(CtFieldRead::getVariable)
-            .map(v -&gt; v.getFieldDeclaration())
-                    .collect(Collectors.toCollection(HashSet::new));
-    // Step 6: Lookup every field in the set. The set contains all fields, that have a read.
-    List&lt;CtField&lt;?&gt;&gt; fieldsWithRead = fields.stream()
-            //   every field must have a read
-            .filter(field -&gt; lookUp.contains(field))
-    .collect(Collectors.toList());
-    // Step 7: Remove the fields having a read from the set of fields. 
-    fields.removeAll(fieldsWithRead);
-    // Step 8: Lets compare our result. if the set is empty, every field has a read, otherwise print the fields without read. 
-    assertEquals(&quot;Some Fields have no read/write&quot;, Collections.emptyList(), fields);
-</code></p>
-
+Or you extend the check for writes. This could find fields reading a field before a write.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Step 1: create model</span>
+    <span class="nc">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
+    <span class="n">spoon</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"src/main/java/"</span><span class="o">);</span>
+    <span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">spoon</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+    <span class="c1">// Step2: Query the model for all fields</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">CtField</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="nc">TypeFilter</span><span class="o">&lt;&gt;(</span><span class="nc">CtField</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+    <span class="c1">// Step 3: Remove fields not matching conditions. Our conditions here are:</span>
+    <span class="c1">// 1. Only private fields</span>
+    <span class="c1">// 2. No serialization fields  </span>
+    <span class="c1">// Filter non private fields</span>
+    <span class="n">fields</span><span class="o">.</span><span class="na">removeIf</span><span class="o">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="o">!</span><span class="n">v</span><span class="o">.</span><span class="na">isPrivate</span><span class="o">());</span>
+    <span class="c1">// remove fields for serialization gods</span>
+    <span class="n">fields</span><span class="o">.</span><span class="na">removeIf</span><span class="o">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="n">v</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"serialVersionUID"</span><span class="o">));</span>
+    <span class="c1">// Step 4: Query the model for all fieldReads</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">CtFieldRead</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">fieldRead</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="nc">TypeFilter</span><span class="o">&lt;&gt;(</span><span class="nc">CtFieldRead</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+    <span class="c1">// some fieldReads have no variable declaration</span>
+    <span class="n">fieldRead</span><span class="o">.</span><span class="na">removeIf</span><span class="o">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="n">v</span><span class="o">.</span><span class="na">getVariable</span><span class="o">().</span><span class="na">getFieldDeclaration</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="c1">// convert to HashSet for faster lookup. We trade memory for lookup speed.</span>
+    <span class="c1">// Step 5: Query every fieldRead for there declaring field </span>
+    <span class="nc">HashSet</span><span class="o">&lt;</span><span class="nc">CtField</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">lookUp</span> <span class="o">=</span> <span class="n">fieldRead</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+    		<span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">CtFieldRead:</span><span class="o">:</span><span class="n">getVariable</span><span class="o">)</span>
+    		<span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="n">v</span><span class="o">.</span><span class="na">getFieldDeclaration</span><span class="o">())</span>
+                    <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toCollection</span><span class="o">(</span><span class="nl">HashSet:</span><span class="o">:</span><span class="k">new</span><span class="o">));</span>
+    <span class="c1">// Step 6: Lookup every field in the set. The set contains all fields, that have a read.</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">CtField</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">fieldsWithRead</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+    		<span class="c1">// 	 every field must have a read</span>
+    		<span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">field</span> <span class="o">-&gt;</span> <span class="n">lookUp</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">field</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+    <span class="c1">// Step 7: Remove the fields having a read from the set of fields. </span>
+    <span class="n">fields</span><span class="o">.</span><span class="na">removeAll</span><span class="o">(</span><span class="n">fieldsWithRead</span><span class="o">);</span>
+    <span class="c1">// Step 8: Lets compare our result. if the set is empty, every field has a read, otherwise print the fields without read. </span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">"Some Fields have no read/write"</span><span class="o">,</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">(),</span> <span class="n">fields</span><span class="o">);</span>
+</code></pre></div></div>
 <h3 id="related-work-in-architecture-enforcement">Related work in architecture enforcement</h3>
 
 <ul>
-<li><a href="https://saturnnetwork.wordpress.com/2012/11/26/ultimate-architecture-enforcement-prevent-code-violations-at-code-commit-time/">Architecture enforcement with Checkstyle</a></li>
-<li><a href="https://docs.sonarqube.org/display/SONARQUBE44/Architecture+Rule+Engine">Sonar architecture rule engine</a></li>
-<li><a href="https://www.archunit.org/">Archunit:  specify and assert architecture rules in plain Java</a> (<a href="https://github.com/societe-generale/arch-unit-maven-plugin">Maven integration</a>)</li>
-<li><a href="https://jqassistant.org/">jqassistant</a> does architectural checking on top of Neo4J.</li>
+  <li><a href="https://saturnnetwork.wordpress.com/2012/11/26/ultimate-architecture-enforcement-prevent-code-violations-at-code-commit-time/">Architecture enforcement with Checkstyle</a></li>
+  <li><a href="https://docs.sonarqube.org/display/SONARQUBE44/Architecture+Rule+Engine">Sonar architecture rule engine</a></li>
+  <li><a href="https://www.archunit.org/">Archunit:  specify and assert architecture rules in plain Java</a> (<a href="https://github.com/societe-generale/arch-unit-maven-plugin">Maven integration</a>)</li>
+  <li><a href="https://jqassistant.org/">jqassistant</a> does architectural checking on top of Neo4J.</li>
 </ul>
 
 
@@ -744,7 +755,7 @@ Or you extend the check for writes. This could find fields reading a field befor
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

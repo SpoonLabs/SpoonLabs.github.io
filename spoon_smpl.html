@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="semantic-patching,  patch, patching, semantic, smpl, spoon">
+<title>Semantic patching  | Spoon</title>
+<link rel="stylesheet" type="text/css" href="css/syntax.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="css/lavish-bootstrap.css">
+<link rel="canonical" href="/spoon_smpl.html">
+<link rel="stylesheet" type="text/css" href="css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
+<link rel="canonical" href="/spoon_smpl.html">
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+  <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Spoon</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+                
+                
+                
+                
+                <li><a href="papers.html">Papers</a></li>
+                
+                
+                
+                
+                
+                <li><a href="ecosystem.html">Ecosystem</a></li>
+                
+                
+                
+                
+                
+                <li><a href="about.html">About</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://ci.inria.fr/sos/" target="_blank">Jenkins</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/INRIA/spoon" target="_blank">Github</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="col-lg-12">&nbsp;</div>
+
+      <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                        // Initialize navgoco with default options
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active', // open
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                        },
+                        slide: {
+                            duration: 400,
+                            easing: 'swing'
+                                }
+                                });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <div class="siteTagline">Spoon</div>
+
+            
+            
+            
+            <li><a href="#">Getting started</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_analysis_processor.html">Code Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="architecture_test.html">Architecture Checking</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="reflection.html">Runtime Reflection</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="custom-pretty-printing.html">Custom Java Pretty-Printing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor.html">Processor for elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Querying source code elements</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="filter.html">AST Traversing</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="path.html">AST Paths and Roles</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="matcher.html">Matcher</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html">Pattern</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Code Transformation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="first_transformation.html">Code Transformation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="examples.html">Transformation Examples</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="processor_annotations.html">Transformation with annotations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li class="active"><a href="spoon_smpl.html">Semantic patching</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="pattern.html#generator">Code Generation</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="testing_quickstart.html">Testing transformations</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Usage</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="launcher.html">From Java</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="command_line.html">Command Line</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="maven.html">From Maven Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="gradle.html">From Gradle Plugin</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+            
+            <li><a href="#">Spoon Meta model</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="structural_elements.html">Structural elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="code_elements.html">Code elements</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="references.html">References</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="factories.html">Create elements with factories</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="comments.html">Comments and Positions</a></li>
+                    
+
+                    
+            </li>
+            
+            
+            </ul>
+        </li>
+        
+        
+        
+        </ul>
+
+        
+    </div>
+       <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+
+          <div class="post-header">
+   <h1 class="post-title-main">Semantic patching</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+  <p>The <a href="https://github.com/mkforsb/spoon/tree/smpl/spoon-smpl">spoon-smpl</a> submodule provides a
+prototype implementation of a subset of <a href="http://coccinelle.lip6.fr/">SmPL</a> (Semantic Patch Language)
+for a subset of Java. SmPL patches can be thought of as traditional plain text patches with enhanced
+expressiveness thanks to support for the syntax and semantics of specific programming languages. For
+example, a Java SmPL patch can be written to specify a generic transformation that reorders of a series
+of method call arguments without having to worry about matching any specific literal variable names
+or other literal argument expressions.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>On a Unix-like system, the following set of commands should be sufficient for getting spoon-smpl up
+and running from scratch.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone -b smpl https://github.com/mkforsb/spoon.git
+$ cd spoon/spoon-smpl
+$ mvn package
+$ ./tools/smplcli.sh
+usage:
+smplcli ACTION [ARG [ARG ..]]
+
+    ACTIONs:
+        patch        apply SmPL patch
+                     requires --smpl-file and --java-file
+
+        check        run model checker
+                     requires --smpl-file and --java-file
+
+        checksub     run model checker on every subformula
+                     requires --smpl-file and --java-file
+
+        rewrite      rewrite SmPL input
+                     requires --smpl-file
+
+        compile      compile SmPL input
+                     requires --smpl-file
+
+        ctl          compile and print CTL formula
+                     requires --smpl-file
+
+    ARGs:
+        --smpl-file FILENAME
+        --java-file FILENAME
+</code></pre></div></div>
+
+<p>Alternatively, the command line application can be invoked directly as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -cp &lt;classpath&gt; spoon.smpl.CommandlineApplication
+</code></pre></div></div>
+
+<h3 id="scope-of-implementation">Scope of implementation</h3>
+
+<p>Due in large to the prototypical nature of the current implementation there is a lack of clear
+specification and documentation. The most helpful resources currently available are:</p>
+
+<ol>
+  <li><a href="https://github.com/mkforsb/spoon/blob/smpl/spoon-smpl/smpl_grammar.txt">smpl_grammar.txt</a>: covers parts of the currently supported grammar.</li>
+  <li><a href="https://github.com/mkforsb/spoon/tree/smpl/spoon-smpl/src/test/resources/endtoend">Test cases</a>: contains easy-to-read test cases that reveal both supported patch language features and supported Java elements.</li>
+  <li><a href="https://github.com/mkforsb/spoon/blob/smpl/spoon-smpl/src/main/java/spoon/smpl/pattern/PatternBuilder.java">PatternBuilder.java</a>: shows the set of matchable Java elements, but can be cumbersome to read.</li>
+  <li><a href="https://github.com/mkforsb/spoon/blob/smpl/spoon-smpl/src/main/java/spoon/smpl/Substitutor.java">Substitutor.java</a>: shows the set of transformable Java elements, but can be cumbersome to read.</li>
+</ol>
+
+<h3 id="basic-usage">Basic usage</h3>
+
+<p>The basic use case of spoon-smpl involves at minimum two files: one .java source file and one 
+semantic patch. For this tutorial, we will use the following two files:</p>
+
+<h4 id="file-1-example-semantic-patch-patchsmpl">File 1: example semantic patch (patch.smpl)</h4>
+<div class="language-patch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@@
+type T;
+identifier ret;
+constant C;
+@@</span>
+<span class="gd">- T ret = C;
+</span><span class="err">...</span> when != ret
+<span class="gd">- return ret;
+</span><span class="gi">+ return C;
+</span></code></pre></div></div>
+
+<p>This example patch removes local variables only used to return a constant.</p>
+
+<h4 id="file-2-example-java-source-programjava">File 2: example Java source (Program.java)</h4>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Program</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">fn1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">fn2</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">print</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        
+        <span class="k">if</span> <span class="o">(</span><span class="n">print</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hello from fn2"</span><span class="o">);</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">fn3</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">print</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        
+        <span class="k">if</span> <span class="o">(</span><span class="n">print</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We then apply the semantic patch to the Java source code as follows (output also shown):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./tools/smplcli.sh patch --smpl-file patch.smpl --java-file Program.java
+
+public class Program {
+    public int fn1() {
+        return 1;
+    }
+
+    public int fn2(boolean print) {
+        if (print) {
+            java.lang.System.out.println("hello from fn2");
+        }
+        return 2;
+    }
+
+    public int fn3(boolean print) {
+        int x = 3;
+        if (print) {
+            java.lang.System.out.println(x);
+        }
+        return x;
+    }
+}
+
+</code></pre></div></div>
+
+<h3 id="graphical-interface">Graphical interface</h3>
+
+<p>There is a very simple graphical interface available in <code class="language-plaintext highlighter-rouge">tools/smplgui.py</code>. This tool requires 
+Python 3 and a suitable <code class="language-plaintext highlighter-rouge">python3-pyqt5</code> package providing Qt5 bindings, in particular the module
+<code class="language-plaintext highlighter-rouge">PyQt5.QtGui</code>. Furthermore, the tool currently assumes it is executing on a Unix-like system from
+a working directory in which the file <code class="language-plaintext highlighter-rouge">./tools/smplcli.sh</code> is available to run spoon-smpl. As such,
+it is recommended to start the tool from the spoon-smpl root folder using the command <code class="language-plaintext highlighter-rouge">$ ./tools/smplgui.py</code>.</p>
+
+<p><img src="/images/smplgui.png" alt="Spoon-smpl graphical interface" /></p>
+
+<p>The tool provides two panes for editing the semantic patch and some Java source code, respectively.
+The upper left pane contains the semantic patch, while the upper right pane contains the Java source
+code. Finally, the tool provides a number of modes for invoking spoon-smpl using the inputs shown in
+the two panes. To change mode one presses the F6 key followed by the key corresponding to the
+desired mode, as shown in the image below. To execute the currently selected mode, one presses the
+F5 key.</p>
+
+<p><img src="/images/smplgui-modes.png" alt="Spoon-smpl graphical interface modes" /></p>
+
+<p>These modes correspond to the <code class="language-plaintext highlighter-rouge">ACTION</code> alternatives present in <code class="language-plaintext highlighter-rouge">spoon.smpl.CommandLineApplication</code>,
+with the addition of the <code class="language-plaintext highlighter-rouge">gentest</code> mode which generates a test case in a special format for the
+inputs present in the two upper panes.</p>
+
+<h3 id="batch-processing">Batch processing</h3>
+
+<p>Spoon-smpl provides a batch processing mode in which a single semantic patch is applied to a full
+source tree recursively. This mode is implemented in the form of a Spoon <code class="language-plaintext highlighter-rouge">Processor</code> that also
+features a <code class="language-plaintext highlighter-rouge">main</code> method. The following example command is intended to be executed in the spoon-smpl
+root directory, where a call to <code class="language-plaintext highlighter-rouge">mvn package</code> has placed a full suite of <code class="language-plaintext highlighter-rouge">.jar</code> files in the
+<code class="language-plaintext highlighter-rouge">./target</code> sub-directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -cp $(for f in target/*.jar; do echo -n $f:; done) spoon.smpl.SmPLProcessor \
+       --with-diff-command "bash -c \"diff -U5 -u {a} {b}\""                       \
+       --with-smpl-file "path/to/patch.smpl"                                       \
+       
+       ## The following options are passed to spoon.Launcher, more may be added
+       -i "path/to/target/source"                                                  \
+       -o "path/to/write/output"                                                   \
+       -p spoon.smpl.SmPLProcessor
+</code></pre></div></div>
+
+<p>The expression <code class="language-plaintext highlighter-rouge">-cp $(for f in target/*.jar; do echo -n $f:; done)</code> collects and places on the
+classpatch all <code class="language-plaintext highlighter-rouge">.jar</code> files found in the <code class="language-plaintext highlighter-rouge">target</code> sub-directory.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">--with-diff-command</code> option expects a shell-executable command string containing the
+placeholder expressions <code class="language-plaintext highlighter-rouge">{a}</code> and <code class="language-plaintext highlighter-rouge">{b}</code>. The placeholders are substituted for the full paths to the
+pretty-printed input and the pretty-printed output respectively, for each modified file in the
+source tree. For example, in the event that spoon-smpl during batch processing has modified a file
+<code class="language-plaintext highlighter-rouge">Program.java</code>, the option used in the example command would result in a command akin to the
+following being executed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash -c "diff -U5 -u /tmp/9qKMH/Program.java /tmp/CYd40/Program.java"
+</code></pre></div></div>
+
+<h3 id="developing">Developing</h3>
+
+<p>The following code shows the core workflow of spoon-smpl, and is intended to guide developers
+towards finding the code for the component(s) of interest:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="nf">tryApplyPatch</span><span class="o">(</span><span class="nc">String</span> <span class="n">plainTextSmPLCode</span><span class="o">,</span> <span class="nc">CtExecutable</span> <span class="n">patchTargetExe</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Parse a plain text SmPL patch</span>
+    <span class="nc">SmPLRule</span> <span class="n">rule</span> <span class="o">=</span> <span class="nc">SmPLParser</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">plainTextSmPLCode</span><span class="o">);</span>
+
+    <span class="c1">// Create the CFG from the executable block</span>
+    <span class="nc">SmPLMethodCFG</span> <span class="n">cfg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmPLMethodCFG</span><span class="o">(</span><span class="n">patchTargetExe</span><span class="o">);</span>
+
+    <span class="c1">// Create the CTL model from the CFG</span>
+    <span class="nc">CFGModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CFGModel</span><span class="o">(</span><span class="n">cfg</span><span class="o">);</span>
+
+    <span class="c1">// Create the model checker</span>
+    <span class="nc">ModelChecker</span> <span class="n">checker</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ModelChecker</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+    
+    <span class="c1">// Run the model checker on the formula that encodes the SmPL patch</span>
+    <span class="c1">// This uses the visitor pattern</span>
+    <span class="c1">//   We ask the formula tree to accept the model checker visitor</span>
+    <span class="n">rule</span><span class="o">.</span><span class="na">getFormula</span><span class="o">().</span><span class="na">accept</span><span class="o">(</span><span class="n">checker</span><span class="o">);</span>
+
+    <span class="c1">// Fetch the results</span>
+    <span class="nc">ModelChecker</span><span class="o">.</span><span class="na">ResultSet</span> <span class="n">results</span> <span class="o">=</span> <span class="n">checker</span><span class="o">.</span><span class="na">getResult</span><span class="o">();</span>
+
+    <span class="c1">// If we get an empty result, there were no matches</span>
+    <span class="c1">// If we get no witnesses, there were no transformations to apply</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">results</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">results</span><span class="o">.</span><span class="na">getAllWitnesses</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+        <span class="c1">// Restore metamodel changes applied by SmPLMethodCFG</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">getCfg</span><span class="o">().</span><span class="na">restoreUnsupportedElements</span><span class="o">();</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Apply transformations</span>
+    <span class="nc">Transformer</span><span class="o">.</span><span class="na">transform</span><span class="o">(</span><span class="n">model</span><span class="o">,</span> <span class="n">results</span><span class="o">.</span><span class="na">getAllWitnesses</span><span class="o">());</span>
+
+    <span class="c1">// Copy any new methods added by the patch</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">rule</span><span class="o">.</span><span class="na">getMethodsAdded</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Transformer</span><span class="o">.</span><span class="na">copyAddedMethods</span><span class="o">(</span><span class="n">model</span><span class="o">,</span> <span class="n">rule</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Restore metamodel changes applied by SmPLMethodCFG</span>
+    <span class="n">model</span><span class="o">.</span><span class="na">getCfg</span><span class="o">().</span><span class="na">restoreUnsupportedElements</span><span class="o">();</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/> 
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
+                Site last generated: Mar 30, 2021 <br />
+                </div>
+            </div>
+        </footer>
+
+      </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+  </body>
+
+  
+  <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24273081-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+</html>
+

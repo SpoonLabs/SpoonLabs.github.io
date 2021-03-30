@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -466,72 +475,78 @@
 
    
 
-  <p><code>CtPath</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPath.html">javadoc</a>)
-defines the path to a <code>CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>)
-in a model, similarly to XPath for XML. For example, <code>.spoon.test.path.testclasses.Foo.foo#body#statement[index=0]</code> represents the first statement of the body of method foo.
-A <code>CtPath</code>is based on: names of elements (eg <code>foo</code>), and roles of elements with respect to their parent (eg <code>body</code>).
+  <p><code class="language-plaintext highlighter-rouge">CtPath</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPath.html">javadoc</a>)
+defines the path to a <code class="language-plaintext highlighter-rouge">CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>)
+in a model, similarly to XPath for XML. For example, <code class="language-plaintext highlighter-rouge">.spoon.test.path.testclasses.Foo.foo#body#statement[index=0]</code> represents the first statement of the body of method foo.
+A <code class="language-plaintext highlighter-rouge">CtPath</code>is based on: names of elements (eg <code class="language-plaintext highlighter-rouge">foo</code>), and roles of elements with respect to their parent (eg <code class="language-plaintext highlighter-rouge">body</code>).
 A role is a relation between two AST nodes.
-For instance, a &quot;then&quot; branch in a if/then/else is a role (and not an node). All roles can be found in <code>CtRole</code>. In addition, each getter or setter in the metamodel is annotated with its role.</p>
+For instance, a “then” branch in a if/then/else is a role (and not an node). All roles can be found in <code class="language-plaintext highlighter-rouge">CtRole</code>. In addition, each getter or setter in the metamodel is annotated with its role.</p>
 
 <h3 id="evaluating-ast-paths">Evaluating AST paths</h3>
 
 <p>Paths are used to find code elements, from a given root elements.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">path</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtPathStringBuilder</span><span class="o">().</span><span class="na">fromString</span><span class="o">(</span><span class="s">".spoon.test.path.testclasses.Foo.foo#body#statement[index=0]"</span><span class="o">);</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="n">CtElement</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="na">evaluateOn</span><span class="o">(</span><span class="n">root</span><span class="o">)</span>
-</code></pre></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">path</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CtPathStringBuilder</span><span class="o">().</span><span class="na">fromString</span><span class="o">(</span><span class="s">".spoon.test.path.testclasses.Foo.foo#body#statement[index=0]"</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">CtElement</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="na">evaluateOn</span><span class="o">(</span><span class="n">root</span><span class="o">)</span>
+</code></pre></div></div>
+
 <h3 id="creating-ast-paths">Creating AST paths</h3>
 
 <h4 id="from-an-existing-element">From an existing element</h4>
 
-<p>Method <code>getPath</code> in <code>CtElement</code> returns a path</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">anElement</span><span class="o">.</span><span class="na">getPath</span><span class="o">();</span>
-</code></pre></div>
+<p>Method <code class="language-plaintext highlighter-rouge">getPath</code> in <code class="language-plaintext highlighter-rouge">CtElement</code> returns a path</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">anElement</span><span class="o">.</span><span class="na">getPath</span><span class="o">();</span>
+</code></pre></div></div>
+
 <h4 id="from-a-string">From a string</h4>
 
-<p><code>CtPathStringBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathStringBuilder.html">javadoc</a>), creates a path object from a string according to the following syntax:</p>
+<p><code class="language-plaintext highlighter-rouge">CtPathStringBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathStringBuilder.html">javadoc</a>), creates a path object from a string according to the following syntax:</p>
 
 <ul>
-<li><code>.&lt;name&gt;</code> which denotes a child element with name <code>name</code>, eg <code>.fr.inria.Spoon</code> (the fully qualified name)</li>
-<li><code>#&lt;role&gt;</code> which denotes all children on <code>CtRole</code> <code>role</code> .statements, <code>#body#statement[index=2]#else</code> is the else branch of the second statement of a method body</li>
-<li><code>name=&lt;somename&gt;</code> - filter which accepts only elements with <code>somename</code>. E.g. <code>#field[name=abc]</code></li>
-<li><code>signature=&lt;somesignature&gt;</code> - filter which accepts only methods and constructors with signature <code>somesignature</code>.
-
-<ul>
-<li>Example of method signature: <code>#method[signature=compare(java.lang.String,java.lang.String)]</code></li>
-<li>Example of constructor signature: <code>#constructor[signature=(int)]</code></li>
-</ul></li>
-<li><code>index=&lt;idx&gt;</code> - fitler which accepts only idx-th element of the List. The first element has index 0. the fifth type memeber in a class <code>#typeMember[index=4]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.&lt;name&gt;</code> which denotes a child element with name <code class="language-plaintext highlighter-rouge">name</code>, eg <code class="language-plaintext highlighter-rouge">.fr.inria.Spoon</code> (the fully qualified name)</li>
+  <li><code class="language-plaintext highlighter-rouge">#&lt;role&gt;</code> which denotes all children on <code class="language-plaintext highlighter-rouge">CtRole</code> <code class="language-plaintext highlighter-rouge">role</code> .statements, <code class="language-plaintext highlighter-rouge">#body#statement[index=2]#else</code> is the else branch of the second statement of a method body</li>
+  <li><code class="language-plaintext highlighter-rouge">name=&lt;somename&gt;</code> - filter which accepts only elements with <code class="language-plaintext highlighter-rouge">somename</code>. E.g. <code class="language-plaintext highlighter-rouge">#field[name=abc]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">signature=&lt;somesignature&gt;</code> - filter which accepts only methods and constructors with signature <code class="language-plaintext highlighter-rouge">somesignature</code>.
+    <ul>
+      <li>Example of method signature: <code class="language-plaintext highlighter-rouge">#method[signature=compare(java.lang.String,java.lang.String)]</code></li>
+      <li>Example of constructor signature: <code class="language-plaintext highlighter-rouge">#constructor[signature=(int)]</code></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">index=&lt;idx&gt;</code> - fitler which accepts only idx-th element of the List. The first element has index 0. the fifth type memeber in a class <code class="language-plaintext highlighter-rouge">#typeMember[index=4]</code></li>
 </ul>
 
 <h4 id="from-the-api">From the API</h4>
 
-<p>The low-level <code>CtPathBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html">javadoc</a>) defines a fluent api to build your path:</p>
+<p>The low-level <code class="language-plaintext highlighter-rouge">CtPathBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html">javadoc</a>) defines a fluent api to build your path:</p>
 
 <ul>
-<li><code>name(String, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#name-java.lang.String-java.lang.String:A...-">javadoc</a>)
+  <li><code class="language-plaintext highlighter-rouge">name(String, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#name-java.lang.String-java.lang.String:A...-">javadoc</a>)
 adds a name matcher to the current path.</li>
-<li><code>type(Class, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#type-java.lang.Class-java.lang.String:A...-">javadoc</a>)
+  <li><code class="language-plaintext highlighter-rouge">type(Class, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#type-java.lang.Class-java.lang.String:A...-">javadoc</a>)
 matches on element of a given type.</li>
-<li><code>role(CtPathRole, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#role-spoon.reflect.path.CtPathRole-java.lang.String:A...-">javadoc</a>)
-matches on elements by their role (where <code>CtPathRole</code> gives all constants supported).</li>
-<li><code>wildcard()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#wildcard--">javadoc</a>)
+  <li><code class="language-plaintext highlighter-rouge">role(CtPathRole, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#role-spoon.reflect.path.CtPathRole-java.lang.String:A...-">javadoc</a>)
+matches on elements by their role (where <code class="language-plaintext highlighter-rouge">CtPathRole</code> gives all constants supported).</li>
+  <li><code class="language-plaintext highlighter-rouge">wildcard()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#wildcard--">javadoc</a>)
 matches only on elements child of current one.</li>
-<li><code>recursiveWildcard()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#recursiveWildcard--">javadoc</a>)
+  <li><code class="language-plaintext highlighter-rouge">recursiveWildcard()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#recursiveWildcard--">javadoc</a>)
 matches on any child and sub-children.</li>
 </ul>
 
-<p>For instance, if we want all elements named by &quot;toto&quot; and with a default value in
-a project. Use <code>CtPathBuilder</code> like the example below.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtPath</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtPathBuilder</span><span class="o">().</span><span class="na">recursiveWildcard</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">).</span><span class="na">role</span><span class="o">(</span><span class="n">CtPathRole</span><span class="o">.</span><span class="na">DEFAULT_VALUE</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+<p>For instance, if we want all elements named by “toto” and with a default value in
+a project. Use <code class="language-plaintext highlighter-rouge">CtPathBuilder</code> like the example below.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtPath</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CtPathBuilder</span><span class="o">().</span><span class="na">recursiveWildcard</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">).</span><span class="na">role</span><span class="o">(</span><span class="nc">CtPathRole</span><span class="o">.</span><span class="na">DEFAULT_VALUE</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
 <span class="c1">// equivalent to</span>
-<span class="n">CtPath</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtPathStringBuilder</span><span class="o">().</span><span class="na">fromString</span><span class="o">(</span><span class="s">".**.toto#default_value"</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">CtPath</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CtPathStringBuilder</span><span class="o">().</span><span class="na">fromString</span><span class="o">(</span><span class="s">".**.toto#default_value"</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
 
 <span class="c1">// takes all elements named "toto" in the project. </span>
-<span class="k">new</span> <span class="nf">CtPathBuilder</span><span class="p">(</span><span class="o">).</span><span class="na">recursiveWildcard</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">)</span>
+<span class="k">new</span> <span class="nf">CtPathBuilder</span><span class="o">().</span><span class="na">recursiveWildcard</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">)</span>
 
 <span class="c1">// takes the first element named "toto", a package or a class in the default package, at the root of your project.</span>
-<span class="k">new</span> <span class="nf">CtPathBuilder</span><span class="p">(</span><span class="o">).</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">).</span><span class="na">recursiveWildcard</span><span class="o">()</span>
-</code></pre></div>
+<span class="k">new</span> <span class="nf">CtPathBuilder</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"toto"</span><span class="o">).</span><span class="na">recursiveWildcard</span><span class="o">()</span>
+</code></pre></div></div>
+
 
 
 
@@ -689,7 +704,7 @@ a project. Use <code>CtPathBuilder</code> like the example below.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

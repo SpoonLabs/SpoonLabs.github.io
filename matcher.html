@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -466,13 +475,16 @@
 
    
 
-  <p>Spoon provides a way to declaratively specify a code snippet to match, this is called a <code>TemplateMatcher</code>.
+  <p>Spoon provides a way to declaratively specify a code snippet to match, this is called a <code class="language-plaintext highlighter-rouge">TemplateMatcher</code>.
 For instance, the following snippet matches any if statement parametrized with a collection expression:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">if (_col_.S().size() &gt; 10)
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (_col_.S().size() &gt; 10)
   throw new IndexOutOfBoundsException();
-</code></pre></div>
+</code></pre></div></div>
+
 <p>It would match the following code elements:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// c is a local variable, a method parameter or a field;
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// c is a local variable, a method parameter or a field;
 if (c.size() &gt; 10)
   throw new IndexOutOfBoundsException();
 ---
@@ -480,20 +492,22 @@ if (c.size() &gt; 10)
 if (foo().size() &gt; 10)
   throw new IndexOutOfBoundsException();
 
-</code></pre></div>
+</code></pre></div></div>
+
 <p>To define a template matcher one must:</p>
 
 <ol>
-<li>specify the &quot;holes&quot; of the template matcher </li>
-<li>write the matcher in a dedicated method</li>
-<li>instantiate TemplateMatcher and call method <code>find</code> or use it as Filter of a query.</li>
+  <li>specify the “holes” of the template matcher</li>
+  <li>write the matcher in a dedicated method</li>
+  <li>instantiate TemplateMatcher and call method <code class="language-plaintext highlighter-rouge">find</code> or use it as Filter of a query.</li>
 </ol>
 
 <p>Taking again the same example.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">public class CheckBoundMatcher {
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class CheckBoundMatcher {
   // Step 1:
   public TemplateParameter&lt;Collection&lt;?&gt;&gt; _col_;
-
+  
   // Step 2
   public void matcher1() {
     if (_col_.S().size() &gt; 10)
@@ -509,10 +523,12 @@ TemplateMatcher matcher = new TemplateMatcher(templateRoot);
 for (CtElement elems : matcher.find(aPackage)) { ... };
 //or TemplateMatcher as a Filter of query
 aPackage.filterChildren(matcher).forEach((CtElement elem)-&gt;{ ... });
-</code></pre></div>
-<p>For named elements, a wildcard can be specified: if the named element (eg a method) to be matched is called <code>f</code> and the template matcher class contains a template parameter called <code>f</code> (of type Object), all methods starting by <code>f</code> will be matched.</p>
+</code></pre></div></div>
 
-<p>Note, the matching process ignores some information in the AST nodes: comments; position; implicitness and casts. See <code>roleToSkippedClass</code> in class <a href="https://github.com/INRIA/spoon/blob/master/src/main/java/spoon/pattern/internal/node/ElementNode.java">ElementNode</a></p>
+<p>For named elements, a wildcard can be specified: if the named element (eg a method) to be matched is called <code class="language-plaintext highlighter-rouge">f</code> and the template matcher class contains a template parameter called <code class="language-plaintext highlighter-rouge">f</code> (of type Object), all methods starting by <code class="language-plaintext highlighter-rouge">f</code> will be matched.</p>
+
+<p>Note, the matching process ignores some information in the AST nodes: comments; position; implicitness and casts. See <code class="language-plaintext highlighter-rouge">roleToSkippedClass</code> in class <a href="https://github.com/INRIA/spoon/blob/master/src/main/java/spoon/pattern/internal/node/ElementNode.java">ElementNode</a></p>
+
 
 
 
@@ -671,7 +687,7 @@ aPackage.filterChildren(matcher).forEach((CtElement elem)-&gt;{ ... });
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

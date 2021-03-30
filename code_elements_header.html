@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -468,19 +477,19 @@
 
   <p>Figure at the end of this page shows the meta model for Java executable code. 
 There are two main kinds of code elements. 
-First, statements <code>CtStatement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtStatement.html">javadoc</a>) 
+First, statements <code class="language-plaintext highlighter-rouge">CtStatement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtStatement.html">javadoc</a>) 
 are untyped top-level instructions that can be used directly in a block of code. 
-Second, expressions <code>CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>) 
-are used inside the statements. For instance, a <code>CtLoop</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtLoop.html">javadoc</a>) 
-(which is a statement) points to <code>CtExpression</code> which expresses its boolean condition.</p>
+Second, expressions <code class="language-plaintext highlighter-rouge">CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>) 
+are used inside the statements. For instance, a <code class="language-plaintext highlighter-rouge">CtLoop</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtLoop.html">javadoc</a>) 
+(which is a statement) points to <code class="language-plaintext highlighter-rouge">CtExpression</code> which expresses its boolean condition.</p>
 
 <p>Some code elements such as invocations and assignments are both statements 
 and expressions (multiple inheritance links). Concretely, this is translated as an 
-interface <code>CtInvocation</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtInvocation.html">javadoc</a>) 
-inheriting from both interfaces <code>CtStatement</code> and <code>CtExpression</code>. 
-The generic type of <code>CtExpression</code> is used to add static type-checking when transforming programs.</p>
+interface <code class="language-plaintext highlighter-rouge">CtInvocation</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtInvocation.html">javadoc</a>) 
+inheriting from both interfaces <code class="language-plaintext highlighter-rouge">CtStatement</code> and <code class="language-plaintext highlighter-rouge">CtExpression</code>. 
+The generic type of <code class="language-plaintext highlighter-rouge">CtExpression</code> is used to add static type-checking when transforming programs.</p>
 
-<p><img src="/images/code-elements.png" alt="Code part of the Spoon Java 8 metamodel"></p>
+<p><img src="/images/code-elements.png" alt="Code part of the Spoon Java 8 metamodel" /></p>
 
 
 
@@ -639,7 +648,7 @@ The generic type of <code>CtExpression</code> is used to add static type-checkin
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

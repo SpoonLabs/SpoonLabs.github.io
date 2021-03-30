@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -472,15 +481,15 @@ Although by themselves annotations have no explicit semantics, they can
 be used by frameworks as markers for altering the behavior of the programs 
 that they annotate. This interpretation of annotations can result, for 
 example, on the configuration of services provided by a middleware 
-platform or on the alteration of the program source code. </p>
+platform or on the alteration of the program source code.</p>
 
 <p>Annotation processing is the process by which a pre-processor modifies an 
 annotated program as directed by its annotations during a pre-compilation phase.
 The Java compiler offers the possibility of compile-time processing of annotations 
-via the API provided under the <code>javax.annotation.processing</code> package. Classes 
-implementing the <code>javax.annotation.processing.Process</code> interface are used by the 
+via the API provided under the <code class="language-plaintext highlighter-rouge">javax.annotation.processing</code> package. Classes 
+implementing the <code class="language-plaintext highlighter-rouge">javax.annotation.processing.Process</code> interface are used by the 
 Java compiler to process annotations present in a client program. 
-The client code is modeled by the classes of the <code>javax.lang.model</code> package 
+The client code is modeled by the classes of the <code class="language-plaintext highlighter-rouge">javax.lang.model</code> package 
 (although Java 8 has introduced finer-grained annotations, but not on any 
 arbitrary code elements). It is partially modeled: only types, methods, fields and 
 parameter declarations can carry annotations. Furthermore, the model does not allow 
@@ -493,87 +502,93 @@ supports the modification of the existing code.</p>
 <h3 id="annotation-processing-example">Annotation Processing Example</h3>
 
 <p>Spoon provides developers with a way to specify the analyses and transformations 
-associated with annotations. Annotations are metadata on code that start with <code>@</code> in Java.
+associated with annotations. Annotations are metadata on code that start with <code class="language-plaintext highlighter-rouge">@</code> in Java.
 For example, let us consider the example of a design-by-contract  annotation. 
-The annotation <code>@NotNull</code>, when placed on arguments of a method, will ensure that the argument 
+The annotation <code class="language-plaintext highlighter-rouge">@NotNull</code>, when placed on arguments of a method, will ensure that the argument 
 is not null when the method is executed. The code below shows both the definition of the 
-<code>NotNull</code> annotation type, and an example of its use.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Target</span><span class="o">({</span><span class="n">ElementType</span><span class="o">.</span><span class="na">PARAMETER</span><span class="o">})</span>
-<span class="nd">@Retention</span><span class="o">(</span><span class="n">RetentionPolicy</span><span class="o">.</span><span class="na">SOURCE</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nd">@interface</span> <span class="n">NotNull</span><span class="o">{}</span>
+<code class="language-plaintext highlighter-rouge">NotNull</code> annotation type, and an example of its use.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Target</span><span class="o">({</span><span class="nc">ElementType</span><span class="o">.</span><span class="na">PARAMETER</span><span class="o">})</span>
+<span class="nd">@Retention</span><span class="o">(</span><span class="nc">RetentionPolicy</span><span class="o">.</span><span class="na">SOURCE</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">NotNull</span><span class="o">{}</span>
 
 <span class="kd">class</span> <span class="nc">Person</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">marry</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Person</span> <span class="n">so</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(!</span><span class="n">so</span><span class="o">.</span><span class="na">isMarried</span><span class="o">())</span>
-            <span class="c1">// Marrying logic...</span>
-    <span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">marry</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="nc">Person</span> <span class="n">so</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(!</span><span class="n">so</span><span class="o">.</span><span class="na">isMarried</span><span class="o">())</span>
+			<span class="c1">// Marrying logic...</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>The <code>NotNull</code> annotation type definition carries two meta-annotations (annotations on annotation 
-definitions) stating which source code elements can be annotated (line 1), and that the annotation 
-is intended for compile-time processing (line 2). The <code>NotNull</code> annotation is used on the argument 
-of the <code>marry</code> method of the class <code>Person</code>. Without annotation processing, if the method <code>marry</code> 
-is invoked with a <code>null</code> reference, a <code>NullPointerException</code> would be thrown by the Java virtual 
-machine when invoking the method <code>isMarried</code> in line 7.</p>
+</code></pre></div></div>
 
-<p>The implementation of such an annotation would not be straightforward using Java&#39;s processing API 
-since it would not allow us to just insert the NULL check in the body of the annotated method. </p>
+<p>The <code class="language-plaintext highlighter-rouge">NotNull</code> annotation type definition carries two meta-annotations (annotations on annotation 
+definitions) stating which source code elements can be annotated (line 1), and that the annotation 
+is intended for compile-time processing (line 2). The <code class="language-plaintext highlighter-rouge">NotNull</code> annotation is used on the argument 
+of the <code class="language-plaintext highlighter-rouge">marry</code> method of the class <code class="language-plaintext highlighter-rouge">Person</code>. Without annotation processing, if the method <code class="language-plaintext highlighter-rouge">marry</code> 
+is invoked with a <code class="language-plaintext highlighter-rouge">null</code> reference, a <code class="language-plaintext highlighter-rouge">NullPointerException</code> would be thrown by the Java virtual 
+machine when invoking the method <code class="language-plaintext highlighter-rouge">isMarried</code> in line 7.</p>
+
+<p>The implementation of such an annotation would not be straightforward using Java’s processing API 
+since it would not allow us to just insert the NULL check in the body of the annotated method.</p>
 
 <h3 id="the-annotation-processor-interface">The Annotation Processor Interface</h3>
 
 <p>In Spoon, the full code model can be used  for compile-time annotation processing. To this end, 
-Spoon provides a special kind of processor called <code>AnnotationProcessor</code> whose interface is:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AnnotationProcessor</span><span class="o">&lt;</span><span class="n">A</span> <span class="kd">extends</span> <span class="n">Annotation</span><span class="o">,</span> <span class="n">E</span> <span class="kd">extends</span> <span class="n">CtElement</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Processor</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kt">void</span> <span class="n">process</span><span class="o">(</span><span class="n">A</span> <span class="n">annotation</span><span class="o">,</span> <span class="n">E</span> <span class="n">element</span><span class="o">);</span>
-    <span class="kt">boolean</span> <span class="n">inferConsumedAnnotationType</span><span class="o">();</span>
-    <span class="n">Set</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">A</span><span class="o">&gt;&gt;</span> <span class="n">getProcessedAnnotationTypes</span><span class="o">();</span>
-    <span class="n">Set</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">A</span><span class="o">&gt;&gt;</span> <span class="n">getConsumedAnnotationTypes</span><span class="o">();</span>
-    <span class="kt">boolean</span> <span class="n">shoudBeConsumed</span><span class="o">(</span><span class="n">CtAnnotation</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Annotation</span><span class="o">&gt;</span> <span class="n">annotation</span><span class="o">);</span>
+Spoon provides a special kind of processor called <code class="language-plaintext highlighter-rouge">AnnotationProcessor</code> whose interface is:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AnnotationProcessor</span><span class="o">&lt;</span><span class="no">A</span> <span class="kd">extends</span> <span class="nc">Annotation</span><span class="o">,</span> <span class="no">E</span> <span class="kd">extends</span> <span class="nc">CtElement</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">Processor</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="no">A</span> <span class="n">annotation</span><span class="o">,</span> <span class="no">E</span> <span class="n">element</span><span class="o">);</span>
+	<span class="kt">boolean</span> <span class="nf">inferConsumedAnnotationType</span><span class="o">();</span>
+	<span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">A</span><span class="o">&gt;&gt;</span> <span class="nf">getProcessedAnnotationTypes</span><span class="o">();</span>
+	<span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">A</span><span class="o">&gt;&gt;</span> <span class="nf">getConsumedAnnotationTypes</span><span class="o">();</span>
+	<span class="kt">boolean</span> <span class="nf">shoudBeConsumed</span><span class="o">(</span><span class="nc">CtAnnotation</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Annotation</span><span class="o">&gt;</span> <span class="n">annotation</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Annotation processors extend normal processors by stating the annotation type those elements must 
-carry (type parameter <code>A</code>), in addition of stating the kind of source code element they process 
-(type parameter <code>E</code>). The <code>process</code> method (line 4) receives as arguments both the CtElement and the 
-annotation it carries. The remaining four methods (<code>getProcessedAnnotationTypes</code>, <code>getConsumedAnnotationTypes</code>, 
-<code>inferConsumedAnnotationTypes</code> and <code>shoudBeConsumed</code>) configure the visiting of the AST during annotation 
+carry (type parameter <code class="language-plaintext highlighter-rouge">A</code>), in addition of stating the kind of source code element they process 
+(type parameter <code class="language-plaintext highlighter-rouge">E</code>). The <code class="language-plaintext highlighter-rouge">process</code> method (line 4) receives as arguments both the CtElement and the 
+annotation it carries. The remaining four methods (<code class="language-plaintext highlighter-rouge">getProcessedAnnotationTypes</code>, <code class="language-plaintext highlighter-rouge">getConsumedAnnotationTypes</code>, 
+<code class="language-plaintext highlighter-rouge">inferConsumedAnnotationTypes</code> and <code class="language-plaintext highlighter-rouge">shoudBeConsumed</code>) configure the visiting of the AST during annotation 
 processing. The Spoon annotation processing runtime is able to infer the type of annotation a processor 
-handles from its type parameter <code>A</code>. This restricts each processor to handle a single annotation. To avoid this 
-restriction, a developer can override the <code>inferConsumedAnnotationType()</code> method to return <code>false</code>. When doing 
-this, Spoon queries the <code>getProcessedAnnotationTypes()</code> method to find out which annotations are handled by the 
-processor. Finally, the <code>getConsumedAnnotationTypes()</code> returns the set of processed annotations that are to be 
+handles from its type parameter <code class="language-plaintext highlighter-rouge">A</code>. This restricts each processor to handle a single annotation. To avoid this 
+restriction, a developer can override the <code class="language-plaintext highlighter-rouge">inferConsumedAnnotationType()</code> method to return <code class="language-plaintext highlighter-rouge">false</code>. When doing 
+this, Spoon queries the <code class="language-plaintext highlighter-rouge">getProcessedAnnotationTypes()</code> method to find out which annotations are handled by the 
+processor. Finally, the <code class="language-plaintext highlighter-rouge">getConsumedAnnotationTypes()</code> returns the set of processed annotations that are to be 
 consumed by the annotation processor. Consumed annotations are not available in later processing rounds. 
 Similar to standard processors, Spoon provides a default abstract implementation for annotation processors: 
-<code>AbstractAnnotationProcessor</code>. It provides facilities for maintaining the list of consumed and processed annotation 
-types, allowing the developer to concentrate on the implementation of the annotation processing logic. </p>
+<code class="language-plaintext highlighter-rouge">AbstractAnnotationProcessor</code>. It provides facilities for maintaining the list of consumed and processed annotation 
+types, allowing the developer to concentrate on the implementation of the annotation processing logic.</p>
 
-<p>Going back to our <code>@NotNull</code> example, we implement a Spoon annotation processor that processes and consumes 
-<code>NotNull</code> annotated method parameters, and modifies the source code of the method by inserting an <code>assert</code> statement 
-that checks that the argument is not null. </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">NotNullProcessor</span> <span class="kd">extends</span> <span class="n">AbstractAnnotationProcessor</span><span class="o">&lt;</span><span class="n">NotNull</span><span class="o">,</span> <span class="n">CtParameter</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">process</span><span class="o">(</span><span class="n">NotNull</span> <span class="n">anno</span><span class="o">,</span> <span class="n">CtParameter</span> <span class="n">param</span><span class="o">){</span>
-        <span class="n">CtMethod</span><span class="o">&lt;?&gt;</span> <span class="n">method</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="n">CtMethod</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="n">CtBlock</span><span class="o">&lt;?&gt;</span> <span class="n">body</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">getBlock</span><span class="o">();</span>
-        <span class="n">CtAssert</span><span class="o">&lt;?&gt;</span> <span class="n">assertion</span> <span class="o">=</span> <span class="n">constructAssertion</span><span class="o">(</span><span class="n">param</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">());</span>
-        <span class="n">body</span><span class="o">.</span><span class="na">insertBegin</span><span class="o">(</span><span class="n">assertion</span><span class="o">);</span>
-    <span class="o">}</span>
+<p>Going back to our <code class="language-plaintext highlighter-rouge">@NotNull</code> example, we implement a Spoon annotation processor that processes and consumes 
+<code class="language-plaintext highlighter-rouge">NotNull</code> annotated method parameters, and modifies the source code of the method by inserting an <code class="language-plaintext highlighter-rouge">assert</code> statement 
+that checks that the argument is not null.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">NotNullProcessor</span> <span class="kd">extends</span> <span class="nc">AbstractAnnotationProcessor</span><span class="o">&lt;</span><span class="nc">NotNull</span><span class="o">,</span> <span class="nc">CtParameter</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="nc">NotNull</span> <span class="n">anno</span><span class="o">,</span> <span class="nc">CtParameter</span> <span class="n">param</span><span class="o">){</span>
+		<span class="nc">CtMethod</span><span class="o">&lt;?&gt;</span> <span class="n">method</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">getParent</span><span class="o">(</span><span class="nc">CtMethod</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="nc">CtBlock</span><span class="o">&lt;?&gt;</span> <span class="n">body</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">getBlock</span><span class="o">();</span>
+		<span class="nc">CtAssert</span><span class="o">&lt;?&gt;</span> <span class="n">assertion</span> <span class="o">=</span> <span class="n">constructAssertion</span><span class="o">(</span><span class="n">param</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">());</span>
+		<span class="n">body</span><span class="o">.</span><span class="na">insertBegin</span><span class="o">(</span><span class="n">assertion</span><span class="o">);</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>The <code>NotNullProcessor</code> leverages the default implementation provided by the <code>AbstractAnnotationProcessor</code> and binds the 
-type variables representing the annotation to be processed and the annotated code elements to <code>NotNull</code> and <code>CtParameter</code> 
-respectively. The actual processing of the annotation is implemented in the <code>process(NotNull,CtParameter)</code> method 
-(lines 10-13). Annotated code is transformed by navigating the AST up from the annotated parameter to the owner method, 
-and then down to the method&#39;s body code block (lines 10 and 12). The construction of the <code>assert</code> statement is delegated 
-to a helper method <code>constructAssertion(String)</code>, taking as argument the name of the parameter to check. This helper method 
-constructs an instance of <code>CtAssert</code> (by either programmatically constructing the desired boolean expression. Having obtained 
-the desired assert statement, it is injected at the beginning of the body of the method. </p>
+</code></pre></div></div>
 
-<p>More complex annotation processing scenarios can be tackled with Spoon. For example, when using the <code>NotNull</code> annotation, 
+<p>The <code class="language-plaintext highlighter-rouge">NotNullProcessor</code> leverages the default implementation provided by the <code class="language-plaintext highlighter-rouge">AbstractAnnotationProcessor</code> and binds the 
+type variables representing the annotation to be processed and the annotated code elements to <code class="language-plaintext highlighter-rouge">NotNull</code> and <code class="language-plaintext highlighter-rouge">CtParameter</code> 
+respectively. The actual processing of the annotation is implemented in the <code class="language-plaintext highlighter-rouge">process(NotNull,CtParameter)</code> method 
+(lines 10-13). Annotated code is transformed by navigating the AST up from the annotated parameter to the owner method, 
+and then down to the method’s body code block (lines 10 and 12). The construction of the <code class="language-plaintext highlighter-rouge">assert</code> statement is delegated 
+to a helper method <code class="language-plaintext highlighter-rouge">constructAssertion(String)</code>, taking as argument the name of the parameter to check. This helper method 
+constructs an instance of <code class="language-plaintext highlighter-rouge">CtAssert</code> (by either programmatically constructing the desired boolean expression. Having obtained 
+the desired assert statement, it is injected at the beginning of the body of the method.</p>
+
+<p>More complex annotation processing scenarios can be tackled with Spoon. For example, when using the <code class="language-plaintext highlighter-rouge">NotNull</code> annotation, 
 the developer is still responsible for manually inspecting which method parameters to place the annotation on. 
-A common processing pattern is then to use regular Spoon processors to <code>auto-annotate</code> the application&#39;s source code. 
+A common processing pattern is then to use regular Spoon processors to <code class="language-plaintext highlighter-rouge">auto-annotate</code> the application’s source code. 
 Such a processor, in our running example, can traverse the body of a method, looking for expressions that send messages 
-to a parameter. Each of these expressions  has as hypothesis that the parameter&#39;s value is not null, and thus should result 
-in the parameter being annotated with <code>NotNull</code>.</p>
+to a parameter. Each of these expressions  has as hypothesis that the parameter’s value is not null, and thus should result 
+in the parameter being annotated with <code class="language-plaintext highlighter-rouge">NotNull</code>.</p>
 
 <p>With this processing pattern, the programmer can use an annotation processor in two ways: either by explicitly and manually 
 annotating the base program, or by using a processor that analyzes and annotates the program for triggering annotation processors 
@@ -737,7 +752,7 @@ room for manual configuration.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

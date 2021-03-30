@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -471,65 +480,73 @@
 <p>The javadoc is at <a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs">http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs</a></p>
 
 <h4 id="are-there-snapshots-versions-deployed-somewhere">Are there snapshots versions deployed somewhere?</h4>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependencies&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>fr.inria.gforge.spoon<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>spoon-core<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>8.4.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependencies&gt;</span>
+	<span class="nt">&lt;dependency&gt;</span>
+		<span class="nt">&lt;groupId&gt;</span>fr.inria.gforge.spoon<span class="nt">&lt;/groupId&gt;</span>
+		<span class="nt">&lt;artifactId&gt;</span>spoon-core<span class="nt">&lt;/artifactId&gt;</span>
+		<span class="nt">&lt;version&gt;</span>9.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+	<span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span>
 <span class="nt">&lt;repositories&gt;</span>
-    <span class="nt">&lt;repository&gt;</span>
+	<span class="nt">&lt;repository&gt;</span>
       <span class="nt">&lt;id&gt;</span>maven.inria.fr-snapshot<span class="nt">&lt;/id&gt;</span>
       <span class="nt">&lt;name&gt;</span>Maven Repository for Spoon Snapshots<span class="nt">&lt;/name&gt;</span>
       <span class="nt">&lt;url&gt;</span>https://maven.irisa.fr/artifactory/spoon-public-snapshot<span class="nt">&lt;/url&gt;</span>
     <span class="nt">&lt;/repository&gt;</span>
 <span class="nt">&lt;/repositories&gt;</span>
-</code></pre></div>
-<h4 id="how-to-access-spoon-39-s-source-code-repository">How to access Spoon&#39;s source code repository?</h4>
+</code></pre></div></div>
+
+<h4 id="how-to-access-spoons-source-code-repository">How to access Spoon’s source code repository?</h4>
 
 <p>Spoon is developed on GitHub at <a href="https://github.com/INRIA/spoon/">https://github.com/INRIA/spoon/</a>. You can browse the Spoon source using code intelligence (Go-to-definition, Find References, and Hover tooltips) at <a href="https://sourcegraph.com/github.com/INRIA/spoon">https://sourcegraph.com/github.com/INRIA/spoon</a>.</p>
 
-<h4 id="what-is-the-meaning-of-each-digit-in-the-version-x-y-z-of-spoon">What is the meaning of each digit in the version X.Y.Z of spoon?</h4>
+<h4 id="what-is-the-meaning-of-each-digit-in-the-version-xyz-of-spoon">What is the meaning of each digit in the version X.Y.Z of spoon?</h4>
 
 <ul>
-<li>X is the digit for the major version (major new features or major incompatible API changes).</li>
-<li>Y is the digit for the minor version (bug fixes or minor API changes).</li>
-<li>Z is the digit for the critical bug fixes of the current major or minor version.</li>
+  <li>X is the digit for the major version (major new features or major incompatible API changes).</li>
+  <li>Y is the digit for the minor version (bug fixes or minor API changes).</li>
+  <li>Z is the digit for the critical bug fixes of the current major or minor version.</li>
 </ul>
 
 <h4 id="where-is-the-spoon-metamodel">Where is the Spoon metamodel?</h4>
 
-<p>The Spoon metamodel consists of all interfaces that are in packages <code>spoon.reflect.declaration</code> (structural part: classes, methods, etc.) and <code>spoon.reflect.code</code> (behavioral part: if, loops, etc.).</p>
+<p>The Spoon metamodel consists of all interfaces that are in packages <code class="language-plaintext highlighter-rouge">spoon.reflect.declaration</code> (structural part: classes, methods, etc.) and <code class="language-plaintext highlighter-rouge">spoon.reflect.code</code> (behavioral part: if, loops, etc.).</p>
 
 <h4 id="how-to-prevent-annotation-processors-from-consuming-the-annotations-that-they-process">How to prevent Annotation processors from consuming the annotations that they process?</h4>
 
-<p>By default, whenever an Annotation Processor processes a CtElement it will consume (delete) the processed annotation from it. If you want the annotation to be kept, override the init() method from the <code>AbstractAnnotationProcessor</code> class, and call the protected method <code>clearConsumedAnnotationTypes</code> like so:</p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml">@Override
+<p>By default, whenever an Annotation Processor processes a CtElement it will consume (delete) the processed annotation from it. If you want the annotation to be kept, override the init() method from the <code class="language-plaintext highlighter-rouge">AbstractAnnotationProcessor</code> class, and call the protected method <code class="language-plaintext highlighter-rouge">clearConsumedAnnotationTypes</code> like so:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Override
 public void init() {
-    super.init();
-    clearConsumedAnnotationTypes();
+	super.init();
+	clearConsumedAnnotationTypes();
 }
-</code></pre></div>
+</code></pre></div></div>
+
 <h4 id="how-to-compare-and-create-type-references-in-a-type-safe-way">How to compare and create type references in a type-safe way?</h4>
 
 <p>Use actual classes instead of strings.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtTypeReference</span> <span class="n">t</span><span class="o">=...</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtTypeReference</span> <span class="n">t</span><span class="o">=...</span>
 <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">getActualClass</span><span class="o">()==</span><span class="kt">int</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
-<span class="n">Factory</span> <span class="n">f</span><span class="o">=...</span>
+<span class="nc">Factory</span> <span class="n">f</span><span class="o">=...</span>
 <span class="n">t</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="na">Type</span><span class="o">().</span><span class="na">createReference</span><span class="o">(</span><span class="kt">int</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h4 id="how-to-set-the-jdt-compiler-arguments">How to set the JDT compiler arguments?</h4>
 
-<p><code>SpoonModelBuilder</code> exposes a method named <code>build(JDTBuilder)</code>. This method compiles the target source code with data specified in the JDTBuilder parameter.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JDTBuilderImpl</span><span class="o">()</span> <span class="c1">//</span>
-        <span class="o">.</span><span class="na">classpathOptions</span><span class="o">(</span><span class="k">new</span> <span class="n">ClasspathOptions</span><span class="o">().</span><span class="na">classpath</span><span class="o">(</span><span class="n">TEST_CLASSPATH</span><span class="o">).</span><span class="na">bootclasspath</span><span class="o">(</span><span class="n">TEST_CLASSPATH</span><span class="o">).</span><span class="na">binaries</span><span class="o">(</span><span class="s">"."</span><span class="o">).</span><span class="na">encoding</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">))</span> <span class="c1">//</span>
-        <span class="o">.</span><span class="na">complianceOptions</span><span class="o">(</span><span class="k">new</span> <span class="n">ComplianceOptions</span><span class="o">().</span><span class="na">compliance</span><span class="o">(</span><span class="mi">8</span><span class="o">))</span> <span class="c1">//</span>
-        <span class="o">.</span><span class="na">annotationProcessingOptions</span><span class="o">(</span><span class="k">new</span> <span class="n">AnnotationProcessingOptions</span><span class="o">().</span><span class="na">compileProcessors</span><span class="o">())</span> <span class="c1">//</span>
-        <span class="o">.</span><span class="na">advancedOptions</span><span class="o">(</span><span class="k">new</span> <span class="n">AdvancedOptions</span><span class="o">().</span><span class="na">continueExecution</span><span class="o">().</span><span class="na">enableJavadoc</span><span class="o">().</span><span class="na">preserveUnusedVars</span><span class="o">())</span> <span class="c1">//</span>
-        <span class="o">.</span><span class="na">sources</span><span class="o">(</span><span class="k">new</span> <span class="n">SourceOptions</span><span class="o">().</span><span class="na">sources</span><span class="o">(</span><span class="s">"."</span><span class="o">))</span> <span class="c1">//</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</code></pre></div>
+<p><code class="language-plaintext highlighter-rouge">SpoonModelBuilder</code> exposes a method named <code class="language-plaintext highlighter-rouge">build(JDTBuilder)</code>. This method compiles the target source code with data specified in the JDTBuilder parameter.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JDTBuilderImpl</span><span class="o">()</span> <span class="c1">//</span>
+		<span class="o">.</span><span class="na">classpathOptions</span><span class="o">(</span><span class="k">new</span> <span class="nc">ClasspathOptions</span><span class="o">().</span><span class="na">classpath</span><span class="o">(</span><span class="no">TEST_CLASSPATH</span><span class="o">).</span><span class="na">bootclasspath</span><span class="o">(</span><span class="no">TEST_CLASSPATH</span><span class="o">).</span><span class="na">binaries</span><span class="o">(</span><span class="s">"."</span><span class="o">).</span><span class="na">encoding</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">))</span> <span class="c1">//</span>
+		<span class="o">.</span><span class="na">complianceOptions</span><span class="o">(</span><span class="k">new</span> <span class="nc">ComplianceOptions</span><span class="o">().</span><span class="na">compliance</span><span class="o">(</span><span class="mi">8</span><span class="o">))</span> <span class="c1">//</span>
+		<span class="o">.</span><span class="na">annotationProcessingOptions</span><span class="o">(</span><span class="k">new</span> <span class="nc">AnnotationProcessingOptions</span><span class="o">().</span><span class="na">compileProcessors</span><span class="o">())</span> <span class="c1">//</span>
+		<span class="o">.</span><span class="na">advancedOptions</span><span class="o">(</span><span class="k">new</span> <span class="nc">AdvancedOptions</span><span class="o">().</span><span class="na">continueExecution</span><span class="o">().</span><span class="na">enableJavadoc</span><span class="o">().</span><span class="na">preserveUnusedVars</span><span class="o">())</span> <span class="c1">//</span>
+		<span class="o">.</span><span class="na">sources</span><span class="o">(</span><span class="k">new</span> <span class="nc">SourceOptions</span><span class="o">().</span><span class="na">sources</span><span class="o">(</span><span class="s">"."</span><span class="o">))</span> <span class="c1">//</span>
+		<span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div></div>
+
 
 
 
@@ -687,7 +704,7 @@ public void init() {
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

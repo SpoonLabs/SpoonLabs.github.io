@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -468,8 +477,8 @@
 
   <p>A programming language can have different meta models. 
 An abstract syntax tree (AST) or model, is an instance of a meta model. 
-Each meta model -- and consequently each AST -- is more or less appropriate 
-depending on the task at hand. For instance, the Java meta model of Sun&#39;s 
+Each meta model – and consequently each AST – is more or less appropriate 
+depending on the task at hand. For instance, the Java meta model of Sun’s 
 compiler (javac) has been designed and optimized for compilation to bytecode, 
 while, the main purpose of the Java meta model of the Eclipse IDE (JDT) is to 
 support different tasks of software development in an integrated manner 
@@ -484,23 +493,23 @@ executable Java programs (hence contains annotations, generics, and method bodie
 <p>The Spoon meta model can be split in three parts.</p>
 
 <ul>
-<li>The structural part contains the declarations of the program elements, such as 
+  <li>The structural part contains the declarations of the program elements, such as 
 interface, class, variable, method, annotation, and enum declarations.</li>
-<li>The code part contains the executable Java code, such as the one found in method bodies.</li>
-<li>The reference part models the references to program elements (for instance a reference to a type).</li>
+  <li>The code part contains the executable Java code, such as the one found in method bodies.</li>
+  <li>The reference part models the references to program elements (for instance a reference to a type).</li>
 </ul>
 
-<p>As shown in the figure, all elements inherit from <code>CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>) 
+<p>As shown in the figure, all elements inherit from <code class="language-plaintext highlighter-rouge">CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>) 
 which declares a parent element denoting the containment relation in the source file. 
 For instance, the parent of a method node is a class node. All names are prefixed by 
-&quot;CT&quot; which means &quot;compile-time&quot;.</p>
+“CT” which means “compile-time”.</p>
 
 <p>As of Spoon 6.1.0, Spoon metamodel contains CtModule element to represent a module in Java 9, and 
 CtModuleDirective to represent the different directives of the module.</p>
 
-<p>:warning: The root of the model is then no longer an unnamed package, but an unnamed module. </p>
+<p>:warning: The root of the model is then no longer an unnamed package, but an unnamed module.</p>
 
-<p><img src="/images/structural-elements.png" alt="Structural part of the Spoon Java 8 metamodel"></p>
+<p><img src="/images/structural-elements.png" alt="Structural part of the Spoon Java 8 metamodel" /></p>
 
 
 
@@ -659,7 +668,7 @@ CtModuleDirective to represent the different directives of the module.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

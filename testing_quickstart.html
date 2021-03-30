@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -478,59 +487,70 @@ dependency is specified in your project.</p>
 Each method in this class is a static factory for the type-specific assertion objects. 
 The purpose of this class is to make test code more readable.</p>
 
-<p>All methods in this class are named <code>assertThat</code> and take only one argument. For example, 
-if you use the method <code>assertThat(File)</code>, you will be able to use the method 
-<code>isEqualTo(File)</code> to check the equality between these two files.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Assert</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"actual.java"</span><span class="o">)).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"expected.java"</span><span class="o">));</span>
-</code></pre></div>
+<p>All methods in this class are named <code class="language-plaintext highlighter-rouge">assertThat</code> and take only one argument. For example, 
+if you use the method <code class="language-plaintext highlighter-rouge">assertThat(File)</code>, you will be able to use the method 
+<code class="language-plaintext highlighter-rouge">isEqualTo(File)</code> to check the equality between these two files.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Assert</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"actual.java"</span><span class="o">)).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"expected.java"</span><span class="o">));</span>
+</code></pre></div></div>
+
 <p>Spoon provides a way to test transformations as follows.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">import static spoon.testing.Assert.assertThat;
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import static spoon.testing.Assert.assertThat;
 ...
 assertThat('Foo.java').withProcessor(new AProcessor()).isEqualTo('FooTransformed.java');
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="assertion-types">Assertion Types</h3>
 
 <p>There are three types of assertions:</p>
 
-<table><thead>
-<tr>
-<th>Assert type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>FileAssert</td>
-<td>Assertions available on a file.</td>
-</tr>
-<tr>
-<td>CtElementAssert</td>
-<td>Assertions available on a <code>CtElement</code>.</td>
-</tr>
-<tr>
-<td>CtPackageAssert</td>
-<td>Assertions available between two <code>CtPackage</code>.</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th>Assert type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FileAssert</td>
+      <td>Assertions available on a file.</td>
+    </tr>
+    <tr>
+      <td>CtElementAssert</td>
+      <td>Assertions available on a <code class="language-plaintext highlighter-rouge">CtElement</code>.</td>
+    </tr>
+    <tr>
+      <td>CtPackageAssert</td>
+      <td>Assertions available between two <code class="language-plaintext highlighter-rouge">CtPackage</code>.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="assertion-example">Assertion example</h3>
 
-<p>Let&#39;s say that you have a processor which change the name of all fields by the name &quot;j&quot;.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">MyProcessor</span> <span class="kd">extends</span> <span class="n">AbstractProcessor</span><span class="o">&lt;</span><span class="n">CtField</span><span class="o">&lt;?&gt;&gt;</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">process</span><span class="o">(</span><span class="n">CtField</span><span class="o">&lt;?&gt;</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">element</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"j"</span><span class="o">);</span>
-    <span class="o">}</span>
+<p>Let’s say that you have a processor which change the name of all fields by the name “j”.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyProcessor</span> <span class="kd">extends</span> <span class="nc">AbstractProcessor</span><span class="o">&lt;</span><span class="nc">CtField</span><span class="o">&lt;?&gt;&gt;</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="nc">CtField</span><span class="o">&lt;?&gt;</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">element</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"j"</span><span class="o">);</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>To check that the transformation is well done when you apply it on a class, see the following example</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">SpoonAPI</span> <span class="n">spoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
 <span class="n">spoon</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"path/of/my/file/Foo.java"</span><span class="o">);</span>
 <span class="n">spoon</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
 
-<span class="kd">final</span> <span class="n">CtType</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="n">type</span> <span class="o">=</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">Type</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">Foo</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-<span class="n">assertThat</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">getField</span><span class="o">(</span><span class="s">"i"</span><span class="o">)).</span><span class="na">withProcessor</span><span class="o">(</span><span class="k">new</span> <span class="n">MyProcessor</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"public int j;"</span><span class="o">);</span>
-</code></pre></div>
-<p>Note that, method <code>withProcessor</code> takes as parameter either with a processor  instance, a processor class name, a class object.</p>
+<span class="kd">final</span> <span class="nc">CtType</span><span class="o">&lt;</span><span class="nc">Foo</span><span class="o">&gt;</span> <span class="n">type</span> <span class="o">=</span> <span class="n">spoon</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">Type</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="nc">Foo</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">assertThat</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">getField</span><span class="o">(</span><span class="s">"i"</span><span class="o">)).</span><span class="na">withProcessor</span><span class="o">(</span><span class="k">new</span> <span class="nc">MyProcessor</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"public int j;"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Note that, method <code class="language-plaintext highlighter-rouge">withProcessor</code> takes as parameter either with a processor  instance, a processor class name, a class object.</p>
 
 
 
@@ -689,7 +709,7 @@ assertThat('Foo.java').withProcessor(new AProcessor()).isEqualTo('FooTransformed
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

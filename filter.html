@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -469,135 +478,165 @@
   <h3 id="getters">Getters</h3>
 
 <p>All elements provide a set of appropriate getters to get the children of an element.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">methods</span> <span class="o">=</span> <span class="n">ctClass</span><span class="o">.</span><span class="na">getMethods</span><span class="o">();</span>
-</code></pre></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">methods</span> <span class="o">=</span> <span class="n">ctClass</span><span class="o">.</span><span class="na">getMethods</span><span class="o">();</span>
+</code></pre></div></div>
+
 <p>In addition, there exists a generic getter based on the role played by an element with respect to its parent. See CtRole for a complete list of roles.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">methods</span> <span class="o">=</span> <span class="n">ctClass</span><span class="o">.</span><span class="na">getValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">METHOD</span><span class="o">);</span>
-</code></pre></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">methods</span> <span class="o">=</span> <span class="n">ctClass</span><span class="o">.</span><span class="na">getValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">METHOD</span><span class="o">);</span>
+</code></pre></div></div>
+
 <p>While not recommended, it is also possible to get all direct children of an element</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">allDescendants</span> <span class="o">=</span> <span class="n">ctElement</span><span class="o">.</span><span class="na">getDirectChildren</span><span class="o">();</span>
-</code></pre></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">allDescendants</span> <span class="o">=</span> <span class="n">ctElement</span><span class="o">.</span><span class="na">getDirectChildren</span><span class="o">();</span>
+</code></pre></div></div>
+
 <h3 id="filters">Filters</h3>
 
-<p>A Filter defines a predicate of the form of a <code>matches</code> method that
-returns <code>true</code> if an element has to be selected in the filtering operation.
-A Filter is given as parameter to <code>CtElement#getElement(Filter)</code> ()or <code>CtQueryable#filterChildren(Filter)</code>) which implements a depth-first search algorithm. During AST traversal, the elements satisfying the matching predicate are selected by the filter.</p>
+<p>A Filter defines a predicate of the form of a <code class="language-plaintext highlighter-rouge">matches</code> method that
+returns <code class="language-plaintext highlighter-rouge">true</code> if an element has to be selected in the filtering operation.
+A Filter is given as parameter to <code class="language-plaintext highlighter-rouge">CtElement#getElement(Filter)</code> ()or <code class="language-plaintext highlighter-rouge">CtQueryable#filterChildren(Filter)</code>) which implements a depth-first search algorithm. During AST traversal, the elements satisfying the matching predicate are selected by the filter.</p>
 
-<p>Here are code examples about the usage of filters. The first example returns all AST nodes of type <code>CtAssignment</code>.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// collecting all assignments of a method body</span>
-<span class="n">list1</span> <span class="o">=</span> <span class="n">methodBody</span><span class="o">.</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="n">TypeFilter</span><span class="o">(</span><span class="n">CtAssignment</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
-</code></pre></div>
+<p>Here are code examples about the usage of filters. The first example returns all AST nodes of type <code class="language-plaintext highlighter-rouge">CtAssignment</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// collecting all assignments of a method body</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="n">methodBody</span><span class="o">.</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="nc">TypeFilter</span><span class="o">(</span><span class="nc">CtAssignment</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+</code></pre></div></div>
+
 <p>The second example selects all deprecated classes.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// collecting all deprecated classes</span>
-<span class="n">list2</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="n">AnnotationFilter</span><span class="o">(</span><span class="n">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
-</code></pre></div>
-<p>Now let&#39;s consider a user-defined filter that only matches public fields across all classes.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// creating a custom filter to select all public fields</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// collecting all deprecated classes</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">getElements</span><span class="o">(</span><span class="k">new</span> <span class="nc">AnnotationFilter</span><span class="o">(</span><span class="nc">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+</code></pre></div></div>
+
+<p>Now let’s consider a user-defined filter that only matches public fields across all classes.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// creating a custom filter to select all public fields</span>
 <span class="n">list3</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span>
-  <span class="k">new</span> <span class="n">AbstractFilter</span><span class="o">&lt;</span><span class="n">CtField</span><span class="o">&gt;(</span><span class="n">CtField</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">new</span> <span class="nc">AbstractFilter</span><span class="o">&lt;</span><span class="nc">CtField</span><span class="o">&gt;(</span><span class="nc">CtField</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">matches</span><span class="o">(</span><span class="n">CtField</span> <span class="n">field</span><span class="o">)</span> <span class="o">{</span>
-      <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="na">getModifiers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">matches</span><span class="o">(</span><span class="nc">CtField</span> <span class="n">field</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="na">getModifiers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">).</span><span class="na">list</span><span class="o">();</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="scanners">Scanners</h3>
 
-<p><code>CtScanner</code> provides a simple way to visit a node and its children.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Scanner counting the number of CtFieldWrite</span>
-<span class="kd">class</span> <span class="nc">CounterScanner</span> <span class="kd">extends</span> <span class="n">CtScanner</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">visited</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">visitCtFieldWrite</span><span class="o">(</span><span class="n">CtFieldWrite</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">fieldWrite</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">visited</span><span class="o">++;</span>
-    <span class="o">}</span>
+<p><code class="language-plaintext highlighter-rouge">CtScanner</code> provides a simple way to visit a node and its children.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Scanner counting the number of CtFieldWrite</span>
+<span class="kd">class</span> <span class="nc">CounterScanner</span> <span class="kd">extends</span> <span class="nc">CtScanner</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">visited</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">visitCtFieldWrite</span><span class="o">(</span><span class="nc">CtFieldWrite</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">fieldWrite</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">visited</span><span class="o">++;</span>
+	<span class="o">}</span>
 <span class="o">}</span>
 
-<span class="n">CounterScanner</span> <span class="n">scanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CounterScanner</span><span class="o">();</span>
+<span class="nc">CounterScanner</span> <span class="n">scanner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CounterScanner</span><span class="o">();</span>
 
 <span class="c1">//Run the scanner on an element, here the CtClass representing FieldAccessRes</span>
 <span class="n">launcher</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">Class</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"FieldAccessRes"</span><span class="o">).</span><span class="na">accept</span><span class="o">(</span><span class="n">scanner</span><span class="o">);</span>
 
 <span class="c1">//scanner.visited now contains the number of children of type CtFieldWrite </span>
 <span class="n">assertEquals</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">scanner</span><span class="o">.</span><span class="na">visited</span><span class="o">);</span>
-</code></pre></div>
-<p><code>EarlyTerminatingScanner</code> is a specialized Class implementing <code>CtScanner</code> that stops once <code>terminate()</code> has been called.</p>
+</code></pre></div></div>
 
-<p>See also <code>CtVisitor</code>.</p>
+<p><code class="language-plaintext highlighter-rouge">EarlyTerminatingScanner</code> is a specialized Class implementing <code class="language-plaintext highlighter-rouge">CtScanner</code> that stops once <code class="language-plaintext highlighter-rouge">terminate()</code> has been called.</p>
+
+<p>See also <code class="language-plaintext highlighter-rouge">CtVisitor</code>.</p>
 
 <h3 id="iterator">Iterator</h3>
 
-<p><code>CtIterator</code> provides an iterator on all transitive children of a node in depth first order.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtIterator</span> <span class="n">iterator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CtIterator</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+<p><code class="language-plaintext highlighter-rouge">CtIterator</code> provides an iterator on all transitive children of a node in depth first order.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtIterator</span> <span class="n">iterator</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CtIterator</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
 <span class="k">while</span> <span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">CtElement</span> <span class="n">el</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-    <span class="c1">//do something on each child of root</span>
+	<span class="nc">CtElement</span> <span class="n">el</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+	<span class="c1">//do something on each child of root</span>
 <span class="o">}</span>
-</code></pre></div>
-<p><code>CtBFSIterator</code> is similar to CtIterator but in Breadth first order.</p>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">CtBFSIterator</code> is similar to CtIterator but in Breadth first order.</p>
 
 <h3 id="queries">Queries</h3>
 
 <p>The Query, introduced in Spoon 5.5 by Pavel Vojtechovsky, is an improved filter mechanism:</p>
 
 <ul>
-<li>queries can be done with a Java 8 lambda</li>
-<li>queries can be chained</li>
-<li>queries can be reused on multiple input elements</li>
+  <li>queries can be done with a Java 8 lambda</li>
+  <li>queries can be chained</li>
+  <li>queries can be reused on multiple input elements</li>
 </ul>
 
-<p><strong>Queries with Java8 lambdas</strong>: <code>CtQueryable#map(CtFunction)</code>enables you to give Java 8 lambda as query.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// returns a list of String</span>
-<span class="n">list</span> <span class="o">=</span> <span class="kn">package</span><span class="o">.</span><span class="na">map</span><span class="o">((</span><span class="n">CtClass</span> <span class="n">c</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">()).</span><span class="na">list</span><span class="o">();</span>
-</code></pre></div>
-<p><strong>Compatibility with existing filters</strong> <code>CtQueryable#filterChildren(Filter)</code> is a filtering query that can be chained:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// collecting all methods of deprecated classes</span>
+<p><strong>Queries with Java8 lambdas</strong>: <code class="language-plaintext highlighter-rouge">CtQueryable#map(CtFunction)</code>enables you to give Java 8 lambda as query.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// returns a list of String</span>
+<span class="n">list</span> <span class="o">=</span> <span class="kn">package</span><span class="nn">.map</span><span class="o">((</span><span class="nc">CtClass</span> <span class="n">c</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">()).</span><span class="na">list</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p><strong>Compatibility with existing filters</strong> <code class="language-plaintext highlighter-rouge">CtQueryable#filterChildren(Filter)</code> is a filtering query that can be chained:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// collecting all methods of deprecated classes</span>
 <span class="n">list2</span> <span class="o">=</span> <span class="n">rootPackage</span>
-    <span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span><span class="k">new</span> <span class="n">AnnotationFilter</span><span class="o">(</span><span class="n">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)).</span><span class="na">list</span><span class="o">()</span>
-</code></pre></div>
+    <span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span><span class="k">new</span> <span class="nc">AnnotationFilter</span><span class="o">(</span><span class="nc">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)).</span><span class="na">list</span><span class="o">()</span>
+</code></pre></div></div>
+
 <p>A boolean return value of the lambda tells whether the elements are selected for inclusion or not.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// creating a custom filter to select all public fields using java 8 lambda</span>
-<span class="n">list3</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">filterChildren</span><span class="o">((</span><span class="n">CtField</span> <span class="n">field</span><span class="o">)-&gt;</span><span class="n">field</span><span class="o">.</span><span class="na">getModifiers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)).</span><span class="na">list</span><span class="o">();</span>
-</code></pre></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// creating a custom filter to select all public fields using java 8 lambda</span>
+<span class="n">list3</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">filterChildren</span><span class="o">((</span><span class="nc">CtField</span> <span class="n">field</span><span class="o">)-&gt;</span><span class="n">field</span><span class="o">.</span><span class="na">getModifiers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)).</span><span class="na">list</span><span class="o">();</span>
+</code></pre></div></div>
+
 <p><strong>Chaining</strong> If the CtFunction returns an object, this object is given as result to the next step of the query.
 All results of the last query step are results of the query. The results of intermediate steps are not results of the query.:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// a query which processes all not deprecated methods of all deprecated classes</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// a query which processes all not deprecated methods of all deprecated classes</span>
 <span class="n">rootPackage</span>
-  <span class="o">.</span><span class="na">filterChildren</span><span class="o">((</span><span class="n">CtClass</span> <span class="n">clazz</span><span class="o">)-&gt;</span><span class="n">clazz</span><span class="o">.</span><span class="na">getAnnotation</span><span class="o">(</span><span class="n">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)!=</span><span class="kc">null</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">map</span><span class="o">((</span><span class="n">CtClass</span> <span class="n">clazz</span><span class="o">)-&gt;</span><span class="n">clazz</span><span class="o">.</span><span class="na">getMethods</span><span class="o">())</span>
-  <span class="o">.</span><span class="na">map</span><span class="o">((</span><span class="n">CtMethod</span><span class="o">&lt;?&gt;</span> <span class="n">method</span><span class="o">)-&gt;</span><span class="n">method</span><span class="o">.</span><span class="na">getAnnotation</span><span class="o">(</span><span class="n">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)==</span><span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">filterChildren</span><span class="o">((</span><span class="nc">CtClass</span> <span class="n">clazz</span><span class="o">)-&gt;</span><span class="n">clazz</span><span class="o">.</span><span class="na">getAnnotation</span><span class="o">(</span><span class="nc">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)!=</span><span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">map</span><span class="o">((</span><span class="nc">CtClass</span> <span class="n">clazz</span><span class="o">)-&gt;</span><span class="n">clazz</span><span class="o">.</span><span class="na">getMethods</span><span class="o">())</span>
+  <span class="o">.</span><span class="na">map</span><span class="o">((</span><span class="nc">CtMethod</span><span class="o">&lt;?&gt;</span> <span class="n">method</span><span class="o">)-&gt;</span><span class="n">method</span><span class="o">.</span><span class="na">getAnnotation</span><span class="o">(</span><span class="nc">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)==</span><span class="kc">null</span><span class="o">)</span>
   <span class="o">.</span><span class="na">list</span><span class="o">()</span>
 <span class="o">;</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>Finally, if the CtFunction returns and Iterable or an Array then each item of the collection/array is sent to next query step or result.</p>
 
-<p><strong>Query reuse</strong>. Method <code>setInput</code> allows you to reuse the same query over multiple inputs. 
-In such case it makes sense to create unbound query using <code>Factory#createQuery()</code>.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// here is the query</span>
-<span class="n">CtQuery</span> <span class="n">q</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createQuery</span><span class="o">().</span><span class="na">map</span><span class="o">((</span><span class="n">CtClass</span> <span class="n">c</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">());</span>
-<span class="c1">// using it on a first input</span>
-<span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">setInput</span><span class="o">(</span><span class="n">cls</span><span class="o">).</span><span class="na">list</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-<span class="c1">// using it on a second input</span>
-<span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">setInput</span><span class="o">(</span><span class="n">cls2</span><span class="o">).</span><span class="na">list</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</code></pre></div>
-<p><strong>Query evaluation</strong>. Each example above use <code>CtQuery#list()</code> to evaluate the query.
-The <code>list</code> method evaluates the query and returns the <code>List</code>, which contains all the results of the query.  </p>
+<p><strong>Query reuse</strong>. Method <code class="language-plaintext highlighter-rouge">setInput</code> allows you to reuse the same query over multiple inputs. 
+In such case it makes sense to create unbound query using <code class="language-plaintext highlighter-rouge">Factory#createQuery()</code>.</p>
 
-<p>But it is not the only way how to evaluate query. There is <code>CtQuery#forEach(CtConsumer)</code>, 
-which sends each query result to the <code>CtConsumer#accept</code> function. 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// here is the query</span>
+<span class="nc">CtQuery</span> <span class="n">q</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createQuery</span><span class="o">().</span><span class="na">map</span><span class="o">((</span><span class="nc">CtClass</span> <span class="n">c</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">());</span>
+<span class="c1">// using it on a first input</span>
+<span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">setInput</span><span class="o">(</span><span class="n">cls</span><span class="o">).</span><span class="na">list</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="c1">// using it on a second input</span>
+<span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">setInput</span><span class="o">(</span><span class="n">cls2</span><span class="o">).</span><span class="na">list</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><strong>Query evaluation</strong>. Each example above use <code class="language-plaintext highlighter-rouge">CtQuery#list()</code> to evaluate the query.
+The <code class="language-plaintext highlighter-rouge">list</code> method evaluates the query and returns the <code class="language-plaintext highlighter-rouge">List</code>, which contains all the results of the query.</p>
+
+<p>But it is not the only way how to evaluate query. There is <code class="language-plaintext highlighter-rouge">CtQuery#forEach(CtConsumer)</code>, 
+which sends each query result to the <code class="language-plaintext highlighter-rouge">CtConsumer#accept</code> function. 
 It is more efficient in cases when query results can be immediately processed.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//prints each deprecated element</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//prints each deprecated element</span>
 <span class="n">rootPackage</span>
-    <span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span><span class="k">new</span> <span class="n">AnnotationFilter</span><span class="o">(</span><span class="n">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)).</span><span class="na">forEach</span><span class="o">((</span><span class="n">CtElement</span> <span class="n">ele</span><span class="o">)-&gt;</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ele</span><span class="o">));</span>
-</code></pre></div>
-<p>Finally there is <code>CtQuery#first()</code>, 
+    <span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span><span class="k">new</span> <span class="nc">AnnotationFilter</span><span class="o">(</span><span class="nc">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)).</span><span class="na">forEach</span><span class="o">((</span><span class="nc">CtElement</span> <span class="n">ele</span><span class="o">)-&gt;</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ele</span><span class="o">));</span>
+</code></pre></div></div>
+
+<p>Finally there is <code class="language-plaintext highlighter-rouge">CtQuery#first()</code>, 
 which evaluates the query until first query result is found.
 Then the evaluation is terminated and first result is returned. 
-It is faster then <code>query.list().get(0)</code>, because query engine does not collect other results.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// returns first deprecated element</span>
-<span class="n">CtElement</span> <span class="n">firstDeprecated</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span><span class="k">new</span> <span class="n">AnnotationFilter</span><span class="o">(</span><span class="n">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)).</span><span class="na">first</span><span class="o">();</span>
-</code></pre></div>
+It is faster then <code class="language-plaintext highlighter-rouge">query.list().get(0)</code>, because query engine does not collect other results.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// returns first deprecated element</span>
+<span class="nc">CtElement</span> <span class="n">firstDeprecated</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span><span class="k">new</span> <span class="nc">AnnotationFilter</span><span class="o">(</span><span class="nc">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)).</span><span class="na">first</span><span class="o">();</span>
+</code></pre></div></div>
+
 
 
 
@@ -755,7 +794,7 @@ It is faster then <code>query.list().get(0)</code>, because query engine does no
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

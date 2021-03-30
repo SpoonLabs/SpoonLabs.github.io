@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -466,61 +475,69 @@
 
    
 
-  <p>We&#39;ll make a first transformation that adds a field to a class
+  <p>We’ll make a first transformation that adds a field to a class
 and initializes it in the constructor of the current class.</p>
 
 <h3 id="factories-and-setters-to-create-ast-elements">Factories and setters to create AST elements</h3>
 
-<p>With <code>Factory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/Factory.html">javadoc</a>), 
+<p>With <code class="language-plaintext highlighter-rouge">Factory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/Factory.html">javadoc</a>), 
 you can get and create all elements of the meta model. For example, if you want 
-to create a class with the name &quot;Tacos&quot;, use the factory to create an empty class 
+to create a class with the name “Tacos”, use the factory to create an empty class 
 and fill information on the created element to set its name.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtClass</span> <span class="n">newClass</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Core</span><span class="o">().</span><span class="na">createClass</span><span class="o">();</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtClass</span> <span class="n">newClass</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">Core</span><span class="o">().</span><span class="na">createClass</span><span class="o">();</span>
 <span class="n">newClass</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"Tacos"</span><span class="o">);</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>First, create a new field. To do that, create the type referenced by our field. 
-This type is a <code>java.util.List</code> which have a <code>java.util.Date</code> as generic type.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">CtTypeReference</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="n">dateRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">CtTypeReference</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span> <span class="n">listRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="n">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+This type is a <code class="language-plaintext highlighter-rouge">java.util.List</code> which have a <code class="language-plaintext highlighter-rouge">java.util.Date</code> as generic type.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">CtTypeReference</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;</span> <span class="n">dateRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="nc">Date</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="kd">final</span> <span class="nc">CtTypeReference</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span> <span class="n">listRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="n">listRef</span><span class="o">.</span><span class="na">addActualTypeArgument</span><span class="o">(</span><span class="n">dateRef</span><span class="o">);</span>
-</code></pre></div>
-<p><code>dateRef</code>, a <code>CtTypeReference</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html">javadoc</a>), 
-is created by our factory from <code>Date.class</code> given by Java. We also created <code>listRef</code> which 
-is created by our factory from <code>List.class</code> and we add our <code>dateRef</code> as actual type argument 
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">dateRef</code>, a <code class="language-plaintext highlighter-rouge">CtTypeReference</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html">javadoc</a>), 
+is created by our factory from <code class="language-plaintext highlighter-rouge">Date.class</code> given by Java. We also created <code class="language-plaintext highlighter-rouge">listRef</code> which 
+is created by our factory from <code class="language-plaintext highlighter-rouge">List.class</code> and we add our <code class="language-plaintext highlighter-rouge">dateRef</code> as actual type argument 
 which represents the generic type of the list.</p>
 
 <p>Now, create the field. A field has a name, a type and private.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">CtField</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span> <span class="n">listOfDates</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span><span class="n">createField</span><span class="o">();</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">CtField</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span> <span class="n">listOfDates</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span><span class="n">createField</span><span class="o">();</span>
 <span class="n">listOfDates</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"dates"</span><span class="o">);</span>
 <span class="n">listOfDates</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">listRef</span><span class="o">);</span>
-<span class="n">listOfDates</span><span class="o">.</span><span class="na">addModifier</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PRIVATE</span><span class="o">);</span>
-</code></pre></div>
-<p>We have created a field named &quot;dates&quot;, with a private visibility and typed by our previous type reference, 
-<code>listRef</code>, which is <code>java.util.List&lt;java.util.Date&gt;</code>. </p>
+<span class="n">listOfDates</span><span class="o">.</span><span class="na">addModifier</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PRIVATE</span><span class="o">);</span>
+</code></pre></div></div>
 
-<p>Second, create the constructor. Before the creation of a <code>CtConstructor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtConstructor.html">javadoc</a>), 
+<p>We have created a field named “dates”, with a private visibility and typed by our previous type reference, 
+<code class="language-plaintext highlighter-rouge">listRef</code>, which is <code class="language-plaintext highlighter-rouge">java.util.List&lt;java.util.Date&gt;</code>.</p>
+
+<p>Second, create the constructor. Before the creation of a <code class="language-plaintext highlighter-rouge">CtConstructor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtConstructor.html">javadoc</a>), 
 create all objects necessary for this constructor and set them in the target constructor. 
 The constructor has a parameter typed by the same type of the field previously created 
 and has a body to assign the parameter to the field.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">CtCodeSnippetStatement</span> <span class="n">statementInConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCodeSnippetStatement</span><span class="o">(</span><span class="s">"this.dates = dates"</span><span class="o">);</span>
 
-<span class="kd">final</span> <span class="n">CtBlock</span><span class="o">&lt;?&gt;</span> <span class="n">ctBlockOfConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtBlock</span><span class="o">(</span><span class="n">statementInConstructor</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">CtCodeSnippetStatement</span> <span class="n">statementInConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCodeSnippetStatement</span><span class="o">(</span><span class="s">"this.dates = dates"</span><span class="o">);</span>
 
-<span class="kd">final</span> <span class="n">CtParameter</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span> <span class="n">parameter</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span><span class="n">createParameter</span><span class="o">();</span>
+<span class="kd">final</span> <span class="nc">CtBlock</span><span class="o">&lt;?&gt;</span> <span class="n">ctBlockOfConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtBlock</span><span class="o">(</span><span class="n">statementInConstructor</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">CtParameter</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span> <span class="n">parameter</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span><span class="n">createParameter</span><span class="o">();</span>
 <span class="n">parameter</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">listRef</span><span class="o">);</span>
 <span class="n">parameter</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"dates"</span><span class="o">);</span>
 
-<span class="kd">final</span> <span class="n">CtConstructor</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().</span><span class="na">createConstructor</span><span class="o">();</span>
+<span class="kd">final</span> <span class="nc">CtConstructor</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().</span><span class="na">createConstructor</span><span class="o">();</span>
 <span class="n">constructor</span><span class="o">.</span><span class="na">setBody</span><span class="o">(</span><span class="n">ctBlockOfConstructor</span><span class="o">);</span>
-<span class="n">constructor</span><span class="o">.</span><span class="na">setParameters</span><span class="o">(</span><span class="n">Collections</span><span class="o">.&lt;</span><span class="n">CtParameter</span><span class="o">&lt;?&gt;&gt;</span><span class="n">singletonList</span><span class="o">(</span><span class="n">parameter</span><span class="o">));</span>
-<span class="n">constructor</span><span class="o">.</span><span class="na">addModifier</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
-</code></pre></div>
-<p><em>Wow! Wait ... What is <code>CtCodeSnippetStatement</code>?</em></p>
+<span class="n">constructor</span><span class="o">.</span><span class="na">setParameters</span><span class="o">(</span><span class="nc">Collections</span><span class="o">.&lt;</span><span class="nc">CtParameter</span><span class="o">&lt;?&gt;&gt;</span><span class="n">singletonList</span><span class="o">(</span><span class="n">parameter</span><span class="o">));</span>
+<span class="n">constructor</span><span class="o">.</span><span class="na">addModifier</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
+</code></pre></div></div>
 
-<p>You can convert any string in a <code>CtStatement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtStatement.html">javadoc</a>) 
-with <code>createCodeSnippetStatement(String statement)</code> or in <code>CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>) 
-with <code>createCodeSnippetExpression(String expression)</code>. In our case, we convert <code>this.dates = dates</code> 
-in a <code>CtAssignement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtAssignment.html">javadoc</a>) 
+<p><em>Wow! Wait … What is <code class="language-plaintext highlighter-rouge">CtCodeSnippetStatement</code>?</em></p>
+
+<p>You can convert any string in a <code class="language-plaintext highlighter-rouge">CtStatement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtStatement.html">javadoc</a>) 
+with <code class="language-plaintext highlighter-rouge">createCodeSnippetStatement(String statement)</code> or in <code class="language-plaintext highlighter-rouge">CtExpression</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtExpression.html">javadoc</a>) 
+with <code class="language-plaintext highlighter-rouge">createCodeSnippetExpression(String expression)</code>. In our case, we convert <code class="language-plaintext highlighter-rouge">this.dates = dates</code> 
+in a <code class="language-plaintext highlighter-rouge">CtAssignement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtAssignment.html">javadoc</a>) 
 with an assignment and an assigned elements.</p>
 
 <p>With this last example, you have created a statement that you have put in a block. 
@@ -528,45 +545,47 @@ You have created a parameter typed by the same type as the field and
 you have put all these objects in the constructor.</p>
 
 <p>Finally, apply all transformations in your processor:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClassProcessor</span> <span class="kd">extends</span> <span class="n">AbstractProcessor</span><span class="o">&lt;</span><span class="n">CtClass</span><span class="o">&lt;?&gt;&gt;</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">process</span><span class="o">(</span><span class="n">CtClass</span><span class="o">&lt;?&gt;</span> <span class="n">ctClass</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Creates field.</span>
-        <span class="kd">final</span> <span class="n">CtTypeReference</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="n">dateRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="kd">final</span> <span class="n">CtTypeReference</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span> <span class="n">listRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="n">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="n">listRef</span><span class="o">.</span><span class="na">addActualTypeArgument</span><span class="o">(</span><span class="n">dateRef</span><span class="o">);</span>
-        <span class="kd">final</span> <span class="n">CtField</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span> <span class="n">listOfDates</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span><span class="n">createField</span><span class="o">();</span>
-        <span class="n">listOfDates</span><span class="o">.&lt;</span><span class="n">CtField</span><span class="o">&gt;</span><span class="n">setType</span><span class="o">(</span><span class="n">listRef</span><span class="o">);</span>
-        <span class="n">listOfDates</span><span class="o">.&lt;</span><span class="n">CtField</span><span class="o">&gt;</span><span class="n">addModifier</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PRIVATE</span><span class="o">);</span>
-        <span class="n">listOfDates</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"dates"</span><span class="o">);</span>
 
-        <span class="c1">// Creates constructor.</span>
-        <span class="kd">final</span> <span class="n">CtCodeSnippetStatement</span> <span class="n">statementInConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCodeSnippetStatement</span><span class="o">(</span><span class="s">"this.dates = dates"</span><span class="o">);</span>
-        <span class="kd">final</span> <span class="n">CtBlock</span><span class="o">&lt;?&gt;</span> <span class="n">ctBlockOfConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtBlock</span><span class="o">(</span><span class="n">statementInConstructor</span><span class="o">);</span>
-        <span class="kd">final</span> <span class="n">CtParameter</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span> <span class="n">parameter</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;&gt;</span><span class="n">createParameter</span><span class="o">();</span>
-        <span class="n">parameter</span><span class="o">.&lt;</span><span class="n">CtParameter</span><span class="o">&gt;</span><span class="n">setType</span><span class="o">(</span><span class="n">listRef</span><span class="o">);</span>
-        <span class="n">parameter</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"dates"</span><span class="o">);</span>
-        <span class="kd">final</span> <span class="n">CtConstructor</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().</span><span class="na">createConstructor</span><span class="o">();</span>
-        <span class="n">constructor</span><span class="o">.</span><span class="na">setBody</span><span class="o">(</span><span class="n">ctBlockOfConstructor</span><span class="o">);</span>
-        <span class="n">constructor</span><span class="o">.</span><span class="na">setParameters</span><span class="o">(</span><span class="n">Collections</span><span class="o">.&lt;</span><span class="n">CtParameter</span><span class="o">&lt;?&gt;&gt;</span><span class="n">singletonList</span><span class="o">(</span><span class="n">parameter</span><span class="o">));</span>
-        <span class="n">constructor</span><span class="o">.</span><span class="na">addModifier</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClassProcessor</span> <span class="kd">extends</span> <span class="nc">AbstractProcessor</span><span class="o">&lt;</span><span class="nc">CtClass</span><span class="o">&lt;?&gt;&gt;</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="nc">CtClass</span><span class="o">&lt;?&gt;</span> <span class="n">ctClass</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// Creates field.</span>
+		<span class="kd">final</span> <span class="nc">CtTypeReference</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;</span> <span class="n">dateRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="nc">Date</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="kd">final</span> <span class="nc">CtTypeReference</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span> <span class="n">listRef</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtTypeReference</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="n">listRef</span><span class="o">.</span><span class="na">addActualTypeArgument</span><span class="o">(</span><span class="n">dateRef</span><span class="o">);</span>
+		<span class="kd">final</span> <span class="nc">CtField</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span> <span class="n">listOfDates</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span><span class="n">createField</span><span class="o">();</span>
+		<span class="n">listOfDates</span><span class="o">.&lt;</span><span class="nc">CtField</span><span class="o">&gt;</span><span class="n">setType</span><span class="o">(</span><span class="n">listRef</span><span class="o">);</span>
+		<span class="n">listOfDates</span><span class="o">.&lt;</span><span class="nc">CtField</span><span class="o">&gt;</span><span class="n">addModifier</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PRIVATE</span><span class="o">);</span>
+		<span class="n">listOfDates</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"dates"</span><span class="o">);</span>
 
-        <span class="c1">// Apply transformation.</span>
-        <span class="n">ctClass</span><span class="o">.</span><span class="na">addField</span><span class="o">(</span><span class="n">listOfDates</span><span class="o">);</span>
-        <span class="n">ctClass</span><span class="o">.</span><span class="na">addConstructor</span><span class="o">(</span><span class="n">constructor</span><span class="o">);</span>
-    <span class="o">}</span>
+		<span class="c1">// Creates constructor.</span>
+		<span class="kd">final</span> <span class="nc">CtCodeSnippetStatement</span> <span class="n">statementInConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCodeSnippetStatement</span><span class="o">(</span><span class="s">"this.dates = dates"</span><span class="o">);</span>
+		<span class="kd">final</span> <span class="nc">CtBlock</span><span class="o">&lt;?&gt;</span> <span class="n">ctBlockOfConstructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Code</span><span class="o">().</span><span class="na">createCtBlock</span><span class="o">(</span><span class="n">statementInConstructor</span><span class="o">);</span>
+		<span class="kd">final</span> <span class="nc">CtParameter</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span> <span class="n">parameter</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Date</span><span class="o">&gt;&gt;</span><span class="n">createParameter</span><span class="o">();</span>
+		<span class="n">parameter</span><span class="o">.&lt;</span><span class="nc">CtParameter</span><span class="o">&gt;</span><span class="n">setType</span><span class="o">(</span><span class="n">listRef</span><span class="o">);</span>
+		<span class="n">parameter</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"dates"</span><span class="o">);</span>
+		<span class="kd">final</span> <span class="nc">CtConstructor</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">getFactory</span><span class="o">().</span><span class="na">Core</span><span class="o">().</span><span class="na">createConstructor</span><span class="o">();</span>
+		<span class="n">constructor</span><span class="o">.</span><span class="na">setBody</span><span class="o">(</span><span class="n">ctBlockOfConstructor</span><span class="o">);</span>
+		<span class="n">constructor</span><span class="o">.</span><span class="na">setParameters</span><span class="o">(</span><span class="nc">Collections</span><span class="o">.&lt;</span><span class="nc">CtParameter</span><span class="o">&lt;?&gt;&gt;</span><span class="n">singletonList</span><span class="o">(</span><span class="n">parameter</span><span class="o">));</span>
+		<span class="n">constructor</span><span class="o">.</span><span class="na">addModifier</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
+
+		<span class="c1">// Apply transformation.</span>
+		<span class="n">ctClass</span><span class="o">.</span><span class="na">addField</span><span class="o">(</span><span class="n">listOfDates</span><span class="o">);</span>
+		<span class="n">ctClass</span><span class="o">.</span><span class="na">addConstructor</span><span class="o">(</span><span class="n">constructor</span><span class="o">);</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="refactoring-transformations">Refactoring transformations</h3>
 
 <p>Spoon provides some methods for automated refactoring:.</p>
 
 <ul>
-<li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/refactoring/CtRenameLocalVariableRefactoring.html">Local Variable Refactoring</a>
+  <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/refactoring/CtRenameLocalVariableRefactoring.html">Local Variable Refactoring</a>
 class, renames local variables and includes extra checking to ensure program correctness after renaming,</li>
-<li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/refactoring/CtRenameGenericVariableRefactoring.html">Generic Variable Refactoring</a>
+  <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/refactoring/CtRenameGenericVariableRefactoring.html">Generic Variable Refactoring</a>
 class, renames any variable type (field, parameter, local), but does not do any extra checking to ensure program correctness.</li>
-<li><code>Refactoring</code> contains helper methods for refactoring, incl. one for automated removal of deprecated methods.</li>
+  <li><code class="language-plaintext highlighter-rouge">Refactoring</code> contains helper methods for refactoring, incl. one for automated removal of deprecated methods.</li>
 </ul>
 
 
@@ -726,7 +745,7 @@ class, renames any variable type (field, parameter, local), but does not do any 
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

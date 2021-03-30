@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -468,53 +477,53 @@
 
   <h1 id="spoon-agent">Spoon Agent</h1>
 
-<p>Spoon can also be used to transform classes at load time in the JVM. FOr this, <code>SpoonClassFileTransformer</code> provide an abstraction of <code>ClassFileTransformer</code>
+<p>Spoon can also be used to transform classes at load time in the JVM. FOr this, <code class="language-plaintext highlighter-rouge">SpoonClassFileTransformer</code> provide an abstraction of <code class="language-plaintext highlighter-rouge">ClassFileTransformer</code>
 where the user can define Spoon transformation.
 Bytecode of classes will be decompiled on-the-fly when loaded, and the Spoon AST will be updated in consequence, and the code is recompiled on-the-fly.</p>
 
-<p>The following example shows the definition of a basic JVM agent for inserting a tracing method call a the end of every method called <code>foo</code>.</p>
+<p>The following example shows the definition of a basic JVM agent for inserting a tracing method call a the end of every method called <code class="language-plaintext highlighter-rouge">foo</code>.</p>
 
-<p>Here is the agent:
-```java
-public class Agent {
-    public static void premain(String agentArgs, Instrumentation inst) {
-        System.out.println( &quot;Hello Agent&quot; );</p>
-<div class="highlight"><pre><code class="language-" data-lang="">    //Create a SpoonClassFileTransformer, that
-    // * excludes any classes not in our package from decompilation
-    // * adds the statement System.out.println("Hello &lt;className&gt;"); to the (first) method named "foo" of every classes
-    SpoonClassFileTransformer transformer = new SpoonClassFileTransformer(
-            cl -&gt; cl.startsWith("org/my/package"),
-            new InsertPrintTransformer()
-    );
-    inst.addTransformer(transformer);
+<p>Here is the agent:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Agent</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">premain</span><span class="o">(</span><span class="nc">String</span> <span class="n">agentArgs</span><span class="o">,</span> <span class="nc">Instrumentation</span> <span class="n">inst</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Hello Agent"</span> <span class="o">);</span>
 
-    System.out.println( "Agent Done." );
-}
-</code></pre></div>
-<p>}
-```</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InsertPrintTransformer</span> <span class="kd">implements</span> <span class="n">TypeTransformer</span> <span class="o">{</span>
+		<span class="c1">//Create a SpoonClassFileTransformer, that</span>
+		<span class="c1">// * excludes any classes not in our package from decompilation</span>
+		<span class="c1">// * adds the statement System.out.println("Hello &lt;className&gt;"); to the (first) method named "foo" of every classes</span>
+        <span class="nc">SpoonClassFileTransformer</span> <span class="n">transformer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpoonClassFileTransformer</span><span class="o">(</span>
+                <span class="n">cl</span> <span class="o">-&gt;</span> <span class="n">cl</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"org/my/package"</span><span class="o">),</span>
+                <span class="k">new</span> <span class="nf">InsertPrintTransformer</span><span class="o">()</span>
+        <span class="o">);</span>
+		<span class="n">inst</span><span class="o">.</span><span class="na">addTransformer</span><span class="o">(</span><span class="n">transformer</span><span class="o">);</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">accept</span><span class="o">(</span><span class="n">CtType</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">((</span><span class="n">type</span> <span class="k">instanceof</span> <span class="n">CtClass</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
-                <span class="n">type</span><span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"foo"</span><span class="o">).</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">transform</span><span class="o">(</span><span class="n">CtType</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Transforming "</span> <span class="o">+</span> <span class="n">type</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
-        <span class="n">CtMethod</span> <span class="n">main</span> <span class="o">=</span> <span class="o">(</span><span class="n">CtMethod</span><span class="o">)</span> <span class="n">type</span><span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"foo"</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-        <span class="n">main</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">addStatement</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">createCodeSnippetStatement</span><span class="o">(</span><span class="s">"System.out.println(\"Hello "</span> <span class="o">+</span> <span class="n">type</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">()</span> <span class="o">+</span> <span class="s">"\");"</span><span class="o">));</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Done transforming "</span> <span class="o">+</span> <span class="n">type</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
-    <span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Agent Done."</span> <span class="o">);</span>
+	<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>:warning: The <code>SpoonClassFileTransformer</code> feature (and all features relying on decompilation) are not included in <code>spoon-core</code> but in <code>spoon-decompiler</code>. If you want to use them you should declare a dependency to <code>spoon-decompiler</code>.</p>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InsertPrintTransformer</span> <span class="kd">implements</span> <span class="nc">TypeTransformer</span> <span class="o">{</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">accept</span><span class="o">(</span><span class="nc">CtType</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">((</span><span class="n">type</span> <span class="k">instanceof</span> <span class="nc">CtClass</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
+				<span class="n">type</span><span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"foo"</span><span class="o">).</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">transform</span><span class="o">(</span><span class="nc">CtType</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Transforming "</span> <span class="o">+</span> <span class="n">type</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
+		<span class="nc">CtMethod</span> <span class="n">main</span> <span class="o">=</span> <span class="o">(</span><span class="nc">CtMethod</span><span class="o">)</span> <span class="n">type</span><span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"foo"</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+		<span class="n">main</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">addStatement</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">createCodeSnippetStatement</span><span class="o">(</span><span class="s">"System.out.println(\"Hello "</span> <span class="o">+</span> <span class="n">type</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">()</span> <span class="o">+</span> <span class="s">"\");"</span><span class="o">));</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Done transforming "</span> <span class="o">+</span> <span class="n">type</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>:warning: The <code class="language-plaintext highlighter-rouge">SpoonClassFileTransformer</code> feature (and all features relying on decompilation) are not included in <code class="language-plaintext highlighter-rouge">spoon-core</code> but in <code class="language-plaintext highlighter-rouge">spoon-decompiler</code>. If you want to use them you should declare a dependency to <code class="language-plaintext highlighter-rouge">spoon-decompiler</code>.</p>
 
 
 
@@ -673,7 +682,7 @@ public class Agent {
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

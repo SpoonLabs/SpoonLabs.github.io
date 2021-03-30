@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -468,11 +477,14 @@
 
   <h3 id="the-launcher-class">The Launcher class</h3>
 
-<p>The Spoon <code>Launcher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/Launcher.html">JavaDoc</a>) is used to create the AST model of a project. It can be as short as:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtClass</span> <span class="n">l</span> <span class="o">=</span> <span class="n">Launcher</span><span class="o">.</span><span class="na">parseClass</span><span class="o">(</span><span class="s">"class A { void m() { System.out.println(\"yeah\");} }"</span><span class="o">);</span>
-</code></pre></div>
+<p>The Spoon <code class="language-plaintext highlighter-rouge">Launcher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/Launcher.html">JavaDoc</a>) is used to create the AST model of a project. It can be as short as:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtClass</span> <span class="n">l</span> <span class="o">=</span> <span class="nc">Launcher</span><span class="o">.</span><span class="na">parseClass</span><span class="o">(</span><span class="s">"class A { void m() { System.out.println(\"yeah\");} }"</span><span class="o">);</span>
+</code></pre></div></div>
+
 <p>Or with a plain object:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
 
 <span class="c1">// path can be a folder or a file</span>
 <span class="c1">// addInputResource can be called several times</span>
@@ -480,159 +492,181 @@
 
 <span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
 
-<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
-</code></pre></div>
+<span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
+</code></pre></div></div>
+
 <h3 id="pretty-printing-modes">Pretty-printing modes</h3>
 
 <p>See <a href="http://spoon.gforge.inria.fr/custom-pretty-printing.html">http://spoon.gforge.inria.fr/custom-pretty-printing.html</a>.</p>
 
 <h3 id="the-mavenlauncher-class">The MavenLauncher class</h3>
 
-<p>The Spoon <code>MavenLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/MavenLauncher.html">JavaDoc</a>) is used to create the AST model of a Maven project.
-It automatically infers the list of source folders and the dependencies from the <code>pom.xml</code> file.
-This Launcher handles multi-module Maven projects.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// the second parameter can be APP_SOURCE / TEST_SOURCE / ALL_SOURCE</span>
-<span class="n">MavenLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MavenLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_maven_project&gt;"</span><span class="o">,</span> <span class="n">MavenLauncher</span><span class="o">.</span><span class="na">SOURCE_TYPE</span><span class="o">.</span><span class="na">APP_SOURCE</span><span class="o">);</span>
+<p>The Spoon <code class="language-plaintext highlighter-rouge">MavenLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/MavenLauncher.html">JavaDoc</a>) is used to create the AST model of a Maven project.
+It automatically infers the list of source folders and the dependencies from the <code class="language-plaintext highlighter-rouge">pom.xml</code> file.
+This launcher handles multi-module Maven projects.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// the second parameter can be APP_SOURCE / TEST_SOURCE / ALL_SOURCE</span>
+<span class="nc">MavenLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MavenLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_maven_project&gt;"</span><span class="o">,</span> <span class="nc">MavenLauncher</span><span class="o">.</span><span class="na">SOURCE_TYPE</span><span class="o">.</span><span class="na">APP_SOURCE</span><span class="o">);</span>
 <span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
-<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
+<span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
 
 <span class="c1">// list all packages of the model</span>
-<span class="k">for</span><span class="o">(</span><span class="n">CtPackage</span> <span class="n">p</span> <span class="o">:</span> <span class="n">model</span><span class="o">.</span><span class="na">getAllPackages</span><span class="o">())</span> <span class="o">{</span>
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"package: "</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
+<span class="k">for</span><span class="o">(</span><span class="nc">CtPackage</span> <span class="n">p</span> <span class="o">:</span> <span class="n">model</span><span class="o">.</span><span class="na">getAllPackages</span><span class="o">())</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"package: "</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
 <span class="o">}</span>
 <span class="c1">// list all classes of the model</span>
-<span class="k">for</span><span class="o">(</span><span class="n">CtType</span><span class="o">&lt;?&gt;</span> <span class="n">s</span> <span class="o">:</span> <span class="n">model</span><span class="o">.</span><span class="na">getAllTypes</span><span class="o">())</span> <span class="o">{</span>
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"class: "</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
+<span class="k">for</span><span class="o">(</span><span class="nc">CtType</span><span class="o">&lt;?&gt;</span> <span class="n">s</span> <span class="o">:</span> <span class="n">model</span><span class="o">.</span><span class="na">getAllTypes</span><span class="o">())</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"class: "</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">getQualifiedName</span><span class="o">());</span>
 <span class="o">}</span>
 
-</code></pre></div>
-<p>Note that by default, MavenLauncher relies on an existing local maven binary to build the project&#39;s classpath. But a constructor allowing the user to skip this step and to provide a custom classpath is available.
-<code>java
-MavenLauncher launcher = new MavenLauncher(&quot;&lt;path_to_maven_project&gt;&quot;,
-        MavenLauncher.SOURCE_TYPE.APP_SOURCE,
-        new String[] {
-            &quot;/home/user/.m2/repository/org/my/jar/1.0/org-my-jar-1.0.jar&quot;
-        }
-    );
-launcher.buildModel();
-CtModel model = launcher.getModel();
-</code>
-To avoid invoking maven over and over to build a classpath that has not changed, it is stored in a file <code>spoon.classpath.tmp</code> (or depending on the scope <code>spoon.classpath-app.tmp</code> or <code>spoon.classpath-test.tmp</code>) in the same folder as the <code>pom.xml</code>. This classpath will be refreshed is the file is deleted or if it has not been modified since 1h.</p>
+</code></pre></div></div>
+
+<p>Note that by default, <code class="language-plaintext highlighter-rouge">MavenLauncher</code> relies on an existing local Maven binary to build the project’s classpath. But a constructor allowing the user to skip this step and to provide a custom classpath is available.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MavenLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MavenLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_maven_project&gt;"</span><span class="o">,</span>
+        <span class="nc">MavenLauncher</span><span class="o">.</span><span class="na">SOURCE_TYPE</span><span class="o">.</span><span class="na">APP_SOURCE</span><span class="o">,</span>
+        <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span>
+            <span class="s">"/home/user/.m2/repository/org/my/jar/1.0/org-my-jar-1.0.jar"</span>
+        <span class="o">}</span>
+    <span class="o">);</span>
+<span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+<span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
+</code></pre></div></div>
+<p>To avoid invoking Maven over and over to build a classpath that has not changed, it is stored in the file <code class="language-plaintext highlighter-rouge">spoon.classpath.tmp</code> (or depending on the scope <code class="language-plaintext highlighter-rouge">spoon.classpath-app.tmp</code> or <code class="language-plaintext highlighter-rouge">spoon.classpath-test.tmp</code>) in the same folder as the <code class="language-plaintext highlighter-rouge">pom.xml</code>. This classpath will be refreshed if the file is deleted or if it has not been modified for 1h.</p>
 
 <h3 id="analyzing-bytecode-with-jarlauncher">Analyzing bytecode with JarLauncher</h3>
 
-<p>There are two ways to analyze bytecode with spoon:</p>
+<p>There are two ways to analyze bytecode with Spoon:</p>
 
 <ul>
-<li>Bytecode resources can be added in the classpath, (some information will be extracted through reflection)</li>
-<li>A decompiler may be used, and then, the analyzes will be performed on the decompiled sources.</li>
+  <li>Bytecode resources can be added to the classpath (some information will be extracted through reflection).</li>
+  <li>A decompiler may be used, and then, the analyzes will be performed on the decompiled sources.</li>
 </ul>
 
-<p>The Spoon <code>JarLauncher</code> (<a href="https://github.com/INRIA/spoon/blob/master/spoon-decompiler/src/main/java/spoon/JarLauncher.java">JavaDoc</a>) is used to create the AST model from a jar.
+<p>The Spoon <code class="language-plaintext highlighter-rouge">JarLauncher</code> (<a href="https://github.com/INRIA/spoon/blob/master/spoon-decompiler/src/main/java/spoon/JarLauncher.java">JavaDoc</a>) is used to create the AST model from a jar.
 It automatically decompiles class files contained in the jar and analyzes them.
 If a pom file corresponding to the jar is provided, it will be used to build the classpath containing all dependencies.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//More constructors are available, check the JavaDOc for more information.</span>
-<span class="n">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="n">JarLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">);</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//More constructors are available, check the JavaDOc for more information.</span>
+<span class="nc">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="nc">JarLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">);</span>
 <span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
-<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
-</code></pre></div>
-<p>Note that the default decompiler <a href="http://www.benf.org/other/cfr/">CFR</a> can be changed by providing an instance implementing <code>spoon.decompiler.Decompiler</code> as a parameter.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JarLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">,</span>
-    <span class="k">new</span> <span class="n">Decompiler</span><span class="o">()</span> <span class="o">{</span>
+<span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Note that the default decompiler <a href="http://www.benf.org/other/cfr/">CFR</a> can be changed by providing an instance implementing <code class="language-plaintext highlighter-rouge">spoon.decompiler.Decompiler</code> as a parameter.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JarLauncher</span><span class="o">(</span><span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span> <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">,</span>
+    <span class="k">new</span> <span class="nf">Decompiler</span><span class="o">()</span> <span class="o">{</span>
         <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="n">decompile</span><span class="o">(</span><span class="n">String</span> <span class="n">inputPath</span><span class="o">,</span> <span class="n">String</span> <span class="n">outputPath</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">classpath</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decompile</span><span class="o">(</span><span class="nc">String</span> <span class="n">inputPath</span><span class="o">,</span> <span class="nc">String</span> <span class="n">outputPath</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">classpath</span><span class="o">)</span> <span class="o">{</span>
             <span class="c1">//Custom decompiler call</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">);</span>
-</code></pre></div>
-<p>Spoon provides two out of the shelf decompilers, CFR by default, and Fernflower. You can use the later like this:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JarLauncher</span><span class="o">(</span>
+</code></pre></div></div>
+
+<p>Spoon provides two out of the shelf decompilers, CFR by default, and Fernflower. You can use the latter like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">JarLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JarLauncher</span><span class="o">(</span>
         <span class="s">"&lt;path_to_jar&gt;"</span><span class="o">,</span>
         <span class="s">"&lt;path_to_output_src_dir&gt;"</span><span class="o">,</span>
         <span class="s">"&lt;path_to_pom&gt;"</span><span class="o">,</span>
-        <span class="k">new</span> <span class="n">FernflowerDecompiler</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"&lt;path_to_output_src_dir&gt;/src/main/java"</span><span class="o">))</span>
+        <span class="k">new</span> <span class="nf">FernflowerDecompiler</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"&lt;path_to_output_src_dir&gt;/src/main/java"</span><span class="o">))</span>
 <span class="o">);</span>
-</code></pre></div>
-<p>Optionally, the classic launcher can be used with <code>DecompiledResource</code> like this:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Launcher</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Optionally, the classic launcher can be used with <code class="language-plaintext highlighter-rouge">DecompiledResource</code> like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Launcher</span><span class="o">();</span>
 <span class="n">launcher</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span>
-    <span class="k">new</span> <span class="n">DecompiledResource</span><span class="o">(</span><span class="n">baseDir</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">(),</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{},</span> <span class="k">new</span> <span class="n">CFRDecompiler</span><span class="o">(),</span> <span class="n">pathToDecompiledRoot</span><span class="o">.</span><span class="na">getPath</span><span class="o">())</span>
+    <span class="k">new</span> <span class="nf">DecompiledResource</span><span class="o">(</span><span class="n">baseDir</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">(),</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]{},</span> <span class="k">new</span> <span class="nc">CFRDecompiler</span><span class="o">(),</span> <span class="n">pathToDecompiledRoot</span><span class="o">.</span><span class="na">getPath</span><span class="o">())</span>
 <span class="o">);</span>
-</code></pre></div>
-<p><strong>Warning</strong> The <code>JarLauncher</code> feature (and all features relying on decompilation) are not included in <code>spoon-core</code> but in <code>spoon-decompiler</code>. If you want to use them you should declare a dependency to <code>spoon-decompiler</code>.</p>
+</code></pre></div></div>
+
+<p><strong>Warning</strong> The <code class="language-plaintext highlighter-rouge">JarLauncher</code> feature (and all features relying on decompilation) are not included in <code class="language-plaintext highlighter-rouge">spoon-core</code> but in <code class="language-plaintext highlighter-rouge">spoon-decompiler</code>. If you want to use them you should declare a dependency to <code class="language-plaintext highlighter-rouge">spoon-decompiler</code>.</p>
 
 <h3 id="resolution-of-elements-and-classpath">Resolution of elements and classpath</h3>
 
 <p>Spoon analyzes source code. However, this source code may refer to libraries (as a field, parameter, or method return type). There are two cases:</p>
 
 <ul>
-<li>Full classpath: all dependencies are in the JVM classpath or are given to the Laucher with <code>launcher.getEnvironment().setSourceClasspath(&quot;&lt;classpath_project&gt;&quot;);</code> (optional)</li>
-<li>No classpath: some dependencies are unknown and <code>launcher.getEnvironment().setNoClasspath(true)</code> is set.</li>
+  <li>Full classpath: all dependencies are in the JVM classpath or are given to the launcher with <code class="language-plaintext highlighter-rouge">launcher.getEnvironment().setSourceClasspath("&lt;classpath_project&gt;");</code> (optional).</li>
+  <li>No classpath: some dependencies are unknown and <code class="language-plaintext highlighter-rouge">launcher.getEnvironment().setNoClasspath(true)</code> is set.</li>
 </ul>
 
 <p>This has a direct impact on Spoon references.
-When you&#39;re consider a reference object (say, a TypeReference), there are three cases:</p>
+When you consider a reference object (say, a <code class="language-plaintext highlighter-rouge">CtTypeReference</code>), there are three cases:</p>
 
 <ul>
-<li>Case 1 (code available as source code): the reference points to a code element for which the source code is present. In this case, reference.getDeclaration() returns this code element (e.g. TypeReference.getDeclaration returns the CtType representing the given java file). reference.getTypeDeclaration() is identical to reference.getDeclaration().</li>
-<li>Case 2 (code available as binary in the classpath): the reference points to a code element for which the source code is NOT present, but for which the binary class is in the classpath (either the JVM classpath or the --source-classpath argument). In this case, reference.getDeclaration() returns null and reference.getTypeDeclaration returns a partial CtType built using runtime reflection. Those objects built using runtime reflection are called shadow objects; and you can identify them with method isShadow. (This also holds for getFieldDeclaration and getExecutableDeclaration)</li>
-<li>Case 3 (code not available, aka noclasspath): the reference points to a code element for which the source code is NOT present, but for which the binary class is NOT in the classpath. This is called in Spoon the noclasspath mode. In this case, both reference.getDeclaration() and reference.getTypeDeclaration() return null. (This also holds for getFieldDeclaration and getExecutableDeclaration)</li>
+  <li>Case 1 (code available as source code): the reference points to a code element for which the source code is present. In this case, <code class="language-plaintext highlighter-rouge">reference.getDeclaration()</code> returns this code element (e.g. <code class="language-plaintext highlighter-rouge">TypeReference.getDeclaration</code> returns the <code class="language-plaintext highlighter-rouge">CtType</code> representing the given Java file). <code class="language-plaintext highlighter-rouge">reference.getTypeDeclaration()</code> is identical to <code class="language-plaintext highlighter-rouge">reference.getDeclaration()</code>.</li>
+  <li>Case 2 (code available as binary in the classpath): the reference points to a code element for which the source code is NOT present, but for which the binary class is in the classpath (either the JVM classpath or the <code class="language-plaintext highlighter-rouge">--source-classpath</code> argument). In this case, <code class="language-plaintext highlighter-rouge">reference.getDeclaration()</code> returns <code class="language-plaintext highlighter-rouge">null</code> and <code class="language-plaintext highlighter-rouge">reference.getTypeDeclaration</code> returns a partial <code class="language-plaintext highlighter-rouge">CtType</code> built using runtime reflection. Those objects built using runtime reflection are called shadow objects, and you can identify them with method <code class="language-plaintext highlighter-rouge">isShadow</code>. (This also holds for <code class="language-plaintext highlighter-rouge">getFieldDeclaration</code> and <code class="language-plaintext highlighter-rouge">getExecutableDeclaration</code>).</li>
+  <li>Case 3 (code not available, aka noclasspath): the reference points to a code element for which the source code is NOT present, but for which the binary class is NOT in the classpath. This is called in Spoon the noclasspath mode. In this case, both <code class="language-plaintext highlighter-rouge">reference.getDeclaration()</code> and <code class="language-plaintext highlighter-rouge">reference.getTypeDeclaration()</code> return <code class="language-plaintext highlighter-rouge">null</code>. (This also holds for <code class="language-plaintext highlighter-rouge">getFieldDeclaration</code> and <code class="language-plaintext highlighter-rouge">getExecutableDeclaration</code>).</li>
 </ul>
+
+<h3 id="default-and-custom-classloaders">Default and custom classloaders</h3>
+
+<p>Spoon uses a <code class="language-plaintext highlighter-rouge">URLClassLoader</code> by default to load binaries before parsing them. A <code class="language-plaintext highlighter-rouge">URLClassLoader</code> will load a class with the parent classloader first. This means that if there is a name conflict between the JVM classpath and the manual classpath then the former will be chosen. To give priority to the manual classpath, a child-first classloader can be used. Classloaders are set with <code class="language-plaintext highlighter-rouge">launcher.getEnvironment().setInputClassLoader(customClassloader)</code>.</p>
 
 <h2 id="declaring-the-dependency-to-spoon">Declaring the dependency to Spoon</h2>
 
 <h3 id="maven">Maven</h3>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>fr.inria.gforge.spoon<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>spoon-core<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>8.4.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <h3 id="gradle">Gradle</h3>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">compile</span> <span class="s1">'fr.inria.gforge.spoon:spoon-core:'</span>
-</code></pre></div>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compile</span> <span class="s1">'fr.inria.gforge.spoon:spoon-core:8.4.0'</span>
+</code></pre></div></div>
+
 <h2 id="advanced-launchers">Advanced launchers</h2>
 
 <h3 id="incremental-launcher">Incremental Launcher</h3>
 
-<p><code>IncrementalLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/IncrementalLauncher.html">JavaDoc</a>) allows cache AST and compiled classes. Any spoon analysis can then be restarted from where it stopped instead of restarting from scratch.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">File</span> <span class="n">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"&lt;path_to_cache&gt;"</span><span class="o">);</span>
-<span class="n">Set</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="n">inputResources</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"&lt;path_to_sources&gt;"</span><span class="o">));</span>
-<span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">sourceClasspath</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">emptySet</span><span class="o">();</span> <span class="c1">// Empty classpath</span>
+<p><code class="language-plaintext highlighter-rouge">IncrementalLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/IncrementalLauncher.html">JavaDoc</a>) allows cached ASTs and compiled classes. Any Spoon analysis can then be restarted from where it stopped instead of restarting from scratch.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">File</span> <span class="n">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"&lt;path_to_cache&gt;"</span><span class="o">);</span>
+<span class="nc">Set</span><span class="o">&lt;</span><span class="nc">File</span><span class="o">&gt;</span> <span class="n">inputResources</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"&lt;path_to_sources&gt;"</span><span class="o">));</span>
+<span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sourceClasspath</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptySet</span><span class="o">();</span> <span class="c1">// Empty classpath</span>
 
 <span class="c1">//Start build from cache</span>
-<span class="n">IncrementalLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IncrementalLauncher</span><span class="o">(</span><span class="n">inputResources</span><span class="o">,</span> <span class="n">sourceClasspath</span><span class="o">,</span> <span class="n">cache</span><span class="o">);</span>
+<span class="nc">IncrementalLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IncrementalLauncher</span><span class="o">(</span><span class="n">inputResources</span><span class="o">,</span> <span class="n">sourceClasspath</span><span class="o">,</span> <span class="n">cache</span><span class="o">);</span>
 
 <span class="k">if</span> <span class="o">(</span><span class="n">launcher</span><span class="o">.</span><span class="na">changesPresent</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"There are changes since last save to cache."</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"There are changes since last save to cache."</span><span class="o">);</span>
 <span class="o">}</span>
 
-<span class="n">CtModel</span> <span class="n">newModel</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
+<span class="nc">CtModel</span> <span class="n">newModel</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
 <span class="c1">//Model is now up to date</span>
 
 <span class="n">launcher</span><span class="o">.</span><span class="na">saveCache</span><span class="o">();</span>
 <span class="c1">//Cache is now up to date</span>
-</code></pre></div>
+</code></pre></div></div>
 <h3 id="fluent-launcherapi">Fluent LauncherAPI</h3>
 
-<p><code>FluentLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/FluentLauncher.html">JavaDoc</a>) allows simple, fluent launcher usage with setting most options directly.</p>
+<p><code class="language-plaintext highlighter-rouge">FluentLauncher</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/FluentLauncher.html">JavaDoc</a>) allows setting most options directly for simple and fluent launcher usage.</p>
 
-<p>For the classic launcher it&#39;s simply:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FluentLauncher</span><span class="o">()</span>
+<p>For the classic launcher it’s simply:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FluentLauncher</span><span class="o">()</span>
                 <span class="o">.</span><span class="na">inputResource</span><span class="o">(</span><span class="s">"&lt;path_to_sources&gt;"</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">noClasspath</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">outputDirectory</span><span class="o">(</span><span class="s">"&lt;path_to_outputdir&gt;"</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">processor</span><span class="o">(....)</span>
                 <span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
-</code></pre></div>
-<p>If you want to use other launchers like the MavenLauncher:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">MavenLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MavenLauncher</span><span class="o">(....);</span>
-<span class="n">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FluentLauncher</span><span class="o">(</span><span class="n">launcher</span><span class="o">)</span>
+</code></pre></div></div>
+<p>If you want to use other launchers like the <code class="language-plaintext highlighter-rouge">MavenLauncher</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MavenLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MavenLauncher</span><span class="o">(....);</span>
+<span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FluentLauncher</span><span class="o">(</span><span class="n">launcher</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">processor</span><span class="o">(....)</span>
                 <span class="o">.</span><span class="na">encoding</span><span class="o">(...)</span>
                 <span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
-</code></pre></div>
+</code></pre></div></div>
+
 
 
 
@@ -790,7 +824,7 @@ When you&#39;re consider a reference object (say, a TypeReference), there are th
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

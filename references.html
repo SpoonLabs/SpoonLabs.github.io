@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -469,8 +478,8 @@
   <p>The reference part of the meta model expresses the fact that program references 
 elements that are not necessarily reified into the meta model 
 (they may belong to third party libraries). For instance, an expression node 
-returning a <code>String</code> is bound to a type reference to <code>String</code> and not to the 
-compile-time model of String.java since the source code of <code>String</code> is (usually) 
+returning a <code class="language-plaintext highlighter-rouge">String</code> is bound to a type reference to <code class="language-plaintext highlighter-rouge">String</code> and not to the 
+compile-time model of String.java since the source code of <code class="language-plaintext highlighter-rouge">String</code> is (usually) 
 not part of the application code under analysis.</p>
 
 <p>In other terms, references are used by meta model elements to reference elements 
@@ -481,7 +490,7 @@ program model without having to get strong references on all referred elements.<
 From Spoon 5.0.0, CtReference is a subclass of CtElement.
 </div>
 
-<p><img src="/images/references-elements.png" alt="References of the Spoon Java 8 metamodel"></p>
+<p><img src="/images/references-elements.png" alt="References of the Spoon Java 8 metamodel" /></p>
 
 <h3 id="how-are-references-resolved">How are references resolved?</h3>
 
@@ -490,13 +499,13 @@ that point to classes for which the source code is available in the Spoon input 
 
 <h3 id="do-targets-of-references-have-to-exist-before-you-can-reference-them">Do targets of references have to exist before you can reference them?</h3>
 
-<p>Since the references are weak, the targets of references do not have to exist before one references them. </p>
+<p>Since the references are weak, the targets of references do not have to exist before one references them.</p>
 
 <h3 id="how-does-this-limit-transforming-code">How does this limit transforming code?</h3>
 
 <p>The price to pay for this low coupling is that to navigate from one code element to another, 
 one has to chain a navigation to the reference and then to the target. For instance, 
-to navigate from a field to the type of the field, one writes <code>field.getType().getDeclaration()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html#getDeclaration--">javadoc</a>).</p>
+to navigate from a field to the type of the field, one writes <code class="language-plaintext highlighter-rouge">field.getType().getDeclaration()</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html#getDeclaration--">javadoc</a>).</p>
 
 
 
@@ -655,7 +664,7 @@ to navigate from a field to the type of the field, one writes <code>field.getTyp
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

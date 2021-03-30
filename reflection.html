@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -467,19 +476,23 @@
    
 
   <p>Spoon can be used as an alternative to the standard Java reflection API.
-Instead of manipulating a <code>java.lang.Class</code> object, you manipulate <code>CtClass</code> objects (also &quot;shadow classes&quot; of the normal binary classes).
+Instead of manipulating a <code class="language-plaintext highlighter-rouge">java.lang.Class</code> object, you manipulate <code class="language-plaintext highlighter-rouge">CtClass</code> objects (also “shadow classes” of the normal binary classes).
 The advantage is that you can share code for analyzing both binary and source code.</p>
 
-<p>To do this, use <code>TypeFactory</code> as follows:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">CtType</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TypeFactory</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">());</span>
-</code></pre></div>
-<p>Spoon also provides you with reflection over the Spoon metamodel itself, in class <code>spoon.Metamodel</code>:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Set</span><span class="o">&lt;</span><span class="n">CtType</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Metamodel</span><span class="o">.</span><span class="na">getAllMetamodelInterfaces</span><span class="o">();</span>
-<span class="k">for</span><span class="o">(</span><span class="n">CtType</span> <span class="n">t</span> <span class="o">:</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">getMethods</span><span class="o">());</span>
+<p>To do this, use <code class="language-plaintext highlighter-rouge">TypeFactory</code> as follows:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CtType</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TypeFactory</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">());</span>
+</code></pre></div></div>
+
+<p>Spoon also provides you with reflection over the Spoon metamodel itself, in class <code class="language-plaintext highlighter-rouge">spoon.Metamodel</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Set</span><span class="o">&lt;</span><span class="nc">CtType</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">Metamodel</span><span class="o">.</span><span class="na">getAllMetamodelInterfaces</span><span class="o">();</span>
+<span class="k">for</span><span class="o">(</span><span class="nc">CtType</span> <span class="n">t</span> <span class="o">:</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">getMethods</span><span class="o">());</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>If you need to analyze the method bodies of binary code, have a look at <a href="https://github.com/INRIA/spoon/tree/master/spoon-decompiler">spoon-decompiler</a>.</p>
 
 
@@ -639,7 +652,7 @@ The advantage is that you can share code for analyzing both binary and source co
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>

@@ -223,7 +223,7 @@
             
                     
                     
-                    <li><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
+                    <li><a href="/mvnsites/spoon-core/apidocs" target="_blank">Javadoc</a></li>
                     
 
                     
@@ -321,6 +321,15 @@
                     
                     
                     <li><a href="template_definition.html">Transformation with Templates</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
+                    <li><a href="spoon_smpl.html">Semantic patching</a></li>
                     
 
                     
@@ -467,43 +476,42 @@
    
 
   <h3 id="create-elements-with-factories">Create elements with factories</h3>
-
 <p>When you design and implement transformations, with processors 
 or templates, you need to create new elements, fill their data and add 
 them in the AST built by Spoon.</p>
 
-<p>To do that, use <code>Factory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/Factory.html">javadoc</a>). 
-<code>Factory</code> is the entry point for all factories of Spoon. Each factory 
+<p>To do that, use <code class="language-plaintext highlighter-rouge">Factory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/Factory.html">javadoc</a>). 
+<code class="language-plaintext highlighter-rouge">Factory</code> is the entry point for all factories of Spoon. Each factory 
 have a goal specific and help you in the creation of a new AST.</p>
 
 <ul>
-<li><code>CoreFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/CoreFactory.html">javadoc</a>) 
+  <li><code class="language-plaintext highlighter-rouge">CoreFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/CoreFactory.html">javadoc</a>) 
 allows the creation of any element in the meta model. To set up the objects, there are setters to initialize the object.</li>
-<li><code>CodeFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/CodeFactory.html">javadoc</a>) 
+  <li><code class="language-plaintext highlighter-rouge">CodeFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/CodeFactory.html">javadoc</a>) 
 contains utility methods to create code elements and asks minimal information
 to create a valid object.</li>
-<li><code>PackageFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/PackageFactory.html">javadoc</a>) 
+  <li><code class="language-plaintext highlighter-rouge">PackageFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/PackageFactory.html">javadoc</a>) 
 contains utility methods to create and get package reference.</li>
-<li><code>TypeFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/TypeFactory.html">javadoc</a>) 
-contains utility methods with a link to <code>CtType</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtType.html">javadoc</a>). 
-You can get any type from its fully qualified name or a .class invocation<br>
-and create all typed references like <code>CtTypeReference</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html">javadoc</a>).</li>
-<li><code>ClassFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ClassFactory.html">javadoc</a>) 
-is a sub class of <code>TypeFactory</code> but specialized for <code>CtClass</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtClass.html">javadoc</a>).</li>
-<li><code>EnumFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/EnumFactory.html">javadoc</a>) 
-is a sub class of <code>TypeFactory</code> but specialized for <code>CtEnum</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtEnum.html">javadoc</a>).</li>
-<li><code>InterfaceFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/InterfaceFactory.html">javadoc</a>) 
-is a sub class of <code>TypeFactory</code> but specialized for <code>CtInterface</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtInterface.html">javadoc</a>).</li>
-<li><code>ExecutableFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ExecutableFactory.html">javadoc</a>) 
-contains utility methods with a link to <code>CtExecutable</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtExecutable.html">javadoc</a>). 
+  <li><code class="language-plaintext highlighter-rouge">TypeFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/TypeFactory.html">javadoc</a>) 
+contains utility methods with a link to <code class="language-plaintext highlighter-rouge">CtType</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtType.html">javadoc</a>). 
+You can get any type from its fully qualified name or a .class invocation<br />
+and create all typed references like <code class="language-plaintext highlighter-rouge">CtTypeReference</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html">javadoc</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">ClassFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ClassFactory.html">javadoc</a>) 
+is a sub class of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtClass</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtClass.html">javadoc</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">EnumFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/EnumFactory.html">javadoc</a>) 
+is a sub class of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtEnum</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtEnum.html">javadoc</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">InterfaceFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/InterfaceFactory.html">javadoc</a>) 
+is a sub class of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtInterface</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtInterface.html">javadoc</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">ExecutableFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ExecutableFactory.html">javadoc</a>) 
+contains utility methods with a link to <code class="language-plaintext highlighter-rouge">CtExecutable</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtExecutable.html">javadoc</a>). 
 You can create executable objects and their parameters.</li>
-<li><code>ConstructorFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ConstructorFactory.html">javadoc</a>) 
-is a sub class of <code>ExecutableFactory</code> but specialized for <code>CtConstructor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtConstructor.html">javadoc</a>).</li>
-<li><code>MethodFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/MethodFactory.html">javadoc</a>) 
-is a sub class of <code>ExecutableFactory</code> but specialized for <code>CtMethod</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtMethod.html">javadoc</a>).</li>
-<li><code>FieldFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/FieldFactory.html">javadoc</a>) 
+  <li><code class="language-plaintext highlighter-rouge">ConstructorFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ConstructorFactory.html">javadoc</a>) 
+is a sub class of <code class="language-plaintext highlighter-rouge">ExecutableFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtConstructor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtConstructor.html">javadoc</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">MethodFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/MethodFactory.html">javadoc</a>) 
+is a sub class of <code class="language-plaintext highlighter-rouge">ExecutableFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtMethod</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtMethod.html">javadoc</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">FieldFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/FieldFactory.html">javadoc</a>) 
 contains utility methods to create a valid field or a field reference.</li>
-<li><code>AnnotationFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/AnnotationFactory.html">javadoc</a>) 
+  <li><code class="language-plaintext highlighter-rouge">AnnotationFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/AnnotationFactory.html">javadoc</a>) 
 contains utility methods to annotate any elements or create a new one.</li>
 </ul>
 
@@ -513,46 +521,50 @@ to build a new AST.</p>
 
 <h3 id="generating-spoon-code-for-an-element">Generating Spoon code for an element</h3>
 
-<p>With <code>SpoonifierVisitor</code>, it is possible to visit an existing Spoon AST to generate calls to the factory that recreates the same AST.</p>
+<p>With <code class="language-plaintext highlighter-rouge">SpoonifierVisitor</code>, it is possible to visit an existing Spoon AST to generate calls to the factory that recreates the same AST.</p>
 
 <p>Example:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="n">SpoonifierVisitor</span> <span class="n">v</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpoonifierVisitor</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-    <span class="n">Launcher</span><span class="o">.</span><span class="na">parseClass</span><span class="o">(</span><span class="s">"class A { public String sayHello() { return \"Hello World!\";}}"</span><span class="o">)</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">SpoonifierVisitor</span> <span class="n">v</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpoonifierVisitor</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="nc">Launcher</span><span class="o">.</span><span class="na">parseClass</span><span class="o">(</span><span class="s">"class A { public String sayHello() { return \"Hello World!\";}}"</span><span class="o">)</span>
             <span class="o">.</span><span class="na">getMethodsByName</span><span class="o">(</span><span class="s">"sayHello"</span><span class="o">)</span>
             <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>
             <span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">getResult</span><span class="o">());</span>
-</code></pre></div>
-<p>will print:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="n">CtMethod</span> <span class="n">ctMethod0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createMethod</span><span class="o">();</span>
-    <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"sayHello"</span><span class="o">);</span>
-    <span class="n">Set</span><span class="o">&lt;</span><span class="n">ModifierKind</span><span class="o">&gt;</span> <span class="n">ctMethod0Modifiers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
-    <span class="n">ctMethod0Modifiers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
-    <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setModifiers</span><span class="o">(</span><span class="n">ctMethod0Modifiers</span><span class="o">);</span>
-        <span class="n">CtTypeReference</span> <span class="n">ctTypeReference0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createTypeReference</span><span class="o">();</span>
-        <span class="n">ctTypeReference0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"String"</span><span class="o">);</span>
-        <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">TYPE</span><span class="o">,</span> <span class="n">ctTypeReference0</span><span class="o">);</span>
-            <span class="n">CtPackageReference</span> <span class="n">ctPackageReference0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createPackageReference</span><span class="o">();</span>
-            <span class="n">ctPackageReference0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"java.lang"</span><span class="o">);</span>
-            <span class="n">ctPackageReference0</span><span class="o">.</span><span class="na">setImplicit</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-            <span class="n">ctTypeReference0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">PACKAGE_REF</span><span class="o">,</span> <span class="n">ctPackageReference0</span><span class="o">);</span>
-        <span class="n">CtBlock</span> <span class="n">ctBlock0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createBlock</span><span class="o">();</span>
-        <span class="n">ctMethod0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">BODY</span><span class="o">,</span> <span class="n">ctBlock0</span><span class="o">);</span>
-            <span class="n">CtReturn</span> <span class="n">ctReturn0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createReturn</span><span class="o">();</span>
-            <span class="n">List</span> <span class="n">ctBlock0Statements</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
-            <span class="n">ctBlock0Statements</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ctReturn0</span><span class="o">);</span>
-                <span class="n">CtLiteral</span> <span class="n">ctLiteral0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createLiteral</span><span class="o">();</span>
-                <span class="n">ctLiteral0</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
-                <span class="n">ctReturn0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">EXPRESSION</span><span class="o">,</span> <span class="n">ctLiteral0</span><span class="o">);</span>
-                    <span class="n">CtTypeReference</span> <span class="n">ctTypeReference1</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createTypeReference</span><span class="o">();</span>
-                    <span class="n">ctTypeReference1</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"String"</span><span class="o">);</span>
-                    <span class="n">ctLiteral0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">TYPE</span><span class="o">,</span> <span class="n">ctTypeReference1</span><span class="o">);</span>
-                        <span class="n">CtPackageReference</span> <span class="n">ctPackageReference1</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createPackageReference</span><span class="o">();</span>
-                        <span class="n">ctPackageReference1</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"java.lang"</span><span class="o">);</span>
-                        <span class="n">ctTypeReference1</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">PACKAGE_REF</span><span class="o">,</span> <span class="n">ctPackageReference1</span><span class="o">);</span>
-        <span class="n">ctBlock0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="n">CtRole</span><span class="o">.</span><span class="na">STATEMENT</span><span class="o">,</span> <span class="n">ctBlock0Statements</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">getResult</span><span class="o">());</span>
+</code></pre></div></div>
 
-</code></pre></div>
+<p>will print:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nc">CtMethod</span> <span class="n">ctMethod0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createMethod</span><span class="o">();</span>
+	<span class="n">ctMethod0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"sayHello"</span><span class="o">);</span>
+	<span class="nc">Set</span><span class="o">&lt;</span><span class="nc">ModifierKind</span><span class="o">&gt;</span> <span class="n">ctMethod0Modifiers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+	<span class="n">ctMethod0Modifiers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">);</span>
+	<span class="n">ctMethod0</span><span class="o">.</span><span class="na">setModifiers</span><span class="o">(</span><span class="n">ctMethod0Modifiers</span><span class="o">);</span>
+		<span class="nc">CtTypeReference</span> <span class="n">ctTypeReference0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createTypeReference</span><span class="o">();</span>
+		<span class="n">ctTypeReference0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"String"</span><span class="o">);</span>
+		<span class="n">ctMethod0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">TYPE</span><span class="o">,</span> <span class="n">ctTypeReference0</span><span class="o">);</span>
+			<span class="nc">CtPackageReference</span> <span class="n">ctPackageReference0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createPackageReference</span><span class="o">();</span>
+			<span class="n">ctPackageReference0</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"java.lang"</span><span class="o">);</span>
+			<span class="n">ctPackageReference0</span><span class="o">.</span><span class="na">setImplicit</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+			<span class="n">ctTypeReference0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">PACKAGE_REF</span><span class="o">,</span> <span class="n">ctPackageReference0</span><span class="o">);</span>
+		<span class="nc">CtBlock</span> <span class="n">ctBlock0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createBlock</span><span class="o">();</span>
+		<span class="n">ctMethod0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">BODY</span><span class="o">,</span> <span class="n">ctBlock0</span><span class="o">);</span>
+			<span class="nc">CtReturn</span> <span class="n">ctReturn0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createReturn</span><span class="o">();</span>
+			<span class="nc">List</span> <span class="n">ctBlock0Statements</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">();</span>
+			<span class="n">ctBlock0Statements</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ctReturn0</span><span class="o">);</span>
+				<span class="nc">CtLiteral</span> <span class="n">ctLiteral0</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createLiteral</span><span class="o">();</span>
+				<span class="n">ctLiteral0</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+				<span class="n">ctReturn0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">EXPRESSION</span><span class="o">,</span> <span class="n">ctLiteral0</span><span class="o">);</span>
+					<span class="nc">CtTypeReference</span> <span class="n">ctTypeReference1</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createTypeReference</span><span class="o">();</span>
+					<span class="n">ctTypeReference1</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"String"</span><span class="o">);</span>
+					<span class="n">ctLiteral0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">TYPE</span><span class="o">,</span> <span class="n">ctTypeReference1</span><span class="o">);</span>
+						<span class="nc">CtPackageReference</span> <span class="n">ctPackageReference1</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createPackageReference</span><span class="o">();</span>
+						<span class="n">ctPackageReference1</span><span class="o">.</span><span class="na">setSimpleName</span><span class="o">(</span><span class="s">"java.lang"</span><span class="o">);</span>
+						<span class="n">ctTypeReference1</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">PACKAGE_REF</span><span class="o">,</span> <span class="n">ctPackageReference1</span><span class="o">);</span>
+		<span class="n">ctBlock0</span><span class="o">.</span><span class="na">setValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">STATEMENT</span><span class="o">,</span> <span class="n">ctBlock0Statements</span><span class="o">);</span>
+
+</code></pre></div></div>
+
 
 
 
@@ -710,7 +722,7 @@ to build a new AST.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Jan 18, 2021 <br />
+                Site last generated: Mar 30, 2021 <br />
                 </div>
             </div>
         </footer>
