@@ -481,7 +481,7 @@
 
 <p>With Spoon, you can visualize the AST of a Java file, as follows:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -cp spoon-core--jar-with-dependencies.jar spoon.Launcher \
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -cp spoon-core-9.1.0-jar-with-dependencies.jar spoon.Launcher \
    -i MyClass.java --gui
 </code></pre></div></div>
 
@@ -533,7 +533,7 @@ any elements of the AST (all classes in the Spoon meta model which extends <code
 
 <p>Next, you can compile your processor. You can use javac in command line to generate the <code class="language-plaintext highlighter-rouge">CatchProcessor.class</code> file. Then we execute Spoon as follows to analyze all catch blocks in Java files that are in <code class="language-plaintext highlighter-rouge">/path/to/src/of/your/project</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>java <span class="nt">-classpath</span> /path/to/processor.jar:spoon-core--jar-with-dependencies.jar <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>java <span class="nt">-classpath</span> /path/to/processor.jar:spoon-core-9.1.0-jar-with-dependencies.jar <span class="se">\</span>
     spoon.Launcher <span class="nt">-i</span> /path/to/src/of/your/project <span class="nt">-p</span> processors.CatchProcessor
 </code></pre></div></div>
 
@@ -705,7 +705,7 @@ any elements of the AST (all classes in the Spoon meta model which extends <code
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Aug 23, 2021 <br />
+                Site last generated: Aug 24, 2021 <br />
                 </div>
             </div>
         </footer>
