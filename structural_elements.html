@@ -504,10 +504,12 @@ which declares a parent element denoting the containment relation in the source 
 For instance, the parent of a method node is a class node. All names are prefixed by 
 “CT” which means “compile-time”.</p>
 
-<p>As of Spoon 6.1.0, Spoon metamodel contains CtModule element to represent a module in Java 9, and 
-CtModuleDirective to represent the different directives of the module.</p>
+<p>As of Spoon 6.1.0, Spoon metamodel contains <code class="language-plaintext highlighter-rouge">CtModule</code> element to represent a module in Java 9, and 
+<code class="language-plaintext highlighter-rouge">CtModuleDirective</code> to represent the different directives of the module.</p>
 
-<p>:warning: The root of the model is then no longer an unnamed package, but an unnamed module.</p>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning: </b>
+The root of the model is then no longer an unnamed package, but an unnamed module. 
+</div>
 
 <p><img src="/images/structural-elements.png" alt="Structural part of the Spoon Java 8 metamodel" /></p>
 
@@ -668,7 +670,7 @@ CtModuleDirective to represent the different directives of the module.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Sep 5, 2021 <br />
+                Site last generated: Sep 6, 2021 <br />
                 </div>
             </div>
         </footer>

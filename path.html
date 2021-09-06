@@ -478,13 +478,13 @@
   <p><code class="language-plaintext highlighter-rouge">CtPath</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPath.html">javadoc</a>)
 defines the path to a <code class="language-plaintext highlighter-rouge">CtElement</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtElement.html">javadoc</a>)
 in a model, similarly to XPath for XML. For example, <code class="language-plaintext highlighter-rouge">.spoon.test.path.testclasses.Foo.foo#body#statement[index=0]</code> represents the first statement of the body of method foo.
-A <code class="language-plaintext highlighter-rouge">CtPath</code>is based on: names of elements (eg <code class="language-plaintext highlighter-rouge">foo</code>), and roles of elements with respect to their parent (eg <code class="language-plaintext highlighter-rouge">body</code>).
+A <code class="language-plaintext highlighter-rouge">CtPath</code>is based on: names of elements (e.g., <code class="language-plaintext highlighter-rouge">foo</code>), and roles of elements with respect to their parent (e.g., <code class="language-plaintext highlighter-rouge">body</code>).
 A role is a relation between two AST nodes.
-For instance, a “then” branch in a if/then/else is a role (and not an node). All roles can be found in <code class="language-plaintext highlighter-rouge">CtRole</code>. In addition, each getter or setter in the metamodel is annotated with its role.</p>
+For instance, a “then” branch in an if/then/else is a role (and not a node). All roles can be found in <code class="language-plaintext highlighter-rouge">CtRole</code>. In addition, each getter or setter in the metamodel is annotated with its role.</p>
 
 <h3 id="evaluating-ast-paths">Evaluating AST paths</h3>
 
-<p>Paths are used to find code elements, from a given root elements.</p>
+<p>Paths are used to find code elements, from a given root element.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">path</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CtPathStringBuilder</span><span class="o">().</span><span class="na">fromString</span><span class="o">(</span><span class="s">".spoon.test.path.testclasses.Foo.foo#body#statement[index=0]"</span><span class="o">);</span>
 <span class="nc">List</span><span class="o">&lt;</span><span class="nc">CtElement</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="na">evaluateOn</span><span class="o">(</span><span class="n">root</span><span class="o">)</span>
@@ -504,21 +504,21 @@ For instance, a “then” branch in a if/then/else is a role (and not an node).
 <p><code class="language-plaintext highlighter-rouge">CtPathStringBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathStringBuilder.html">javadoc</a>), creates a path object from a string according to the following syntax:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">.&lt;name&gt;</code> which denotes a child element with name <code class="language-plaintext highlighter-rouge">name</code>, eg <code class="language-plaintext highlighter-rouge">.fr.inria.Spoon</code> (the fully qualified name)</li>
-  <li><code class="language-plaintext highlighter-rouge">#&lt;role&gt;</code> which denotes all children on <code class="language-plaintext highlighter-rouge">CtRole</code> <code class="language-plaintext highlighter-rouge">role</code> .statements, <code class="language-plaintext highlighter-rouge">#body#statement[index=2]#else</code> is the else branch of the second statement of a method body</li>
-  <li><code class="language-plaintext highlighter-rouge">name=&lt;somename&gt;</code> - filter which accepts only elements with <code class="language-plaintext highlighter-rouge">somename</code>. E.g. <code class="language-plaintext highlighter-rouge">#field[name=abc]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.&lt;name&gt;</code> which denotes a child element with name <code class="language-plaintext highlighter-rouge">name</code>, e.g., <code class="language-plaintext highlighter-rouge">.fr.inria.Spoon</code> (the fully qualified name)</li>
+  <li><code class="language-plaintext highlighter-rouge">#&lt;role&gt;</code> which denotes all children on <code class="language-plaintext highlighter-rouge">CtRole</code> <code class="language-plaintext highlighter-rouge">role</code> statements, <code class="language-plaintext highlighter-rouge">#body#statement[index=2]#else</code> is the else branch of the second statement of a method body</li>
+  <li><code class="language-plaintext highlighter-rouge">name=&lt;somename&gt;</code> - filter which accepts only elements with <code class="language-plaintext highlighter-rouge">somename</code>. E.g., <code class="language-plaintext highlighter-rouge">#field[name=abc]</code></li>
   <li><code class="language-plaintext highlighter-rouge">signature=&lt;somesignature&gt;</code> - filter which accepts only methods and constructors with signature <code class="language-plaintext highlighter-rouge">somesignature</code>.
     <ul>
       <li>Example of method signature: <code class="language-plaintext highlighter-rouge">#method[signature=compare(java.lang.String,java.lang.String)]</code></li>
       <li>Example of constructor signature: <code class="language-plaintext highlighter-rouge">#constructor[signature=(int)]</code></li>
     </ul>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">index=&lt;idx&gt;</code> - fitler which accepts only idx-th element of the List. The first element has index 0. the fifth type memeber in a class <code class="language-plaintext highlighter-rouge">#typeMember[index=4]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">index=&lt;idx&gt;</code> - fitler which accepts only idx-th element of the List. The first element has index 0. The fifth type member in a class <code class="language-plaintext highlighter-rouge">#typeMember[index=4]</code></li>
 </ul>
 
 <h4 id="from-the-api">From the API</h4>
 
-<p>The low-level <code class="language-plaintext highlighter-rouge">CtPathBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html">javadoc</a>) defines a fluent api to build your path:</p>
+<p>The low-level <code class="language-plaintext highlighter-rouge">CtPathBuilder</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html">javadoc</a>) defines a fluent API to build your path:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">name(String, String[])</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtPathBuilder.html#name-java.lang.String-java.lang.String:A...-">javadoc</a>)
@@ -704,7 +704,7 @@ a project. Use <code class="language-plaintext highlighter-rouge">CtPathBuilder<
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Sep 5, 2021 <br />
+                Site last generated: Sep 6, 2021 <br />
                 </div>
             </div>
         </footer>

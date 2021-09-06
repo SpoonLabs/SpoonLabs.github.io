@@ -546,7 +546,7 @@ Spoon provides a special kind of processor called <code class="language-plaintex
 
 <p>Annotation processors extend normal processors by stating the annotation type those elements must 
 carry (type parameter <code class="language-plaintext highlighter-rouge">A</code>), in addition of stating the kind of source code element they process 
-(type parameter <code class="language-plaintext highlighter-rouge">E</code>). The <code class="language-plaintext highlighter-rouge">process</code> method (line 4) receives as arguments both the CtElement and the 
+(type parameter <code class="language-plaintext highlighter-rouge">E</code>). The <code class="language-plaintext highlighter-rouge">process</code> method (line 4) receives as arguments both the <code class="language-plaintext highlighter-rouge">CtElement</code> and the 
 annotation it carries. The remaining four methods (<code class="language-plaintext highlighter-rouge">getProcessedAnnotationTypes</code>, <code class="language-plaintext highlighter-rouge">getConsumedAnnotationTypes</code>, 
 <code class="language-plaintext highlighter-rouge">inferConsumedAnnotationTypes</code> and <code class="language-plaintext highlighter-rouge">shoudBeConsumed</code>) configure the visiting of the AST during annotation 
 processing. The Spoon annotation processing runtime is able to infer the type of annotation a processor 
@@ -580,7 +580,7 @@ respectively. The actual processing of the annotation is implemented in the <cod
 (lines 10-13). Annotated code is transformed by navigating the AST up from the annotated parameter to the owner method, 
 and then down to the method’s body code block (lines 10 and 12). The construction of the <code class="language-plaintext highlighter-rouge">assert</code> statement is delegated 
 to a helper method <code class="language-plaintext highlighter-rouge">constructAssertion(String)</code>, taking as argument the name of the parameter to check. This helper method 
-constructs an instance of <code class="language-plaintext highlighter-rouge">CtAssert</code> (by either programmatically constructing the desired boolean expression. Having obtained 
+constructs an instance of <code class="language-plaintext highlighter-rouge">CtAssert</code> by programmatically constructing the desired boolean expression. Having obtained 
 the desired assert statement, it is injected at the beginning of the body of the method.</p>
 
 <p>More complex annotation processing scenarios can be tackled with Spoon. For example, when using the <code class="language-plaintext highlighter-rouge">NotNull</code> annotation, 
@@ -752,7 +752,7 @@ room for manual configuration.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Sep 5, 2021 <br />
+                Site last generated: Sep 6, 2021 <br />
                 </div>
             </div>
         </footer>

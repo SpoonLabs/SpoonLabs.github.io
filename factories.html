@@ -482,7 +482,7 @@ them in the AST built by Spoon.</p>
 
 <p>To do that, use <code class="language-plaintext highlighter-rouge">Factory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/Factory.html">javadoc</a>). 
 <code class="language-plaintext highlighter-rouge">Factory</code> is the entry point for all factories of Spoon. Each factory 
-have a goal specific and help you in the creation of a new AST.</p>
+has a goal specific and help you in the creation of a new AST.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">CoreFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/CoreFactory.html">javadoc</a>) 
@@ -497,18 +497,18 @@ contains utility methods with a link to <code class="language-plaintext highligh
 You can get any type from its fully qualified name or a .class invocation<br />
 and create all typed references like <code class="language-plaintext highlighter-rouge">CtTypeReference</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/reference/CtTypeReference.html">javadoc</a>).</li>
   <li><code class="language-plaintext highlighter-rouge">ClassFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ClassFactory.html">javadoc</a>) 
-is a sub class of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtClass</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtClass.html">javadoc</a>).</li>
+is a subclass of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtClass</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtClass.html">javadoc</a>).</li>
   <li><code class="language-plaintext highlighter-rouge">EnumFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/EnumFactory.html">javadoc</a>) 
-is a sub class of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtEnum</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtEnum.html">javadoc</a>).</li>
+is a subclass of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtEnum</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtEnum.html">javadoc</a>).</li>
   <li><code class="language-plaintext highlighter-rouge">InterfaceFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/InterfaceFactory.html">javadoc</a>) 
-is a sub class of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtInterface</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtInterface.html">javadoc</a>).</li>
+is a subclass of <code class="language-plaintext highlighter-rouge">TypeFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtInterface</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtInterface.html">javadoc</a>).</li>
   <li><code class="language-plaintext highlighter-rouge">ExecutableFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ExecutableFactory.html">javadoc</a>) 
 contains utility methods with a link to <code class="language-plaintext highlighter-rouge">CtExecutable</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtExecutable.html">javadoc</a>). 
 You can create executable objects and their parameters.</li>
   <li><code class="language-plaintext highlighter-rouge">ConstructorFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/ConstructorFactory.html">javadoc</a>) 
-is a sub class of <code class="language-plaintext highlighter-rouge">ExecutableFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtConstructor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtConstructor.html">javadoc</a>).</li>
+is a subclass of <code class="language-plaintext highlighter-rouge">ExecutableFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtConstructor</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtConstructor.html">javadoc</a>).</li>
   <li><code class="language-plaintext highlighter-rouge">MethodFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/MethodFactory.html">javadoc</a>) 
-is a sub class of <code class="language-plaintext highlighter-rouge">ExecutableFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtMethod</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtMethod.html">javadoc</a>).</li>
+is a subclass of <code class="language-plaintext highlighter-rouge">ExecutableFactory</code> but specialized for <code class="language-plaintext highlighter-rouge">CtMethod</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtMethod.html">javadoc</a>).</li>
   <li><code class="language-plaintext highlighter-rouge">FieldFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/FieldFactory.html">javadoc</a>) 
 contains utility methods to create a valid field or a field reference.</li>
   <li><code class="language-plaintext highlighter-rouge">AnnotationFactory</code> (<a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/factory/AnnotationFactory.html">javadoc</a>) 
@@ -722,7 +722,7 @@ to build a new AST.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Sep 5, 2021 <br />
+                Site last generated: Sep 6, 2021 <br />
                 </div>
             </div>
         </footer>

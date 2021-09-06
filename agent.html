@@ -477,11 +477,11 @@
 
   <h1 id="spoon-agent">Spoon Agent</h1>
 
-<p>Spoon can also be used to transform classes at load time in the JVM. FOr this, <code class="language-plaintext highlighter-rouge">SpoonClassFileTransformer</code> provide an abstraction of <code class="language-plaintext highlighter-rouge">ClassFileTransformer</code>
+<p>Spoon can also be used to transform classes at load time in the JVM. For this, <code class="language-plaintext highlighter-rouge">SpoonClassFileTransformer</code> provide an abstraction of <code class="language-plaintext highlighter-rouge">ClassFileTransformer</code>
 where the user can define Spoon transformation.
 Bytecode of classes will be decompiled on-the-fly when loaded, and the Spoon AST will be updated in consequence, and the code is recompiled on-the-fly.</p>
 
-<p>The following example shows the definition of a basic JVM agent for inserting a tracing method call a the end of every method called <code class="language-plaintext highlighter-rouge">foo</code>.</p>
+<p>The following example shows the definition of a basic JVM agent for inserting a tracing method call at the end of every method called <code class="language-plaintext highlighter-rouge">foo</code>.</p>
 
 <p>Here is the agent:</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Agent</span> <span class="o">{</span>
@@ -682,7 +682,7 @@ Bytecode of classes will be decompiled on-the-fly when loaded, and the Spoon AST
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Sep 5, 2021 <br />
+                Site last generated: Sep 6, 2021 <br />
                 </div>
             </div>
         </footer>

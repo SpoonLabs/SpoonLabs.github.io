@@ -475,13 +475,13 @@
 
    
 
-  <p>Spoon patterns enables you to find code elements. A Spoon pattern is based on a one or several AST nodes, which represent the code to match, where some parts of the AST are pattern parameters. When a pattern is matched, one can access to the code matched in each pattern parameter.</p>
+  <p>Spoon patterns enable you to find code elements. A Spoon pattern is based on a one or several AST nodes, which represent the code to match, where some parts of the AST are pattern parameters. When a pattern is matched, one can access to the code matched in each pattern parameter.</p>
 
 <p>The main classes of Spoon patterns are those in package <code class="language-plaintext highlighter-rouge">spoon.pattern</code>:</p>
 
 <ul>
   <li>classes: PatternBuilder, Pattern, Match, PatternBuilderHelper, PatternParameterConfigurator, InlinedStatementConfigurator</li>
-  <li>eums: ConflictResolutionMode, Quantifier</li>
+  <li>enums: ConflictResolutionMode, Quantifier</li>
 </ul>
 
 <p>See also <a href="https://github.com/SpoonLabs/spoon-examples/blob/master/src/main/java/fr/inria/gforge/spoon/analysis/PatternTest.java">examples in project <code class="language-plaintext highlighter-rouge">spoon-examples</code></a></p>
@@ -510,7 +510,7 @@
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 </code></pre></div></div>
 
-<p>If you call <code class="language-plaintext highlighter-rouge">configurePatternParameters()</code>, all variables that are declared outside of the AST node are automatically declared a pattern parameter.</p>
+<p>If you call <code class="language-plaintext highlighter-rouge">configurePatternParameters()</code>, all variables that are declared outside the AST node are automatically declared a pattern parameter.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pattern t = PatternBuilder.create(elem)
     .configurePatternParameters()
     .build();
@@ -527,7 +527,7 @@
 
 <h3 id="match">Match</h3>
 
-<p>A <code class="language-plaintext highlighter-rouge">Match</code> represent a match of a pattern on a code elements. The main methods are <code class="language-plaintext highlighter-rouge">getMatchingElement</code> and <code class="language-plaintext highlighter-rouge">getMatchingElements</code>.</p>
+<p>A <code class="language-plaintext highlighter-rouge">Match</code> represents a match of a pattern on a code element. The main methods are <code class="language-plaintext highlighter-rouge">getMatchingElement</code> and <code class="language-plaintext highlighter-rouge">getMatchingElements</code>.</p>
 
 <h3 id="patternbuilderhelper">PatternBuilderHelper</h3>
 
@@ -535,7 +535,7 @@
 
 <h3 id="patternparameterconfigurator">PatternParameterConfigurator</h3>
 
-<p>To create pattern paramters, one uses a <code class="language-plaintext highlighter-rouge">PatternParameterConfigurator</code> as a lambda:</p>
+<p>To create pattern parameters, one uses a <code class="language-plaintext highlighter-rouge">PatternParameterConfigurator</code> as a lambda:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//a pattern model </span>
 <span class="kt">void</span> <span class="nf">method</span><span class="o">(</span><span class="nc">String</span> <span class="n">_x_</span><span class="o">)</span> <span class="o">{</span>
@@ -574,33 +574,33 @@ or any variable named with the provided simple name are considered as pattern pa
 which references instance of a class with fields. Each such field is considered as pattern parameter.</li>
   <li><code class="language-plaintext highlighter-rouge">byFilter(Filter)</code> - any pattern model element, where <code class="language-plaintext highlighter-rouge">Filter.accept(element)</code> returns true is a pattern parameter.</li>
   <li><code class="language-plaintext highlighter-rouge">byRole(CtRole role, Filter filter)</code> - the attribute defined by <code class="language-plaintext highlighter-rouge">role</code> of all 
-pattern model elements, where <code class="language-plaintext highlighter-rouge">Filter.accept(element)</code> returns true is a pattern parameter. It can be used to define a varible on any CtElement attribute. E.g. method modifiers or throwables, …</li>
-  <li><code class="language-plaintext highlighter-rouge">byString(String name)</code> - all pattern model string attributes whose value is equal to <code class="language-plaintext highlighter-rouge">name</code> are considered as pattern parameter.This can be used to define full name of the methods and fields, etc.</li>
+pattern model elements, where <code class="language-plaintext highlighter-rouge">Filter.accept(element)</code> returns true is a pattern parameter. It can be used to define a variable on any CtElement attribute. E.g. method modifiers or throwables, …</li>
+  <li><code class="language-plaintext highlighter-rouge">byString(String name)</code> - all pattern model string attributes whose value is equal to <code class="language-plaintext highlighter-rouge">name</code> are considered as pattern parameter. This can be used to define full name of the methods and fields, etc.</li>
   <li><code class="language-plaintext highlighter-rouge">bySubstring(String stringMarker)</code> - all pattern model string attributes whose value contains
 whole string or a substring equal to <code class="language-plaintext highlighter-rouge">stringMarker</code>are pattern parameter. Note: only the <code class="language-plaintext highlighter-rouge">stringMarker</code> substring of the string value is substituted, other parts of string/element name are kept unchanged.</li>
-  <li><code class="language-plaintext highlighter-rouge">byNamedElement(String name)</code> - any CtNamedElement identified by it’s simple name is a pattern parameter.</li>
-  <li><code class="language-plaintext highlighter-rouge">byReferenceName(String name)</code> - any CtReference identified by it’s simple name is a pattern parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">byNamedElement(String name)</code> - any CtNamedElement identified by its simple name is a pattern parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">byReferenceName(String name)</code> - any CtReference identified by its simple name is a pattern parameter.</li>
 </ul>
 
 <p>Any parameter of a pattern can be configured like this:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">setMinOccurence(int)</code> - defines minimal number of occurences of the value of this parameter during <strong>matching</strong>,
+  <li><code class="language-plaintext highlighter-rouge">setMinOccurrence(int)</code> - defines minimal number of occurrences of the value of this parameter during <strong>matching</strong>,
 which is needed by matcher to accept that value.
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">setMinOccurence(0)</code> - defines optional parameter</li>
-      <li><code class="language-plaintext highlighter-rouge">setMinOccurence(1)</code> - defines mandatory parameter</li>
-      <li><code class="language-plaintext highlighter-rouge">setMinOccurence(n)</code> - defines parameter, whose value must be repeated at least n-times</li>
+      <li><code class="language-plaintext highlighter-rouge">setMinOccurrence(0)</code> - defines optional parameter</li>
+      <li><code class="language-plaintext highlighter-rouge">setMinOccurrence(1)</code> - defines mandatory parameter</li>
+      <li><code class="language-plaintext highlighter-rouge">setMinOccurrence(n)</code> - defines parameter, whose value must be repeated at least n-times</li>
     </ul>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">setMaxOccurence(int)</code> - defines maximal number of occurences of the value of this parameter during <strong>matching</strong>,
+  <li><code class="language-plaintext highlighter-rouge">setMaxOccurrence(int)</code> - defines maximal number of occurrences of the value of this parameter during <strong>matching</strong>,
 which is accepted by matcher to accept that value.</li>
-  <li><code class="language-plaintext highlighter-rouge">setMatchingStrategy(Quantifier)</code> - defines how to matching engine arehave when two pattern nodes may accept the same value.
+  <li><code class="language-plaintext highlighter-rouge">setMatchingStrategy(Quantifier)</code> - defines how the matching engine behaves when two pattern nodes may accept the same value.
     <ul>
       <li><code class="language-plaintext highlighter-rouge">Quantifier#GREEDY</code> - Greedy quantifiers are considered “greedy” because they force the matcher to read in, or eat, the entire input prior to attempting the next match.
 If the next match attempt (the entire input) fails, the matcher backs off the input by one and tries again,
 repeating the process until a match is found or there are no more elements left to back off from.</li>
-      <li><code class="language-plaintext highlighter-rouge">Quantifier#RELUCTANT</code> - The reluctant quantifier takes the opposite approach: It start at the beginning of the input,
+      <li><code class="language-plaintext highlighter-rouge">Quantifier#RELUCTANT</code> - The reluctant quantifier takes the opposite approach: It starts at the beginning of the input,
 then reluctantly eat one character at a time looking for a match.
 The last thing it tries is the entire input.</li>
       <li><code class="language-plaintext highlighter-rouge">Quantifier#POSSESSIVE</code> - The possessive quantifier always eats the entire input string,
@@ -625,7 +625,7 @@ It can be e.g. single String or single CtStatement, etc.</li>
 
 <h3 id="inlinedstatementconfigurator">InlinedStatementConfigurator</h3>
 
-<p>It is possible to match inlined code, eg:</p>
+<p>It is possible to match inlined code, e.g.:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
 <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
@@ -662,7 +662,7 @@ is understood as inline statement</li>
 
 <h3 id="generator">Generator</h3>
 
-<p>All patterns can be used for code generation. The idea is that one calls <code class="language-plaintext highlighter-rouge">#generator()</code> on a pattern object to get a <code class="language-plaintext highlighter-rouge">Generator</code>. This class contains methods that takes as input a map of string,objects where each string key points to a pattern parameter name and each map value contains the element to be put in place of the pattern parameter.</p>
+<p>All patterns can be used for code generation. The idea is that one calls <code class="language-plaintext highlighter-rouge">#generator()</code> on a pattern object to get a <code class="language-plaintext highlighter-rouge">Generator</code>. This class contains methods that takes as input a map of string, objects where each string key points to a pattern parameter name and each map value contains the element to be put in place of the pattern parameter.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Pattern</span> <span class="n">t</span> <span class="o">=</span> <span class="o">....</span>
 <span class="nc">Generator</span> <span class="n">gen</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">generator</span><span class="o">();</span>
@@ -679,7 +679,7 @@ is understood as inline statement</li>
 <p>The unique feature of Spoon pattern matching is that we are matching on AST trees and not source code text. It means that:</p>
 
 <ul>
-  <li>source code formating is ignored. For example:</li>
+  <li>source code formatting is ignored. For example:</li>
 </ul>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">m</span><span class="o">()</span> <span class="o">{}</span>
@@ -879,7 +879,7 @@ is understood as inline statement</li>
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Sep 5, 2021 <br />
+                Site last generated: Sep 6, 2021 <br />
                 </div>
             </div>
         </footer>

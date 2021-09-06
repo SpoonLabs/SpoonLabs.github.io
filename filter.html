@@ -482,7 +482,7 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">methods</span> <span class="o">=</span> <span class="n">ctClass</span><span class="o">.</span><span class="na">getMethods</span><span class="o">();</span>
 </code></pre></div></div>
 
-<p>In addition, there exists a generic getter based on the role played by an element with respect to its parent. See CtRole for a complete list of roles.</p>
+<p>In addition, there exists a generic getter based on the role played by an element with respect to its parent. See <code class="language-plaintext highlighter-rouge">CtRole</code> (<a href="https://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/path/CtRole.html">javadoc</a>) for a complete list of roles.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">methods</span> <span class="o">=</span> <span class="n">ctClass</span><span class="o">.</span><span class="na">getValueByRole</span><span class="o">(</span><span class="nc">CtRole</span><span class="o">.</span><span class="na">METHOD</span><span class="o">);</span>
 </code></pre></div></div>
@@ -547,7 +547,7 @@ A Filter is given as parameter to <code class="language-plaintext highlighter-ro
 
 <p><code class="language-plaintext highlighter-rouge">EarlyTerminatingScanner</code> is a specialized Class implementing <code class="language-plaintext highlighter-rouge">CtScanner</code> that stops once <code class="language-plaintext highlighter-rouge">terminate()</code> has been called.</p>
 
-<p>See also <code class="language-plaintext highlighter-rouge">CtVisitor</code>.</p>
+<p>See also <code class="language-plaintext highlighter-rouge">CtVisitor</code> (<a href="https://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/visitor/CtVisitor.html">javadoc</a>).</p>
 
 <h3 id="iterator">Iterator</h3>
 
@@ -560,7 +560,7 @@ A Filter is given as parameter to <code class="language-plaintext highlighter-ro
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">CtBFSIterator</code> is similar to CtIterator but in Breadth first order.</p>
+<p><code class="language-plaintext highlighter-rouge">CtBFSIterator</code> is similar to <code class="language-plaintext highlighter-rouge">CtIterator</code> but in Breadth first order.</p>
 
 <h3 id="queries">Queries</h3>
 
@@ -591,7 +591,7 @@ A Filter is given as parameter to <code class="language-plaintext highlighter-ro
 <span class="n">list3</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">filterChildren</span><span class="o">((</span><span class="nc">CtField</span> <span class="n">field</span><span class="o">)-&gt;</span><span class="n">field</span><span class="o">.</span><span class="na">getModifiers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="nc">ModifierKind</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)).</span><span class="na">list</span><span class="o">();</span>
 </code></pre></div></div>
 
-<p><strong>Chaining</strong> If the CtFunction returns an object, this object is given as result to the next step of the query.
+<p><strong>Chaining</strong> If the <code class="language-plaintext highlighter-rouge">CtFunction</code> returns an object, this object is given as result to the next step of the query.
 All results of the last query step are results of the query. The results of intermediate steps are not results of the query.:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// a query which processes all not deprecated methods of all deprecated classes</span>
@@ -603,7 +603,7 @@ All results of the last query step are results of the query. The results of inte
 <span class="o">;</span>
 </code></pre></div></div>
 
-<p>Finally, if the CtFunction returns and Iterable or an Array then each item of the collection/array is sent to next query step or result.</p>
+<p>Finally, if the <code class="language-plaintext highlighter-rouge">CtFunction</code> returns and Iterable or an Array then each item of the collection/array is sent to next query step or result.</p>
 
 <p><strong>Query reuse</strong>. Method <code class="language-plaintext highlighter-rouge">setInput</code> allows you to reuse the same query over multiple inputs. 
 In such case it makes sense to create unbound query using <code class="language-plaintext highlighter-rouge">Factory#createQuery()</code>.</p>
@@ -631,7 +631,7 @@ It is more efficient in cases when query results can be immediately processed.</
 <p>Finally there is <code class="language-plaintext highlighter-rouge">CtQuery#first()</code>, 
 which evaluates the query until first query result is found.
 Then the evaluation is terminated and first result is returned. 
-It is faster then <code class="language-plaintext highlighter-rouge">query.list().get(0)</code>, because query engine does not collect other results.</p>
+It is faster than <code class="language-plaintext highlighter-rouge">query.list().get(0)</code>, because query engine does not collect other results.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// returns first deprecated element</span>
 <span class="nc">CtElement</span> <span class="n">firstDeprecated</span> <span class="o">=</span> <span class="n">rootPackage</span><span class="o">.</span><span class="na">filterChildren</span><span class="o">(</span><span class="k">new</span> <span class="nc">AnnotationFilter</span><span class="o">(</span><span class="nc">Deprecated</span><span class="o">.</span><span class="na">class</span><span class="o">)).</span><span class="na">first</span><span class="o">();</span>
@@ -794,7 +794,7 @@ It is faster then <code class="language-plaintext highlighter-rouge">query.list(
             <div class="row">
                 <div class="col-lg-12 footer">
                	<a href="https://github.com/INRIA/spoon/issues/new">Contact / Feedback / Question / Bug Report</a><br />
-                Site last generated: Sep 5, 2021 <br />
+                Site last generated: Sep 6, 2021 <br />
                 </div>
             </div>
         </footer>
