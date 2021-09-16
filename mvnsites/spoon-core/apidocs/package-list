@@ -48,7 +48,6 @@ spoon.support.sniper
 spoon.support.sniper.internal
 spoon.support.template
 spoon.support.util
-spoon.support.util.internal
 spoon.support.visitor
 spoon.support.visitor.clone
 spoon.support.visitor.equals
