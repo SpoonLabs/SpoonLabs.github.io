@@ -17,7 +17,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@d202f5dbf7256730fb690ec59f6381650114feb2 # v1.4.3
         with:
-          java-version: 1.8
+          java-version: 11
       - name: Install prerequisites
         run: |
           sudo apt update
