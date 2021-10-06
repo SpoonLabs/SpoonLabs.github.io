@@ -1,8 +1,6 @@
 # Workflow for deploying the website
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
+on: push
 
 jobs:
   deploy-website:
