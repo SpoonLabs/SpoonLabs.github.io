@@ -153,19 +153,27 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="PrintingContext.Writable.html" title="class in spoon.reflect.visitor">PrintingContext.Writable</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#modify()">modify</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Creates a new Writable instance, coping the current state and statement if set.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#popCurrentThis()">popCurrentThis</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Removes the current type context from the stack.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#pushCurrentThis(spoon.reflect.declaration.CtType)">pushCurrentThis</a></span>&#8203;(<a href="../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;type)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Adds the given type to the stack of types.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#skipArray()">skipArray</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#toString()">toString</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">(non-Javadoc)</div>
+</div>
 </div>
 </div>
 </div>
@@ -221,30 +229,50 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="ignoreGenerics()">
 <h3>ignoreGenerics</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">ignoreGenerics</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if we are ignore generics while printing statement, false otherwise.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="skipArray()">
 <h3>skipArray</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">skipArray</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if we skip the array brackets, false otherwise.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="ignoreStaticAccess()">
 <h3>ignoreStaticAccess</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">ignoreStaticAccess</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if we skip printing the static access, false otherwise.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="ignoreEnclosingClass()">
 <h3>ignoreEnclosingClass</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">ignoreEnclosingClass</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if we skip printing the enclosing class, false access, false otherwise.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="forceWildcardGenerics()">
 <h3>forceWildcardGenerics</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">forceWildcardGenerics</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if we force printing the generic wildcard '?', false otherwise.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -258,18 +286,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="modify()">
-<h3>modify</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PrintingContext.Writable.html" title="class in spoon.reflect.visitor">PrintingContext.Writable</a></span>&nbsp;<span class="element-name">modify</span>()</div>
-</section>
-</li>
-<li>
 <section class="detail" id="getCurrentTypeReference()">
 <h3>getCurrentTypeReference</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</span>&nbsp;<span class="element-name">getCurrentTypeReference</span>()</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>top level type</dd>
+<dd>the current top level type or null if no type is defined.</dd>
 </dl>
 </section>
 </li>
@@ -277,21 +299,30 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="pushCurrentThis(spoon.reflect.declaration.CtType)">
 <h3>pushCurrentThis</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">pushCurrentThis</span>&#8203;<span class="parameters">(<a href="../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;type)</span></div>
+<div class="block">Adds the given type to the stack of types.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>type</code> - the type to add.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="popCurrentThis()">
 <h3>popCurrentThis</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">popCurrentThis</span>()</div>
+<div class="block">Removes the current type context from the stack.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
+<div class="block">(non-Javadoc)</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>See Also:</dt>
+<dd><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link"><code>Object.toString()</code></a></dd>
 </dl>
 </section>
 </li>
@@ -301,9 +332,20 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isInCurrentScope</span>&#8203;<span class="parameters">(<a href="../reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;typeRef)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>typeRef</code> - </dd>
+<dd><code>typeRef</code> - used to check if we are in the context of this type.</dd>
 <dt>Returns:</dt>
 <dd>true if typeRef is equal to current (actually printed) Type (currentThis)</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="modify()">
+<h3>modify</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PrintingContext.Writable.html" title="class in spoon.reflect.visitor">PrintingContext.Writable</a></span>&nbsp;<span class="element-name">modify</span>()</div>
+<div class="block">Creates a new Writable instance, coping the current state and statement if set.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>a new <a href="PrintingContext.Writable.html" title="class in spoon.reflect.visitor"><code>PrintingContext.Writable</code></a> instance.</dd>
 </dl>
 </section>
 </li>
