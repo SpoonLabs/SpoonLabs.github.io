@@ -1037,11 +1037,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtModuleImpl.html#addRequiredModule(spoon.reflect.declaration.CtModuleRequirement)">addRequiredModule(CtModuleRequirement)</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtModuleImpl.html" title="class in spoon.support.reflect.declaration">CtModuleImpl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="member-name-link"><a href="spoon/reflect/code/CtTryWithResource.html#addResource(spoon.reflect.code.CtLocalVariable)">addResource(CtLocalVariable&lt;?&gt;)</a></span> - Method in interface spoon.reflect.code.<a href="spoon/reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></dt>
+<dt><span class="member-name-link"><a href="spoon/reflect/code/CtTryWithResource.html#addResource(spoon.reflect.code.CtResource)">addResource(CtResource&lt;?&gt;)</a></span> - Method in interface spoon.reflect.code.<a href="spoon/reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></dt>
 <dd>
 <div class="block">Adds a resource.</div>
 </dd>
-<dt><span class="member-name-link"><a href="spoon/support/reflect/code/CtTryWithResourceImpl.html#addResource(spoon.reflect.code.CtLocalVariable)">addResource(CtLocalVariable&lt;?&gt;)</a></span> - Method in class spoon.support.reflect.code.<a href="spoon/support/reflect/code/CtTryWithResourceImpl.html" title="class in spoon.support.reflect.code">CtTryWithResourceImpl</a></dt>
+<dt><span class="member-name-link"><a href="spoon/support/reflect/code/CtTryWithResourceImpl.html#addResource(spoon.reflect.code.CtResource)">addResource(CtResource&lt;?&gt;)</a></span> - Method in class spoon.support.reflect.code.<a href="spoon/support/reflect/code/CtTryWithResourceImpl.html" title="class in spoon.support.reflect.code">CtTryWithResourceImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/pattern/internal/ResultHolder.html#addResult(T)">addResult(T)</a></span> - Method in class spoon.pattern.internal.<a href="spoon/pattern/internal/ResultHolder.html" title="class in spoon.pattern.internal">ResultHolder</a></dt>
 <dd>
@@ -5893,6 +5893,10 @@ loadScripts(document, 'script');</script>
 <div class="block">The kind of refactoring, which renames a `target` element
  to the `newName`<br>
  Usage:<br></div>
+</dd>
+<dt><a href="spoon/reflect/code/CtResource.html" title="interface in spoon.reflect.code"><span class="type-name-link">CtResource</span></a>&lt;<a href="spoon/reflect/code/CtResource.html" title="type parameter in CtResource">T</a>&gt; - Interface in <a href="spoon/reflect/code/package-summary.html">spoon.reflect.code</a></dt>
+<dd>
+<div class="block">This code element defines a resource used in the try-with-resource statement.</div>
 </dd>
 <dt><a href="spoon/reflect/code/CtReturn.html" title="interface in spoon.reflect.code"><span class="type-name-link">CtReturn</span></a>&lt;<a href="spoon/reflect/code/CtReturn.html" title="type parameter in CtReturn">R</a>&gt; - Interface in <a href="spoon/reflect/code/package-summary.html">spoon.reflect.code</a></dt>
 <dd>
@@ -15454,11 +15458,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtModuleImpl.html#removeRequiredModule(spoon.reflect.declaration.CtModuleRequirement)">removeRequiredModule(CtModuleRequirement)</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtModuleImpl.html" title="class in spoon.support.reflect.declaration">CtModuleImpl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="member-name-link"><a href="spoon/reflect/code/CtTryWithResource.html#removeResource(spoon.reflect.code.CtLocalVariable)">removeResource(CtLocalVariable&lt;?&gt;)</a></span> - Method in interface spoon.reflect.code.<a href="spoon/reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></dt>
+<dt><span class="member-name-link"><a href="spoon/reflect/code/CtTryWithResource.html#removeResource(spoon.reflect.code.CtResource)">removeResource(CtResource&lt;?&gt;)</a></span> - Method in interface spoon.reflect.code.<a href="spoon/reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></dt>
 <dd>
 <div class="block">Removes a resource.</div>
 </dd>
-<dt><span class="member-name-link"><a href="spoon/support/reflect/code/CtTryWithResourceImpl.html#removeResource(spoon.reflect.code.CtLocalVariable)">removeResource(CtLocalVariable&lt;?&gt;)</a></span> - Method in class spoon.support.reflect.code.<a href="spoon/support/reflect/code/CtTryWithResourceImpl.html" title="class in spoon.support.reflect.code">CtTryWithResourceImpl</a></dt>
+<dt><span class="member-name-link"><a href="spoon/support/reflect/code/CtTryWithResourceImpl.html#removeResource(spoon.reflect.code.CtResource)">removeResource(CtResource&lt;?&gt;)</a></span> - Method in class spoon.support.reflect.code.<a href="spoon/support/reflect/code/CtTryWithResourceImpl.html" title="class in spoon.support.reflect.code">CtTryWithResourceImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/reflect/code/CtStatementList.html#removeStatement(spoon.reflect.code.CtStatement)">removeStatement(CtStatement)</a></span> - Method in interface spoon.reflect.code.<a href="spoon/reflect/code/CtStatementList.html" title="interface in spoon.reflect.code">CtStatementList</a></dt>
 <dd>
@@ -16032,6 +16036,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/visitor/HashcodeVisitor.html#scanCtReference(spoon.reflect.reference.CtReference)">scanCtReference(CtReference)</a></span> - Method in class spoon.support.visitor.<a href="spoon/support/visitor/HashcodeVisitor.html" title="class in spoon.support.visitor">HashcodeVisitor</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/reflect/visitor/CtInheritanceScanner.html#scanCtResource(spoon.reflect.code.CtResource)">scanCtResource(CtResource&lt;?&gt;)</a></span> - Method in class spoon.reflect.visitor.<a href="spoon/reflect/visitor/CtInheritanceScanner.html" title="class in spoon.reflect.visitor">CtInheritanceScanner</a></dt>
+<dd>
+<div class="block">Scans an abstract resource in try-with-resource statement.</div>
+</dd>
 <dt><span class="member-name-link"><a href="spoon/reflect/visitor/CtInheritanceScanner.html#scanCtRHSReceiver(spoon.reflect.code.CtRHSReceiver)">scanCtRHSReceiver(CtRHSReceiver&lt;T&gt;)</a></span> - Method in class spoon.reflect.visitor.<a href="spoon/reflect/visitor/CtInheritanceScanner.html" title="class in spoon.reflect.visitor">CtInheritanceScanner</a></dt>
 <dd>
 <div class="block">Scans the right-hand side of an assignment</div>
@@ -17421,11 +17429,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtModuleRequirementImpl.html#setRequiresModifiers(java.util.Set)">setRequiresModifiers(Set&lt;CtModuleRequirement.RequiresModifier&gt;)</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtModuleRequirementImpl.html" title="class in spoon.support.reflect.declaration">CtModuleRequirementImpl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="member-name-link"><a href="spoon/reflect/code/CtTryWithResource.html#setResources(java.util.List)">setResources(List&lt;CtLocalVariable&lt;?&gt;&gt;)</a></span> - Method in interface spoon.reflect.code.<a href="spoon/reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></dt>
+<dt><span class="member-name-link"><a href="spoon/reflect/code/CtTryWithResource.html#setResources(java.util.List)">setResources(List&lt;? extends CtResource&lt;?&gt;&gt;)</a></span> - Method in interface spoon.reflect.code.<a href="spoon/reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></dt>
 <dd>
 <div class="block">Sets the auto-closeable resources of this <code>try</code>.</div>
 </dd>
-<dt><span class="member-name-link"><a href="spoon/support/reflect/code/CtTryWithResourceImpl.html#setResources(java.util.List)">setResources(List&lt;CtLocalVariable&lt;?&gt;&gt;)</a></span> - Method in class spoon.support.reflect.code.<a href="spoon/support/reflect/code/CtTryWithResourceImpl.html" title="class in spoon.support.reflect.code">CtTryWithResourceImpl</a></dt>
+<dt><span class="member-name-link"><a href="spoon/support/reflect/code/CtTryWithResourceImpl.html#setResources(java.util.List)">setResources(List&lt;? extends CtResource&lt;?&gt;&gt;)</a></span> - Method in class spoon.support.reflect.code.<a href="spoon/support/reflect/code/CtTryWithResourceImpl.html" title="class in spoon.support.reflect.code">CtTryWithResourceImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/reflect/visitor/EarlyTerminatingScanner.html#setResult(T)">setResult(T)</a></span> - Method in class spoon.reflect.visitor.<a href="spoon/reflect/visitor/EarlyTerminatingScanner.html" title="class in spoon.reflect.visitor">EarlyTerminatingScanner</a></dt>
 <dd>&nbsp;</dd>

@@ -141,7 +141,7 @@ implements <a href="../../../reflect/code/CtTryWithResource.html" title="interfa
 <div class="block">Accepts a visitor</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;T extends <a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a>&gt;<br>T</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#addResource(spoon.reflect.code.CtLocalVariable)">addResource</a></span>&#8203;(<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&nbsp;resource)</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#addResource(spoon.reflect.code.CtResource)">addResource</a></span>&#8203;(<a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&nbsp;resource)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Adds a resource.</div>
 </div>
@@ -150,18 +150,18 @@ implements <a href="../../../reflect/code/CtTryWithResource.html" title="interfa
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Clone the element which calls this method in a new object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getResources()">getResources</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Gets the auto-closeable resources of this <code>try</code>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#removeResource(spoon.reflect.code.CtLocalVariable)">removeResource</a></span>&#8203;(<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&nbsp;resource)</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#removeResource(spoon.reflect.code.CtResource)">removeResource</a></span>&#8203;(<a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&nbsp;resource)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Removes a resource.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;T extends <a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a>&gt;<br>T</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setResources(java.util.List)">setResources</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&gt;&nbsp;resources)</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setResources(java.util.List)">setResources</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&gt;&nbsp;resources)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Sets the auto-closeable resources of this <code>try</code>.</div>
 </div>
@@ -249,10 +249,12 @@ implements <a href="../../../reflect/code/CtTryWithResource.html" title="interfa
 <li>
 <section class="detail" id="getResources()">
 <h3>getResources</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">getResources</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">getResources</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html#getResources()">CtTryWithResource</a></code></span></div>
 <div class="block">Gets the auto-closeable resources of this <code>try</code>. Available
- from Java 7 with the <i>try-with-resource</i> statement.</div>
+ from Java 7 with the <i>try-with-resource</i> statement.
+
+ The returned list is immutable for sake of proper encapsulation.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../reflect/code/CtTryWithResource.html#getResources()">getResources</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></code></dd>
@@ -262,7 +264,7 @@ implements <a href="../../../reflect/code/CtTryWithResource.html" title="interfa
 <li>
 <section class="detail" id="setResources(java.util.List)">
 <h3>setResources</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">setResources</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&gt;&nbsp;resources)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">setResources</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&gt;&nbsp;resources)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html#setResources(java.util.List)">CtTryWithResource</a></code></span></div>
 <div class="block">Sets the auto-closeable resources of this <code>try</code>. Available
  from Java 7 with the <i>try-with-resource</i> statement.</div>
@@ -273,26 +275,26 @@ implements <a href="../../../reflect/code/CtTryWithResource.html" title="interfa
 </section>
 </li>
 <li>
-<section class="detail" id="addResource(spoon.reflect.code.CtLocalVariable)">
+<section class="detail" id="addResource(spoon.reflect.code.CtResource)">
 <h3>addResource</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">addResource</span>&#8203;<span class="parameters">(<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&nbsp;resource)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html#addResource(spoon.reflect.code.CtLocalVariable)">CtTryWithResource</a></code></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">addResource</span>&#8203;<span class="parameters">(<a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&nbsp;resource)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html#addResource(spoon.reflect.code.CtResource)">CtTryWithResource</a></code></span></div>
 <div class="block">Adds a resource.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../../reflect/code/CtTryWithResource.html#addResource(spoon.reflect.code.CtLocalVariable)">addResource</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></code></dd>
+<dd><code><a href="../../../reflect/code/CtTryWithResource.html#addResource(spoon.reflect.code.CtResource)">addResource</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="removeResource(spoon.reflect.code.CtLocalVariable)">
+<section class="detail" id="removeResource(spoon.reflect.code.CtResource)">
 <h3>removeResource</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">removeResource</span>&#8203;<span class="parameters">(<a href="../../../reflect/code/CtLocalVariable.html" title="interface in spoon.reflect.code">CtLocalVariable</a>&lt;?&gt;&nbsp;resource)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html#removeResource(spoon.reflect.code.CtLocalVariable)">CtTryWithResource</a></code></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">removeResource</span>&#8203;<span class="parameters">(<a href="../../../reflect/code/CtResource.html" title="interface in spoon.reflect.code">CtResource</a>&lt;?&gt;&nbsp;resource)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html#removeResource(spoon.reflect.code.CtResource)">CtTryWithResource</a></code></span></div>
 <div class="block">Removes a resource.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../../reflect/code/CtTryWithResource.html#removeResource(spoon.reflect.code.CtLocalVariable)">removeResource</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></code></dd>
+<dd><code><a href="../../../reflect/code/CtTryWithResource.html#removeResource(spoon.reflect.code.CtResource)">removeResource</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/code/CtTryWithResource.html" title="interface in spoon.reflect.code">CtTryWithResource</a></code></dd>
 </dl>
 </section>
 </li>
