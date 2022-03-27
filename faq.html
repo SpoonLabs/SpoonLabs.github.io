@@ -547,6 +547,9 @@ public void init() {
 		<span class="o">.</span><span class="na">build</span><span class="o">();</span>
 </code></pre></div></div>
 
+<h4 id="what-does-launcherprettyprint-do">What does <code class="language-plaintext highlighter-rouge">Launcher#prettyprint()</code> do?</h4>
+<p><code class="language-plaintext highlighter-rouge">launcher.prettyprint</code> prints the model on disk. The model could have been transformed or not, and is saved in an output directory which one can set up with <code class="language-plaintext highlighter-rouge">launcher.setSourceOutputDirectory()</code>. The default output directory is called <code class="language-plaintext highlighter-rouge">spooned</code>. If you want the pretty-print to the standard output (console STDOUT), use method <code class="language-plaintext highlighter-rouge">toString</code> instead, defined for every CtElement. Reference: https://github.com/INRIA/spoon/issues/4274</p>
+
 
 
 
