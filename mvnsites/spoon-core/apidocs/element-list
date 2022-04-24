@@ -30,6 +30,7 @@ spoon.reflect.visitor.chain
 spoon.reflect.visitor.filter
 spoon.reflect.visitor.printer
 spoon.support
+spoon.support.adaption
 spoon.support.comparator
 spoon.support.compiler
 spoon.support.compiler.jdt

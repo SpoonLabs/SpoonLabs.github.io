@@ -415,6 +415,14 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/testing/AbstractAssert.html#actual">actual</a></span> - Variable in class spoon.testing.<a href="spoon/testing/AbstractAssert.html" title="class in spoon.testing">AbstractAssert</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#adaptMethod(spoon.reflect.declaration.CtMethod)">adaptMethod(CtMethod&lt;?&gt;)</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Adapts a given method to the context of this type adapter.</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#adaptType(spoon.reflect.declaration.CtType)">adaptType(CtType&lt;?&gt;)</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Adapts a type from a supertype to the context of this adaptor.</div>
+</dd>
 <dt><span class="member-name-link"><a href="spoon/support/visitor/MethodTypingContext.html#adaptType(spoon.reflect.declaration.CtTypeInformation)">adaptType(CtTypeInformation)</a></span> - Method in class spoon.support.visitor.<a href="spoon/support/visitor/MethodTypingContext.html" title="class in spoon.support.visitor">MethodTypingContext</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/visitor/GenericTypeAdapter.html#adaptType(spoon.reflect.declaration.CtTypeInformation)">adaptType(CtTypeInformation)</a></span> - Method in interface spoon.support.visitor.<a href="spoon/support/visitor/GenericTypeAdapter.html" title="interface in spoon.support.visitor">GenericTypeAdapter</a></dt>
@@ -427,6 +435,10 @@ loadScripts(document, 'script');</script>
  B) super interfaces of input type or super interfaces of it's super classes.<br>
 
  The type reference is adapted recursive including all it's actual type arguments and bounds.</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#adaptType(spoon.reflect.reference.CtTypeReference)">adaptType(CtTypeReference&lt;?&gt;)</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Adapts a type from a supertype to the context of this adaptor.</div>
 </dd>
 <dt><span class="member-name-link"><a href="spoon/support/visitor/ClassTypingContext.html#adaptTypeParameter(spoon.reflect.declaration.CtTypeParameter)">adaptTypeParameter(CtTypeParameter)</a></span> - Method in class spoon.support.visitor.<a href="spoon/support/visitor/ClassTypingContext.html" title="class in spoon.support.visitor">ClassTypingContext</a></dt>
 <dd>
@@ -9128,6 +9140,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/compiler/jdt/JDTTreeBuilder.html#getHelper()">getHelper()</a></span> - Method in class spoon.support.compiler.jdt.<a href="spoon/support/compiler/jdt/JDTTreeBuilder.html" title="class in spoon.support.compiler.jdt">JDTTreeBuilder</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#getHierarchyStart()">getHierarchyStart()</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/compiler/Environment.html#getIgnoreSyntaxErrors()">getIgnoreSyntaxErrors()</a></span> - Method in interface spoon.compiler.<a href="spoon/compiler/Environment.html" title="interface in spoon.compiler">Environment</a></dt>
 <dd>
 <div class="block">Returns the value ot the option ignore-syntax-errors.</div>
@@ -12214,6 +12228,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtConstructorImpl.html#isCompactConstructor()">isCompactConstructor()</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtConstructorImpl.html" title="class in spoon.support.reflect.declaration">CtConstructorImpl</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#isConflicting(spoon.reflect.declaration.CtMethod,spoon.reflect.declaration.CtMethod)">isConflicting(CtMethod&lt;?&gt;, CtMethod&lt;?&gt;)</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Checks if two given methods are conflicting, i.e.</div>
+</dd>
 <dt><span class="member-name-link"><a href="spoon/reflect/reference/CtExecutableReference.html#isConstructor()">isConstructor()</a></span> - Method in interface spoon.reflect.reference.<a href="spoon/reflect/reference/CtExecutableReference.html" title="interface in spoon.reflect.reference">CtExecutableReference</a></dt>
 <dd>
 <div class="block">Tells if this is a reference to a constructor.</div>
@@ -12367,6 +12385,8 @@ loadScripts(document, 'script');</script>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtTypeImpl.html#isGenerics()">isGenerics()</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtTypeImpl.html" title="class in spoon.support.reflect.declaration">CtTypeImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtTypeParameterImpl.html#isGenerics()">isGenerics()</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtTypeParameterImpl.html" title="class in spoon.support.reflect.declaration">CtTypeParameterImpl</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/support/reflect/reference/CtArrayTypeReferenceImpl.html#isGenerics()">isGenerics()</a></span> - Method in class spoon.support.reflect.reference.<a href="spoon/support/reflect/reference/CtArrayTypeReferenceImpl.html" title="class in spoon.support.reflect.reference">CtArrayTypeReferenceImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/reference/CtTypeParameterReferenceImpl.html#isGenerics()">isGenerics()</a></span> - Method in class spoon.support.reflect.reference.<a href="spoon/support/reflect/reference/CtTypeParameterReferenceImpl.html" title="class in spoon.support.reflect.reference">CtTypeParameterReferenceImpl</a></dt>
 <dd>&nbsp;</dd>
@@ -12542,6 +12562,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtMethodImpl.html#isOverriding(spoon.reflect.declaration.CtMethod)">isOverriding(CtMethod&lt;?&gt;)</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtMethodImpl.html" title="class in spoon.support.reflect.declaration">CtMethodImpl</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#isOverriding(spoon.reflect.declaration.CtMethod,spoon.reflect.declaration.CtMethod)">isOverriding(CtMethod&lt;?&gt;, CtMethod&lt;?&gt;)</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Checks if <code>subMethod</code> overrides <code>superMethod</code>.</div>
+</dd>
 <dt><span class="member-name-link"><a href="spoon/support/visitor/ClassTypingContext.html#isOverriding(spoon.reflect.declaration.CtMethod,spoon.reflect.declaration.CtMethod)">isOverriding(CtMethod&lt;?&gt;, CtMethod&lt;?&gt;)</a></span> - Method in class spoon.support.visitor.<a href="spoon/support/visitor/ClassTypingContext.html" title="class in spoon.support.visitor">ClassTypingContext</a></dt>
 <dd>
 <div class="block">thisMethod overrides thatMethod if
@@ -12721,6 +12745,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Two methods are considered as having the same signature if they have the same name and argument types
  See https://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.4.2</div>
 </dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#isSameSignature(spoon.reflect.declaration.CtMethod,spoon.reflect.declaration.CtMethod)">isSameSignature(CtMethod&lt;?&gt;, CtMethod&lt;?&gt;)</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Checks if two methods have the same signature, <em>once you adapt both to the context of this
+ type adapter</em>.</div>
+</dd>
 <dt><span class="member-name-link"><a href="spoon/reflect/declaration/CtShadowable.html#isShadow()">isShadow()</a></span> - Method in interface spoon.reflect.declaration.<a href="spoon/reflect/declaration/CtShadowable.html" title="interface in spoon.reflect.declaration">CtShadowable</a></dt>
 <dd>
 <div class="block">When an element isn't present in the factory (created in another factory),
@@ -12831,9 +12860,17 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><span class="member-name-link"><a href="spoon/pattern/PatternParameterConfigurator.html#isSubstituted(java.lang.String)">isSubstituted(String)</a></span> - Method in class spoon.pattern.<a href="spoon/pattern/PatternParameterConfigurator.html" title="class in spoon.pattern">PatternParameterConfigurator</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#isSubtype(spoon.reflect.declaration.CtType,spoon.reflect.reference.CtTypeReference)">isSubtype(CtType&lt;?&gt;, CtTypeReference&lt;?&gt;)</a></span> - Static method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Checks whether the base is a subtype of the passed superref.</div>
+</dd>
 <dt><span class="member-name-link"><a href="spoon/reflect/declaration/CtTypeInformation.html#isSubtypeOf(spoon.reflect.reference.CtTypeReference)">isSubtypeOf(CtTypeReference&lt;?&gt;)</a></span> - Method in interface spoon.reflect.declaration.<a href="spoon/reflect/declaration/CtTypeInformation.html" title="interface in spoon.reflect.declaration">CtTypeInformation</a></dt>
 <dd>
 <div class="block">Returns true if the referenced type is a sub-type of the given type.</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#isSubtypeOf(spoon.reflect.reference.CtTypeReference)">isSubtypeOf(CtTypeReference&lt;?&gt;)</a></span> - Method in class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Checks if the context of this type adapter is a subtype of the passed superRef.</div>
 </dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtAnnotationTypeImpl.html#isSubtypeOf(spoon.reflect.reference.CtTypeReference)">isSubtypeOf(CtTypeReference&lt;?&gt;)</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtAnnotationTypeImpl.html" title="class in spoon.support.reflect.declaration">CtAnnotationTypeImpl</a></dt>
 <dd>&nbsp;</dd>
@@ -17878,6 +17915,12 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/reflect/declaration/CtModuleImpl.html#setUsedServices(java.util.List)">setUsedServices(List&lt;CtUsedService&gt;)</a></span> - Method in class spoon.support.reflect.declaration.<a href="spoon/support/reflect/declaration/CtModuleImpl.html" title="class in spoon.support.reflect.declaration">CtModuleImpl</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="spoon/compiler/Environment.html#setUseLegacyTypeAdaption(boolean)">setUseLegacyTypeAdaption(boolean)</a></span> - Method in interface spoon.compiler.<a href="spoon/compiler/Environment.html" title="interface in spoon.compiler">Environment</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/StandardEnvironment.html#setUseLegacyTypeAdaption(boolean)">setUseLegacyTypeAdaption(boolean)</a></span> - Method in class spoon.support.<a href="spoon/support/StandardEnvironment.html" title="class in spoon.support">StandardEnvironment</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/reflect/path/CtElementPathBuilder.html#setUseNamesInPath(boolean)">setUseNamesInPath(boolean)</a></span> - Method in class spoon.reflect.path.<a href="spoon/reflect/path/CtElementPathBuilder.html" title="class in spoon.reflect.path">CtElementPathBuilder</a></dt>
 <dd>
 <div class="block">Configures what kind of path is generated for List based attributes<br>
@@ -18285,6 +18328,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">This package contains some default implementations for commonly used processing tasks.</div>
 </dd>
+<dt><a href="spoon/support/adaption/package-summary.html">spoon.support.adaption</a> - package spoon.support.adaption</dt>
+<dd>&nbsp;</dd>
 <dt><a href="spoon/support/comparator/package-summary.html">spoon.support.comparator</a> - package spoon.support.comparator</dt>
 <dd>&nbsp;</dd>
 <dt><a href="spoon/support/compiler/package-summary.html">spoon.support.compiler</a> - package spoon.support.compiler</dt>
@@ -19113,6 +19158,26 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Use of a type</div>
 </dd>
+<dt><a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption"><span class="type-name-link">TypeAdaptor</span></a> - Class in <a href="spoon/support/adaption/package-summary.html">spoon.support.adaption</a></dt>
+<dd>
+<div class="block">Determines subtyping relationships and adapts generics from a super- to a subclass.</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#%3Cinit%3E(spoon.reflect.declaration.CtConstructor)">TypeAdaptor(CtConstructor&lt;?&gt;)</a></span> - Constructor for class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Creates a new type adaptor using the given constructor as the start of its hierarchy.</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#%3Cinit%3E(spoon.reflect.declaration.CtMethod)">TypeAdaptor(CtMethod&lt;?&gt;)</a></span> - Constructor for class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Creates a new type adaptor using the given method as the start of its hierarchy.</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#%3Cinit%3E(spoon.reflect.declaration.CtType)">TypeAdaptor(CtType&lt;?&gt;)</a></span> - Constructor for class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Creates a new type adaptor using the given type as the start of its hierarchy.</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/adaption/TypeAdaptor.html#%3Cinit%3E(spoon.reflect.reference.CtTypeReference)">TypeAdaptor(CtTypeReference&lt;?&gt;)</a></span> - Constructor for class spoon.support.adaption.<a href="spoon/support/adaption/TypeAdaptor.html" title="class in spoon.support.adaption">TypeAdaptor</a></dt>
+<dd>
+<div class="block">Creates a new type adaptor using the given reference as the start of its hierarchy.</div>
+</dd>
 <dt><a href="spoon/reflect/factory/TypeFactory.html" title="class in spoon.reflect.factory"><span class="type-name-link">TypeFactory</span></a> - Class in <a href="spoon/reflect/factory/package-summary.html">spoon.reflect.factory</a></dt>
 <dd>
 <div class="block">The <a href="spoon/reflect/declaration/CtType.html" title="interface in spoon.reflect.declaration"><code>CtType</code></a> sub-factory.</div>
@@ -19234,6 +19299,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get rid of old <a href="spoon/pattern/internal/node/RootNode.html" title="interface in spoon.pattern.internal.node"><code>RootNode</code></a> and use new <a href="spoon/pattern/internal/node/RootNode.html" title="interface in spoon.pattern.internal.node"><code>RootNode</code></a> instead</div>
 </dd>
+<dt><span class="member-name-link"><a href="spoon/compiler/Environment.html#useLegacyTypeAdaption()">useLegacyTypeAdaption()</a></span> - Method in interface spoon.compiler.<a href="spoon/compiler/Environment.html" title="interface in spoon.compiler">Environment</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/StandardEnvironment.html#useLegacyTypeAdaption()">useLegacyTypeAdaption()</a></span> - Method in class spoon.support.<a href="spoon/support/StandardEnvironment.html" title="class in spoon.support">StandardEnvironment</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/compiler/Environment.html#useTabulations(boolean)">useTabulations(boolean)</a></span> - Method in interface spoon.compiler.<a href="spoon/compiler/Environment.html" title="interface in spoon.compiler">Environment</a></dt>
 <dd>
 <div class="block">Sets Spoon to use tabulations in the source code.</div>

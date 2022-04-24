@@ -93,26 +93,28 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">This package contains some default implementations for commonly used processing tasks.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#spoon.support.compiler">spoon.support.compiler</a></div>
+<div class="col-first odd-row-color"><a href="#spoon.support.adaption">spoon.support.adaption</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#spoon.support.compiler.jdt">spoon.support.compiler.jdt</a></div>
+<div class="col-first even-row-color"><a href="#spoon.support.compiler">spoon.support.compiler</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#spoon.support.reflect.code">spoon.support.reflect.code</a></div>
+<div class="col-first odd-row-color"><a href="#spoon.support.compiler.jdt">spoon.support.compiler.jdt</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#spoon.support.reflect.declaration">spoon.support.reflect.declaration</a></div>
+<div class="col-first even-row-color"><a href="#spoon.support.reflect.code">spoon.support.reflect.code</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#spoon.support.reflect.reference">spoon.support.reflect.reference</a></div>
+<div class="col-first odd-row-color"><a href="#spoon.support.reflect.declaration">spoon.support.reflect.declaration</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#spoon.support.visitor">spoon.support.visitor</a></div>
+<div class="col-first even-row-color"><a href="#spoon.support.reflect.reference">spoon.support.reflect.reference</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#spoon.support.visitor.clone">spoon.support.visitor.clone</a></div>
+<div class="col-first odd-row-color"><a href="#spoon.support.visitor">spoon.support.visitor</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#spoon.support.visitor.java.internal">spoon.support.visitor.java.internal</a></div>
+<div class="col-first even-row-color"><a href="#spoon.support.visitor.clone">spoon.support.visitor.clone</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#spoon.support.visitor.replace">spoon.support.visitor.replace</a></div>
+<div class="col-first odd-row-color"><a href="#spoon.support.visitor.java.internal">spoon.support.visitor.java.internal</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#spoon.template">spoon.template</a></div>
-<div class="col-last even-row-color">
+<div class="col-first even-row-color"><a href="#spoon.support.visitor.replace">spoon.support.visitor.replace</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#spoon.template">spoon.template</a></div>
+<div class="col-last odd-row-color">
 <div class="block">This package defines a framework for well-typed pure-Java templates.</div>
 </div>
 </div>
@@ -1710,6 +1712,60 @@ B extends R&gt;<br><a href="../../declaration/CtMethod.html" title="interface in
 <div class="col-first even-row-color"><code>&lt;T&gt;&nbsp;<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;T&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">DefaultCoreFactory.</span><code><span class="member-name-link"><a href="../../../support/DefaultCoreFactory.html#createTypeReference()">createTypeReference</a></span>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="spoon.support.adaption">
+<h2>Uses of <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a> in <a href="../../../support/adaption/package-summary.html">spoon.support.adaption</a></h2>
+<div class="caption"><span>Methods in <a href="../../../support/adaption/package-summary.html">spoon.support.adaption</a> that return <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TypeAdaptor.</span><code><span class="member-name-link"><a href="../../../support/adaption/TypeAdaptor.html#adaptType(spoon.reflect.declaration.CtType)">adaptType</a></span>&#8203;(<a href="../../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;superType)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Adapts a type from a supertype to the context of this adaptor.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TypeAdaptor.</span><code><span class="member-name-link"><a href="../../../support/adaption/TypeAdaptor.html#adaptType(spoon.reflect.reference.CtTypeReference)">adaptType</a></span>&#8203;(<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;superRef)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Adapts a type from a supertype to the context of this adaptor.</div>
+</div>
+</div>
+<div class="caption"><span>Methods in <a href="../../../support/adaption/package-summary.html">spoon.support.adaption</a> with parameters of type <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TypeAdaptor.</span><code><span class="member-name-link"><a href="../../../support/adaption/TypeAdaptor.html#adaptType(spoon.reflect.reference.CtTypeReference)">adaptType</a></span>&#8203;(<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;superRef)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Adapts a type from a supertype to the context of this adaptor.</div>
+</div>
+<div class="col-first odd-row-color"><code>static boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TypeAdaptor.</span><code><span class="member-name-link"><a href="../../../support/adaption/TypeAdaptor.html#isSubtype(spoon.reflect.declaration.CtType,spoon.reflect.reference.CtTypeReference)">isSubtype</a></span>&#8203;(<a href="../../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;base,
+ <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;superRef)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Checks whether the base is a subtype of the passed superref.</div>
+</div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TypeAdaptor.</span><code><span class="member-name-link"><a href="../../../support/adaption/TypeAdaptor.html#isSubtypeOf(spoon.reflect.reference.CtTypeReference)">isSubtypeOf</a></span>&#8203;(<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;superRef)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Checks if the context of this type adapter is a subtype of the passed superRef.</div>
+</div>
+</div>
+<div class="caption"><span>Constructors in <a href="../../../support/adaption/package-summary.html">spoon.support.adaption</a> with parameters of type <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-second even-row-color"><code><span class="member-name-link"><a href="../../../support/adaption/TypeAdaptor.html#%3Cinit%3E(spoon.reflect.reference.CtTypeReference)">TypeAdaptor</a></span>&#8203;(<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;hierarchyStart)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Creates a new type adaptor using the given reference as the start of its hierarchy.</div>
+</div>
 </div>
 </section>
 </li>
