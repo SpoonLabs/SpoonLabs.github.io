@@ -524,18 +524,6 @@ smplcli ACTION [ARG [ARG ..]]
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -cp &lt;classpath&gt; spoon.smpl.CommandlineApplication
 </code></pre></div></div>
 
-<h3 id="scope-of-implementation">Scope of implementation</h3>
-
-<p>Due in large to the prototypical nature of the current implementation there is a lack of clear
-specification and documentation. The most helpful resources currently available are:</p>
-
-<ol>
-  <li><a href="https://github.com/INRIA/spoon/blob/master/spoon-smpl/smpl_grammar.txt">smpl_grammar.txt</a>: covers parts of the currently supported grammar.</li>
-  <li><a href="https://github.com/INRIA/spoon/tree/master/spoon-smpl/src/test/resources/endtoend">Test cases</a>: contains easy-to-read test cases that reveal both supported patch language features and supported Java elements.</li>
-  <li><a href="https://github.com/INRIA/spoon/blob/master/spoon-smpl/src/main/java/spoon/smpl/pattern/PatternBuilder.java">PatternBuilder.java</a>: shows the set of matchable Java elements, but can be cumbersome to read.</li>
-  <li><a href="https://github.com/INRIA/spoon/blob/master/spoon-smpl/src/main/java/spoon/smpl/Substitutor.java">Substitutor.java</a>: shows the set of transformable Java elements, but can be cumbersome to read.</li>
-</ol>
-
 <h3 id="basic-usage">Basic usage</h3>
 
 <p>The basic use case of spoon-smpl involves at minimum two files: one .java source file and one 
@@ -713,6 +701,513 @@ towards finding the code for the component(s) of interest:</p>
 <span class="o">}</span>
 
 </code></pre></div></div>
+
+<h3 id="scope-of-implementation-as-of-may-2022">Scope of implementation as of May 2022</h3>
+
+<h4 id="smpl-metavariables">SmPL Metavariables</h4>
+<p>|   Name/Description           |  Binds                                     | Example               |
+| ———————– | —————————————— | ——————— |
+|    Constant             |  <code class="language-plaintext highlighter-rouge">CtLiteral</code>                               | <code class="language-plaintext highlighter-rouge">@@ constant C; @@</code>   |
+|    Expression           |  <code class="language-plaintext highlighter-rouge">CtExpression</code>                            | <code class="language-plaintext highlighter-rouge">@@ expression E; @@</code> |
+|    Identifier           |  <code class="language-plaintext highlighter-rouge">CtVariableReference</code>                     | <code class="language-plaintext highlighter-rouge">@@ identifier x; @@</code> |
+|    Type                 |  <code class="language-plaintext highlighter-rouge">CtTypeReference</code>                         | <code class="language-plaintext highlighter-rouge">@@ type T; @@</code>       |
+|    Typed identifier     |  <code class="language-plaintext highlighter-rouge">CtVariableReference</code> with correct type   | <code class="language-plaintext highlighter-rouge">@@ Integer x; @@</code>    |
+|    Regex<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>            |  Any<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>                                   | <code class="language-plaintext highlighter-rouge">@@ expression E when matches "regex"; @@</code>    |</p>
+
+<p>constraint (e.g identifier) and adds the additional constraint of the string representation (.toString)
+of a candidate binding element having to match the given regex.</p>
+
+<h4 id="smpl-patch-syntax">SmPL Patch syntax</h4>
+
+<p>Referenced tests are found at https://github.com/INRIA/spoon/tree/master/spoon-smpl/src/test/resources/endtoend</p>
+
+<table>
+<tr>
+<td> Description </td>
+<td> Example </td>
+<td> Test(s) </td>
+</tr>
+
+<tr>
+<td> Prepend/append to matched context </td>
+<td> 
+
+```java
++ a();
+  ctx();    // matched context
++ b();
+```
+
+ </td>
+<td> AppendToContext, AppendContextBranch, PrependToContext, PrependContextBranch </td>
+</tr>
+
+<tr>
+<td> Delete all matched </td>
+<td> 
+
+```java
+- a();
+```
+
+ </td>
+<td> TypedIdentifierMetavariables1 </td>
+</tr>
+
+<tr>
+<td> Delete around matched context </td>
+<td> 
+
+```java
+- a();
+  ctx();
+- b();
+```
+
+ </td>
+<td> DeleteStmBeforeBranch, DeleteStmAfterBranch </td>
+</tr>
+
+<tr>
+<td> Enclose matched context in branch </td>
+<td> 
+
+```java
++ if (cond) {
+  ctx();
++ }
+```
+
+ </td>
+<td> EncloseInBranch </td>
+</tr>
+
+<tr>
+<td> Delete enclosing branch </td>
+<td> 
+
+```java
+- if (cond) {
+  ctx();
+- }
+```
+
+ </td>
+<td> DeleteEnclosingBranch </td>
+</tr>
+
+<tr>
+<td> Dots (computation path wildcard) </td>
+<td> 
+
+```java
+  int v1;
+  ...
+- v1 = C;
++ v1 = C + 1;
+```
+
+ </td>
+<td> BasicDots, DotsShortestPath </td>
+</tr>
+
+<tr>
+<td> Dots "when any" </td>
+<td> 
+
+```java
+  int v1;
+  ... when any
+- v1 = C;
++ v1 = C + 1;
+```
+
+ </td>
+<td> DotsWhenAny </td>
+</tr>
+
+<tr>
+<td> Dots "when exists" </td>
+<td> 
+
+```java
+  a();
+  ... when exists
+- c();
+```
+
+ </td>
+<td> Exceptions/ExistsDotsPatchingCatchBlock </td>
+</tr>
+
+<tr>
+<td> Dots "when != x" </td>
+<td> 
+
+```java
+- a();
+  ... when != b()
+- c();
+```
+
+ </td>
+<td> DotsWhenNeqExpression/* </td>
+</tr>
+
+<tr>
+<td> "Optional match" dots &lt;... P ...&gt; </td>
+<td> 
+
+```java
+  a();
+&lt;...
+- b(x);
++ log(x);
+...&gt;
+- c();
+```
+
+ </td>
+<td> DotsWithOptionalMatch/* </td>
+</tr>
+
+<tr>
+<td> Binding metavariables on method header </td>
+<td> 
+
+```java
+@@ type T; @@
+  T square(T x) {
+-    log(...);
+  }
+```
+
+ </td>
+<td> MatchingMethodHeader/MethodHeaderBinding </td>
+</tr>
+
+<tr>
+<td> Literal matching in method header + params </td>
+<td> 
+
+```java
+  int square(int x) {
+```
+
+ </td>
+<td> MatchingMethodHeader/MethodHeaderLiteralMatch </td>
+</tr>
+
+<tr>
+<td> Wildcard matching in method header params </td>
+<td> 
+
+```java
+  T fn(..., Point pt, ...) {
+```
+
+ </td>
+<td> MatchingMethodHeader/MethodHeaderDots </td>
+</tr>
+
+<tr>
+<td> Wildcard matching in method arguments </td>
+<td> 
+
+```java
+- f(...);
+- f(..., g(..., 1));
+```
+
+ </td>
+<td> MethodCallArgDots/* </td>
+</tr>
+
+<tr>
+<td> Add full method to class </td>
+<td> 
+
+```java
++ void b() {
++   System.out.println("Hello, World!");
++ }
+
+void fn() {
+  a();
++ b();
+}
+```
+
+ </td>
+<td> MethodsAddedToClass/* </td>
+</tr>
+
+<tr>
+<td> Pattern disjunction w/ clause order priority </td>
+<td> 
+
+```java
+(
+- a();
+|
+- b();
+|
+- c();
+)
+```
+
+ </td>
+<td> BasicPatternDisjunction </td>
+</tr>
+
+</table>
+
+<h4 id="matchable-code">Matchable code</h4>
+
+<p>Java elements/constructs you can specify in the semantic patch in order to match against real code,
+produce new code in the output, or produce transformed code in the output. Not all
+aspects/features/attributes are necessarily supported.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Literals</td>
+      <td><code class="language-plaintext highlighter-rouge">5</code>, <code class="language-plaintext highlighter-rouge">"Hello"</code></td>
+    </tr>
+    <tr>
+      <td>Type names</td>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+    </tr>
+    <tr>
+      <td>Variable declarations</td>
+      <td><code class="language-plaintext highlighter-rouge">int x;</code></td>
+    </tr>
+    <tr>
+      <td>Assignments</td>
+      <td><code class="language-plaintext highlighter-rouge">int x = 5;</code></td>
+    </tr>
+    <tr>
+      <td>Variable/field references</td>
+      <td><code class="language-plaintext highlighter-rouge">x</code></td>
+    </tr>
+    <tr>
+      <td>Binary operators</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">-</code></td>
+    </tr>
+    <tr>
+      <td>Unary operators</td>
+      <td><code class="language-plaintext highlighter-rouge">++</code>, <code class="language-plaintext highlighter-rouge">--</code></td>
+    </tr>
+    <tr>
+      <td>Ternary expressions</td>
+      <td><code class="language-plaintext highlighter-rouge">expr ? then : else</code></td>
+    </tr>
+    <tr>
+      <td>if-statements</td>
+      <td><code class="language-plaintext highlighter-rouge">if (cond) { ... } [else { ... }]</code></td>
+    </tr>
+    <tr>
+      <td>Array types</td>
+      <td><code class="language-plaintext highlighter-rouge">int[]</code></td>
+    </tr>
+    <tr>
+      <td>Constructor invocations</td>
+      <td><code class="language-plaintext highlighter-rouge">new Foo();</code></td>
+    </tr>
+    <tr>
+      <td>Constructor invocations w/ arguments</td>
+      <td><code class="language-plaintext highlighter-rouge">new Foo(1,2,3);</code></td>
+    </tr>
+    <tr>
+      <td>Method invocations</td>
+      <td><code class="language-plaintext highlighter-rouge">println();</code></td>
+    </tr>
+    <tr>
+      <td>Method invocations w/ arguments</td>
+      <td><code class="language-plaintext highlighter-rouge">println("hello world");</code></td>
+    </tr>
+    <tr>
+      <td>Method header w/ parameters</td>
+      <td><code class="language-plaintext highlighter-rouge">void foo(int bar) { ... }</code></td>
+    </tr>
+    <tr>
+      <td>Return statements</td>
+      <td><code class="language-plaintext highlighter-rouge">return x;</code></td>
+    </tr>
+    <tr>
+      <td>“this” access</td>
+      <td><code class="language-plaintext highlighter-rouge">this</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="non-matchable-code">Non-matchable code</h4>
+
+<p>Specifying any of these in a patch will either lead to unsupported element warnings or exceptions.</p>
+
+<p>Encountering any of these in target code can<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> either lead to unsupported element warnings or
+exceptions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>description</th>
+      <th>examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Package declarations</td>
+      <td><code class="language-plaintext highlighter-rouge">package spoon.smpl;</code></td>
+    </tr>
+    <tr>
+      <td>Module declarations</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Imports</td>
+      <td><code class="language-plaintext highlighter-rouge">import foo;</code></td>
+    </tr>
+    <tr>
+      <td>Comments, Javadoc</td>
+      <td><code class="language-plaintext highlighter-rouge">/* hello */</code></td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td><code class="language-plaintext highlighter-rouge">@Entity(tableName = "vehicles")</code></td>
+    </tr>
+    <tr>
+      <td>Lambda expressions</td>
+      <td><code class="language-plaintext highlighter-rouge">(int x) -&gt; x + 1;</code></td>
+    </tr>
+    <tr>
+      <td>Classes, interfaces, records, inner variants of</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Anonymous inner classes</td>
+      <td><code class="language-plaintext highlighter-rouge">Runnable f = new Runnable() { @override public void run() { ... }};</code></td>
+    </tr>
+    <tr>
+      <td>Instance initializers / anonymous blocks</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Array read/write</td>
+      <td><code class="language-plaintext highlighter-rouge">x[4]</code>, <code class="language-plaintext highlighter-rouge">x[j] = 9</code></td>
+    </tr>
+    <tr>
+      <td>Array constructor</td>
+      <td><code class="language-plaintext highlighter-rouge">new int[42];</code></td>
+    </tr>
+    <tr>
+      <td>Method references</td>
+      <td><code class="language-plaintext highlighter-rouge">Class::method</code></td>
+    </tr>
+    <tr>
+      <td>Assertions</td>
+      <td><code class="language-plaintext highlighter-rouge">assert cond;</code></td>
+    </tr>
+    <tr>
+      <td>Type parameters, intersection types</td>
+      <td><code class="language-plaintext highlighter-rouge">Map&lt;String,Integer&gt; ...</code></td>
+    </tr>
+    <tr>
+      <td>Switch, case, yield</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Break, continue</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Throw statements</td>
+      <td><code class="language-plaintext highlighter-rouge">throw new Exception();</code></td>
+    </tr>
+    <tr>
+      <td>Try, catch, finally</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Try-with-resource</td>
+      <td><code class="language-plaintext highlighter-rouge">try (BufferedReader br = new ...) { ... }</code></td>
+    </tr>
+    <tr>
+      <td>Enums</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Loops: while, do, for, foreach</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Text blocks</td>
+      <td><code class="language-plaintext highlighter-rouge">"""hello"""</code></td>
+    </tr>
+    <tr>
+      <td>Operator-assignments</td>
+      <td><code class="language-plaintext highlighter-rouge">+=</code>, <code class="language-plaintext highlighter-rouge">*= </code></td>
+    </tr>
+    <tr>
+      <td>Synchronized statements</td>
+      <td><code class="language-plaintext highlighter-rouge">synchronized(foo) { ... }</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>step skips over any executables that cannot possibly match the patch, based on the presence of
+certain strings. Any executables that are not skipped over by the filter can be called candidate
+executables. Encountering any of the constructs in the list of non-matchable code inside a candidate
+executable will lead to unsupported element warnings or exceptions.</p>
+
+<h4 id="matchable-but-non-producible-code">Matchable but non-producible code</h4>
+
+<p>A semantic patch specifying e.g the addition <code class="language-plaintext highlighter-rouge">+ E</code> for a non-producible <code class="language-plaintext highlighter-rouge">E</code> will either lead to
+unsupported element warnings or exceptions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Array types</td>
+      <td><code class="language-plaintext highlighter-rouge">int[]</code></td>
+    </tr>
+    <tr>
+      <td>Ternary expressions</td>
+      <td><code class="language-plaintext highlighter-rouge">expr ? then : else</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Other helpful resources:</p>
+
+<ol>
+  <li><a href="https://github.com/INRIA/spoon/blob/master/spoon-smpl/smpl_grammar.txt">smpl_grammar.txt</a>: covers parts of the currently supported grammar.</li>
+  <li><a href="https://github.com/INRIA/spoon/tree/master/spoon-smpl/src/test/resources/endtoend">Test cases</a>: contains easy-to-read test cases that reveal both supported patch language features and supported Java elements.</li>
+  <li><a href="https://github.com/INRIA/spoon/blob/master/spoon-smpl/src/main/java/spoon/smpl/pattern/PatternBuilder.java">PatternBuilder.java</a>: shows the set of matchable Java elements, but can be cumbersome to read.</li>
+  <li><a href="https://github.com/INRIA/spoon/blob/master/spoon-smpl/src/main/java/spoon/smpl/Substitutor.java">Substitutor.java</a>: shows the set of transformable/producible Java elements, but can be cumbersome to read.</li>
+</ol>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>The Regex metavariable can be applied as an extra constraint on top of any other metavariable <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>There is a prefiltering step when matching a semantic patch against target code. The filter <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
 
 
