@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <section class="description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Cloneable.html" title="class or interface in java.lang" class="external-link">Cloneable</a></code>, <code><a href="../../../processing/FactoryAccessor.html" title="interface in spoon.processing">FactoryAccessor</a></code>, <code><a href="../../../reflect/code/CtCodeElement.html" title="interface in spoon.reflect.code">CtCodeElement</a></code>, <code><a href="../../../reflect/code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a></code>, <code><a href="../../../reflect/cu/SourcePositionHolder.html" title="interface in spoon.reflect.cu">SourcePositionHolder</a></code>, <code><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;T&gt;</code>, <code><a href="../../../reflect/declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a></code>, <code><a href="../../../reflect/declaration/CtFormalTypeDeclarer.html" title="interface in spoon.reflect.declaration">CtFormalTypeDeclarer</a></code>, <code><a href="../../../reflect/declaration/CtModifiable.html" title="interface in spoon.reflect.declaration">CtModifiable</a></code>, <code><a href="../../../reflect/declaration/CtNamedElement.html" title="interface in spoon.reflect.declaration">CtNamedElement</a></code>, <code><a href="../../../reflect/declaration/CtShadowable.html" title="interface in spoon.reflect.declaration">CtShadowable</a></code>, <code><a href="../../../reflect/declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;T&gt;</code>, <code><a href="../../../reflect/declaration/CtTypeInformation.html" title="interface in spoon.reflect.declaration">CtTypeInformation</a></code>, <code><a href="../../../reflect/declaration/CtTypeMember.html" title="interface in spoon.reflect.declaration">CtTypeMember</a></code>, <code><a href="../../../reflect/visitor/chain/CtQueryable.html" title="interface in spoon.reflect.visitor.chain">CtQueryable</a></code>, <code><a href="../../../reflect/visitor/CtVisitable.html" title="interface in spoon.reflect.visitor">CtVisitable</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Cloneable.html" title="class or interface in java.lang" class="external-link">Cloneable</a></code>, <code><a href="../../../processing/FactoryAccessor.html" title="interface in spoon.processing">FactoryAccessor</a></code>, <code><a href="../../../reflect/code/CtCodeElement.html" title="interface in spoon.reflect.code">CtCodeElement</a></code>, <code><a href="../../../reflect/code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a></code>, <code><a href="../../../reflect/cu/SourcePositionHolder.html" title="interface in spoon.reflect.cu">SourcePositionHolder</a></code>, <code><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;T&gt;</code>, <code><a href="../../../reflect/declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a></code>, <code><a href="../../../reflect/declaration/CtFormalTypeDeclarer.html" title="interface in spoon.reflect.declaration">CtFormalTypeDeclarer</a></code>, <code><a href="../../../reflect/declaration/CtModifiable.html" title="interface in spoon.reflect.declaration">CtModifiable</a></code>, <code><a href="../../../reflect/declaration/CtNamedElement.html" title="interface in spoon.reflect.declaration">CtNamedElement</a></code>, <code><a href="../../../reflect/declaration/CtSealable.html" title="interface in spoon.reflect.declaration">CtSealable</a></code>, <code><a href="../../../reflect/declaration/CtShadowable.html" title="interface in spoon.reflect.declaration">CtShadowable</a></code>, <code><a href="../../../reflect/declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;T&gt;</code>, <code><a href="../../../reflect/declaration/CtTypeInformation.html" title="interface in spoon.reflect.declaration">CtTypeInformation</a></code>, <code><a href="../../../reflect/declaration/CtTypeMember.html" title="interface in spoon.reflect.declaration">CtTypeMember</a></code>, <code><a href="../../../reflect/visitor/chain/CtQueryable.html" title="interface in spoon.reflect.visitor.chain">CtQueryable</a></code>, <code><a href="../../../reflect/visitor/CtVisitable.html" title="interface in spoon.reflect.visitor">CtVisitable</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
@@ -159,39 +159,49 @@ implements <a href="../../../reflect/declaration/CtClass.html" title="interface 
 <div class="block">Adds a constructor to this class.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#clone()">clone</a></span>()</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#addPermittedType(spoon.reflect.reference.CtTypeReference)">addPermittedType</a></span>&#8203;(<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;type)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Adds a permitted type to this type.</div>
+</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#clone()">clone</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Clone the element which calls this method in a new object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../reflect/reference/CtExecutableReference.html" title="interface in spoon.reflect.reference">CtExecutableReference</a>&lt;?&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getAllExecutables()">getAllExecutables</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../reflect/reference/CtExecutableReference.html" title="interface in spoon.reflect.reference">CtExecutableReference</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getAllExecutables()">getAllExecutables</a></span>()</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">adding the constructors and static executables</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/declaration/CtAnonymousExecutable.html" title="interface in spoon.reflect.declaration">CtAnonymousExecutable</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getAnonymousExecutables()">getAnonymousExecutables</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/declaration/CtAnonymousExecutable.html" title="interface in spoon.reflect.declaration">CtAnonymousExecutable</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getAnonymousExecutables()">getAnonymousExecutables</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Returns the anonymous blocks of this class.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../../../reflect/declaration/CtConstructor.html" title="interface in spoon.reflect.declaration">CtConstructor</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getConstructor(spoon.reflect.reference.CtTypeReference...)">getConstructor</a></span>&#8203;(<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;...&nbsp;parameterTypes)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../../../reflect/declaration/CtConstructor.html" title="interface in spoon.reflect.declaration">CtConstructor</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getConstructor(spoon.reflect.reference.CtTypeReference...)">getConstructor</a></span>&#8203;(<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;...&nbsp;parameterTypes)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Returns the constructor of the class that takes the given argument types.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/declaration/CtConstructor.html" title="interface in spoon.reflect.declaration">CtConstructor</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getConstructors()">getConstructors</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/declaration/CtConstructor.html" title="interface in spoon.reflect.declaration">CtConstructor</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getConstructors()">getConstructors</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Returns the constructors of this class.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../reflect/reference/CtExecutableReference.html" title="interface in spoon.reflect.reference">CtExecutableReference</a>&lt;?&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getDeclaredExecutables()">getDeclaredExecutables</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../reflect/reference/CtExecutableReference.html" title="interface in spoon.reflect.reference">CtExecutableReference</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getDeclaredExecutables()">getDeclaredExecutables</a></span>()</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Gets the executables declared by this type if applicable.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getLabel()">getLabel</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getLabel()">getLabel</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Gets the label of this statement if defined.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getPermittedTypes()">getPermittedTypes</a></span>()</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns the permitted types for this type.</div>
 </div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSuperclass()">getSuperclass</a></span>()</code></div>
@@ -254,20 +264,30 @@ implements <a href="../../../reflect/declaration/CtClass.html" title="interface 
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Removes a constructor from this class.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;C extends <a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;<br>C</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setAnonymousExecutables(java.util.List)">setAnonymousExecutables</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/declaration/CtAnonymousExecutable.html" title="interface in spoon.reflect.declaration">CtAnonymousExecutable</a>&gt;&nbsp;anonymousExecutables)</code></div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#removePermittedType(spoon.reflect.reference.CtTypeReference)">removePermittedType</a></span>&#8203;(<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;type)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">Sets the anonymous blocks of this class.</div>
+<div class="block">Adds a permitted type to this type.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;C extends <a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;<br>C</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setConstructors(java.util.Set)">setConstructors</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/declaration/CtConstructor.html" title="interface in spoon.reflect.declaration">CtConstructor</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;&nbsp;constructors)</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setAnonymousExecutables(java.util.List)">setAnonymousExecutables</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../reflect/declaration/CtAnonymousExecutable.html" title="interface in spoon.reflect.declaration">CtAnonymousExecutable</a>&gt;&nbsp;anonymousExecutables)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Sets the anonymous blocks of this class.</div>
+</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;C extends <a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;<br>C</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setConstructors(java.util.Set)">setConstructors</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/declaration/CtConstructor.html" title="interface in spoon.reflect.declaration">CtConstructor</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;&nbsp;constructors)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Sets the constructors for this class.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;C extends <a href="../../../reflect/code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a>&gt;<br>C</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setLabel(java.lang.String)">setLabel</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;label)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;C extends <a href="../../../reflect/code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a>&gt;<br>C</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setLabel(java.lang.String)">setLabel</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;label)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Sets the label of this statement.</div>
+</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setPermittedTypes(java.util.Collection)">setPermittedTypes</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;&nbsp;permittedTypes)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Sets the permitted types for this type.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>&lt;C extends <a href="../../../reflect/declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;&gt;<br>C</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setSuperclass(spoon.reflect.reference.CtTypeReference)">setSuperclass</a></span>&#8203;(<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;superClass)</code></div>
@@ -721,6 +741,72 @@ implements <a href="../../../reflect/declaration/CtClass.html" title="interface 
 <dd><code><a href="../../../reflect/declaration/CtTypeInformation.html#getAllExecutables()">getAllExecutables</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtTypeInformation.html" title="interface in spoon.reflect.declaration">CtTypeInformation</a></code></dd>
 <dt>Overrides:</dt>
 <dd><code><a href="CtTypeImpl.html#getAllExecutables()">getAllExecutables</a></code>&nbsp;in class&nbsp;<code><a href="CtTypeImpl.html" title="class in spoon.support.reflect.declaration">CtTypeImpl</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getPermittedTypes()">
+<h3>getPermittedTypes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">getPermittedTypes</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html#getPermittedTypes()">CtSealable</a></code></span></div>
+<div class="block">Returns the permitted types for this type.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../reflect/declaration/CtSealable.html#getPermittedTypes()">getPermittedTypes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html" title="interface in spoon.reflect.declaration">CtSealable</a></code></dd>
+<dt>Returns:</dt>
+<dd>an unmodifiable view of the permitted types.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setPermittedTypes(java.util.Collection)">
+<h3>setPermittedTypes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</span>&nbsp;<span class="element-name">setPermittedTypes</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;&nbsp;permittedTypes)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html#setPermittedTypes(java.util.Collection)">CtSealable</a></code></span></div>
+<div class="block">Sets the permitted types for this type.
+ Calling this method does not change the state of the <a href="../../../reflect/declaration/ModifierKind.html#SEALED"><code>ModifierKind.SEALED</code></a> for this type.
+ The previously permitted types will be removed.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../reflect/declaration/CtSealable.html#setPermittedTypes(java.util.Collection)">setPermittedTypes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html" title="interface in spoon.reflect.declaration">CtSealable</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>permittedTypes</code> - the permitted types to set.</dd>
+<dt>Returns:</dt>
+<dd>this.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="addPermittedType(spoon.reflect.reference.CtTypeReference)">
+<h3>addPermittedType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</span>&nbsp;<span class="element-name">addPermittedType</span>&#8203;<span class="parameters">(<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;type)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html#addPermittedType(spoon.reflect.reference.CtTypeReference)">CtSealable</a></code></span></div>
+<div class="block">Adds a permitted type to this type.
+ Calling this method does not change the state of the <a href="../../../reflect/declaration/ModifierKind.html#SEALED"><code>ModifierKind.SEALED</code></a> for this type.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../reflect/declaration/CtSealable.html#addPermittedType(spoon.reflect.reference.CtTypeReference)">addPermittedType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html" title="interface in spoon.reflect.declaration">CtSealable</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>type</code> - the type to add as permitted type.</dd>
+<dt>Returns:</dt>
+<dd>this.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removePermittedType(spoon.reflect.reference.CtTypeReference)">
+<h3>removePermittedType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../reflect/declaration/CtClass.html" title="interface in spoon.reflect.declaration">CtClass</a>&lt;<a href="CtClassImpl.html" title="type parameter in CtClassImpl">T</a>&gt;</span>&nbsp;<span class="element-name">removePermittedType</span>&#8203;<span class="parameters">(<a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;type)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html#removePermittedType(spoon.reflect.reference.CtTypeReference)">CtSealable</a></code></span></div>
+<div class="block">Adds a permitted type to this type.
+ Calling this method does not change the state of the <a href="../../../reflect/declaration/ModifierKind.html#SEALED"><code>ModifierKind.SEALED</code></a> for this type.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../reflect/declaration/CtSealable.html#removePermittedType(spoon.reflect.reference.CtTypeReference)">removePermittedType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtSealable.html" title="interface in spoon.reflect.declaration">CtSealable</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>type</code> - the type to remove from this type's permitted types.</dd>
+<dt>Returns:</dt>
+<dd>this.</dd>
 </dl>
 </section>
 </li>
