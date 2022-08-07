@@ -188,7 +188,7 @@ implements <a href="../../../reflect/code/CtLambda.html" title="interface in spo
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSignature()">getSignature</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">Gets the signature of this method or constructor.</div>
+<div class="block">Gets the signature of this exectuable.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSimpleName()">getSimpleName</a></span>()</code></div>
@@ -508,17 +508,23 @@ implements <a href="../../../reflect/code/CtLambda.html" title="interface in spo
 <h3>getSignature</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getSignature</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtExecutable.html#getSignature()">CtExecutable</a></code></span></div>
-<div class="block">Gets the signature of this method or constructor.
- The signature is composed of the method name and the parameter types, all fully-qualified, eg "int foo(java.lang.String)".
+<div class="block">Gets the signature of this exectuable.
+ The signature is composed of the method name and the parameter types, all fully-qualified, eg
+ "<code>foo(java.lang.String)</code>".
  The core contract is that in a type, there cannot be two methods with the same signature.
-
- Note that the concept of method signature in Java is not well defined (see chapter "8.4.2 Method Signature" of the Java specification, which defines what relations between signatures but not what a signature is exactly).
-
- Note also that the signature of a method reference is the same as the signature of the corresponding method if and only if the method parameters does not involve generics in their types. Otherwise, one has eg m(String) (reference) and m(T) (declaration)
-
- Reference: "In the Java programming language, a method signature is the method name and the number and type of its parameters. Return types and thrown exceptions are not considered to be a part of the method signature."
- see https://stackoverflow.com/questions/16149285/does-a-methods-signature-in-java-include-its-return-type
- see https://en.wikipedia.org/wiki/Type_signature</div>
+ <p>
+ Note that the concept of method signature in Java is not well defined
+ (see chapter "8.4.2 Method Signature" of the Java specification, which defines what relations between signatures
+ but not what a signature is exactly).
+ <p>
+ Note also that the signature of a method reference is the same as the signature of the corresponding method if
+ and only if the method parameters does not involve generics in their types. Otherwise, one has eg m(String)
+ (reference) and m(T) (declaration)
+ <p>
+ Reference: "In the Java programming language, a method signature is the method name and the number and type of
+ its parameters. Return types and thrown exceptions are not considered to be a part of the method signature."
+ <br>see <a href="https://stackoverflow.com/questions/16149285/does-a-methods-signature-in-java-include-its-return-type">Stackoverflow</a>
+ <br>see <a href="https://en.wikipedia.org/wiki/Type_signature">Wikipedia</a></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../reflect/declaration/CtExecutable.html#getSignature()">getSignature</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtExecutable.html" title="interface in spoon.reflect.declaration">CtExecutable</a>&lt;<a href="CtLambdaImpl.html" title="type parameter in CtLambdaImpl">T</a>&gt;</code></dd>
