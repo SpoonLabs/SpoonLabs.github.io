@@ -3556,7 +3556,7 @@ loadScripts(document, 'script');</script>
 <h3>Class <a href="spoon/support/util/internal/ElementNameMap.html" title="class in spoon.support.util.internal">spoon.support.util.internal.ElementNameMap</a> extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/AbstractMap.html" title="class or interface in java.util" class="external-link">AbstractMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,&#8203;<a href="spoon/support/util/internal/ElementNameMap.html" title="type parameter in ElementNameMap">T</a> extends <a href="spoon/reflect/declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&gt; implements Serializable</h3>
 <dl class="name-value">
 <dt>serialVersionUID:</dt>
-<dd>1L</dd>
+<dd>2L</dd>
 </dl>
 <ul class="block-list">
 <li>
@@ -3564,8 +3564,12 @@ loadScripts(document, 'script');</script>
 <h4>Serialized Fields</h4>
 <ul class="block-list">
 <li class="block-list">
+<h5>insertionNumber</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a> insertionNumber</pre>
+</li>
+<li class="block-list">
 <h5>map</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ConcurrentSkipListMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentSkipListMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,&#8203;<a href="spoon/support/util/internal/ElementNameMap.html" title="type parameter in ElementNameMap">T</a> extends <a href="spoon/reflect/declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&gt; map</pre>
+<pre><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentHashMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,&#8203;spoon.support.util.internal.ElementNameMap.InsertOrderWrapper&lt;<a href="spoon/support/util/internal/ElementNameMap.html" title="type parameter in ElementNameMap">T</a> extends <a href="spoon/reflect/declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&gt;&gt; map</pre>
 </li>
 </ul>
 </section>

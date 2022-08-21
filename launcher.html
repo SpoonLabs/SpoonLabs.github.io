@@ -489,11 +489,16 @@
 <span class="c1">// path can be a folder or a file</span>
 <span class="c1">// addInputResource can be called several times</span>
 <span class="n">launcher</span><span class="o">.</span><span class="na">addInputResource</span><span class="o">(</span><span class="s">"&lt;path_to_source&gt;"</span><span class="o">);</span> 
+<span class="c1">// the compliance level should be set to the java version targeted by the input resources, e.g. Java 17</span>
+<span class="n">launcher</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">setComplianceLevel</span><span class="o">(</span><span class="mi">17</span><span class="o">);</span>
 
 <span class="n">launcher</span><span class="o">.</span><span class="na">buildModel</span><span class="o">();</span>
 
 <span class="nc">CtModel</span> <span class="n">model</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">getModel</span><span class="o">();</span>
 </code></pre></div></div>
+
+<p>The current default value for the compliance level is 8.
+It might cause unexpected issues to have a compliance level lower than the Java version of the input resources.</p>
 
 <h3 id="pretty-printing-modes">Pretty-printing modes</h3>
 
