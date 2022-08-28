@@ -46,7 +46,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -85,6 +85,23 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested.class.summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><span class="member-name-link"><a href="ElementPrinterHelper.PrintTypeArguments.html" title="enum in spoon.reflect.visitor">ElementPrinterHelper.PrintTypeArguments</a></span></code></div>
+<div class="col-last even-row-color">
+<div class="block">Whether to print generic types for references.</div>
+</div>
+</div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor.summary">
@@ -105,7 +122,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method.summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
@@ -143,91 +160,99 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#visitCtNamedElement(spoon.reflect.declaration.CtNamedElement,spoon.reflect.declaration.CtCompilationUnit)">visitCtNamedElement</a></span>&#8203;(<a href="../declaration/CtNamedElement.html" title="interface in spoon.reflect.declaration">CtNamedElement</a>&nbsp;namedElement,
  <a href="../declaration/CtCompilationUnit.html" title="interface in spoon.reflect.declaration">CtCompilationUnit</a>&nbsp;sourceCompilationUnit)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer)">writeActualTypeArguments</a></span>&#8203;(<a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference">CtActualTypeContainer</a>&nbsp;ctGenericElementReference)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab6 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab6 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer)">writeActualTypeArguments</a></span>&#8203;(<a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference">CtActualTypeContainer</a>&nbsp;ctGenericElementReference)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab6 method-summary-table-tab4 method-summary-table">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">use <a href="#writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer,spoon.reflect.visitor.ElementPrinterHelper.PrintTypeArguments)"><code>writeActualTypeArguments(CtActualTypeContainer, PrintTypeArguments)</code></a>.</div>
+</div>
+</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer,spoon.reflect.visitor.ElementPrinterHelper.PrintTypeArguments)">writeActualTypeArguments</a></span>&#8203;(<a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference">CtActualTypeContainer</a>&nbsp;ctGenericElementReference,
+ <a href="ElementPrinterHelper.PrintTypeArguments.html" title="enum in spoon.reflect.visitor">ElementPrinterHelper.PrintTypeArguments</a>&nbsp;handleImplicit)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Writes actual type arguments in a <a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference"><code>CtActualTypeContainer</code></a> element.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeAnnotationElement(spoon.reflect.factory.Factory,java.lang.Object)">writeAnnotationElement</a></span>&#8203;(<a href="../factory/Factory.html" title="interface in spoon.reflect.factory">Factory</a>&nbsp;factory,
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeAnnotationElement(spoon.reflect.factory.Factory,java.lang.Object)">writeAnnotationElement</a></span>&#8203;(<a href="../factory/Factory.html" title="interface in spoon.reflect.factory">Factory</a>&nbsp;factory,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Writes an annotation element.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeAnnotations(spoon.reflect.declaration.CtElement)">writeAnnotations</a></span>&#8203;(<a href="../declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&nbsp;element)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeAnnotations(spoon.reflect.declaration.CtElement)">writeAnnotations</a></span>&#8203;(<a href="../declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&nbsp;element)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Writes the annotations for the given element.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeComment(spoon.reflect.code.CtComment)">writeComment</a></span>&#8203;(<a href="../code/CtComment.html" title="interface in spoon.reflect.code">CtComment</a>&nbsp;comment)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeComment(spoon.reflect.declaration.CtElement)">writeComment</a></span>&#8203;(<a href="../declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&nbsp;element)</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeComment(spoon.reflect.code.CtComment)">writeComment</a></span>&#8203;(<a href="../code/CtComment.html" title="interface in spoon.reflect.code">CtComment</a>&nbsp;comment)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeComment(spoon.reflect.declaration.CtElement,spoon.reflect.visitor.printer.CommentOffset)">writeComment</a></span>&#8203;(<a href="../declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&nbsp;element,
- <a href="printer/CommentOffset.html" title="enum in spoon.reflect.visitor.printer">CommentOffset</a>&nbsp;offset)</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeComment(spoon.reflect.declaration.CtElement)">writeComment</a></span>&#8203;(<a href="../declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&nbsp;element)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeElementList(java.util.List)">writeElementList</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../declaration/CtTypeMember.html" title="interface in spoon.reflect.declaration">CtTypeMember</a>&gt;&nbsp;elements)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeComment(spoon.reflect.declaration.CtElement,spoon.reflect.visitor.printer.CommentOffset)">writeComment</a></span>&#8203;(<a href="../declaration/CtElement.html" title="interface in spoon.reflect.declaration">CtElement</a>&nbsp;element,
+ <a href="printer/CommentOffset.html" title="enum in spoon.reflect.visitor.printer">CommentOffset</a>&nbsp;offset)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeElementList(java.util.List)">writeElementList</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../declaration/CtTypeMember.html" title="interface in spoon.reflect.declaration">CtTypeMember</a>&gt;&nbsp;elements)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Writes a list of elements to the printer by using `scan` from the internal pretty-printer.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeExecutableParameters(spoon.reflect.declaration.CtExecutable)">writeExecutableParameters</a></span>&#8203;(<a href="../declaration/CtExecutable.html" title="interface in spoon.reflect.declaration">CtExecutable</a>&lt;?&gt;&nbsp;executable)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeExtendsClause(spoon.reflect.declaration.CtType)">writeExtendsClause</a></span>&#8203;(<a href="../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;type)</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeExecutableParameters(spoon.reflect.declaration.CtExecutable)">writeExecutableParameters</a></span>&#8203;(<a href="../declaration/CtExecutable.html" title="interface in spoon.reflect.declaration">CtExecutable</a>&lt;?&gt;&nbsp;executable)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeFormalTypeParameters(spoon.reflect.declaration.CtFormalTypeDeclarer)">writeFormalTypeParameters</a></span>&#8203;(<a href="../declaration/CtFormalTypeDeclarer.html" title="interface in spoon.reflect.declaration">CtFormalTypeDeclarer</a>&nbsp;ctFormalTypeDeclarer)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeExtendsClause(spoon.reflect.declaration.CtType)">writeExtendsClause</a></span>&#8203;(<a href="../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;type)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeFormalTypeParameters(spoon.reflect.declaration.CtFormalTypeDeclarer)">writeFormalTypeParameters</a></span>&#8203;(<a href="../declaration/CtFormalTypeDeclarer.html" title="interface in spoon.reflect.declaration">CtFormalTypeDeclarer</a>&nbsp;ctFormalTypeDeclarer)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Writes formal type parameters given in parameter.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeIfOrLoopBlock(spoon.reflect.code.CtStatement)">writeIfOrLoopBlock</a></span>&#8203;(<a href="../code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a>&nbsp;block)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeIfOrLoopBlock(spoon.reflect.code.CtStatement)">writeIfOrLoopBlock</a></span>&#8203;(<a href="../code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a>&nbsp;block)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">write all non-implicit parts of a block, with special care for indentation</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeImplementsClause(spoon.reflect.declaration.CtType)">writeImplementsClause</a></span>&#8203;(<a href="../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;type)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeImplementsClause(spoon.reflect.declaration.CtType)">writeImplementsClause</a></span>&#8203;(<a href="../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&nbsp;type)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">writes the implemented interfaces with a ListPrinter</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeImports(java.util.Collection)">writeImports</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../declaration/CtImport.html" title="interface in spoon.reflect.declaration">CtImport</a>&gt;&nbsp;imports)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeImports(java.util.Collection)">writeImports</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../declaration/CtImport.html" title="interface in spoon.reflect.declaration">CtImport</a>&gt;&nbsp;imports)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">writes the imports in a specific order (eg all static imports together</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeModifiers(spoon.reflect.declaration.CtModifiable)">writeModifiers</a></span>&#8203;(<a href="../declaration/CtModifiable.html" title="interface in spoon.reflect.declaration">CtModifiable</a>&nbsp;modifiable)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeModifiers(spoon.reflect.declaration.CtModifiable)">writeModifiers</a></span>&#8203;(<a href="../declaration/CtModifiable.html" title="interface in spoon.reflect.declaration">CtModifiable</a>&nbsp;modifiable)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">writes the modifiers of this modifiable in a specific order</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writePackageLine(java.lang.String)">writePackageLine</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;packageQualifiedName)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writePackageLine(java.lang.String)">writePackageLine</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;packageQualifiedName)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Write a package statement and a newline.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writePackageStatement(java.lang.String)">writePackageStatement</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;packageQualifiedName)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writePackageStatement(java.lang.String)">writePackageStatement</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;packageQualifiedName)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Write a package statement.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="TokenWriter.html" title="interface in spoon.reflect.visitor">TokenWriter</a></code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeQualifiedName(java.lang.String)">writeQualifiedName</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;qualifiedName)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="TokenWriter.html" title="interface in spoon.reflect.visitor">TokenWriter</a></code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeQualifiedName(java.lang.String)">writeQualifiedName</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;qualifiedName)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">splits qualified name to primitive tokens and sends them to TokenWriter individually</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeStatement(spoon.reflect.code.CtStatement)">writeStatement</a></span>&#8203;(<a href="../code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a>&nbsp;statement)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeStatement(spoon.reflect.code.CtStatement)">writeStatement</a></span>&#8203;(<a href="../code/CtStatement.html" title="interface in spoon.reflect.code">CtStatement</a>&nbsp;statement)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">Writes a statement.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeThrowsClause(spoon.reflect.declaration.CtExecutable)">writeThrowsClause</a></span>&#8203;(<a href="../declaration/CtExecutable.html" title="interface in spoon.reflect.declaration">CtExecutable</a>&lt;?&gt;&nbsp;executable)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#writeThrowsClause(spoon.reflect.declaration.CtExecutable)">writeThrowsClause</a></span>&#8203;(<a href="../declaration/CtExecutable.html" title="interface in spoon.reflect.declaration">CtExecutable</a>&lt;?&gt;&nbsp;executable)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
 <div class="block">writes the thrown exception with a ListPrinter</div>
 </div>
 </div>
@@ -350,11 +375,32 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer)">
 <h3>writeActualTypeArguments</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">writeActualTypeArguments</span>&#8203;<span class="parameters">(<a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference">CtActualTypeContainer</a>&nbsp;ctGenericElementReference)</span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">writeActualTypeArguments</span>&#8203;<span class="parameters">(<a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference">CtActualTypeContainer</a>&nbsp;ctGenericElementReference)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">use <a href="#writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer,spoon.reflect.visitor.ElementPrinterHelper.PrintTypeArguments)"><code>writeActualTypeArguments(CtActualTypeContainer, PrintTypeArguments)</code></a>. This method is
+ only kept for backwards compatibility.</div>
+</div>
+<div class="block">Writes actual type arguments in a <a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference"><code>CtActualTypeContainer</code></a> element.
+ Passes <a href="ElementPrinterHelper.PrintTypeArguments.html#ONLY_PRINT_EXPLICIT_TYPES"><code>ElementPrinterHelper.PrintTypeArguments.ONLY_PRINT_EXPLICIT_TYPES</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>ctGenericElementReference</code> - Reference with actual type arguments.</dd>
+<dt>See Also:</dt>
+<dd><a href="#writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer,spoon.reflect.visitor.ElementPrinterHelper.PrintTypeArguments)"><code>writeActualTypeArguments(CtActualTypeContainer, PrintTypeArguments)</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="writeActualTypeArguments(spoon.reflect.reference.CtActualTypeContainer,spoon.reflect.visitor.ElementPrinterHelper.PrintTypeArguments)">
+<h3>writeActualTypeArguments</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">writeActualTypeArguments</span>&#8203;<span class="parameters">(<a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference">CtActualTypeContainer</a>&nbsp;ctGenericElementReference,
+ <a href="ElementPrinterHelper.PrintTypeArguments.html" title="enum in spoon.reflect.visitor">ElementPrinterHelper.PrintTypeArguments</a>&nbsp;handleImplicit)</span></div>
 <div class="block">Writes actual type arguments in a <a href="../reference/CtActualTypeContainer.html" title="interface in spoon.reflect.reference"><code>CtActualTypeContainer</code></a> element.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>ctGenericElementReference</code> - Reference with actual type arguments.</dd>
+<dd><code>handleImplicit</code> - Whether to print type arguments if they are all implicit</dd>
 </dl>
 </section>
 </li>

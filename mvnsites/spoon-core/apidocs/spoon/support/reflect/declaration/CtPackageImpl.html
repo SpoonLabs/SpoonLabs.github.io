@@ -214,6 +214,16 @@ implements <a href="../../../reflect/declaration/CtPackage.html" title="interfac
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#hasPackageInfo()">hasPackageInfo</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#hasPackages()">hasPackages</a></span>()</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns true if this package contains any sub-packages.</div>
+</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#hasTypes()">hasTypes</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns true if this package contains any types.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#isEmpty()">isEmpty</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
@@ -408,7 +418,9 @@ implements <a href="../../../reflect/declaration/CtPackage.html" title="interfac
 <h3>getPackages</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/declaration/CtPackage.html" title="interface in spoon.reflect.declaration">CtPackage</a>&gt;</span>&nbsp;<span class="element-name">getPackages</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html#getPackages()">CtPackage</a></code></span></div>
-<div class="block">Gets the set of included child packages.</div>
+<div class="block">Gets the set of included child packages.
+ This method might take linear time (regarding the amount of packages in this package).
+ For emptiness-checks, <a href="../../../reflect/declaration/CtPackage.html#hasPackages()"><code>CtPackage.hasPackages()</code></a> should be preferred.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../reflect/declaration/CtPackage.html#getPackages()">getPackages</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html" title="interface in spoon.reflect.declaration">CtPackage</a></code></dd>
@@ -464,7 +476,9 @@ implements <a href="../../../reflect/declaration/CtPackage.html" title="interfac
 <h3>getTypes</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../reflect/declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">getTypes</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html#getTypes()">CtPackage</a></code></span></div>
-<div class="block">Returns the set of the top-level types in this package.</div>
+<div class="block">Returns the set of the top-level types in this package.
+ This method might take linear time (regarding the amount of types in this package).
+ For emptiness-checks, <a href="../../../reflect/declaration/CtPackage.html#hasTypes()"><code>CtPackage.hasTypes()</code></a> should be preferred.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../reflect/declaration/CtPackage.html#getTypes()">getTypes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html" title="interface in spoon.reflect.declaration">CtPackage</a></code></dd>
@@ -639,6 +653,42 @@ implements <a href="../../../reflect/declaration/CtPackage.html" title="interfac
 <dd><code><a href="../../../reflect/declaration/CtPackage.html#isEmpty()">isEmpty</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html" title="interface in spoon.reflect.declaration">CtPackage</a></code></dd>
 <dt>Returns:</dt>
 <dd>true if the package contains no types nor any other packages</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hasTypes()">
+<h3>hasTypes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasTypes</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html#hasTypes()">CtPackage</a></code></span></div>
+<div class="block">Returns true if this package contains any types.
+ This method is expected to provide constant-time performance
+ and should be preferred over <a href="../../../reflect/declaration/CtPackage.html#getTypes()"><code>CtPackage.getTypes()</code></a><code>.isEmpty()</code>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../reflect/declaration/CtPackage.html#hasTypes()">hasTypes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html" title="interface in spoon.reflect.declaration">CtPackage</a></code></dd>
+<dt>Returns:</dt>
+<dd>true if the package contains any types.</dd>
+<dt>See Also:</dt>
+<dd><a href="../../../reflect/declaration/CtPackage.html#getTypes()"><code>CtPackage.getTypes()</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hasPackages()">
+<h3>hasPackages</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasPackages</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html#hasPackages()">CtPackage</a></code></span></div>
+<div class="block">Returns true if this package contains any sub-packages.
+ This method is expected to provide constant-time performance
+ and should be preferred over <a href="../../../reflect/declaration/CtPackage.html#getPackages()"><code>CtPackage.getPackages()</code></a><code>.isEmpty()</code>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../reflect/declaration/CtPackage.html#hasPackages()">hasPackages</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/declaration/CtPackage.html" title="interface in spoon.reflect.declaration">CtPackage</a></code></dd>
+<dt>Returns:</dt>
+<dd>true if the package contains any sub-packages</dd>
+<dt>See Also:</dt>
+<dd><a href="../../../reflect/declaration/CtPackage.html#getPackages()"><code>CtPackage.getPackages()</code></a></dd>
 </dl>
 </section>
 </li>
