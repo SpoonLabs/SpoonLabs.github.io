@@ -101,7 +101,17 @@ implements <a href="../../compiler/SpoonFile.html" title="interface in spoon.com
 <div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(spoon.support.compiler.ZipFolder,java.lang.String,byte%5B%5D)">ZipFile</a></span>&#8203;(<a href="ZipFolder.html" title="class in spoon.support.compiler">ZipFolder</a>&nbsp;parent,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  byte[]&nbsp;content)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">use <a href="#%3Cinit%3E(spoon.support.compiler.ZipFolder,java.lang.String,java.nio.file.Path)"><code>ZipFile(ZipFolder, String, Path)</code></a></div>
+</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(spoon.support.compiler.ZipFolder,java.lang.String,java.nio.file.Path)">ZipFile</a></span>&#8203;(<a href="ZipFolder.html" title="class in spoon.support.compiler">ZipFolder</a>&nbsp;parent,
+ <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;tempFile)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Creates a new zip file.</div>
+</div>
 </div>
 </section>
 </li>
@@ -200,9 +210,35 @@ implements <a href="../../compiler/SpoonFile.html" title="interface in spoon.com
 <li>
 <section class="detail" id="&lt;init&gt;(spoon.support.compiler.ZipFolder,java.lang.String,byte[])">
 <h3>ZipFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ZipFile</span>&#8203;<span class="parameters">(<a href="ZipFolder.html" title="class in spoon.support.compiler">ZipFolder</a>&nbsp;parent,
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name">ZipFile</span>&#8203;<span class="parameters">(<a href="ZipFolder.html" title="class in spoon.support.compiler">ZipFolder</a>&nbsp;parent,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  byte[]&nbsp;content)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">use <a href="#%3Cinit%3E(spoon.support.compiler.ZipFolder,java.lang.String,java.nio.file.Path)"><code>ZipFile(ZipFolder, String, Path)</code></a></div>
+</div>
+<div class="block">Creates a new zip file. Should never be called manually.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>parent</code> - the parent folder</dd>
+<dd><code>name</code> - the name of the file</dd>
+<dd><code>content</code> - the content of the file</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(spoon.support.compiler.ZipFolder,java.lang.String,java.nio.file.Path)">
+<h3>ZipFile</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ZipFile</span>&#8203;<span class="parameters">(<a href="ZipFolder.html" title="class in spoon.support.compiler">ZipFolder</a>&nbsp;parent,
+ <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;tempFile)</span></div>
+<div class="block">Creates a new zip file. Should never be called manually.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>parent</code> - the parent folder</dd>
+<dd><code>name</code> - the name of the file</dd>
+<dd><code>tempFile</code> - the temporary file it was cached to</dd>
+</dl>
 </section>
 </li>
 </ul>

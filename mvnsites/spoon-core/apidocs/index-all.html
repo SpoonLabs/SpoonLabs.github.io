@@ -12076,7 +12076,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="spoon/support/Internal.html" title="annotation in spoon.support"><span class="type-name-link">Internal</span></a> - Annotation Type in <a href="spoon/support/package-summary.html">spoon.support</a></dt>
 <dd>
-<div class="block">Tells that a class or method is not in the public API (even if it has Java visibility "public")
+<div class="block">Tells that an element is not in the public API (even if it has Java visibility "public")
  Required because package-visibility is too coarse-grained.</div>
 </dd>
 <dt><span class="member-name-link"><a href="spoon/processing/AbstractManualProcessor.html#interrupt()">interrupt()</a></span> - Method in class spoon.processing.<a href="spoon/processing/AbstractManualProcessor.html" title="class in spoon.processing">AbstractManualProcessor</a></dt>
@@ -22376,7 +22376,15 @@ the order they are declared.</div>
 <dt><a href="spoon/support/compiler/ZipFile.html" title="class in spoon.support.compiler"><span class="type-name-link">ZipFile</span></a> - Class in <a href="spoon/support/compiler/package-summary.html">spoon.support.compiler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/compiler/ZipFile.html#%3Cinit%3E(spoon.support.compiler.ZipFolder,java.lang.String,byte%5B%5D)">ZipFile(ZipFolder, String, byte[])</a></span> - Constructor for class spoon.support.compiler.<a href="spoon/support/compiler/ZipFile.html" title="class in spoon.support.compiler">ZipFile</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">use <a href="spoon/support/compiler/ZipFile.html#%3Cinit%3E(spoon.support.compiler.ZipFolder,java.lang.String,java.nio.file.Path)"><code>ZipFile(ZipFolder, String, Path)</code></a></div>
+</div>
+</dd>
+<dt><span class="member-name-link"><a href="spoon/support/compiler/ZipFile.html#%3Cinit%3E(spoon.support.compiler.ZipFolder,java.lang.String,java.nio.file.Path)">ZipFile(ZipFolder, String, Path)</a></span> - Constructor for class spoon.support.compiler.<a href="spoon/support/compiler/ZipFile.html" title="class in spoon.support.compiler">ZipFile</a></dt>
+<dd>
+<div class="block">Creates a new zip file.</div>
+</dd>
 <dt><a href="spoon/support/compiler/ZipFolder.html" title="class in spoon.support.compiler"><span class="type-name-link">ZipFolder</span></a> - Class in <a href="spoon/support/compiler/package-summary.html">spoon.support.compiler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="spoon/support/compiler/ZipFolder.html#%3Cinit%3E(java.io.File)">ZipFolder(File)</a></span> - Constructor for class spoon.support.compiler.<a href="spoon/support/compiler/ZipFolder.html" title="class in spoon.support.compiler">ZipFolder</a></dt>
