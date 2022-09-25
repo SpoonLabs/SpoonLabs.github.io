@@ -129,7 +129,7 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#init()">init</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
-<div class="block">This method is upcalled to initialize the processor before each
+<div class="block">This method is called to initialize the processor before each
  processing round.</div>
 </div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>void</code></div>
@@ -154,19 +154,19 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#process()">process</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
-<div class="block">A callback method upcalled by the manager so that this processor can
+<div class="block">A callback method called by the manager so that this processor can
  manually implement a processing job.</div>
 </div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#process(E)">process</a></span>&#8203;(<a href="Processor.html" title="type parameter in Processor">E</a>&nbsp;element)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
-<div class="block">A callback method upcalled by the meta-model scanner to perform a
+<div class="block">A callback method called by the meta-model scanner to perform a
  dedicated job on the currently scanned element.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#processingDone()">processingDone</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
-<div class="block">This method is upcalled by the <a href="ProcessingManager.html" title="interface in spoon.processing"><code>ProcessingManager</code></a> when this
+<div class="block">This method is called by the <a href="ProcessingManager.html" title="interface in spoon.processing"><code>ProcessingManager</code></a> when this
  processor has finished a full processing round on the program's model.</div>
 </div>
 </div>
@@ -221,12 +221,12 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <section class="detail" id="process(E)">
 <h3 id="process(spoon.reflect.declaration.CtElement)">process</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">process</span>&#8203;<span class="parameters">(<a href="Processor.html" title="type parameter in Processor">E</a>&nbsp;element)</span></div>
-<div class="block">A callback method upcalled by the meta-model scanner to perform a
- dedicated job on the currently scanned element. The way Spoon upcalls
+<div class="block">A callback method called by the meta-model scanner to perform a
+ dedicated job on the currently scanned element. The way Spoon calls
  this method depends on the processed element types (
  <a href="#getProcessedElementTypes()"><code>getProcessedElementTypes()</code></a>), the traversal strategy (
  <a href="#getTraversalStrategy()"><code>getTraversalStrategy()</code></a>), and the used processing manager (
- <a href="../compiler/Environment.html#getManager()"><code>Environment.getManager()</code></a>. Also, this method is upcalled only if
+ <a href="../compiler/Environment.html#getManager()"><code>Environment.getManager()</code></a>. Also, this method is called only if
  the method <a href="#isToBeProcessed(E)"><code>isToBeProcessed(CtElement)</code></a> returns true for a given
  scanned element. In order to manually scan the meta-model, one can define
  the <a href="#process()"><code>process()</code></a> method instead.</div>
@@ -240,13 +240,13 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <section class="detail" id="process()">
 <h3>process</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">process</span>()</div>
-<div class="block">A callback method upcalled by the manager so that this processor can
+<div class="block">A callback method called by the manager so that this processor can
  manually implement a processing job. On contrary to
  <a href="#process(E)"><code>process(CtElement)</code></a>, this method does not rely on a built-in
  meta-model scanner and has to implement its own traversal strategy on the
  meta-model, which is stored in the factory (
  <a href="FactoryAccessor.html#getFactory()"><code>FactoryAccessor.getFactory()</code></a>). Note that if a processor implements
- both process methods, this one is upcalled first. This method does
+ both process methods, this one is called first. This method does
  nothing in default implementations (
  <a href="AbstractProcessor.html" title="class in spoon.processing"><code>AbstractProcessor</code></a>).</div>
 </section>
@@ -262,7 +262,7 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <section class="detail" id="processingDone()">
 <h3>processingDone</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">processingDone</span>()</div>
-<div class="block">This method is upcalled by the <a href="ProcessingManager.html" title="interface in spoon.processing"><code>ProcessingManager</code></a> when this
+<div class="block">This method is called by the <a href="ProcessingManager.html" title="interface in spoon.processing"><code>ProcessingManager</code></a> when this
  processor has finished a full processing round on the program's model. It
  is convenient to override this method to tune the application's strategy
  of a set of processors, for instance by dynamically adding processors to
@@ -274,7 +274,7 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <section class="detail" id="init()">
 <h3>init</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">init</span>()</div>
-<div class="block">This method is upcalled to initialize the processor before each
+<div class="block">This method is called to initialize the processor before each
  processing round. It is convenient to override this method rather than
  using a default constructor to initialize the processor, since the
  factory is not initialized at construction time. When overriding, do not

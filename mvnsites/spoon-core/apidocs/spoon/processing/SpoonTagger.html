@@ -119,7 +119,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#process()">process</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">A callback method upcalled by the manager so that this processor can
+<div class="block">A callback method called by the manager so that this processor can
  manually implement a processing job.</div>
 </div>
 </div>
@@ -161,13 +161,13 @@ loadScripts(document, 'script');</script>
 <h3>process</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">process</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Processor.html#process()">Processor</a></code></span></div>
-<div class="block">A callback method upcalled by the manager so that this processor can
+<div class="block">A callback method called by the manager so that this processor can
  manually implement a processing job. On contrary to
  <a href="Processor.html#process(E)"><code>Processor.process(CtElement)</code></a>, this method does not rely on a built-in
  meta-model scanner and has to implement its own traversal strategy on the
  meta-model, which is stored in the factory (
  <a href="FactoryAccessor.html#getFactory()"><code>FactoryAccessor.getFactory()</code></a>). Note that if a processor implements
- both process methods, this one is upcalled first. This method does
+ both process methods, this one is called first. This method does
  nothing in default implementations (
  <a href="AbstractProcessor.html" title="class in spoon.processing"><code>AbstractProcessor</code></a>).</div>
 </section>

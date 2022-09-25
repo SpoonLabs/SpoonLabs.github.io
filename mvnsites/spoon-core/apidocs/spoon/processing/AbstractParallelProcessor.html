@@ -144,7 +144,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#process(E)">process</a></span>&#8203;(<a href="AbstractParallelProcessor.html" title="type parameter in AbstractParallelProcessor">E</a>&nbsp;element)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">A callback method upcalled by the meta-model scanner to perform a
+<div class="block">A callback method called by the meta-model scanner to perform a
  dedicated job on the currently scanned element.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
@@ -237,12 +237,12 @@ loadScripts(document, 'script');</script>
 <h3 id="process(spoon.reflect.declaration.CtElement)">process</h3>
 <div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">process</span>&#8203;<span class="parameters">(<a href="AbstractParallelProcessor.html" title="type parameter in AbstractParallelProcessor">E</a>&nbsp;element)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Processor.html#process(E)">Processor</a></code></span></div>
-<div class="block">A callback method upcalled by the meta-model scanner to perform a
- dedicated job on the currently scanned element. The way Spoon upcalls
+<div class="block">A callback method called by the meta-model scanner to perform a
+ dedicated job on the currently scanned element. The way Spoon calls
  this method depends on the processed element types (
  <a href="Processor.html#getProcessedElementTypes()"><code>Processor.getProcessedElementTypes()</code></a>), the traversal strategy (
  <a href="Processor.html#getTraversalStrategy()"><code>Processor.getTraversalStrategy()</code></a>), and the used processing manager (
- <a href="../compiler/Environment.html#getManager()"><code>Environment.getManager()</code></a>. Also, this method is upcalled only if
+ <a href="../compiler/Environment.html#getManager()"><code>Environment.getManager()</code></a>. Also, this method is called only if
  the method <a href="Processor.html#isToBeProcessed(E)"><code>Processor.isToBeProcessed(CtElement)</code></a> returns true for a given
  scanned element. In order to manually scan the meta-model, one can define
  the <a href="Processor.html#process()"><code>Processor.process()</code></a> method instead.</div>
