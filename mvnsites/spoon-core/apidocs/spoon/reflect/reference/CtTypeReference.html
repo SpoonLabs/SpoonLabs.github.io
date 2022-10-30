@@ -123,7 +123,7 @@ extends <a href="CtReference.html" title="interface in spoon.reflect.reference">
 <section class="method-summary" id="method.summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
@@ -158,12 +158,10 @@ extends <a href="CtReference.html" title="interface in spoon.reflect.reference">
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
 <div class="block">Computes nearest access path parent to this type from the context of this type reference.</div>
 </div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab6 method-summary-table method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="CtTypeReference.html" title="type parameter in CtTypeReference">T</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab6 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#getActualClass()">getActualClass</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab6 method-summary-table method-summary-table-tab3">
-<div class="block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">(Since Spoon 7.0.0) use <a href="#getTypeDeclaration()"><code>getTypeDeclaration()</code></a> instead</div>
-</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="CtTypeReference.html" title="type parameter in CtTypeReference">T</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#getActualClass()">getActualClass</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Gets the Java runtime class of the referenced type.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><a href="../declaration/CtType.html" title="interface in spoon.reflect.declaration">CtType</a>&lt;<a href="CtTypeReference.html" title="type parameter in CtTypeReference">T</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#getDeclaration()">getDeclaration</a></span>()</code></div>
@@ -330,14 +328,25 @@ extends <a href="CtReference.html" title="interface in spoon.reflect.reference">
 <section class="detail" id="getActualClass()">
 <h3>getActualClass</h3>
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="CtTypeReference.html" title="type parameter in CtTypeReference">T</a>&gt;</span>&nbsp;<span class="element-name">getActualClass</span>()</div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">(Since Spoon 7.0.0) use <a href="#getTypeDeclaration()"><code>getTypeDeclaration()</code></a> instead</div>
-</div>
 <div class="block">Gets the Java runtime class of the referenced type.
 
- This is a low-level feature, it should never been used.
- For CtTypeReference, use <a href="#getTypeDeclaration()"><code>getTypeDeclaration()</code></a> instead,
- in order to only stay in the Spoon world and manipulate CtType instead of java.lang.Class.</div>
+ This is a low-level feature, it should never been used, use <a href="#getTypeDeclaration()"><code>getTypeDeclaration()</code></a> instead
+ in order to only stay in the Spoon world and manipulate CtType instead of java.lang.Class.
+ <br/>
+ <br/>
+ Note (these are artifacts of the <em>current implementation</em> and might change at any time):
+ <ol>
+     <li>
+         it will return the version of the class your <a href="../../compiler/Environment.html#getInputClassLoader()"><code>Environment.getInputClassLoader()</code></a>
+         loads. This might be a version spoon compiled
+         (manually using <a href="../../SpoonModelBuilder.html#compile(spoon.SpoonModelBuilder.InputType...)"><code>SpoonModelBuilder.compile(spoon.SpoonModelBuilder.InputType...)</code></a>
+           or implicitly using <a href="../../compiler/Environment.html#shouldCompile()"><code>Environment.shouldCompile()</code></a>)
+           or from your classpath (which might be null)
+     </li>
+     <li>it will run static initializers (executing arbitrary code from the analyzed project in the process)</li>
+     <li>it will fail if the static initializers of the class fail</li>
+     <li>the Class object may not reflect the CtType in case you made recent changes to it based on point 1</li>
+ </ol></div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Java class or throws a <a href="../../support/SpoonClassNotFoundException.html" title="class in spoon.support"><code>SpoonClassNotFoundException</code></a> if the class is not found.</dd>

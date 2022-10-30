@@ -401,9 +401,23 @@ implements <a href="../../../reflect/reference/CtArrayTypeReference.html" title=
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../reflect/reference/CtTypeReference.html#getActualClass()">CtTypeReference</a></code></span></div>
 <div class="block">Gets the Java runtime class of the referenced type.
 
- This is a low-level feature, it should never been used.
- For CtTypeReference, use <a href="../../../reflect/reference/CtTypeReference.html#getTypeDeclaration()"><code>CtTypeReference.getTypeDeclaration()</code></a> instead,
- in order to only stay in the Spoon world and manipulate CtType instead of java.lang.Class.</div>
+ This is a low-level feature, it should never been used, use <a href="../../../reflect/reference/CtTypeReference.html#getTypeDeclaration()"><code>CtTypeReference.getTypeDeclaration()</code></a> instead
+ in order to only stay in the Spoon world and manipulate CtType instead of java.lang.Class.
+ <br/>
+ <br/>
+ Note (these are artifacts of the <em>current implementation</em> and might change at any time):
+ <ol>
+     <li>
+         it will return the version of the class your <a href="../../../compiler/Environment.html#getInputClassLoader()"><code>Environment.getInputClassLoader()</code></a>
+         loads. This might be a version spoon compiled
+         (manually using <a href="../../../SpoonModelBuilder.html#compile(spoon.SpoonModelBuilder.InputType...)"><code>SpoonModelBuilder.compile(spoon.SpoonModelBuilder.InputType...)</code></a>
+           or implicitly using <a href="../../../compiler/Environment.html#shouldCompile()"><code>Environment.shouldCompile()</code></a>)
+           or from your classpath (which might be null)
+     </li>
+     <li>it will run static initializers (executing arbitrary code from the analyzed project in the process)</li>
+     <li>it will fail if the static initializers of the class fail</li>
+     <li>the Class object may not reflect the CtType in case you made recent changes to it based on point 1</li>
+ </ol></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../reflect/reference/CtTypeReference.html#getActualClass()">getActualClass</a></code>&nbsp;in interface&nbsp;<code><a href="../../../reflect/reference/CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;<a href="CtArrayTypeReferenceImpl.html" title="type parameter in CtArrayTypeReferenceImpl">T</a>&gt;</code></dd>
