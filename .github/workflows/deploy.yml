@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
       - name: Setup Ruby
-        uses: ruby/setup-ruby@034294ac9150f471c8dd554f05f0685312e7f7bd # renovate: tag=v1.66.0
+        uses: ruby/setup-ruby@250fcd6a742febb1123a77a841497ccaa8b9e939 # renovate
         with:
           ruby-version: 2.7.2
           bundler-cache: true
