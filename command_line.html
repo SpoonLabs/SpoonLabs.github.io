@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/theme-mauve.css">
 <link rel="canonical" href="/command_line.html">
 <link rel="alternate" type="application/rss+xml" title="" href="feed.xml" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/jquery.navgoco.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -484,7 +484,7 @@ You see the output at the end of this page for the current release version of Sp
 
 <p>The basic usage of Spoon consists in defining the original source location and the list of compiled processors to be used.</p>
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>java <span class="nt">-classpath</span> /path/to/binary/of/your/processor.jar:spoon-core-10.2.0-with-dependencies.jar spoon.Launcher <span class="nt">-i</span> /path/to/src/of/your/project <span class="nt">-p</span> fr.inria.gforge.spoon.processors.CatchProcessor
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>java <span class="nt">-classpath</span> /path/to/binary/of/your/processor.jar:spoon-core-10.4.1-with-dependencies.jar spoon.Launcher <span class="nt">-i</span> /path/to/src/of/your/project <span class="nt">-p</span> fr.inria.gforge.spoon.processors.CatchProcessor
 </code></pre></div></div>
 
 <p>If you plan to repeatedly run Spoon from the command line, it may be a good idea to combine all of your commands into a single bash script. An example of this can be found <a href="https://github.com/INRIA/spoon/blob/master/doc/example_scripts/example_usage_script.sh">here</a>.</p>
