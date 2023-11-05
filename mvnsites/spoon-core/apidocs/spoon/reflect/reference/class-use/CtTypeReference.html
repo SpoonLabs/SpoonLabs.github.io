@@ -2585,14 +2585,14 @@ C extends <a href="../../declaration/CtType.html" title="interface in spoon.refl
 
  The type reference is adapted recursive including all it's actual type arguments and bounds.</div>
 </div>
-<div class="col-first odd-row-color"><code>protected <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
+<div class="col-first odd-row-color"><code>protected @Nullable <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ClassTypingContext.</span><code><span class="member-name-link"><a href="../../../support/visitor/ClassTypingContext.html#adaptTypeParameter(spoon.reflect.declaration.CtTypeParameter)">adaptTypeParameter</a></span>&#8203;(<a href="../../declaration/CtTypeParameter.html" title="interface in spoon.reflect.declaration">CtTypeParameter</a>&nbsp;typeParam)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">adapts `typeParam` to the <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference"><code>CtTypeReference</code></a>
  of scope of this <a href="../../../support/visitor/ClassTypingContext.html" title="class in spoon.support.visitor"><code>ClassTypingContext</code></a>
  In can be <a href="../CtTypeParameterReference.html" title="interface in spoon.reflect.reference"><code>CtTypeParameterReference</code></a> again - depending actual type arguments of this <a href="../../../support/visitor/ClassTypingContext.html" title="class in spoon.support.visitor"><code>ClassTypingContext</code></a>.</div>
 </div>
-<div class="col-first even-row-color"><code>protected <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
+<div class="col-first even-row-color"><code>protected @Nullable <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">MethodTypingContext.</span><code><span class="member-name-link"><a href="../../../support/visitor/MethodTypingContext.html#adaptTypeParameter(spoon.reflect.declaration.CtTypeParameter)">adaptTypeParameter</a></span>&#8203;(<a href="../../declaration/CtTypeParameter.html" title="interface in spoon.reflect.declaration">CtTypeParameter</a>&nbsp;typeParam)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Adapts `typeParam` to the <a href="../CtTypeReference.html" title="interface in spoon.reflect.reference"><code>CtTypeReference</code></a>
@@ -2610,7 +2610,7 @@ C extends <a href="../../declaration/CtType.html" title="interface in spoon.refl
 <div class="col-last even-row-color">
 <div class="block">Returns the set of calculated references.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;</code></div>
+<div class="col-first odd-row-color"><code>@Nullable <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ClassTypingContext.</span><code><span class="member-name-link"><a href="../../../support/visitor/ClassTypingContext.html#resolveActualTypeArgumentsOf(spoon.reflect.reference.CtTypeReference)">resolveActualTypeArgumentsOf</a></span>&#8203;(<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;typeRef)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">resolve actual type argument values of the provided type reference</div>
@@ -2632,7 +2632,7 @@ C extends <a href="../../declaration/CtType.html" title="interface in spoon.refl
 <div class="block">detects if `superTypeRef` is a super type of the type or type reference,
  which was send to constructor of this instance.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;</code></div>
+<div class="col-first even-row-color"><code>@Nullable <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">ClassTypingContext.</span><code><span class="member-name-link"><a href="../../../support/visitor/ClassTypingContext.html#resolveActualTypeArgumentsOf(spoon.reflect.reference.CtTypeReference)">resolveActualTypeArgumentsOf</a></span>&#8203;(<a href="../CtTypeReference.html" title="interface in spoon.reflect.reference">CtTypeReference</a>&lt;?&gt;&nbsp;typeRef)</code></div>
 <div class="col-last even-row-color">
 <div class="block">resolve actual type argument values of the provided type reference</div>
