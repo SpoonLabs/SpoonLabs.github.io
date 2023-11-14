@@ -183,7 +183,8 @@ MAVEN_COMMAND versions:resolve-ranges -DallowSnapshots=true
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -d "/x:project/x:dependencies/x:dependency[last()]" pom.xml
 # Purge the project from snapshots
 # Avoid to use an old snapshot of Spoon and force the resolution
-$MAVEN_COMMAND dependency:purge-local-repository -DmanualInclude="fr.inria.gforge.spoon:spoon-core" -DsnapshotsOnly=true
+# hotfix to force the latest version
+$MAVEN_COMMAND versions:use-latest-versions -DallowSnapshots=true -Dincludes=fr.inria.gforge.spoon:spoon-core
 
 # Compiles project with spoon configuration.
 START_COMPILE_WITH_SPOON=$(($(date +%s%N)/1000000))
