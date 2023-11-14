@@ -180,6 +180,7 @@ rm pom.bak*.xml
 
 # Purge the project from snapshots
 # Avoid to use an old snapshot of Spoon and force the resolution
+$MAVEN_COMMAND dependency:purge-local-repository -DmanualInclude="fr.inria.gforge.spoon:spoon-core" -DsnapshotsOnly=true
 # hotfix to force the latest version
 $MAVEN_COMMAND versions:use-latest-versions -DallowSnapshots=true -Dincludes=fr.inria.gforge.spoon:spoon-core
 
