@@ -156,7 +156,7 @@ xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:build
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:build/x:plugins/x:plugin[last()]" --type elem -n artifactId -v "spoon-maven-plugin" pom.xml
 
 # we depend on the latest version of spoon-maven-plugin) 
-xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:build/x:plugins/x:plugin[last()]" --type elem -n version -v "3.8-SNAPSHOT"pom.xml 
+xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:build/x:plugins/x:plugin[last()]" --type elem -n version -v "3.8-SNAPSHOT" pom.xml 
 
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:build/x:plugins/x:plugin[last()]" --type elem -n executions -v "" pom.xml
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:build/x:plugins/x:plugin[last()]/x:executions" --type elem -n execution -v "" pom.xml
@@ -184,8 +184,6 @@ xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -d "/x:project/x:depen
 # Purge the project from snapshots
 # Avoid to use an old snapshot of Spoon and force the resolution
 $MAVEN_COMMAND dependency:purge-local-repository -DmanualInclude="fr.inria.gforge.spoon:spoon-core" -DsnapshotsOnly=true
-# hotfix to force the latest version
-$MAVEN_COMMAND versions:use-latest-versions -DallowSnapshots=true -Dincludes=fr.inria.gforge.spoon:spoon-core
 
 # Compiles project with spoon configuration.
 START_COMPILE_WITH_SPOON=$(($(date +%s%N)/1000000))
