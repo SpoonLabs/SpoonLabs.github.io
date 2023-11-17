@@ -178,7 +178,7 @@ xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:depen
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:dependencies/x:dependency[last()]" --type elem -n groupId -v "fr.inria.gforge.spoon" pom.xml
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:dependencies/x:dependency[last()]" --type elem -n artifactId -v "spoon-core" pom.xml
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -s "/x:project/x:dependencies/x:dependency[last()]" --type elem -n version -v "[7.0.0-SNAPSHOT,)" pom.xml
-MAVEN_COMMAND versions:resolve-ranges -DallowSnapshots=true
+$MAVEN_COMMAND versions:resolve-ranges -DallowSnapshots=true
 # remove the dependency again
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -d "/x:project/x:dependencies/x:dependency[last()]" pom.xml
 # Purge the project from snapshots
