@@ -86,8 +86,6 @@ echo "Compiles project (at the root project if it's a multi module project) with
 echo "-------------------------------------------------------"
 echo " "
 
-# Clean the old cache
-$MAVEN_COMMAND dependency:purge-local-repository -DactTransitively=false -DreResolve=false
 # Compiles project.
 START_COMPILE_PROJECT=$(($(date +%s%N)/1000000))
 $MAVEN_COMMAND clean install
@@ -186,7 +184,7 @@ MAVEN_COMMAND versions:resolve-ranges -DallowSnapshots=true
 xmlstarlet ed -L -N x="http://maven.apache.org/POM/4.0.0" -d "/x:project/x:dependencies/x:dependency[last()]" pom.xml
 # Purge the project from snapshots
 # Avoid to use an old snapshot of Spoon and force the resolution
-# $MAVEN_COMMAND dependency:purge-local-repository -DmanualInclude="fr.inria.gforge.spoon:spoon-core" -DsnapshotsOnly=true
+$MAVEN_COMMAND dependency:purge-local-repository -DmanualInclude="fr.inria.gforge.spoon:spoon-core" -DsnapshotsOnly=true
 
 # Compiles project with spoon configuration.
 START_COMPILE_WITH_SPOON=$(($(date +%s%N)/1000000))
