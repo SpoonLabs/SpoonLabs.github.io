@@ -232,6 +232,15 @@
             
                     
                     
+                    <li class="active"><a href="spoon_javadoc.html">Javadoc Analysis</a></li>
+                    
+
+                    
+            </li>
+            
+            
+                    
+                    
                     <li><a href="faq.html">FAQ</a></li>
                     
 
@@ -486,12 +495,12 @@ converting them into your own format.</p>
 
 <h3 id="installation">Installation</h3>
 
-<p>On a Unix-like system, the following set of commands should be sufficient for
-getting spoon-javadoc up and running from scratch.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/INRIA/spoon.git
-$ cd spoon/spoon-pom
-$ mvn install
+<p>To use spoon-javadoc, add the following dependency to your <code class="language-plaintext highlighter-rouge">pom.xml</code>:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>fr.inria.gforge.spoon<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spoon-javadoc<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>$currentVersion<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
 <h3 id="basic-usage">Basic usage</h3>
