@@ -549,7 +549,7 @@ Spoon provides a special kind of processor called <code class="language-plaintex
 	<span class="kt">boolean</span> <span class="nf">inferConsumedAnnotationType</span><span class="o">();</span>
 	<span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">A</span><span class="o">&gt;&gt;</span> <span class="nf">getProcessedAnnotationTypes</span><span class="o">();</span>
 	<span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">A</span><span class="o">&gt;&gt;</span> <span class="nf">getConsumedAnnotationTypes</span><span class="o">();</span>
-	<span class="kt">boolean</span> <span class="nf">shoudBeConsumed</span><span class="o">(</span><span class="nc">CtAnnotation</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Annotation</span><span class="o">&gt;</span> <span class="n">annotation</span><span class="o">);</span>
+	<span class="kt">boolean</span> <span class="nf">shouldBeConsumed</span><span class="o">(</span><span class="nc">CtAnnotation</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Annotation</span><span class="o">&gt;</span> <span class="n">annotation</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
@@ -557,7 +557,7 @@ Spoon provides a special kind of processor called <code class="language-plaintex
 carry (type parameter <code class="language-plaintext highlighter-rouge">A</code>), in addition of stating the kind of source code element they process 
 (type parameter <code class="language-plaintext highlighter-rouge">E</code>). The <code class="language-plaintext highlighter-rouge">process</code> method (line 4) receives as arguments both the <code class="language-plaintext highlighter-rouge">CtElement</code> and the 
 annotation it carries. The remaining four methods (<code class="language-plaintext highlighter-rouge">getProcessedAnnotationTypes</code>, <code class="language-plaintext highlighter-rouge">getConsumedAnnotationTypes</code>, 
-<code class="language-plaintext highlighter-rouge">inferConsumedAnnotationTypes</code> and <code class="language-plaintext highlighter-rouge">shoudBeConsumed</code>) configure the visiting of the AST during annotation 
+<code class="language-plaintext highlighter-rouge">inferConsumedAnnotationTypes</code> and <code class="language-plaintext highlighter-rouge">shouldBeConsumed</code>) configure the visiting of the AST during annotation 
 processing. The Spoon annotation processing runtime is able to infer the type of annotation a processor 
 handles from its type parameter <code class="language-plaintext highlighter-rouge">A</code>. This restricts each processor to handle a single annotation. To avoid this 
 restriction, a developer can override the <code class="language-plaintext highlighter-rouge">inferConsumedAnnotationType()</code> method to return <code class="language-plaintext highlighter-rouge">false</code>. When doing 

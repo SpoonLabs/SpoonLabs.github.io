@@ -721,7 +721,7 @@ towards finding the code for the component(s) of interest:</p>
 |    Identifier           |  <code class="language-plaintext highlighter-rouge">CtVariableReference</code>                     | <code class="language-plaintext highlighter-rouge">@@ identifier x; @@</code> |
 |    Type                 |  <code class="language-plaintext highlighter-rouge">CtTypeReference</code>                         | <code class="language-plaintext highlighter-rouge">@@ type T; @@</code>       |
 |    Typed identifier     |  <code class="language-plaintext highlighter-rouge">CtVariableReference</code> with correct type   | <code class="language-plaintext highlighter-rouge">@@ Integer x; @@</code>    |
-|    Regex<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>            |  Any<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>                                   | <code class="language-plaintext highlighter-rouge">@@ expression E when matches "regex"; @@</code>    |</p>
+|    Regex<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>            |  Any<sup id="fnref:1:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>                                   | <code class="language-plaintext highlighter-rouge">@@ expression E when matches "regex"; @@</code>    |</p>
 
 <p>constraint (e.g identifier) and adds the additional constraint of the string representation (.toString)
 of a candidate binding element having to match the given regex.</p>
@@ -1060,7 +1060,7 @@ aspects/features/attributes are necessarily supported.</p>
 
 <p>Specifying any of these in a patch will either lead to unsupported element warnings or exceptions.</p>
 
-<p>Encountering any of these in target code can<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> either lead to unsupported element warnings or
+<p>Encountering any of these in target code can<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> either lead to unsupported element warnings or
 exceptions.</p>
 
 <table>
@@ -1209,10 +1209,10 @@ unsupported element warnings or exceptions.</p>
 </ol>
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>The Regex metavariable can be applied as an extra constraint on top of any other metavariable <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>There is a prefiltering step when matching a semantic patch against target code. The filter <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>

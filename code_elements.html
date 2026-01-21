@@ -570,6 +570,18 @@ The generic type of <code class="language-plaintext highlighter-rouge">CtExpress
       <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"foo"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<h3 id="ctcasepattern">CtCasePattern</h3>
+<p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtCasePattern.html">(javadoc)</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nc">Number</span> <span class="n">num</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="o">?</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Double</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mf">10.5</span><span class="o">);</span>
+<span class="k">switch</span> <span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">case</span> <span class="nc">Integer</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"int: "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+   <span class="k">case</span> <span class="nc">Double</span> <span class="n">d</span> <span class="n">when</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"double: "</span> <span class="o">+</span> <span class="n">d</span><span class="o">);</span>
+   <span class="k">case</span> <span class="kc">null</span><span class="o">,</span> <span class="k">default</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"other"</span><span class="o">);</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
 <h3 id="ctconditional">CtConditional</h3>
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtConditional.html">(javadoc)</a></p>
 
@@ -741,6 +753,19 @@ The generic type of <code class="language-plaintext highlighter-rouge">CtExpress
     <span class="n">x</span> <span class="o">*=</span> <span class="mi">3</span><span class="o">;</span> <span class="c1">// &lt;-- a CtOperatorAssignment</span>
 
 </code></pre></div></div>
+<h3 id="ctrecordpattern">CtRecordPattern</h3>
+<p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtRecordPattern.html">(javadoc)</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nc">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kt">boolean</span> <span class="n">longerThanTwo</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="kd">record</span> <span class="nf">MyRecord</span><span class="o">(</span><span class="nc">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{}</span>
+    <span class="c1">// MyRecord(var string) is the record pattern</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="k">instanceof</span> <span class="nf">MyRecord</span><span class="o">(</span><span class="kt">var</span> <span class="n">string</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">longerThanTwo</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+</code></pre></div></div>
 <h3 id="ctreturn">CtReturn</h3>
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtReturn.html">(javadoc)</a></p>
 
@@ -889,6 +914,18 @@ The generic type of <code class="language-plaintext highlighter-rouge">CtExpress
     <span class="o">--</span><span class="n">x</span><span class="o">;</span> <span class="c1">// &lt;-- unary --</span>
 
 </code></pre></div></div>
+<h3 id="ctunnamedpattern">CtUnnamedPattern</h3>
+<p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtUnnamedPattern.html">(javadoc)</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nc">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">();</span>
+    <span class="kd">record</span> <span class="nf">X</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{}</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="k">switch</span> <span class="o">(</span><span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="nf">X</span><span class="o">(</span><span class="n">_</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// an unnamed pattern does neither mention a type nor a name</span>
+        <span class="k">case</span> <span class="kc">null</span><span class="o">,</span> <span class="k">default</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">};</span>
+
+</code></pre></div></div>
 <h3 id="ctvariableread">CtVariableRead</h3>
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/code/CtVariableRead.html">(javadoc)</a></p>
 
@@ -973,7 +1010,7 @@ The generic type of <code class="language-plaintext highlighter-rouge">CtExpress
 <p><a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/spoon/reflect/declaration/CtRecord.html">(javadoc)</a></p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-   <span class="n">record</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+   <span class="kd">record</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
    <span class="o">}</span>
 
 </code></pre></div></div>

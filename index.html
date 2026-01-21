@@ -485,7 +485,7 @@
    
 
   
-<p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22fr.inria.gforge.spoon%22%20AND%20a%3A%22spoon-core%22"><img src="https://img.shields.io/maven-central/v/fr.inria.gforge.spoon/spoon-core.svg" alt="Maven Central" /></a>
+<p><a href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22fr.inria.gforge.spoon%22%20AND%20a%3A%22spoon-core%22"><img src="https://img.shields.io/maven-central/v/fr.inria.gforge.spoon/spoon-core.svg" alt="Maven Central" /></a>
 <a href="https://github.com/INRIA/spoon/actions/workflows/tests.yml"><img src="https://github.com/INRIA/spoon/actions/workflows/tests.yml/badge.svg" alt="GHA tests Workflow Status" /></a>
 <a href="https://coveralls.io/r/INRIA/spoon"><img src="https://coveralls.io/repos/INRIA/spoon/badge.svg" alt="Coverage Status" /></a>
 <a href="https://sonarqube.ow2.org/dashboard?id=fr.inria.gforge.spoon%3Aspoon-core"><img src="https://sonarqube.ow2.org/api/project_badges/measure?project=fr.inria.gforge.spoon%3Aspoon-core&amp;metric=sqale_rating" alt="Maintainability Rating" /></a>
@@ -497,7 +497,7 @@
 
 <h2 id="documentation">Documentation</h2>
 
-<p>The latest official documentation is available at <a href="http://spoon.gforge.inria.fr/">http://spoon.gforge.inria.fr/</a>.</p>
+<p>The latest official documentation is available at <a href="https://spoon.gforge.inria.fr/">https://spoon.gforge.inria.fr/</a>.</p>
 
 <h3 id="academic-usage">Academic usage</h3>
 
@@ -522,11 +522,15 @@
 
 <h2 id="getting-started-in-2-seconds">Getting started in 2 seconds</h2>
 
-<blockquote>
-  <p><strong>Java version:</strong> Spoon version 10 and up requires Java 11 or later. Spoon 9.1.0 is the final Spoon release compatible
-with Java 8, and we do not plan to backport any bug fixes or features to Spoon 9. Note that Spoon can of course still
-consume source code for older versions of Java, but it needs JDK 11+ to run.</p>
-</blockquote>
+<p><strong>Required Java version:</strong></p>
+
+<ul>
+  <li>Spoon 11.x requires JDK 17 or later.</li>
+  <li>Spoon 10.x requires JDK 11 or later.</li>
+  <li>Spoon 9.x requires Java 8.</li>
+</ul>
+
+<p>Note that Spoon can of course still consume source code for older versions of Java, but it needs the above mentioned JDK version to run.</p>
 
 <p>Get latest stable version with Maven, see <a href="https://search.maven.org/artifact/fr.inria.gforge.spoon/spoon-core">https://search.maven.org/artifact/fr.inria.gforge.spoon/spoon-core</a></p>
 
@@ -538,7 +542,7 @@ consume source code for older versions of Java, but it needs JDK 11+ to run.</p>
 <p>Documentation:</p>
 
 <ul>
-  <li>Reference documentation: <a href="http://spoon.gforge.inria.fr/">http://spoon.gforge.inria.fr/</a> (contains the content of the <a href="https://github.com/INRIA/spoon/tree/master/doc">doc folder</a>)</li>
+  <li>Reference documentation: <a href="https://spoon.gforge.inria.fr/">https://spoon.gforge.inria.fr/</a> (contains the content of the <a href="https://github.com/INRIA/spoon/tree/master/doc">doc folder</a>)</li>
   <li>Code examples: <a href="https://github.com/SpoonLabs/spoon-examples">https://github.com/SpoonLabs/spoon-examples</a></li>
   <li>Videos: <a href="https://www.youtube.com/watch?v=ZZzdVTIu-OY">Spoon: Getting Started - Simon Urli @ OW2Con’18 (Paris)</a>, <a href="https://www.youtube.com/watch?v=JcCIbjnkfD4">Generate Test Assertion with Spoon - Benjamin Danglot @ OW2Con’17 (Paris)</a></li>
 </ul>
@@ -574,74 +578,11 @@ mvn compile
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn test
 </code></pre></div></div>
 
-<h3 id="download">Download</h3>
-
-<p>Latest version: <a href="https://search.maven.org/remote_content?g=fr.inria.gforge.spoon&amp;a=spoon-core&amp;v=LATEST&amp;c=jar-with-dependencies">https://search.maven.org/remote_content?g=fr.inria.gforge.spoon&amp;a=spoon-core&amp;v=LATEST&amp;c=jar-with-dependencies</a> - <a href="http://spoon.gforge.inria.fr/mvnsites/spoon-core/apidocs/index.html">Javadoc</a></p>
-
-<p>Maven:</p>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>fr.inria.gforge.spoon<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>spoon-core<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="c">&lt;!-- See rendered release value at http://spoon.gforge.inria.fr/ --&gt;</span>
-    <span class="nt">&lt;version&gt;&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div>
-
 <h2 id="releases">Releases</h2>
 
 <!-- .* Marker comment. -->
 
-<ul>
-  <li>August 31 2023, Spoon 10.4.1 <a href="https://github.com/INRIA/spoon/releases/tag/v10.4.1">(changelog)</a></li>
-  <li>Jul 6 2023, Spoon 10.4.0 <a href="https://github.com/INRIA/spoon/releases/tag/v10.4.0">(changelog)</a></li>
-  <li>March 13 2023, Spoon 10.3.0 <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-10.3.0">(changelog)</a></li>
-  <li>Oct 2022, Spoon 10.2.0 <a href="https://github.com/INRIA/spoon/pull/4946">(changelog)</a></li>
-  <li>April 2022, Spoon 10.1.0 <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-10.1.0">(changelog)</a></li>
-  <li>October 2021, Spoon 10.0.0 <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-10.0.0">(changelog)</a></li>
-  <li>August 2021: Spoon 9.1.0 <a href="https://github.com/INRIA/spoon/pull/4104">(changelog)</a></li>
-  <li>March 2021: Spoon 9.0.0 <a href="https://github.com/INRIA/spoon/issues/3845">(changelog)</a></li>
-  <li>October 2020: Spoon 8.3.0 <a href="https://github.com/INRIA/spoon/pull/3647">(changelog)</a></li>
-  <li>July 2020: Spoon 8.2.0 <a href="https://github.com/INRIA/spoon/pull/3501">(changelog)</a></li>
-  <li>March 2020: Spoon 8.1.0 <a href="https://github.com/INRIA/spoon/pull/3310">(changelog)</a></li>
-  <li>November 2019, Spoon 8.0.0 <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-8.0.0">(changelog)</a></li>
-  <li>July 2019: Spoon 7.5.0 is released <a href="https://github.com/INRIA/spoon/pull/3057">(changelog)</a></li>
-  <li>May 2019: Spoon 7.4.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.4.0">(changelog)</a></li>
-  <li>February 10, 2019: Spoon 7.3.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.3.0">(changelog)</a></li>
-  <li>December 4, 2018: Spoon 7.2.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.2.0">(changelog)</a></li>
-  <li>October 10, 2018: Spoon 7.1.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.1.0">(changelog)</a></li>
-  <li>July 4, 2018: Spoon 7.0.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-7.0.0">(changelog)</a></li>
-  <li>March 8, 2018: Spoon 6.2.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-6.2.0">(changelog)</a></li>
-  <li>December 20, 2017: Spoon 6.1.0 is released, merry christmas! :christmas_tree: <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-6.1.0">(changelog)</a></li>
-  <li>November 17, 2017: Spoon 6.0.0 is released! Check the <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-6.0.0">(changelog)</a> as there are few non backward-compatible changes :warning:</li>
-  <li>September 6, 2017: Spoon 5.9.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.9.0">(changelog)</a> <em>back-to-work</em> release!</li>
-  <li>July 11, 2017: Spoon 5.8.0 is released  <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.8.0">(changelog)</a> Summer release :beer: To be preferred wrt the previous one: fix lot of bugs.</li>
-  <li>June 01, 2017: Spoon 5.7.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.7.0">(changelog)</a></li>
-  <li>March 16, 2017: Spoon 5.6.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.6.0">(changelog)</a> Spring release :-)</li>
-  <li>January 11, 2017: Spoon 5.5.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.5.0">(changelog)</a>. Happy new year!</li>
-  <li>October 27, 2016: Spoon 5.4.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.4.0">(changelog)</a>.</li>
-  <li>September 19, 2016: Spoon 5.3.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.3.0">(changelog)</a>.</li>
-  <li>June 30, 2016: Spoon 5.2.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.2.0">(changelog)</a>.</li>
-  <li>June 22, 2016: Spoon 5.1.1 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.1.1">(changelog)</a>.</li>
-  <li>March 21, 2016: Spoon 5.1.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.1.0">(changelog)</a>.</li>
-  <li>February 12, 2016: Spoon 5.0.2 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.0.2">(changelog)</a>.</li>
-  <li>February 3, 2016: Spoon 5.0.1 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.0.1">(changelog)</a>.</li>
-  <li>January 25, 2016: Spoon 5.0.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.0.0">(changelog)</a>.</li>
-  <li>November 18, 2015: Spoon 4.4.1 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-5.5.0">(changelog)</a>.</li>
-  <li>November 16, 2015: Spoon 4.4.0 is released <a href="https://github.com/INRIA/spoon/releases/tag/spoon-core-4.4.0">(changelog)</a>.</li>
-  <li>September 22, 2015: Spoon 4.3.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-September/001803.html">(changelog)</a>.</li>
-  <li>June 15, 2015: Spoon 4.2.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-June/001781.html">(changelog)</a>.</li>
-  <li>May 7, 2015: Spoon 4.1.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-May/001774.html">(changelog)</a>.</li>
-  <li>April 8, 2015: Spoon 4.0.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-April/001769.html">(changelog)</a>.</li>
-  <li>February 11, 2015: Spoon 3.1 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2015-February/001741.html">(changelog)</a>.</li>
-  <li>December 9, 2014: Spoon 3.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-December/001721.html">(changelog)</a>.</li>
-  <li>November 12, 2014: Spoon 2.4 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-November/001710.html">(changelog)</a>.</li>
-  <li>October 9, 2014: Spoon 2.3.1 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-October/001688.html">(changelog)</a>.</li>
-  <li>September 12, 2014: Spoon 2.1 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-September/001683.html">(changelog)</a>.</li>
-  <li>April 2, 2014: Spoon 2.0 is released <a href="https://lists.gforge.inria.fr/pipermail/spoon-discuss/2014-March/001639.html">(changelog)</a>.</li>
-  <li>September 30, 2013: Spoon 1.6 is released.</li>
-  <li>April 12, 2012: Spoon 1.5 is released.</li>
-</ul>
+<p>See <a href="https://github.com/INRIA/spoon/releases">Releases</a></p>
 
 <h2 id="license">License</h2>
 
@@ -652,6 +593,11 @@ mvn compile
 <p>Spoon is developed with the help of JProfiler, a Java profiler by ej-technologies GmbH. JProfiler supports the development of Spoon by providing its full-featured Java Profiler for free. We thank ej-technologies GmbH for this support.</p>
 
 <p><a href="https://www.ej-technologies.com/products/jprofiler/overview.html"><img src="https://www.ej-technologies.com/images/product_banners/jprofiler_large.png" alt="JProfiler" /></a></p>
+
+<h3 id="powered-by">Powered by</h3>
+
+<p><a href="https://jb.gg/OpenSource"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" alt="JetBrains logo." /></a></p>
+
 <h2 id="github-contributors">Github Contributors</h2>
 
 <p>This list is generated by <code class="language-plaintext highlighter-rouge">chore/generate-contributor-list.py</code>. If you’re not listed or you’d like to have your full name, please post to https://github.com/INRIA/spoon/issues/3909.</p>
@@ -671,6 +617,7 @@ mvn compile
   <li>arsenkhy</li>
   <li>Artamm</li>
   <li>Artur Bosch</li>
+  <li>Arvid Siberov</li>
   <li>aryan</li>
   <li>Ashutosh Kumar Verma</li>
   <li>aveuiller</li>
@@ -679,6 +626,7 @@ mvn compile
   <li>Benoit Cornu</li>
   <li>Carlos Noguera</li>
   <li>Ceki Gülcü</li>
+  <li>chammp</li>
   <li>Charm</li>
   <li>ChrisSquare</li>
   <li>Christophe Dufour</li>
@@ -686,10 +634,12 @@ mvn compile
   <li>Clemens Bartz</li>
   <li>Clément Fournier</li>
   <li>César Soto Valero</li>
+  <li>Daniel Bobbert</li>
   <li>Darius Sas</li>
   <li>David Bernard</li>
   <li>Didier Donsez</li>
   <li>Diorcet Yann</li>
+  <li>Dorota Kopczyk</li>
   <li>dufaux</li>
   <li>dwayneb</li>
   <li>dya-tel</li>
@@ -704,6 +654,7 @@ mvn compile
   <li>Filip Krakowski</li>
   <li>Gabriel Chaperon Burgos</li>
   <li>gibahjoe</li>
+  <li>GitHub Actions Bot</li>
   <li>GluckZhang</li>
   <li>Gregor Zeitlinger</li>
   <li>gtoison</li>
@@ -713,6 +664,7 @@ mvn compile
   <li>Haris Adzemovic</li>
   <li>HectorSM</li>
   <li>Henry Chu</li>
+  <li>Hervé Boutemy</li>
   <li>Horia Constantin</li>
   <li>I-Al-Istannen</li>
   <li>intrigus-lgtm</li>
@@ -724,11 +676,13 @@ mvn compile
   <li>leventov</li>
   <li>Lionel Seinturier</li>
   <li>lodart</li>
+  <li>Lucas</li>
   <li>Lukas Krejci</li>
   <li>Luke Merrick</li>
   <li>Marcel Manseer</li>
   <li>Marcel Steinbeck</li>
   <li>Martin Monperrus</li>
+  <li>Martin Wittlinger</li>
   <li>MartinWitt</li>
   <li>Matias Martinez</li>
   <li>Maxim Stefanov</li>
@@ -738,6 +692,7 @@ mvn compile
   <li>Mickael Istria</li>
   <li>Miguel Sozinho Ramalho</li>
   <li>Mikael Forsberg</li>
+  <li>Mr. Pine</li>
   <li>Muhammet Ali AKBAY</li>
   <li>Nicolas Harrand</li>
   <li>Nicolas Pessemier</li>
@@ -745,9 +700,12 @@ mvn compile
   <li>Noah Santschi-Cooney</li>
   <li>Olivier Barais</li>
   <li>Ondřej Šebek</li>
+  <li>Patrick Schmitt</li>
   <li>Pavel Vojtechovsky</li>
   <li>peroksid90</li>
+  <li>Philippe Ombredanne</li>
   <li>Phillip Schichtel</li>
+  <li>priyanka-28</li>
   <li>Quentin LE DILAVREC</li>
   <li>raymogg</li>
   <li>Renaud Pawlak</li>
@@ -757,6 +715,8 @@ mvn compile
   <li>Rijnard van Tonder</li>
   <li>Rohitesh Kumar Jain</li>
   <li>Roman Leventov</li>
+  <li>Ryota Hiyoshi</li>
+  <li>Sander Ploegsma</li>
   <li>santos-samuel</li>
   <li>scootafew</li>
   <li>Scott Dickerson</li>
@@ -770,7 +730,9 @@ mvn compile
   <li>srlm</li>
   <li>ST0NEWALL</li>
   <li>Stefan Wolf</li>
+  <li>StepSecurity Bot</li>
   <li>Sébastien Bertrand</li>
+  <li>The Spoon Bot</li>
   <li>Thimo Seitz</li>
   <li>Thomas Durieux</li>
   <li>tiagodrcarvalho</li>
@@ -782,6 +744,7 @@ mvn compile
   <li>Wouter Smeenk</li>
   <li>Wreulicke</li>
   <li>Yann Diorcet</li>
+  <li>Yogya Tulip Gamage</li>
   <li>Zhang Xindong</li>
   <li>Дмитрий</li>
 </ul>
