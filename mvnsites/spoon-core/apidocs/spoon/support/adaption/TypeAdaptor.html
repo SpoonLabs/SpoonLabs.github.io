@@ -369,7 +369,7 @@ loadScripts(document, 'script');</script>
 <h3>isOverriding</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isOverriding</span><wbr><span class="parameters">(<a href="../../reflect/declaration/CtMethod.html" title="interface in spoon.reflect.declaration">CtMethod</a>&lt;?&gt;&nbsp;subMethod,
  <a href="../../reflect/declaration/CtMethod.html" title="interface in spoon.reflect.declaration">CtMethod</a>&lt;?&gt;&nbsp;superMethod)</span></div>
-<div class="block">Checks if <code>subMethod</code> overrides <code>superMethod</code>. A method overrides another, iff
+<div class="block">Checks if <code>subMethod</code> overrides <code>superMethod</code>. A method overrides another, if
  <ul>
    <li>They have the same name</li>
    <li>They have the same amount of parameters</li>
@@ -378,6 +378,9 @@ loadScripts(document, 'script');</script>
      The declaring type of <code>subMethod</code> is a subtype of the declaring type of
      <code>superMethod</code>
    </li>
+   <li>
+          The access specifier for an overriding method allow more, but not less, access than the overridden method
+        </li>
    <li>
      The erasure of the parameters is equal, after <a href="#adaptMethod(spoon.reflect.declaration.CtMethod)"><code>adapting</code></a> the
      <code>superMethod</code> to the declaring type of <code>subMethod</code>. One needs to adapt the
