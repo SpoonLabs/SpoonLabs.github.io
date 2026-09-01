@@ -216,6 +216,8 @@ implements <a href="../processing/ProcessingManager.html" title="interface in sp
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../processing/ProcessingManager.html#addProcessor(java.lang.Class)">addProcessor</a></code>&nbsp;in interface&nbsp;<code><a href="../processing/ProcessingManager.html" title="interface in spoon.processing">ProcessingManager</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>type</code> - the processor class to instantiate and add</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list-long">
@@ -234,6 +236,10 @@ implements <a href="../processing/ProcessingManager.html" title="interface in sp
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../processing/ProcessingManager.html#addProcessor(spoon.processing.Processor)">addProcessor</a></code>&nbsp;in interface&nbsp;<code><a href="../processing/ProcessingManager.html" title="interface in spoon.processing">ProcessingManager</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>p</code> - the processor instance to add</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the processor was added</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list-long">
@@ -292,6 +298,8 @@ implements <a href="../processing/ProcessingManager.html" title="interface in sp
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../processing/ProcessingManager.html#getProcessors()">getProcessors</a></code>&nbsp;in interface&nbsp;<code><a href="../processing/ProcessingManager.html" title="interface in spoon.processing">ProcessingManager</a></code></dd>
+<dt>Returns:</dt>
+<dd>the processors currently registered on this manager</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list-long">
@@ -322,6 +330,8 @@ implements <a href="../processing/ProcessingManager.html" title="interface in sp
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../processing/ProcessingManager.html#process(java.util.Collection)">process</a></code>&nbsp;in interface&nbsp;<code><a href="../processing/ProcessingManager.html" title="interface in spoon.processing">ProcessingManager</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>elements</code> - the elements to process recursively</dd>
 </dl>
 </section>
 </li>
@@ -339,6 +349,8 @@ implements <a href="../processing/ProcessingManager.html" title="interface in sp
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../processing/ProcessingManager.html#process(spoon.reflect.declaration.CtElement)">process</a></code>&nbsp;in interface&nbsp;<code><a href="../processing/ProcessingManager.html" title="interface in spoon.processing">ProcessingManager</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>element</code> - the element to process recursively</dd>
 </dl>
 </section>
 </li>

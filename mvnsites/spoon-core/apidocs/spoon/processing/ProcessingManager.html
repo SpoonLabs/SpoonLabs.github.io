@@ -170,6 +170,8 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <div class="block">Adds a processor by instantiating its type (a class that must define an
  empty constructor).</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>type</code> - the processor class to instantiate and add</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
@@ -185,6 +187,10 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">addProcessor</span><wbr><span class="parameters">(<a href="Processor.html" title="interface in spoon.processing">Processor</a>&lt;?&gt;&nbsp;p)</span></div>
 <div class="block">Adds a processor.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - the processor instance to add</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the processor was added</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
@@ -219,6 +225,8 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
 <div class="block">Gets the processors that have been added to the manager and that will be
  applied when invoking one of the <code>process</code> methods).</div>
 <dl class="notes">
+<dt>Returns:</dt>
+<dd>the processors currently registered on this manager</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
@@ -239,6 +247,10 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
  <code>process</code> method (non-blocking implementation). Processors
  that have been applied are removed from the manager and
  <a href="#getProcessors()"><code>getProcessors()</code></a> does not contain them anymore.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>elements</code> - the elements to process recursively</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -251,6 +263,10 @@ extends <a href="FactoryAccessor.html" title="interface in spoon.processing">Fac
  another call to a <code>process</code> method (non-blocking
  implementation). Processors that have been applied are removed from the
  manager and <a href="#getProcessors()"><code>getProcessors()</code></a> does not contain them anymore.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>element</code> - the element to process recursively</dd>
+</dl>
 </section>
 </li>
 </ul>
