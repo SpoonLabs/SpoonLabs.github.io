@@ -148,7 +148,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#scanFields(java.lang.Class)" class="member-name-link">scanFields</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;c)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Collects non-static declared fields of <code>c</code> and of every
+ superclass, adding them to this table model.</div>
+</div>
 </div>
 </div>
 </div>
@@ -218,6 +221,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="scanFields(java.lang.Class)">
 <h3>scanFields</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">scanFields</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;c)</span></div>
+<div class="block">Collects non-static declared fields of <code>c</code> and of every
+ superclass, adding them to this table model.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>c</code> - class whose instance fields should be listed; recursion
+        stops when there is no superclass</dd>
+</dl>
 </section>
 </li>
 </ul>
